@@ -1,3 +1,4 @@
-#form-valid-color{
-    color: #d51313;
+header{
+    background-image: url("/img/fondoforma.jpg");
+    background-size: cover;
 }

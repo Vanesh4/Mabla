@@ -1,3 +1,4 @@
+/*
 package com.example.BDMabla.Entidad;
 import javax.persistence.*;
 
@@ -15,3 +16,4 @@ public class TablaSubcategorias {
     @Column(name = "Subcategoria", nullable = false, length = 70)
     private String Subcategoria;
 }
+*/

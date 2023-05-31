@@ -1,3 +1,4 @@
+/*
 package com.example.BDMabla.Entidad;
 import javax.persistence.*;
 
@@ -16,3 +17,4 @@ public class TablaPalabras {
     private String Senia="img por defecto";
 
 }
+*/

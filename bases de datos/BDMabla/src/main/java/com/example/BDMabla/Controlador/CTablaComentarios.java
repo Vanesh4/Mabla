@@ -13,7 +13,7 @@ public class CTablaComentarios {
     public CTablaComentarios(STablaComentarios metodosComent) {
         this.metodosComent = metodosComent;
     }
-    @GetMapping("/coments")
+    @GetMapping("/commentAlias")
     public List<TablaComentarios> coments(){
         return metodosComent.coments();
     }
@@ -25,10 +25,10 @@ public class CTablaComentarios {
     public boolean addComent(@RequestBody TablaComentarios comment){
         return metodosComent.addcoment(comment);
     }
-    @PutMapping("/editcomment")
+    /*@PutMapping("/editcomment")
     public boolean editcomment(@RequestBody TablaComentarios comment){
         return metodosComent.editcomment(comment);
-    }
+    }*/
     @DeleteMapping("/deletecomment")
     public boolean deletecomment(@RequestBody TablaComentarios comment){
         return metodosComent.deletecoment(comment);
