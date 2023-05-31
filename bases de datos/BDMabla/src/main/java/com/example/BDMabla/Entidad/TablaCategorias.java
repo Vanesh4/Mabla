@@ -7,25 +7,24 @@ import javax.persistence.*;
 public class TablaCategorias {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int IdCategoria;
+    private long IdCategoria;
 
     @Column(name = "Categoria", nullable = false, length = 70)
     private String Categoria;
 
-    public TablaCategorias(int idCategoria, String categoria) {
+    public TablaCategorias(long idCategoria, String categoria) {
         IdCategoria = idCategoria;
         Categoria = categoria;
     }
 
     public TablaCategorias() {
-
     }
 
-    public int getIdCategoria() {
+    public long getIdCategoria() {
         return IdCategoria;
     }
 
-    public void setIdCategoria(int idCategoria) {
+    public void setIdCategoria(long idCategoria) {
         IdCategoria = idCategoria;
     }
 
@@ -40,7 +39,7 @@ public class TablaCategorias {
     @Override
     public String toString() {
         return "TablaCategorias{" +
-                "IdCategoria=" + IdCategoria +
+                "IdCategoria='" + IdCategoria + '\'' +
                 ", Categoria='" + Categoria + '\'' +
                 '}';
     }

@@ -9,6 +9,9 @@ import java.util.List;
 @Repository
 public interface RTablaCategorias extends JpaRepository<TablaCategorias, String> {
     List<TablaCategorias> findByCategoria(String cate);
+    TablaCategorias findById(long Idcategoria);
 
 
 }
+
+

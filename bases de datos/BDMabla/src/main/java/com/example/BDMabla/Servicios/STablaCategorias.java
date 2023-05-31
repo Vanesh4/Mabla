@@ -32,17 +32,11 @@ public class STablaCategorias {
     }
 
     public List<TablaCategorias> buscarCategoria(String cate){
+
         return repositorio.findByCategoria(cate);
     }
 
-    /*public String insertarcate(TablaCategorias t){
-        if (repositorio.findById(t.getIdCategoria()).isPresent())
-            return "Esta categoria ya existe";
-        else {
-            repositorio.save(t);
-            return "Categoria registrada";
-        }
-    }*/
+
 
     
 }
