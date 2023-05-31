@@ -18,18 +18,23 @@ public class TablaUsuario {
     @Column(nullable = false, length = 30)
      String correo;
     @Column(nullable = false, length = 30)
-     String contraseña;
+     String contrasenia;
     @Column(nullable = false, length = 30)
-     String imgPerfil;
+     String imgPerfil= "img por defecto";
 
-    public TablaUsuario(String alias, String nombre, String apellido, int telefono, String correo, String contraseña, String imgPerfil) {
+    public TablaUsuario(String alias, String nombre, String apellido, int telefono, String correo, String contrasenia, String imgPerfil) {
         this.alias = alias;
         this.nombre = nombre;
         this.apellido = apellido;
         this.telefono = telefono;
         this.correo = correo;
-        this.contraseña = contraseña;
+        this.contrasenia = contrasenia;
         this.imgPerfil = imgPerfil;
+    }
+
+    public TablaUsuario(String alias, String contrasenia) {
+        this.alias = alias;
+        this.contrasenia = contrasenia;
     }
 
     public TablaUsuario() {
@@ -75,16 +80,16 @@ public class TablaUsuario {
         this.correo = correo;
     }
 
-    public String getContraseña() {
-        return contraseña;
+    public String getContrasenia() {
+        return contrasenia;
     }
 
-    public void setContraseña(String contraseña) {
-        this.contraseña = contraseña;
+    public void setContrasenia(String contrasenia) {
+        this.contrasenia = contrasenia;
     }
 
     public String getImgPerfil() {
-        return "img por defecto";
+        return imgPerfil;
     }
 
     public void setImgPerfil(String imgPerfil) {
