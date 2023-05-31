@@ -48,7 +48,6 @@ class TablaPreguntas(models.Model):
     respuesta = models.TextField(max_length=50)
     numeroPregunta = models.AutoField(primary_key=True)
 
-
 class TablaPrueba_Pregunta(models.Model):
     idPrueba = models.ForeignKey(TablaPruebas, null=False, on_delete=models.CASCADE)
     idCategoria = models.ForeignKey(TablaPreguntas, null=False, on_delete=models.CASCADE)
