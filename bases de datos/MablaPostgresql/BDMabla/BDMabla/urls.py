@@ -20,9 +20,4 @@ from Tablas.views import *
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',include('Tablas.urlsApp'))
-<<<<<<< HEAD
-    
-
-=======
->>>>>>> 0fbcb271f8063fd27d9551f74fb22fd0a3e74009
 ]

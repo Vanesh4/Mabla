@@ -10,7 +10,7 @@ class TablaUsuario(models.Model):
     telefono=models.PositiveBigIntegerField(verbose_name="Teléfono")
     correo=models.TextField(max_length=30)
     clave=models.TextField(max_length=30)
-    imgPerfil="Img por defecto"
+    imgPerfil=models.TextField()
 
 class TablaPruebas(models.Model):
     idPrueba=models.AutoField(primary_key=True)
