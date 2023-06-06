@@ -5,7 +5,7 @@ import javax.persistence.*;
 @Table(name = "TablaPalabra")
 public class TablaPalabras {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(unique = true, length = 100)
     private String Palabra;
 
     @ManyToOne
@@ -15,4 +15,45 @@ public class TablaPalabras {
     @Column(name = "img", nullable = true)
     private String Senia="img por defecto";
 
+    public TablaPalabras(String palabra, TablaCategorias idCategoria, String senia) {
+        Palabra = palabra;
+        IdCategoria = idCategoria;
+        Senia = senia;
+    }
+
+    public TablaPalabras() {
+    }
+
+    public String getPalabra() {
+        return Palabra;
+    }
+
+    public void setPalabra(String palabra) {
+        Palabra = palabra;
+    }
+
+    public TablaCategorias getIdCategoria() {
+        return IdCategoria;
+    }
+
+    public void setIdCategoria(TablaCategorias idCategoria) {
+        IdCategoria = idCategoria;
+    }
+
+    public String getSenia() {
+        return Senia;
+    }
+
+    public void setSenia(String senia) {
+        Senia = senia;
+    }
+
+    @Override
+    public String toString() {
+        return "TablaPalabras{" +
+                "Palabra='" + Palabra + '\'' +
+                ", IdCategoria=" + IdCategoria +
+                ", Senia='" + Senia + '\'' +
+                '}';
+    }
 }

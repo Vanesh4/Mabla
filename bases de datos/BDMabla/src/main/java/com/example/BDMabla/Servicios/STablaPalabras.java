@@ -26,7 +26,7 @@ public class STablaPalabras {
         }
     }
 
-   /* public String insertarpalabra(TablaPalabras t){
+   /*public String insertarpalabra(TablaPalabras t){
         for (TablaCategorias c: Mostrartodo()){
             if (c.getCategoria() == repositorio.findByCategoria(t.getCategoria())){
                 repositorio.save(t);
