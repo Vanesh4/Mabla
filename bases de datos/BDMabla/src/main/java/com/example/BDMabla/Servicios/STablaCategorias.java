@@ -1,3 +1,4 @@
+/*
 package com.example.BDMabla.Servicios;
 
 import com.example.BDMabla.Entidad.TablaCategorias;
@@ -40,3 +41,4 @@ public class STablaCategorias {
 
     
 }
+*/

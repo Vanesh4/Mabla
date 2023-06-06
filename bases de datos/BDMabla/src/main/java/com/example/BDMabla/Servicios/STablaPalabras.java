@@ -1,3 +1,4 @@
+/*
 package com.example.BDMabla.Servicios;
 
 import com.example.BDMabla.Entidad.TablaCategorias;
@@ -25,6 +26,7 @@ public class STablaPalabras {
             return null;
         }
     }
+*/
 
    /*public String insertarpalabra(TablaPalabras t){
         for (TablaCategorias c: Mostrartodo()){
@@ -39,5 +41,5 @@ public class STablaPalabras {
 
         }
         return "registrada";
-    }*/
-}
+    }
+}*/

@@ -1,14 +1,12 @@
 package com.example.BDMabla.Entidad;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class TablaUsuario {
     @Id
-    @Column(unique= true, length = 50)
-     String alias;
+    private String alias;
     @Column(nullable = false, length = 30)
      String nombre;
     @Column(nullable = false, length = 30)
@@ -21,7 +19,8 @@ public class TablaUsuario {
      String contrasenia;
     @Column(nullable = false, length = 30)
      String imgPerfil= "img por defecto";
-
+    @OneToMany(mappedBy = "users")
+    private List<TablaUsuario> users;
     public TablaUsuario(String alias, String nombre, String apellido, int telefono, String correo, String contrasenia, String imgPerfil) {
         this.alias = alias;
         this.nombre = nombre;
@@ -35,6 +34,10 @@ public class TablaUsuario {
     public TablaUsuario(String alias, String contrasenia) {
         this.alias = alias;
         this.contrasenia = contrasenia;
+    }
+
+    public TablaUsuario(String alias) {
+        this.alias = alias;
     }
 
     public TablaUsuario() {

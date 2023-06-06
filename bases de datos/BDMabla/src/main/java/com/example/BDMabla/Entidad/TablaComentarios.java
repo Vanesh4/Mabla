@@ -1,5 +1,7 @@
 package com.example.BDMabla.Entidad;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.sql.Date;
 import java.sql.Time;
@@ -7,42 +9,34 @@ import java.sql.Time;
 @Entity
 public class TablaComentarios {
     @Id
-    @GeneratedValue
-    private String id;
+    @GeneratedValue(strategy=GenerationType.AUTO)
+    private long id;
     @ManyToOne
-    @JoinColumn(name="alias")
-    private TablaUsuario alias;
+    @JoinColumn(name = "commentAlias")
+    @JsonIgnore
+    private TablaUsuario commentAlias;
     @Column(nullable = false, length = 30)
     String texto;
     @Column(nullable = false)
     private Date fecha;
     @Column(nullable = false)
     private Time hora;
-
     public TablaComentarios() {
     }
-
-    public TablaComentarios(String id, TablaUsuario alias, String texto, Date fecha, Time hora) {
-        this.id = id;
-        this.alias = alias;
+    public TablaComentarios(long id,TablaUsuario commentAlias,  String texto, Date fecha, Time hora) {
+        this.id=id;
+        this.commentAlias = commentAlias;
         this.texto = texto;
         this.fecha = fecha;
         this.hora = hora;
     }
 
-    public TablaComentarios(TablaUsuario alias, String texto, Date fecha, Time hora) {
-        this.alias = alias;
-        this.texto = texto;
-        this.fecha = fecha;
-        this.hora = hora;
+    public TablaUsuario getcommentAlias() {
+        return commentAlias;
     }
 
-    public TablaUsuario getAlias() {
-        return alias;
-    }
-
-    public void setAlias(TablaUsuario alias) {
-        this.alias = alias;
+    public void setcommentAlias(TablaUsuario commentAlias) {
+        this.commentAlias = commentAlias;
     }
 
     public String getTexto() {
@@ -69,11 +63,11 @@ public class TablaComentarios {
         this.hora = hora;
     }
 
-    public String getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(long id) {
         this.id = id;
     }
 }

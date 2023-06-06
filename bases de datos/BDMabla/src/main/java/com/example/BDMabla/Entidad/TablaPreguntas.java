@@ -1,19 +1,30 @@
 package com.example.BDMabla.Entidad;
 import javax.persistence.*;
 
-
+@Entity
+@Table(name="TablaPreguntas")
 public class TablaPreguntas {
-    private Integer Tipo;
-    private Integer IdCategoria;
+    @Column(name="Tipo")
+    private int Tipo;
+
+    @ManyToOne
+    @JoinColumn(referencedColumnName = "IdCategoria")
+    private int IdCategoria;
+
+    @Column(name="Senia")
     private String Senia;
+
+    @Column(name="Respuesta", length = 50, nullable = false)
     private String Respuesta;
-    private Integer NumeroPregunta;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int NumeroPregunta;
 
     public TablaPreguntas() {
-
     }
 
-    public TablaPreguntas(Integer tipo, Integer idCategoria, String senia, String respuesta, Integer numeroPregunta) {
+    public TablaPreguntas(int tipo, int idCategoria, String senia, String respuesta, int numeroPregunta) {
         Tipo = tipo;
         IdCategoria = idCategoria;
         Senia = senia;
@@ -21,19 +32,19 @@ public class TablaPreguntas {
         NumeroPregunta = numeroPregunta;
     }
 
-    public Integer getTipo() {
+    public int getTipo() {
         return Tipo;
     }
 
-    public void setTipo(Integer tipo) {
+    public void setTipo(int tipo) {
         Tipo = tipo;
     }
 
-    public Integer getIdCategoria() {
+    public int getIdCategoria() {
         return IdCategoria;
     }
 
-    public void setIdCategoria(Integer idCategoria) {
+    public void setIdCategoria(int idCategoria) {
         IdCategoria = idCategoria;
     }
 
@@ -53,11 +64,11 @@ public class TablaPreguntas {
         Respuesta = respuesta;
     }
 
-    public Integer getNumeroPregunta() {
+    public int getNumeroPregunta() {
         return NumeroPregunta;
     }
 
-    public void setNumeroPregunta(Integer numeroPregunta) {
+    public void setNumeroPregunta(int numeroPregunta) {
         NumeroPregunta = numeroPregunta;
     }
 

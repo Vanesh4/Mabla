@@ -23,11 +23,11 @@ public class STablaComentarios {
         repostorioComents.save(coment);
         return true;
     }
-    public boolean editcomment(TablaComentarios comment){
-        repostorioComents.findById(comment.getId()).get();
+    /*public boolean editcomment(TablaComentarios comment){
+        repostorioComents.findById(comment.getId()).get(comment.getId());
         repostorioComents.save(comment);
         return true;
-    }
+    }*/
     public boolean deletecoment(TablaComentarios comment){
         repostorioComents.deleteById(comment.getId());
         return true;
