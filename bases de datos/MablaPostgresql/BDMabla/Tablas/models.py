@@ -1,7 +1,6 @@
 from django.db import models
 
 # Create your models here.
-
 #sara
 class TablaUsuario(models.Model):
     alias=models.TextField(max_length=30, primary_key=True)
@@ -14,7 +13,7 @@ class TablaUsuario(models.Model):
 
 class TablaPruebas(models.Model):
     idPrueba=models.AutoField(primary_key=True)
-    alias=models.ForeignKey(TablaUsuario, null=True, on_delete=models.CASCADE)
+    alias=models.ForeignKey(TablaUsuario, null=False, on_delete=models.CASCADE)
     tipoPrueba=models.PositiveSmallIntegerField(verbose_name="Tipo de prueba")
     categoria=models.TextField(max_length=30)
     fecha=models.DateTimeField(auto_now=False)
@@ -38,13 +37,13 @@ class TablaSubcategoria(models.Model):
 class TablaPalabra(models.Model):
     Palabra=models.TextField(primary_key=True)
     IdCategoria=models.ForeignKey(TablaCategoria, null=False, on_delete=models.CASCADE)
-    Senia="img"
+    Senia=models.TextField()
 
 #vanessa
 class TablaPreguntas(models.Model):
     tipo = models.PositiveIntegerField(verbose_name="Tipo")
     idCategoria = models.ForeignKey(TablaCategoria, null=False, on_delete=models.CASCADE)
-    senia = "img"
+    senia = models.TextField()
     respuesta = models.TextField(max_length=50)
     numeroPregunta = models.AutoField(primary_key=True)
 

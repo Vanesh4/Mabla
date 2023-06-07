@@ -2,10 +2,13 @@ package com.example.BDMabla.Entidad;
 
 import javax.persistence.*;
 import java.util.List;
+import java.util.Set;
 
 @Entity
+@Table(name="tablaUsuario")
 public class TablaUsuario {
     @Id
+    @Column(nullable = false, length = 30)
     private String alias;
     @Column(nullable = false, length = 30)
      String nombre;
@@ -19,8 +22,8 @@ public class TablaUsuario {
      String contrasenia;
     @Column(nullable = false, length = 30)
      String imgPerfil= "img por defecto";
-    @OneToMany(mappedBy = "users")
-    private List<TablaUsuario> users;
+    @OneToMany(mappedBy = "tablaUsuario", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private Set<TablaComentarios> tablaComentarios;
     public TablaUsuario(String alias, String nombre, String apellido, int telefono, String correo, String contrasenia, String imgPerfil) {
         this.alias = alias;
         this.nombre = nombre;
@@ -34,10 +37,6 @@ public class TablaUsuario {
     public TablaUsuario(String alias, String contrasenia) {
         this.alias = alias;
         this.contrasenia = contrasenia;
-    }
-
-    public TablaUsuario(String alias) {
-        this.alias = alias;
     }
 
     public TablaUsuario() {
@@ -97,5 +96,13 @@ public class TablaUsuario {
 
     public void setImgPerfil(String imgPerfil) {
         this.imgPerfil = imgPerfil;
+    }
+
+    public Set<TablaComentarios> getTablaComentarios() {
+        return tablaComentarios;
+    }
+
+    public void setTablaComentarios(Set<TablaComentarios> tablaComentarios) {
+        this.tablaComentarios = tablaComentarios;
     }
 }

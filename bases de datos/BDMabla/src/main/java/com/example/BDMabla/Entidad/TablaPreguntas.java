@@ -1,3 +1,4 @@
+/*
 package com.example.BDMabla.Entidad;
 import javax.persistence.*;
 
@@ -83,3 +84,4 @@ public class TablaPreguntas {
                 '}';
     }
 }
+*/

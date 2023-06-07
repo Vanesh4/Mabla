@@ -1,3 +1,4 @@
+/*
 package com.example.BDMabla.Repositorio;
 
 import com.example.BDMabla.Entidad.TablaPreguntas;
@@ -7,3 +8,4 @@ public interface RTablaPreguntas extends JpaRepository <TablaPreguntas, String> 
 
     TablaPreguntas findbyIdint(int id);
 }
+*/

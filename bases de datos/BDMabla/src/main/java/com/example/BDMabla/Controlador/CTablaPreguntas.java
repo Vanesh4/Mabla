@@ -1,3 +1,4 @@
+/*
 package com.example.BDMabla.Controlador;
 
 import com.example.BDMabla.Entidad.TablaPreguntas;
@@ -27,3 +28,4 @@ public class CTablaPreguntas {
         return serTablaPreguntas.insertarPregunta(p);
     }
 }
+*/

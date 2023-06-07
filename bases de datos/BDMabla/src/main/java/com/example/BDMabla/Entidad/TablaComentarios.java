@@ -3,40 +3,30 @@ package com.example.BDMabla.Entidad;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
-import java.sql.Date;
-import java.sql.Time;
-
 @Entity
+@Table(name="tablaComentarios")
 public class TablaComentarios {
     @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
-    private long id;
-    @ManyToOne
-    @JoinColumn(name = "commentAlias")
-    @JsonIgnore
-    private TablaUsuario commentAlias;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
     @Column(nullable = false, length = 30)
     String texto;
+    @Column(nullable = false, length = 30)
+    private String fecha;
     @Column(nullable = false)
-    private Date fecha;
-    @Column(nullable = false)
-    private Time hora;
+    private String hora;
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "alias", referencedColumnName = "alias")
+    @JsonIgnore
+    private TablaUsuario tablaUsuario;
     public TablaComentarios() {
     }
-    public TablaComentarios(long id,TablaUsuario commentAlias,  String texto, Date fecha, Time hora) {
+    public TablaComentarios(int id,TablaUsuario tablaUsuario,  String texto, String fecha, String hora) {
         this.id=id;
-        this.commentAlias = commentAlias;
+        this.tablaUsuario = tablaUsuario;
         this.texto = texto;
         this.fecha = fecha;
         this.hora = hora;
-    }
-
-    public TablaUsuario getcommentAlias() {
-        return commentAlias;
-    }
-
-    public void setcommentAlias(TablaUsuario commentAlias) {
-        this.commentAlias = commentAlias;
     }
 
     public String getTexto() {
@@ -47,27 +37,35 @@ public class TablaComentarios {
         this.texto = texto;
     }
 
-    public Date getFecha() {
+    public String getFecha() {
         return fecha;
     }
 
-    public void setFecha(Date fecha) {
+    public void setFecha(String fecha) {
         this.fecha = fecha;
     }
 
-    public Time getHora() {
+    public String getHora() {
         return hora;
     }
 
-    public void setHora(Time hora) {
+    public void setHora(String hora) {
         this.hora = hora;
     }
 
-    public long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(int id) {
         this.id = id;
+    }
+
+    public TablaUsuario getTablaUsuario() {
+        return tablaUsuario;
+    }
+
+    public void setTablaUsuario(TablaUsuario tablaUsuario) {
+        this.tablaUsuario = tablaUsuario;
     }
 }
