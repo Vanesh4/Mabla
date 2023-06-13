@@ -11,18 +11,29 @@ class TablaUsuario(models.Model):
     correo=models.TextField(max_length=30)
     clave=models.TextField(max_length=30)
     imgPerfil=models.TextField()
+<<<<<<< HEAD
+=======
+    
+    def __str__(self):
+        #txt="{0}{1}{2}{3}{4}"
+        #return txt.format()
+        return "{0}".format(self.alias)
+>>>>>>> 0821e1a2e676193f37eb6b61509ec680abab8246
 
 class TablaPruebas(models.Model):
-    idPrueba=models.AutoField(primary_key=True)
     alias=models.ForeignKey(TablaUsuario, null=True, on_delete=models.CASCADE)
     tipoPrueba=models.PositiveSmallIntegerField(verbose_name="Tipo de prueba")
     categoria=models.TextField(max_length=30)
-    fecha=models.DateTimeField(auto_now=False)
+    fecha=models.DateTimeField(auto_now_add=True)
     puntaje=models.PositiveBigIntegerField(verbose_name="Puntaje")
 
 class TablaComentarios(models.Model):
     alias=models.ForeignKey(TablaUsuario, null=True, on_delete=models.CASCADE)
     texto=models.TextField(max_length=30)
+    def __str__(self):
+        #txt="{0}{1}{2}{3}{4}"
+        #return txt.format()
+        return "{0}{1}".format(self.alias, self.texto)
 
 #karen
 

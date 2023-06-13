@@ -238,10 +238,10 @@ class insertComment(View):
     
     def post(self, request):
         registerInsertComment=json.loads(request.body)
-        request.POST.get('alias')
+        request.POST.get('alias_id')
         request.POST.get('texto')
         print("datos del cliente ",request.POST)
-        registerInsertComment1=TablaComentarios.objects.create(alias=registerInsertComment['alias'],texto=registerInsertComment['texto'])
+        registerInsertComment1=TablaComentarios.objects.create(texto=registerInsertComment['texto'], alias_id=registerInsertComment['alias_id'])
         registerInsertComment1.save()
         return JsonResponse({'mensaje':'datos guardados'})
 
@@ -292,17 +292,13 @@ class InsertarPrueba(View):
         #capturados:
         registerInsertPrueba = json.loads(request.body)
         #preparar la manera de enviar los datos
-        request.POST.get('idPrueba')
-        request.POST.get('alias')
+        request.POST.get('alias_id')
         request.POST.get('tipoPrueba')
         request.POST.get('categoria')
-        request.POST.get('fecha')
         request.POST.get('puntaje')
-        registerInsertPrueba1 = TablaPruebas.objects.create(idPrueba=registerInsertPrueba['idPrueba'],
-                                      alias=registerInsertPrueba['alias'],
+        registerInsertPrueba1 = TablaPruebas.objects.create(alias_id=registerInsertPrueba['alias_id'],
                                       tipoPrueba=registerInsertPrueba['tipoPrueba'],
                                       categoria=registerInsertPrueba['categoria'],
-                                      fecha=registerInsertPrueba['fecha'],
                                       puntaje=registerInsertPrueba['puntaje'])
         registerInsertPrueba1.save()
         #no es necesario pero es para que genere el aviso:
