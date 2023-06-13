@@ -1,0 +1,50 @@
+header{
+    font-family: 'Raleway', sans-serif;
+    display: flex;
+    background-image: url("/img/picoSGV.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    align-items: start;
+    height: 600px;
+    padding-top: 110px;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 44%;
+    height: 360px;
+    font-family: 'Raleway', sans-serif;
+    color: white;
+    font-size: 20px;
+    padding-left: 20px;
+    padding-right: 5px;
+}
+#boton{
+    display: flex;
+    margin-top: 40px;
+}
+#colorbtn{
+    background:  #ff731c;
+    color: white;
+    font-size: 20px;
+    width: 35%;
+}
+#validationDefault01{
+    background-color: rgb(252,244,234);
+}
+#validationDefault02{
+    background-color: rgb(252,244,234);
+}
+#validationDefault03{
+    background-color: rgb(252,244,234);
+}
+#validationDefault04{
+    background-color: rgb(252,244,234);
+}
+#validationDefaultUsername{
+    background-color: rgb(252,244,234);
+}
+#vvalidationDefaultPassword{
+    background-color: rgb(252,244,234);
+}

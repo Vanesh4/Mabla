@@ -10,19 +10,27 @@ class TablaUsuario(models.Model):
     telefono=models.PositiveBigIntegerField(verbose_name="Teléfono")
     correo=models.TextField(max_length=30)
     clave=models.TextField(max_length=30)
-    imgPerfil="Img por defecto"
+    imgPerfil=models.TextField()
+    
+    def __str__(self):
+        #txt="{0}{1}{2}{3}{4}"
+        #return txt.format()
+        return "{0}".format(self.alias)
 
 class TablaPruebas(models.Model):
-    idPrueba=models.AutoField(primary_key=True)
     alias=models.ForeignKey(TablaUsuario, null=True, on_delete=models.CASCADE)
     tipoPrueba=models.PositiveSmallIntegerField(verbose_name="Tipo de prueba")
     categoria=models.TextField(max_length=30)
-    fecha=models.DateTimeField(auto_now=False)
+    fecha=models.DateTimeField(auto_now_add=True)
     puntaje=models.PositiveBigIntegerField(verbose_name="Puntaje")
 
 class TablaComentarios(models.Model):
     alias=models.ForeignKey(TablaUsuario, null=True, on_delete=models.CASCADE)
     texto=models.TextField(max_length=30)
+    def __str__(self):
+        #txt="{0}{1}{2}{3}{4}"
+        #return txt.format()
+        return "{0}{1}".format(self.alias, self.texto)
 
 #karen
 
@@ -38,13 +46,13 @@ class TablaSubcategoria(models.Model):
 class TablaPalabra(models.Model):
     Palabra=models.TextField(primary_key=True)
     IdCategoria=models.ForeignKey(TablaCategoria, null=False, on_delete=models.CASCADE)
-    Senia="img"
+    Senia=models.TextField()
 
 #vanessa
 class TablaPreguntas(models.Model):
     tipo = models.PositiveIntegerField(verbose_name="Tipo")
     idCategoria = models.ForeignKey(TablaCategoria, null=False, on_delete=models.CASCADE)
-    senia = "img"
+    senia = models.TextField()
     respuesta = models.TextField(max_length=50)
     numeroPregunta = models.AutoField(primary_key=True)
 
