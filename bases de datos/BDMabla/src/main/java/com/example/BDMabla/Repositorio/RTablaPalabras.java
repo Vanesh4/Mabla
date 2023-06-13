@@ -1,4 +1,4 @@
-/*
+
 package com.example.BDMabla.Repositorio;
 
 import com.example.BDMabla.Entidad.TablaCategorias;
@@ -13,4 +13,4 @@ public interface RTablaPalabras extends JpaRepository<TablaPalabras, String> {
 
 
 }
-*/
+

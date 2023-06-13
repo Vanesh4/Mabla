@@ -1,6 +1,7 @@
 package com.example.BDMabla.Entidad;
 import javax.persistence.*;
 
+/*
 @Entity
 @Table(name="TablaPreguntas")
 public class TablaPreguntas {
@@ -83,3 +84,4 @@ public class TablaPreguntas {
                 '}';
     }
 }
+*/

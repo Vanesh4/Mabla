@@ -1,5 +1,6 @@
-/*
 package com.example.BDMabla.Entidad;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 
 @Entity
@@ -9,8 +10,9 @@ public class TablaPalabras {
     @Column(unique = true, length = 100)
     private String Palabra;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "IdCategoria", referencedColumnName = "IdCategoria")
+    @JsonIgnore
     private TablaCategorias IdCategoria;
 
     @Column(name = "img", nullable = true)
@@ -58,4 +60,3 @@ public class TablaPalabras {
                 '}';
     }
 }
-*/

@@ -1,7 +1,7 @@
 package com.example.BDMabla.Servicios;
 
 import com.example.BDMabla.Entidad.TablaPalabras;
-import com.example.BDMabla.Entidad.TablaPreguntas;
+/*import com.example.BDMabla.Entidad.TablaPreguntas;
 import com.example.BDMabla.Repositorio.RTablaPreguntas;
 import org.springframework.stereotype.Service;
 
@@ -35,4 +35,4 @@ public class STablaPreguntas {
         else return "La palabra ya está registrada";
 
     }
-}
+}*/

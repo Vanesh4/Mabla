@@ -1,4 +1,4 @@
-/*
+
 package com.example.BDMabla.Repositorio;
 
 import com.example.BDMabla.Entidad.TablaCategorias;
@@ -9,11 +9,13 @@ import java.util.List;
 
 @Repository
 public interface RTablaCategorias extends JpaRepository<TablaCategorias, String> {
-    List<TablaCategorias> findByCategoria(String cate);
-    TablaCategorias findById(long Idcategoria);
+   List<TablaCategorias> findByCategoria(String cate);
+
+    TablaCategorias findbyIdcate(Integer IdCategoria);
 
 
 }
 
 
-*/
+
+

@@ -1,44 +1,43 @@
 from typing import Any
-<<<<<<< HEAD
+
 from django import http
 from django.shortcuts import render
 from django.views.generic import ListView, View
 from Tablas.models import *
 from django.http import JsonResponse, HttpRequest
-=======
+
 from django.http import JsonResponse
 from django.views.generic import View
 from django.http import HttpRequest, JsonResponse
->>>>>>> 0fbcb271f8063fd27d9551f74fb22fd0a3e74009
+
 from django.utils.decorators import method_decorator
 from django.views.decorators.csrf import csrf_exempt
 import json
 from Tablas.models import *
 
-<<<<<<< HEAD
+
+
+
 class listaCategoria(View):
     def get(self, request):
         registro=TablaCategoria.objects.all().values()
         registrocate=list(registro)
         return JsonResponse(registrocate, safe=False)
     
-class InsertarCate(View):
-=======
+
 class getTablaUser(View):
     def get(self,request):
         register= TablaUsuario.objects.all().values()
         registerUser=list(register)
         return JsonResponse(registerUser, safe=False)
 
-class insertTablaUser(View):
-    #notacion
->>>>>>> 0fbcb271f8063fd27d9551f74fb22fd0a3e74009
+class InsertCate(View):
     @method_decorator(csrf_exempt)
     def dispatch(self, request, *args: Any, **kwargs):
         return super().dispatch(request, *args, **kwargs)
     
     def post(self, request):
-<<<<<<< HEAD
+
         registro=json.loads(request.body)
         request.POST.get('IdCategoria')
         request.POST.get('Categoria')
@@ -60,7 +59,6 @@ class ActualizarCate(View):
         except TablaCategoria.DoesNotExist:
             return JsonResponse({'Error':'este Id de categoria no existe'})
         data=json.loads(request.body)
-        registro.IdCategoria=data.get('IdCategoria')
         registro.Categoria=data.get('Categoria')
         registro.save()
         return JsonResponse({'mensaje':'Se ha actualizado correctamente'})
@@ -79,7 +77,7 @@ class EliminarCate(View):
         return JsonResponse({'mensaje': "Categoria eliminada"})
 
 
-#METODOS DE LA TABLA CATEGORIA
+#METODOS DE LA TABLA SUBCATEGORIA
 class listSubcategoria(View):
     def get(self, request):
         registro=TablaSubcategoria.objects.all().values()
@@ -87,8 +85,12 @@ class listSubcategoria(View):
         return JsonResponse(registrosub, safe=False)
 
 
-class InsertarSub(View):
-=======
+class insertTablaUser(View):
+    @method_decorator(csrf_exempt)
+    def dispatch(self, request, *args: Any, **kwargs):
+        return super().dispatch(request, *args, **kwargs)
+    
+    def post(self, request):
         registerInsertUser=json.loads(request.body)
         request.POST.get('alias')
         request.POST.get('nombre')
@@ -102,20 +104,20 @@ class InsertarSub(View):
         registerInsertUser1.save()
         return JsonResponse({'mensaje':'datos guardados'})
 
-class editTablaUser(View):
->>>>>>> 0fbcb271f8063fd27d9551f74fb22fd0a3e74009
+
+class Insertsub(View):
     @method_decorator(csrf_exempt)
     def dispatch(self, request: HttpRequest, *args: Any, **kwargs: Any):
         return super().dispatch(request, *args, **kwargs)
     
-<<<<<<< HEAD
+
     def post(self, request):
         registro=json.loads(request.body)
         request.POST.get('IdSubcategoria')
-        request.POST.get('IdCategoria')
+        request.POST.get('IdCategoria_id')
         request.POST.get('Subcategoria')
         print("Datos de Categoria", request.POST)
-        sub=TablaSubcategoria.objects.create(IdSubcategoria=registro['IdSubcategoria'], IdCategoria=registro['IdCategoria'], Subcategoria=registro['Subcategoria'])
+        sub=TablaSubcategoria.objects.create(IdSubcategoria=registro['IdSubcategoria'], IdCategoria_id=registro['IdCategoria_id'], Subcategoria=registro['Subcategoria'])
         sub.save()
         return JsonResponse({'mensaje': 'Registro guardado'})
     
@@ -201,15 +203,11 @@ class EliminarPal(View):
 
         return JsonResponse({'mensaje': "Palabtra eliminada"})
 
+class editTablaUser(View):
+    @method_decorator(csrf_exempt)
+    def dispatch(self, request, *args: Any, **kwargs):
+        return super().dispatch(request, *args, **kwargs)
 
-
-
-    
-
-
-    
-
-=======
     def put(self, request, pk):
         try:
             pKey=TablaUsuario.objects.get(pk=pk)
@@ -309,7 +307,4 @@ class InsertarPrueba(View):
         registerInsertPrueba1.save()
         #no es necesario pero es para que genere el aviso:
         return JsonResponse({'mensaje':'datos guardados'})
-    
 
-        
->>>>>>> 0fbcb271f8063fd27d9551f74fb22fd0a3e74009

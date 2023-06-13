@@ -1,10 +1,11 @@
-/*
+
 package com.example.BDMabla.Servicios;
 
 import com.example.BDMabla.Entidad.TablaCategorias;
 import com.example.BDMabla.Entidad.TablaPalabras;
 import com.example.BDMabla.Repositorio.RTablaCategorias;
 import com.example.BDMabla.Repositorio.RTablaPalabras;
+
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -26,7 +27,7 @@ public class STablaPalabras {
             return null;
         }
     }
-*/
+
 
    /*public String insertarpalabra(TablaPalabras t){
         for (TablaCategorias c: Mostrartodo()){
@@ -41,5 +42,14 @@ public class STablaPalabras {
 
         }
         return "registrada";
+    }*/
+
+    public String insertarpalabra(TablaPalabras t){
+        if(repositorio.findById(t.getPalabra()).isPresent()){
+            return "La palabra ya existe";
+        }else {
+            repositorio.save(t);
+        }
+        return "se ha guardado";
     }
-}*/
+}

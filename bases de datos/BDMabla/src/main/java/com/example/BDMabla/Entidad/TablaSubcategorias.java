@@ -1,28 +1,32 @@
-/*
+
 package com.example.BDMabla.Entidad;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 
 @Entity
-@Table(name = "TablaSubcategoria")
+@Table(name = "tablaSubcategorias")
 public class TablaSubcategorias {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer IdSubcategoria;
 
-    @ManyToOne
-    @JoinColumn(name = "IdCategoria", referencedColumnName = "IdCategoria")
-    private TablaCategorias IdCategoria;
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "IdCategoria", referencedColumnName = "IdCategoria", nullable = false)
+    @JsonIgnore
+    public TablaCategorias tablaCategorias;
 
     @Column(name = "Subcategoria", nullable = false, length = 70)
     private String Subcategoria;
 
-    public TablaSubcategorias(Integer idSubcategoria, TablaCategorias idCategoria, String subcategoria) {
-        IdSubcategoria = idSubcategoria;
-        IdCategoria = idCategoria;
-        Subcategoria = subcategoria;
+    public TablaSubcategorias(Integer idSubcategoria, TablaCategorias tablaCategorias, String subcategoria) {
+        this.IdSubcategoria = idSubcategoria;
+        this.tablaCategorias = tablaCategorias;
+        this.Subcategoria = subcategoria;
     }
 
     public TablaSubcategorias() {
+
     }
 
     public Integer getIdSubcategoria() {
@@ -33,12 +37,12 @@ public class TablaSubcategorias {
         IdSubcategoria = idSubcategoria;
     }
 
-    public TablaCategorias getIdCategoria() {
-        return IdCategoria;
+    public TablaCategorias getTablaCategorias() {
+        return tablaCategorias;
     }
 
-    public void setIdCategoria(TablaCategorias idCategoria) {
-        IdCategoria = idCategoria;
+    public void setTablaCategorias(TablaCategorias tablaCategorias) {
+        this.tablaCategorias = tablaCategorias;
     }
 
     public String getSubcategoria() {
@@ -53,9 +57,9 @@ public class TablaSubcategorias {
     public String toString() {
         return "TablaSubcategorias{" +
                 "IdSubcategoria=" + IdSubcategoria +
-                ", IdCategoria=" + IdCategoria +
+                ", tablaCategorias=" + tablaCategorias +
                 ", Subcategoria='" + Subcategoria + '\'' +
                 '}';
     }
 }
-*/
+

@@ -1,4 +1,4 @@
-package com.example.BDMabla.Controlador;
+/*package com.example.BDMabla.Controlador;
 
 import com.example.BDMabla.Entidad.TablaPreguntas;
 import com.example.BDMabla.Servicios.STablaPreguntas;
@@ -26,4 +26,4 @@ public class CTablaPreguntas {
     public String insertarPregunta(@RequestBody TablaPreguntas p){
         return serTablaPreguntas.insertarPregunta(p);
     }
-}
+}*/
