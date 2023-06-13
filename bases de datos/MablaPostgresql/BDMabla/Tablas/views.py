@@ -141,5 +141,70 @@ class insertPrueba(View):
         #no es necesario pero es para que genere el aviso:
         return JsonResponse({'mensaje':'datos guardados'})
 
+#Tabla preguntas
+class getPreguntas(View):
+    def get(self,request):
+        register= TablaPreguntas.objects.all().values()
+        registerPregs=list(register)
+        return JsonResponse(registerPregs, safe=False)
+
+class PostPreguntas(View):
+    #anotacion
+    @method_decorator(csrf_exempt)
+    def dispatch(self, request, *args: Any, **kwargs):
+        return super().dispatch(request, *args, **kwargs)
+    
+    def post(self, request):
+        #capturados:
+        registerpreg = json.loads(request.body)
+        #preparar la manera de enviar los datos
+        request.POST.get('tipo')
+        request.POST.get('idCategoria_id')
+        request.POST.get('senia')
+        request.POST.get('respuesta')
+        pregunta = TablaPreguntas.objects.create(tipo=registerpreg['tipo'],
+                                    idCategoria_id=registerpreg['idCategoria_id'],
+                                    senia=registerpreg['senia'],
+                                    respuesta=registerpreg['respuesta'],)
+        pregunta.save()
+        #no es necesario pero es para que genere el aviso:
+        return JsonResponse({'mensaje':'datos guardados'})
+
+class editPregunta(View):
+    #anotacion
+    @method_decorator(csrf_exempt)
+    def dispatch(self, request, *args: Any, **kwargs):
+        return super().dispatch(request, *args, **kwargs)
+    
+    def put(self, request, pk):
+        try: 
+            preg = TablaPreguntas.objects.get(pk=pk)
+        except TablaPreguntas.DoesNotExist:
+            return JsonResponse({'Error':'El numero de pregunta ingresada no existe'})
+        
+        data = json.loads(request.body)
+        
+        preg.tipo=data.get('tipo')
+        preg.senia=data.get('senia')
+        preg.idCategoria=data.get('idCategoria_id')
+        preg.respuesta=data.get('respuesta')
+        preg.save() 
+        return JsonResponse({"Mensaje":"Datos actualizados"})
+    
+class deletePregunta(View):
+    @method_decorator(csrf_exempt)
+    def dispatch(self, request, *args: Any, **kwargs):
+        return super().dispatch(request, *args, **kwargs)
+    
+    def delete(self, request, pk):
+        try:
+            preg = TablaPreguntas.objects.get(pk=pk)
+        except TablaPreguntas.DoesNotExist:
+            return JsonResponse({"Error":"El numero de pregunta ingresado no existe"})
+        
+        preg.delete()
+        return JsonResponse({"mensaje":"Datos eliminados"})
+
+
 def formInsert(request):
     return render(request, "registro.html")
