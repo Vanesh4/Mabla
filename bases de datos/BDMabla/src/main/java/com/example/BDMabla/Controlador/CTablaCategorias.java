@@ -1,4 +1,4 @@
-/*
+
 package com.example.BDMabla.Controlador;
 
 import com.example.BDMabla.Entidad.TablaCategorias;
@@ -23,4 +23,4 @@ public class CTablaCategorias {
 
 
 }
-*/
+

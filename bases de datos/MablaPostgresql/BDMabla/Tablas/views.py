@@ -1,5 +1,6 @@
 from typing import Any
 from django.http import JsonResponse
+from django.shortcuts import render
 from django.views.generic import View
 from django.http import HttpRequest, JsonResponse
 from django.utils.decorators import method_decorator
@@ -20,18 +21,22 @@ class insertTablaUser(View):
         return super().dispatch(request, *args, **kwargs)
     
     def post(self, request):
-        registerInsertUser=json.loads(request.body)
-        request.POST.get('alias')
-        request.POST.get('nombre')
-        request.POST.get('apellido')
-        request.POST.get('telefono')
-        request.POST.get('correo')
-        request.POST.get('clave')
-        request.POST.get('imgPerfil')
+        try:
+            registerInsertUser=json.loads(request.body)
+
+        except(json.JSONDecodeError,UnicodeDecodeError):
+            return JsonResponse({'error':'El alias ingresado ya existe'})
+        
+        alias=registerInsertUser.get('alias')
+        nombre=registerInsertUser.get('nombre')
+        apellido=registerInsertUser.get('apellido')
+        telefono=registerInsertUser.get('telefono')
+        correo=registerInsertUser.get('correo')
+        clave=registerInsertUser.get('clave')
         print("datos del cliente ",request.POST)
-        registerInsertUser1=TablaUsuario.objects.create(alias=registerInsertUser['alias'],nombre=registerInsertUser['nombre'],apellido=registerInsertUser['apellido'],telefono=registerInsertUser['telefono'],correo=registerInsertUser['correo'],clave=registerInsertUser['clave'], imgPerfil=registerInsertUser['imgPerfil'])
-        registerInsertUser1.save()
-        return JsonResponse({'mensaje':'datos guardados'})
+        TablaUsuario.objects.create(alias=alias,nombre=nombre,apellido=apellido,telefono=telefono,correo=correo,clave=clave)
+        #return JsonResponse({'mensaje':'datos guardados'})
+        return JsonResponse({"mensaje": "Datos guardados"})
 
 class editTablaUser(View):
     @method_decorator(csrf_exempt)
@@ -68,10 +73,10 @@ class insertComment(View):
     
     def post(self, request):
         registerInsertComment=json.loads(request.body)
-        request.POST.get('alias')
+        request.POST.get('alias_id')
         request.POST.get('texto')
         print("datos del cliente ",request.POST)
-        registerInsertComment1=TablaComentarios.objects.create(alias=registerInsertComment['alias'],texto=registerInsertComment['texto'])
+        registerInsertComment1=TablaComentarios.objects.create(texto=registerInsertComment['texto'], alias_id=registerInsertComment['alias_id'])
         registerInsertComment1.save()
         return JsonResponse({'mensaje':'datos guardados'})
 
@@ -112,7 +117,7 @@ class getTablaPrueba(View):
         registerPrueba=list(register)
         return JsonResponse(registerPrueba, safe=False)
 
-class InsertarPrueba(View):
+class insertPrueba(View):
     #anotacion
     @method_decorator(csrf_exempt)
     def dispatch(self, request, *args: Any, **kwargs):
@@ -122,21 +127,19 @@ class InsertarPrueba(View):
         #capturados:
         registerInsertPrueba = json.loads(request.body)
         #preparar la manera de enviar los datos
-        request.POST.get('idPrueba')
-        request.POST.get('alias')
+        request.POST.get('alias_id')
         request.POST.get('tipoPrueba')
-        request.POST.get('categoria')
-        request.POST.get('fecha')
+        request.POST.get('categoria_id')
         request.POST.get('puntaje')
         registerInsertPrueba1 = TablaPruebas.objects.create(idPrueba=registerInsertPrueba['idPrueba'],
                                     alias=registerInsertPrueba['alias'],
                                     tipoPrueba=registerInsertPrueba['tipoPrueba'],
-                                    categoria=registerInsertPrueba['categoria'],
+                                    categoria_id=registerInsertPrueba['categoria_id'],
                                     fecha=registerInsertPrueba['fecha'],
                                     puntaje=registerInsertPrueba['puntaje'])
         registerInsertPrueba1.save()
         #no es necesario pero es para que genere el aviso:
         return JsonResponse({'mensaje':'datos guardados'})
-    
 
-        
+def formInsert(request):
+    return render(request, "registro.html")

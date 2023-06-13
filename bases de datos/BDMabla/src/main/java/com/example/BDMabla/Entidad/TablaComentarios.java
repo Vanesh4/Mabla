@@ -16,7 +16,7 @@ public class TablaComentarios {
     @Column(nullable = false)
     private String hora;
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "alias", referencedColumnName = "alias")
+    @JoinColumn(name = "alias", referencedColumnName = "alias", nullable = false)
     @JsonIgnore
     private TablaUsuario tablaUsuario;
     public TablaComentarios() {

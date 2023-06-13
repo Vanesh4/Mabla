@@ -1,5 +1,9 @@
+<<<<<<< HEAD
 /*
 package com.example.BDMabla.Controlador;
+=======
+/*package com.example.BDMabla.Controlador;
+>>>>>>> 9cce64ea0664dc09262d43416b6146cd669dcd2b
 
 import com.example.BDMabla.Entidad.TablaPreguntas;
 import com.example.BDMabla.Servicios.STablaPreguntas;
@@ -27,5 +31,9 @@ public class CTablaPreguntas {
     public String insertarPregunta(@RequestBody TablaPreguntas p){
         return serTablaPreguntas.insertarPregunta(p);
     }
+<<<<<<< HEAD
 }
 */
+=======
+}*/
+>>>>>>> 9cce64ea0664dc09262d43416b6146cd669dcd2b

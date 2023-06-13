@@ -1,7 +1,7 @@
 from django.db import models
 
 # Create your models here.
-#sara
+
 class TablaUsuario(models.Model):
     alias=models.TextField(max_length=30, primary_key=True)
     nombre=models.TextField(max_length=30)
@@ -14,23 +14,35 @@ class TablaUsuario(models.Model):
 class TablaPruebas(models.Model):
     idPrueba=models.AutoField(primary_key=True)
     alias=models.ForeignKey(TablaUsuario, null=False, on_delete=models.CASCADE)
-    tipoPrueba=models.PositiveSmallIntegerField(verbose_name="Tipo de prueba")
-    categoria=models.TextField(max_length=30)
-    fecha=models.DateTimeField(auto_now=False)
-    puntaje=models.PositiveBigIntegerField(verbose_name="Puntaje")
+    
+    def __str__(self):
+        #txt="{0}{1}{2}{3}{4}"
+        #return txt.format()
+        return "{0}".format(self.alias)
 
 class TablaComentarios(models.Model):
     alias=models.ForeignKey(TablaUsuario, null=True, on_delete=models.CASCADE)
     texto=models.TextField(max_length=30)
+    def __str__(self):
+        #txt="{0}{1}{2}{3}{4}"
+        #return txt.format()
+        return "{0}{1}".format(self.alias, self.texto)
 
 #karen
 
 class TablaCategoria(models.Model):
-    IdCategoria=models.PositiveSmallIntegerField(primary_key=True, verbose_name="IdCategoria")
+    IdCategoria=models.AutoField(primary_key=True, verbose_name="IdCategoria")
     Categoria=models.TextField(max_length=30)
 
+class TablaPruebas(models.Model):   
+    alias=models.ForeignKey(TablaUsuario, null=False, on_delete=models.CASCADE)
+    tipoPrueba=models.PositiveSmallIntegerField(verbose_name="Tipo de prueba")
+    categoria=models.ForeignKey(TablaCategoria, null=False, on_delete=models.CASCADE)
+    fecha=models.DateTimeField(auto_now_add=True)
+    puntaje=models.PositiveBigIntegerField(verbose_name="Puntaje")
+
 class TablaSubcategoria(models.Model):
-    IdSubcategoria=models.PositiveSmallIntegerField(primary_key=True, verbose_name="IdSubcategoria")
+    IdSubcategoria=models.AutoField(primary_key=True, verbose_name="IdSubcategoria")
     IdCategoria=models.ForeignKey(TablaCategoria, null=False, on_delete=models.CASCADE )
     Subcategoria=models.TextField(max_length=30)
 

@@ -1,4 +1,4 @@
-/*
+
 package com.example.BDMabla.Servicios;
 
 import com.example.BDMabla.Entidad.TablaCategorias;
@@ -32,13 +32,29 @@ public class STablaCategorias {
         }
     }
 
-    public List<TablaCategorias> buscarCategoria(String cate){
+    /*public List<TablaCategorias> buscarCategoria(String cate){
 
         return repositorio.findByCategoria(cate);
+    }*/
+
+    public String agregarCategoria(TablaCategorias c){
+        boolean encontrado=false;
+        for (TablaCategorias i: Mostrartodo()  ) {
+            if(i.getIdCategoria() == repositorio.findbyIdcate(c.getIdCategoria()).getIdCategoria()){
+                encontrado=true;
+                break;
+            }
+            else {
+                encontrado=false;
+            }
+        }
+        if (encontrado==false) return "Categoria agregada correctamente";
+        else return "La categoria ya está registrada";
+
     }
 
 
 
     
 }
-*/
+
