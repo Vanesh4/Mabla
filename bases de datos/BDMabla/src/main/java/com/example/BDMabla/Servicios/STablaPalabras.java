@@ -1,3 +1,4 @@
+/*
 
 package com.example.BDMabla.Servicios;
 
@@ -29,7 +30,8 @@ public class STablaPalabras {
     }
 
 
-   /*public String insertarpalabra(TablaPalabras t){
+   */
+/*public String insertarpalabra(TablaPalabras t){
         for (TablaCategorias c: Mostrartodo()){
             if (c.getCategoria() == repositorio.findByCategoria(t.getCategoria())){
                 repositorio.save(t);
@@ -42,7 +44,8 @@ public class STablaPalabras {
 
         }
         return "registrada";
-    }*/
+    }*//*
+
 
     public String insertarpalabra(TablaPalabras t){
         if(repositorio.findById(t.getPalabra()).isPresent()){
@@ -53,3 +56,4 @@ public class STablaPalabras {
         return "se ha guardado";
     }
 }
+*/

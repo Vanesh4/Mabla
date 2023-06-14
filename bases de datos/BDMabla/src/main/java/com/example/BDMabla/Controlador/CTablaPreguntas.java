@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 /*
 package com.example.BDMabla.Controlador;
 =======
@@ -34,6 +33,4 @@ public class CTablaPreguntas {
 <<<<<<< HEAD
 }
 */
-=======
-}*/
->>>>>>> 9cce64ea0664dc09262d43416b6146cd669dcd2b
+

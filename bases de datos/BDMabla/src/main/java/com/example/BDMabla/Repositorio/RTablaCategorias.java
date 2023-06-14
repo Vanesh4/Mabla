@@ -8,12 +8,8 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface RTablaCategorias extends JpaRepository<TablaCategorias, String> {
-   List<TablaCategorias> findByCategoria(String cate);
-
-    TablaCategorias findbyIdcate(Integer IdCategoria);
-
-
+public interface RTablaCategorias extends JpaRepository<TablaCategorias, Integer> {
+/*    List<TablaCategorias> findByInteger(Integer idCat);*/
 }
 
 

@@ -18,4 +18,6 @@ urlpatterns = [
     path('postPreguntas/',PostPreguntas.as_view(),name='postpreg'),
     path('putPregunta/<pk>',editPregunta.as_view(), name="editPreg"),
     path('deletePregunta/<pk>',deletePregunta.as_view(), name="deletePreg"),
+
+    path('inicio',views.iniciohtml, name="inicio")
 ]

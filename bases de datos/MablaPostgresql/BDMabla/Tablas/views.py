@@ -208,3 +208,6 @@ class deletePregunta(View):
 
 def formInsert(request):
     return render(request, "registro.html")
+
+def iniciohtml(request):
+    return render(request,"inicio.html")

@@ -1,4 +1,4 @@
-package com.example.BDMabla.Entidad;
+/*package com.example.BDMabla.Entidad;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
@@ -59,4 +59,4 @@ public class TablaPalabras {
                 ", Senia='" + Senia + '\'' +
                 '}';
     }
-}
+}*/
