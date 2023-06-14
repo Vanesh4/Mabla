@@ -20,16 +20,6 @@ class Migration(migrations.Migration):
             ],
         ),
         migrations.CreateModel(
-            name='TablaPreguntas',
-            fields=[
-                ('tipo', models.PositiveIntegerField(verbose_name='Tipo')),
-                ('senia', models.TextField()),
-                ('respuesta', models.TextField(max_length=50)),
-                ('numeroPregunta', models.AutoField(primary_key=True, serialize=False)),
-                ('idCategoria', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='Tablas.tablacategoria')),
-            ],
-        ),
-        migrations.CreateModel(
             name='TablaUsuario',
             fields=[
                 ('alias', models.TextField(max_length=30, primary_key=True, serialize=False)),
@@ -58,15 +48,6 @@ class Migration(migrations.Migration):
                 ('puntaje', models.PositiveBigIntegerField(verbose_name='Puntaje')),
                 ('alias', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='Tablas.tablausuario')),
                 ('categoria', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='Tablas.tablacategoria')),
-            ],
-        ),
-        migrations.CreateModel(
-            name='TablaPrueba_Pregunta',
-            fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('puntaje', models.PositiveBigIntegerField(verbose_name='Puntaje')),
-                ('idCategoria', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='Tablas.tablapreguntas')),
-                ('idPrueba', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='Tablas.tablapruebas')),
             ],
         ),
         migrations.CreateModel(

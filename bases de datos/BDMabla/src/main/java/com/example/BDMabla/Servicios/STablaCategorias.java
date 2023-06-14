@@ -1,4 +1,3 @@
-
 package com.example.BDMabla.Servicios;
 
 import com.example.BDMabla.Entidad.TablaCategorias;
@@ -10,51 +9,50 @@ import java.util.List;
 import java.util.Collections;
 
 @Service
-
 public class STablaCategorias {
 
-    private RTablaCategorias repositorio;
+    private RTablaCategorias repCategorias;
 
-
-    public STablaCategorias(RTablaCategorias repositorio) {
-        this.repositorio = repositorio;
+    public STablaCategorias(RTablaCategorias repCategorias) {
+        this.repCategorias = repCategorias;
     }
 
-    public List<TablaCategorias> Mostrartodo(){
-        return repositorio.findAll();
+    public List<TablaCategorias> getCategorias(){
+        return repCategorias.findAll();
     }
 
-    public TablaCategorias buscarId(String IdCategoria){
-        if(repositorio.findById(IdCategoria).isPresent()) {
-            return repositorio.findById(IdCategoria).get();
-        } else {
-            return null;
+    public String postPreguntas(TablaCategorias cat){
+        TablaCategorias catnuevo = new TablaCategorias();
+        boolean inserto=false;
+        if (getCategorias().isEmpty()){
+            repCategorias.save(cat);
+            inserto=true;
         }
-    }
-
-    /*public List<TablaCategorias> buscarCategoria(String cate){
-
-        return repositorio.findByCategoria(cate);
-    }*/
-
-    public String agregarCategoria(TablaCategorias c){
-        boolean encontrado=false;
-        for (TablaCategorias i: Mostrartodo()  ) {
-            if(i.getIdCategoria() == repositorio.findbyIdcate(c.getIdCategoria()).getIdCategoria()){
-                encontrado=true;
-                break;
-            }
-            else {
-                encontrado=false;
+        else {
+            for (TablaCategorias c: getCategorias()){
+                if (c.getIdCategoria() == cat.getIdCategoria()){
+                    inserto = false;
+                }
+                else {
+                    inserto = true;
+                    repCategorias.save(cat);
+                    break;
+                }
             }
         }
-        if (encontrado==false) return "Categoria agregada correctamente";
-        else return "La categoria ya está registrada";
 
+        if (inserto==true){
+            return "se registro";
+        }
+        else return "no se registro";
     }
 
-
-
-    
+    public String DeletePreg(Integer idcat){
+        if(repCategorias.findById(idcat).isPresent()){
+            repCategorias.deleteById(idcat);
+            return "Se elimino el producto";
+        }
+        else return "No se elimino el producto";
+    }
 }
 

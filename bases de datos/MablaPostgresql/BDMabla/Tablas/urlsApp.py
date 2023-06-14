@@ -13,4 +13,11 @@ urlpatterns = [
     path('deleteComment/<pk>',deleteComment.as_view(),name='deleteComment/<pk>'),
     path('tablaPrueba',getTablaPrueba.as_view(),name='tablaPrueba'),
     path('insertPrueba',insertPrueba.as_view(),name='insertPrueba'),
+
+    path('getPreguntas/',getPreguntas.as_view(),name='getpreg'),
+    path('postPreguntas/',PostPreguntas.as_view(),name='postpreg'),
+    path('putPregunta/<pk>',editPregunta.as_view(), name="editPreg"),
+    path('deletePregunta/<pk>',deletePregunta.as_view(), name="deletePreg"),
+
+    path('inicio',views.iniciohtml, name="inicio")
 ]

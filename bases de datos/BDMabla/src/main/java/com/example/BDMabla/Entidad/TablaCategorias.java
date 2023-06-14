@@ -2,69 +2,40 @@
 package com.example.BDMabla.Entidad;
 import javax.persistence.*;
 import javax.persistence.Entity;
-import java.util.Set;
+
 
 @Entity
-@Table(name = "tablaCategorias")
+@Table(name="tablaCategorias")
 public class TablaCategorias {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer IdCategoria;
+    private Integer idCategoria;
 
-    @Column(name = "Categoria", nullable = false, length = 70)
-    private String Categoria;
-
-    @OneToMany(mappedBy = "tablaCategorias", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private Set<TablaSubcategorias> TablaSubcategorias;
-
-    public TablaSubcategorias tablaSubcategorias;
-
-   /* @OneToMany(mappedBy = "TablaCategoria", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private Set<TablaPreguntas> TablaPreguntas;*/
-
+    @Column(name = "categoria", nullable = false, length = 50)
+    private String categoria;
 
     public TablaCategorias(Integer idCategoria, String categoria) {
-        IdCategoria = idCategoria;
-        Categoria = categoria;
+        this.idCategoria = idCategoria;
+        this.categoria = categoria;
     }
 
     public TablaCategorias() {
     }
 
     public Integer getIdCategoria() {
-        return IdCategoria;
+        return idCategoria;
     }
 
     public void setIdCategoria(Integer idCategoria) {
-        IdCategoria = idCategoria;
-    }
-
-    public TablaSubcategorias getTablaSubcategorias() {
-        return tablaSubcategorias;
-    }
-
-    public void setTablaSubcategorias(TablaSubcategorias tablaSubcategorias) {
-        this.tablaSubcategorias = tablaSubcategorias;
+        this.idCategoria = idCategoria;
     }
 
     public String getCategoria() {
-        return Categoria;
+        return categoria;
     }
 
     public void setCategoria(String categoria) {
-        Categoria = categoria;
-    }
-
-
-
-
-
-    @Override
-    public String toString() {
-        return "TablaCategorias{" +
-                "IdCategoria='" + IdCategoria + '\'' +
-                ", Categoria='" + Categoria + '\'' +
-                '}';
+        this.categoria = categoria;
     }
 }
 

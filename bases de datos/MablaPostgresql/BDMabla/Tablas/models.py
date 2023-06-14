@@ -53,15 +53,16 @@ class TablaPalabra(models.Model):
 
 #vanessa
 class TablaPreguntas(models.Model):
+    #numeroPregunta = models.AutoField(primary_key=True)
     tipo = models.PositiveIntegerField(verbose_name="Tipo")
     idCategoria = models.ForeignKey(TablaCategoria, null=False, on_delete=models.CASCADE)
     senia = models.TextField()
     respuesta = models.TextField(max_length=50)
-    numeroPregunta = models.AutoField(primary_key=True)
+    
 
-class TablaPrueba_Pregunta(models.Model):
+""" class TablaPrueba_Pregunta(models.Model):
     idPrueba = models.ForeignKey(TablaPruebas, null=False, on_delete=models.CASCADE)
     idCategoria = models.ForeignKey(TablaPreguntas, null=False, on_delete=models.CASCADE)
-    puntaje=models.PositiveBigIntegerField(verbose_name="Puntaje")
+    puntaje=models.PositiveBigIntegerField(verbose_name="Puntaje") """
 
 

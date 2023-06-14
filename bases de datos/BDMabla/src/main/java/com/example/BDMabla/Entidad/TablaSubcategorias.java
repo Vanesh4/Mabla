@@ -1,4 +1,4 @@
-
+/*
 package com.example.BDMabla.Entidad;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -61,5 +61,5 @@ public class TablaSubcategorias {
                 ", Subcategoria='" + Subcategoria + '\'' +
                 '}';
     }
-}
+}*/
 

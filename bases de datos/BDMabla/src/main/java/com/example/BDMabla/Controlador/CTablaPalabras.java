@@ -1,4 +1,4 @@
-package com.example.BDMabla.Controlador;
+/*package com.example.BDMabla.Controlador;
 
 import com.example.BDMabla.Entidad.TablaPalabras;
 import com.example.BDMabla.Servicios.STablaPalabras;
@@ -24,4 +24,4 @@ public class CTablaPalabras {
     public String insertarpalabra(@RequestBody TablaPalabras t){
         return servicio.insertarpalabra(t);
     }
-}
+}*/
