@@ -22,23 +22,19 @@ public class CTablaComentarios {
     public List<TablaComentarios> coments(){
         return metodosComent.coments();
     }
-    @GetMapping("/comentsUser/{alias}")
-    public Optional<TablaComentarios> comentsUser(@PathVariable("alias") String alias){
-        return metodosComent.mycoments(alias);
-    }
     @PostMapping("/addComment/{alias}")
-    public String addComent(@PathVariable("alias") String alias){
-        return metodosComent.addcoment(alias);
+    public String addComent(@PathVariable("alias") String alias, @RequestBody TablaComentarios comment){
+        return metodosComent.addcoment(alias, comment);
     }
 
-/*@PutMapping("/editcomment")
+    @PutMapping("/editcomment")
     public boolean editcomment(@RequestBody TablaComentarios comment){
-        return metodosComent.editcomment(comment);
-    }*/
+        return metodosComent.editComment(comment);
+    }
 
-    @DeleteMapping("/deletecomment")
+    /*@DeleteMapping("/deletecomment")
     public boolean deletecomment(@RequestBody TablaComentarios comment){
         return metodosComent.deletecoment(comment);
-    }
+    }*/
 }
 

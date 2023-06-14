@@ -1,14 +1,10 @@
-
 package com.example.BDMabla.Controlador;
-
-import com.example.BDMabla.Entidad.TablaCategorias;
-import com.example.BDMabla.Servicios.STablaCategorias;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-@RestController
+/*@RestController
 public class CTablaCategorias {
     private STablaCategorias servicio;
 
@@ -23,4 +19,5 @@ public class CTablaCategorias {
 
 
 }
+*/
 

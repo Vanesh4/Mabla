@@ -1,6 +1,7 @@
 
 package com.example.BDMabla.Servicios;
 
+/*
 import com.example.BDMabla.Entidad.TablaCategorias;
 import com.example.BDMabla.Repositorio.RTablaCategorias;
 import org.springframework.stereotype.Service;
@@ -32,10 +33,12 @@ public class STablaCategorias {
         }
     }
 
-    /*public List<TablaCategorias> buscarCategoria(String cate){
+    */
+/*public List<TablaCategorias> buscarCategoria(String cate){
 
         return repositorio.findByCategoria(cate);
-    }*/
+    }*//*
+
 
     public String agregarCategoria(TablaCategorias c){
         boolean encontrado=false;
@@ -57,4 +60,5 @@ public class STablaCategorias {
 
     
 }
+*/
 

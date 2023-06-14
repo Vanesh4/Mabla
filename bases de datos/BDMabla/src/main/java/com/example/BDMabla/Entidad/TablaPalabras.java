@@ -3,7 +3,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 
-@Entity
+/*@Entity
 @Table(name = "TablaPalabra")
 public class TablaPalabras {
     @Id
@@ -60,3 +60,4 @@ public class TablaPalabras {
                 '}';
     }
 }
+*/

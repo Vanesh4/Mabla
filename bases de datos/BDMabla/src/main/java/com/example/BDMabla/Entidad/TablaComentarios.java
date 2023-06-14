@@ -3,30 +3,35 @@ package com.example.BDMabla.Entidad;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
+import java.time.LocalDate;
+import java.util.Date;
+
 @Entity
 @Table(name="tablaComentarios")
 public class TablaComentarios {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
-    @Column(nullable = false, length = 30)
+    private String id;
+    @Column(nullable = false, length = 100)
     String texto;
-    @Column(nullable = false, length = 30)
-    private String fecha;
-    @Column(nullable = false)
-    private String hora;
+    @Column(name = "fecha")
+    @Temporal(TemporalType.DATE)
+    private Date fecha;
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "alias", referencedColumnName = "alias", nullable = false)
     @JsonIgnore
     private TablaUsuario tablaUsuario;
+    @PrePersist
+    public void fechaActual(){
+        this.fecha= new Date();
+    }
     public TablaComentarios() {
     }
-    public TablaComentarios(int id,TablaUsuario tablaUsuario,  String texto, String fecha, String hora) {
+    public TablaComentarios(String id,TablaUsuario tablaUsuario,  String texto, Date fecha) {
         this.id=id;
         this.tablaUsuario = tablaUsuario;
         this.texto = texto;
         this.fecha = fecha;
-        this.hora = hora;
     }
 
     public String getTexto() {
@@ -37,27 +42,19 @@ public class TablaComentarios {
         this.texto = texto;
     }
 
-    public String getFecha() {
+    public Date getFecha() {
         return fecha;
     }
 
-    public void setFecha(String fecha) {
+    public void setFecha(Date fecha) {
         this.fecha = fecha;
     }
 
-    public String getHora() {
-        return hora;
-    }
-
-    public void setHora(String hora) {
-        this.hora = hora;
-    }
-
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 

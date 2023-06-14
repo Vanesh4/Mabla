@@ -4,6 +4,7 @@ import javax.persistence.*;
 import javax.persistence.Entity;
 import java.util.Set;
 
+/*
 @Entity
 @Table(name = "tablaCategorias")
 public class TablaCategorias {
@@ -19,8 +20,10 @@ public class TablaCategorias {
 
     public TablaSubcategorias tablaSubcategorias;
 
-   /* @OneToMany(mappedBy = "TablaCategoria", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private Set<TablaPreguntas> TablaPreguntas;*/
+   */
+/* @OneToMany(mappedBy = "TablaCategoria", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private Set<TablaPreguntas> TablaPreguntas;*//*
+
 
 
     public TablaCategorias(Integer idCategoria, String categoria) {
@@ -69,3 +72,4 @@ public class TablaCategorias {
 }
 
 
+*/

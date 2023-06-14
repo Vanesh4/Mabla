@@ -23,22 +23,24 @@ public class STablaComentarios {
     public List<TablaComentarios> coments(){
         return repostorioComents.findAll();
     }
-    public Optional<TablaComentarios> mycoments(String id){
-        return repostorioComents.findById(id);
-    }
-    public String addcoment(String alias){
-        TablaComentarios comments=new TablaComentarios();
+    public String addcoment(String alias, TablaComentarios comment){
         TablaUsuario user= repoUsuario.findById(alias).get();
         if(repoUsuario.findById(alias).isPresent()){
-            comments.setTablaUsuario(user);
-            repostorioComents.save(comments);
+            comment.setTablaUsuario(user);
+            repostorioComents.save(comment);
             return "Comentario guardado";
         }
-        else return "El alias no existe";
+        else return "El alias no exist";
     }
-    public boolean deletecoment(@NotNull TablaComentarios comment){
-        repostorioComents.deleteById(comment.getId());
+
+    public boolean editComment(TablaComentarios comment){
+        repostorioComents.findById(comment.getId()).get();
+        repostorioComents.save(comment);
         return true;
     }
+   /* public boolean deletecoment(@NotNull TablaComentarios comment){
+        repostorioComents.deleteById(comment.getId());
+        return true;
+    }*/
 }
 
