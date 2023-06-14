@@ -2,6 +2,7 @@
 
 package com.example.BDMabla.Servicios;
 
+/*
 import com.example.BDMabla.Entidad.TablaCategorias;
 import com.example.BDMabla.Entidad.TablaPalabras;
 import com.example.BDMabla.Repositorio.RTablaCategorias;

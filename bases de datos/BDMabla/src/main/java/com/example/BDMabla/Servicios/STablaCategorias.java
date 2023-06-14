@@ -1,5 +1,6 @@
 package com.example.BDMabla.Servicios;
 
+/*
 import com.example.BDMabla.Entidad.TablaCategorias;
 import com.example.BDMabla.Repositorio.RTablaCategorias;
 import org.springframework.stereotype.Service;
@@ -28,6 +29,7 @@ public class STablaCategorias {
             repCategorias.save(cat);
             inserto=true;
         }
+<<<<<<< HEAD
         else {
             for (TablaCategorias c: getCategorias()){
                 if (c.getIdCategoria() == cat.getIdCategoria()){
@@ -38,6 +40,26 @@ public class STablaCategorias {
                     repCategorias.save(cat);
                     break;
                 }
+=======
+    }
+
+    */
+/*public List<TablaCategorias> buscarCategoria(String cate){
+
+        return repositorio.findByCategoria(cate);
+    }*//*
+
+
+    public String agregarCategoria(TablaCategorias c){
+        boolean encontrado=false;
+        for (TablaCategorias i: Mostrartodo()  ) {
+            if(i.getIdCategoria() == repositorio.findbyIdcate(c.getIdCategoria()).getIdCategoria()){
+                encontrado=true;
+                break;
+            }
+            else {
+                encontrado=false;
+>>>>>>> 95f060848a07e25231932e242b809db46cf8c6e9
             }
         }
 
@@ -55,4 +77,5 @@ public class STablaCategorias {
         else return "No se elimino el producto";
     }
 }
+*/
 

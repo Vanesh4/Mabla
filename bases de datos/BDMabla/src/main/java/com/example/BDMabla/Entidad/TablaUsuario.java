@@ -24,6 +24,7 @@ public class TablaUsuario {
      String imgPerfil= "img por defecto";
     @OneToMany(mappedBy = "tablaUsuario", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Set<TablaComentarios> tablaComentarios;
+
     public TablaUsuario(String alias, String nombre, String apellido, int telefono, String correo, String contrasenia, String imgPerfil) {
         this.alias = alias;
         this.nombre = nombre;

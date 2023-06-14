@@ -30,7 +30,6 @@ public class CTablaPreguntas {
     public String insertarPregunta(@RequestBody TablaPreguntas p){
         return serTablaPreguntas.insertarPregunta(p);
     }
-<<<<<<< HEAD
 }
 */
 

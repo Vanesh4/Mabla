@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 
+/*
 @Entity
 @Table(name = "tablaSubcategorias")
 public class TablaSubcategorias {
@@ -61,5 +62,10 @@ public class TablaSubcategorias {
                 ", Subcategoria='" + Subcategoria + '\'' +
                 '}';
     }
+<<<<<<< HEAD
 }*/
+=======
+}
+*/
+>>>>>>> 95f060848a07e25231932e242b809db46cf8c6e9
 

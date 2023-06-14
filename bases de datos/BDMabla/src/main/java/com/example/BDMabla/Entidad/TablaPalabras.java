@@ -3,7 +3,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 
-@Entity
+/*@Entity
 @Table(name = "TablaPalabra")
 public class TablaPalabras {
     @Id
@@ -59,4 +59,9 @@ public class TablaPalabras {
                 ", Senia='" + Senia + '\'' +
                 '}';
     }
+<<<<<<< HEAD
 }*/
+=======
+}
+*/
+>>>>>>> 95f060848a07e25231932e242b809db46cf8c6e9
