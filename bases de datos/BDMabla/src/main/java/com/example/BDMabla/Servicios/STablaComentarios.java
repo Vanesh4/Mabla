@@ -7,6 +7,7 @@ import com.example.BDMabla.Repositorio.RTablaUsuario;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -30,17 +31,19 @@ public class STablaComentarios {
             repostorioComents.save(comment);
             return "Comentario guardado";
         }
-        else return "El alias no exist";
+        else return "El alias no existe";
+    }
+    public boolean editComment(int id, TablaComentarios comment){
+        TablaComentarios commentF= repostorioComents.findById(id).get();
+        commentF.setTexto(comment.getTexto());
+        commentF.setFecha(new Date());
+        repostorioComents.save(commentF);
+        return true;
     }
 
-    public boolean editComment(TablaComentarios comment){
-        repostorioComents.findById(comment.getId()).get();
-        repostorioComents.save(comment);
+   public boolean deleteComment(Integer id){
+        repostorioComents.deleteById(id);
         return true;
     }
-   /* public boolean deletecoment(@NotNull TablaComentarios comment){
-        repostorioComents.deleteById(comment.getId());
-        return true;
-    }*/
 }
 

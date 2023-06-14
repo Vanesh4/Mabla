@@ -11,7 +11,7 @@ import java.util.Date;
 public class TablaComentarios {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String id;
+    private Integer id;
     @Column(nullable = false, length = 100)
     String texto;
     @Column(name = "fecha")
@@ -27,15 +27,19 @@ public class TablaComentarios {
     }
     public TablaComentarios() {
     }
-    public TablaComentarios(String id,TablaUsuario tablaUsuario,  String texto, Date fecha) {
+    public TablaComentarios(Integer id,TablaUsuario tablaUsuario,  String texto, Date fecha) {
         this.id=id;
         this.tablaUsuario = tablaUsuario;
         this.texto = texto;
         this.fecha = fecha;
     }
-
     public String getTexto() {
         return texto;
+    }
+
+    public TablaComentarios(String texto) {
+        this.texto = texto;
+        this.fecha= new Date();
     }
 
     public void setTexto(String texto) {
@@ -50,11 +54,11 @@ public class TablaComentarios {
         this.fecha = fecha;
     }
 
-    public String getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

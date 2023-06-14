@@ -33,4 +33,5 @@ public class CTablaUsuario {
     public boolean editar(@RequestBody TablaUsuario user){
         return metodosUser.editUser(user);
     }
+
 }

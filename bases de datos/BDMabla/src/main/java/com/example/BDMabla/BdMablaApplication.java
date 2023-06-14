@@ -1,5 +1,6 @@
 package com.example.BDMabla;
 
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -9,4 +10,5 @@ public class BdMablaApplication {
 		SpringApplication.run(BdMablaApplication.class, args);
 	}
 }
+
 

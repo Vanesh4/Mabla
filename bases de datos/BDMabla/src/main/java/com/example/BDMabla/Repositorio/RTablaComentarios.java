@@ -7,9 +7,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface RTablaComentarios extends JpaRepository<TablaComentarios, String> {
-    List<TablaComentarios> deleteById(int id);
-    List<TablaComentarios> findById(int id);
+public interface RTablaComentarios extends JpaRepository<TablaComentarios, Integer> {
 
 }
 

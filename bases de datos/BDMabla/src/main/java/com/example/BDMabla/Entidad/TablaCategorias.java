@@ -4,6 +4,7 @@ import javax.persistence.*;
 import javax.persistence.Entity;
 
 
+
 @Entity
 @Table(name="tablaCategorias")
 public class TablaCategorias {
@@ -15,9 +16,10 @@ public class TablaCategorias {
     @Column(name = "Categoria", nullable = false, length = 70)
     private String Categoria;
 
+
     public TablaCategorias(Integer idCategoria, String categoria) {
         this.idCategoria = idCategoria;
-        Categoria = categoria;
+        this.Categoria = categoria;
     }
 
     public TablaCategorias() {
@@ -36,12 +38,8 @@ public class TablaCategorias {
     }
 
     public void setCategoria(String categoria) {
-        Categoria = categoria;
+        this.Categoria = categoria;
     }
 }
-
-
-
-
 
 
