@@ -1,6 +1,5 @@
 package com.example.BDMabla.Servicios;
 
-/*
 import com.example.BDMabla.Entidad.TablaCategorias;
 import com.example.BDMabla.Repositorio.RTablaCategorias;
 import org.springframework.stereotype.Service;
@@ -22,32 +21,31 @@ public class STablaCategorias {
         return repCategorias.findAll();
     }
 
-    public String postPreguntas(TablaCategorias cat){
+    public String postCategorias(TablaCategorias cat) {
         TablaCategorias catnuevo = new TablaCategorias();
-        boolean inserto=false;
-        if (getCategorias().isEmpty()){
+        boolean inserto = false;
+        if (getCategorias().isEmpty()) {
             repCategorias.save(cat);
-            inserto=true;
-        }
-<<<<<<< HEAD
-        else {
-            for (TablaCategorias c: getCategorias()){
-                if (c.getIdCategoria() == cat.getIdCategoria()){
+            inserto = true;
+        } else {
+            for (TablaCategorias c : getCategorias()) {
+                if (c.getIdCategoria() == cat.getIdCategoria()) {
                     inserto = false;
-                }
-                else {
+                } else {
                     inserto = true;
                     repCategorias.save(cat);
                     break;
                 }
-=======
+            }
+        }
+        if (inserto == true) return "se inserto correctamente";
+        else return "no se inserto";
     }
 
-    */
 /*public List<TablaCategorias> buscarCategoria(String cate){
 
         return repositorio.findByCategoria(cate);
-    }*//*
+    }
 
 
     public String agregarCategoria(TablaCategorias c){
@@ -59,7 +57,6 @@ public class STablaCategorias {
             }
             else {
                 encontrado=false;
->>>>>>> 95f060848a07e25231932e242b809db46cf8c6e9
             }
         }
 
@@ -67,7 +64,7 @@ public class STablaCategorias {
             return "se registro";
         }
         else return "no se registro";
-    }
+    }*/
 
     public String DeletePreg(Integer idcat){
         if(repCategorias.findById(idcat).isPresent()){
@@ -76,6 +73,7 @@ public class STablaCategorias {
         }
         else return "No se elimino el producto";
     }
+
+
 }
-*/
 

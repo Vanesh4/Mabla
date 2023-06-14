@@ -1,36 +1,47 @@
-/*
 package com.example.BDMabla.Entidad;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 
-/*
+
 @Entity
 @Table(name="TablaPreguntas")
 public class TablaPreguntas {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Integer NumeroPregunta;
+
     @Column(name="Tipo")
     private int Tipo;
 
-    @ManyToOne
-    @JoinColumn(referencedColumnName = "IdCategoria")
-    private int IdCategoria;
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name="idCategoria", referencedColumnName = "idCategoria", nullable = false)
+    @JsonIgnore
+    public TablaCategorias idCategoria;
 
     @Column(name="Senia")
     private String Senia;
 
-    @Column(name="Respuesta", length = 50, nullable = false)
+    @Column(name="Respuesta", nullable = false)
     private String Respuesta;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private int NumeroPregunta;
+    public TablaPreguntas(Integer numeroPregunta, int tipo, TablaCategorias idCategoria, String senia, String respuesta) {
+        NumeroPregunta = numeroPregunta;
+        Tipo = tipo;
+        this.idCategoria = idCategoria;
+        Senia = senia;
+        Respuesta = respuesta;
+    }
 
     public TablaPreguntas() {
     }
 
-    public TablaPreguntas(int tipo, int idCategoria, String senia, String respuesta, int numeroPregunta) {
-        Tipo = tipo;
-        IdCategoria = idCategoria;
-        Senia = senia;
-        Respuesta = respuesta;
+    public Integer getNumeroPregunta() {
+        return NumeroPregunta;
+    }
+
+    public void setNumeroPregunta(Integer numeroPregunta) {
         NumeroPregunta = numeroPregunta;
     }
 
@@ -42,12 +53,12 @@ public class TablaPreguntas {
         Tipo = tipo;
     }
 
-    public int getIdCategoria() {
-        return IdCategoria;
+    public TablaCategorias getIdCategoria() {
+        return idCategoria;
     }
 
-    public void setIdCategoria(int idCategoria) {
-        IdCategoria = idCategoria;
+    public void setIdCategoria(TablaCategorias idCategoria) {
+        this.idCategoria = idCategoria;
     }
 
     public String getSenia() {
@@ -65,24 +76,4 @@ public class TablaPreguntas {
     public void setRespuesta(String respuesta) {
         Respuesta = respuesta;
     }
-
-    public int getNumeroPregunta() {
-        return NumeroPregunta;
-    }
-
-    public void setNumeroPregunta(int numeroPregunta) {
-        NumeroPregunta = numeroPregunta;
-    }
-
-    @Override
-    public String toString() {
-        return "TablaPreguntas{" +
-                "Tipo=" + Tipo +
-                ", IdCategoria=" + IdCategoria +
-                ", Senia='" + Senia + '\'' +
-                ", Respuesta='" + Respuesta + '\'' +
-                ", NumeroPregunta=" + NumeroPregunta +
-                '}';
-    }
 }
-*/
