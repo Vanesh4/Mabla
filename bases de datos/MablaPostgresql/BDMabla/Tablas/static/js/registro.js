@@ -1,6 +1,18 @@
-function InsertadoEnHTML(mensaje) {
-    p = document.getElementById("#mensaje-error");
-    p.textContent = mensaje; // Actualiza el contenido del elemento HTML
+function msjHtml(msj) {
+    const element = document.getElementById('mensaje-error');
+    element.textContent = msj; // Actualiza el contenido del elemento HTML
+  } 
+  function irAInterfaz() {
+    // Código para redirigir a la interfaz deseada
+    window.location.href = 'http://127.0.0.1:5500/BDMabla/Tablas/templates/inicio.html';
+  }
+  function mostrarErrorEnHTML(error) {
+    if (error instanceof SyntaxError) {
+        msjHtml("El alias ingresado ya existe");
+    } else {
+      // Mostrar otros errores no relacionados con JSON
+      console.log(error);
+    }
   }
   
 document.addEventListener("DOMContentLoaded", function(){
@@ -26,12 +38,14 @@ document.addEventListener("DOMContentLoaded", function(){
         })
         .then(response => response.json())
         .then(datos => {
-            InsertadoEnHTML("Insertado")
+            const boton = document.getElementById('colorbtn');
+            boton.addEventListener('click', irAInterfaz);
             console.log(datos)
         })
-        .catch(console.error())
+        .catch(error => {
+            // Capturar el error y mostrarlo en el HTML
+            mostrarErrorEnHTML(error);
+          })
         //promesa
     })
 })
-
-//fetch: appi que envia datos por una url

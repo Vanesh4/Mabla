@@ -44,13 +44,13 @@
               <label for="validationPassword" class="form-label">Clave</label>
               <input type="password" class="form-control" id="validationPassword" required>
             </div>
-
+            <p id="mensaje-error"></p>       
             <div class="col-16" id="boton">
-                <button class="btn" type="submit" id="colorbtn">Ingresar</button>
+                <button class="btn" type="submit" id="colorbtn" onclick=irAInterfaz()>Registrarme</button>
             </div>
           </form>
           <h1>{{mensaje}}</h1>
     </header>
-    <script src="{% static 'js/gestionRegistro.js' %}"></script>
+    <script src="{% static 'js/registro.js' %}"></script>
 </body>
 </html>

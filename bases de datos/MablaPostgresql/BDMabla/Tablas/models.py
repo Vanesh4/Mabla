@@ -11,14 +11,6 @@ class TablaUsuario(models.Model):
     clave=models.TextField(max_length=30)
     imgPerfil=models.TextField()
 
-class TablaPruebas(models.Model):
-    idPrueba=models.AutoField(primary_key=True)
-    alias=models.ForeignKey(TablaUsuario, null=False, on_delete=models.CASCADE)
-    
-    def __str__(self):
-        #txt="{0}{1}{2}{3}{4}"
-        #return txt.format()
-        return "{0}".format(self.alias)
 
 class TablaComentarios(models.Model):
     alias=models.ForeignKey(TablaUsuario, null=True, on_delete=models.CASCADE)

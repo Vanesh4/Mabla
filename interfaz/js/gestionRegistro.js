@@ -1,9 +1,5 @@
-function InsertadoEnHTML(mensaje) {
-    p = document.getElementById("#mensaje-error");
-    p.textContent = mensaje; // Actualiza el contenido del elemento HTML
-  }
-  
 document.addEventListener("DOMContentLoaded", function(){
+
     document.getElementById("formInsert").addEventListener("submit",function(event){
         event.preventDefault();
 
@@ -26,7 +22,7 @@ document.addEventListener("DOMContentLoaded", function(){
         })
         .then(response => response.json())
         .then(datos => {
-            InsertadoEnHTML("Insertado")
+            alert(datos)
             console.log(datos)
         })
         .catch(console.error())

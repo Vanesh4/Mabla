@@ -181,9 +181,9 @@ class editPregunta(View):
             preg = TablaPreguntas.objects.get(pk=pk)
         except TablaPreguntas.DoesNotExist:
             return JsonResponse({'Error':'El numero de pregunta ingresada no existe'})
-        
+    
         data = json.loads(request.body)
-        
+    
         preg.tipo=data.get('tipo')
         preg.senia=data.get('senia')
         preg.idCategoria=data.get('idCategoria_id')
