@@ -6,6 +6,8 @@ function msjHtml(msj) {
     // Código para redirigir a la interfaz deseada
     window.location.href = 'http://127.0.0.1:5500/BDMabla/Tablas/templates/inicio.html';
   }
+
+  
   function mostrarErrorEnHTML(error) {
     if (error instanceof SyntaxError) {
         msjHtml("El alias ingresado ya existe");
@@ -38,9 +40,11 @@ document.addEventListener("DOMContentLoaded", function(){
         })
         .then(response => response.json())
         .then(datos => {
-            const boton = document.getElementById('colorbtn');
-            boton.addEventListener('click', irAInterfaz);
-            console.log(datos)
+          consultar(),
+          $('#colorbtn').on('click',function(){
+            
+          })
+          console.log(datos)
         })
         .catch(error => {
             // Capturar el error y mostrarlo en el HTML

@@ -7,12 +7,22 @@ from django.utils.decorators import method_decorator
 from django.views.decorators.csrf import csrf_exempt
 import json
 from Tablas.models import *
-
+#Sara
+#tabla usuario
 class getTablaUser(View):
     def get(self,request):
-        register= TablaUsuario.objects.all().values()
-        registerUser=list(register)
-        return JsonResponse(registerUser, safe=False)
+        register= TablaUsuario.objects.all()
+        register_User=[]
+        for i in  register:
+            register_User.append({
+                'alias': i.alias,
+                'nombre': i.nombre,
+                'apellido': i.apellido,
+                'telefono': i.telefono,
+                'correo': i.correo,
+                'clave': i.clave,
+            })
+        return JsonResponse(register_User, safe=False)
 
 class insertTablaUser(View):
     #notacion
@@ -59,6 +69,7 @@ class editTablaUser(View):
         pKey.save()
         return JsonResponse({"Mensaje":"Datos actualizados"})
 
+#tabla comentarios
 class getTablaComment(View):
     def get(self,request):
         register= TablaComentarios.objects.all().values()
@@ -111,6 +122,7 @@ class deleteComment(View):
         pKey.delete()
         return JsonResponse({"mensaje":"Datos eliminados"})
 
+#tabla pruebas
 class getTablaPrueba(View):
     def get(self,request):
         register= TablaPruebas.objects.all().values()
@@ -140,7 +152,7 @@ class insertPrueba(View):
         registerInsertPrueba1.save()
         #no es necesario pero es para que genere el aviso:
         return JsonResponse({'mensaje':'datos guardados'})
-
+#Vanesha
 #Tabla preguntas
 class getPreguntas(View):
     def get(self,request):
