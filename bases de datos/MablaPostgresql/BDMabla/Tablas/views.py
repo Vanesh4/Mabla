@@ -24,6 +24,22 @@ class getTablaUser(View):
             })
         return JsonResponse(register_User, safe=False)
 
+class inciarSesion(View):
+    def get(self, request, pk):
+        try:
+            pKey=TablaUsuario.objects.get(pk=pk)
+        except(json.JSONDecodeError,UnicodeDecodeError):
+            return JsonResponse({'error':'Este usuario no existe'})
+        data= json.loads(request.body)
+        pKey.alias=data.get('alias')
+        pKey.clave=data.get('clave')
+        try:
+            return HttpResponseRedirect('/inicio')
+        
+        except(json.JSONDecodeError,UnicodeDecodeError):
+            return JsonResponse({'error':'La contraseña ingresada no es correcta'})
+
+
 class insertTablaUser(View):
     #notacion
     @method_decorator(csrf_exempt)
@@ -217,12 +233,16 @@ class deletePregunta(View):
         preg.delete()
         return JsonResponse({"mensaje":"Datos eliminados"})
 
+#Usuario
 class usuarios(View):
     def get(self, request):
         return render(request, 'inicio.html')
 
 def formInsertUser(request):
     return render(request, "registro.html")
+
+def formIniciarSesion(request):
+    return render(request, "login.html")
 
 def iniciohtml(request):
     return render(request,"inicio.html")

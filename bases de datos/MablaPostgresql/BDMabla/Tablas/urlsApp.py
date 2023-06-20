@@ -7,6 +7,7 @@ urlpatterns = [
     path('tablaUsuario',getTablaUser.as_view(), name='tablaUsuario'),
     path('insertUser',insertTablaUser.as_view(), name='insertUser'),
     path('insertUserForm/inicio.html',views.formInsertUser, name='insertUserForm'),
+    path('login',views.formIniciarSesion, name='login'),
     path('tablaComment',getTablaComment.as_view(), name='tablaComment'),
     path('editUser/<pk>',editTablaUser.as_view(),name='editUser'),
     path('insertComment',insertComment.as_view(),name='insertComment'),
