@@ -26,9 +26,12 @@ public class STablaPreguntas {
 
     //insertar
     public Boolean postPregunta(Integer idCategoria, TablaPreguntas preg){
-        /*TablaCategorias cat = repTablaCategorias.
+        TablaCategorias cat = repTablaCategorias.findById(idCategoria).get();
+        if (repTablaCategorias.findById(idCategoria).isPresent()){
 
-            TablaUsuario user= repoUsuario.findById(alias).get();
+        }
+
+            /*TablaUsuario user= repoUsuario.findById(alias).get();
             if(repoUsuario.findById(alias).isPresent()){
                 comment.setTablaUsuario(user);
                 repostorioComents.save(comment);
