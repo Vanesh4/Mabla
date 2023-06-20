@@ -19,5 +19,15 @@ urlpatterns = [
     path('putPregunta/<pk>',editPregunta.as_view(), name="editPreg"),
     path('deletePregunta/<pk>',deletePregunta.as_view(), name="deletePreg"),
 
-    path('inicio',views.iniciohtml, name="inicio")
+    path('inicio',views.iniciohtml, name="inicio"),
+
+    path('getcate',getcategoria.as_view(),name='getcate'),
+    path('postcate',postcategoria.as_view(),name='postcate'),
+    path('deletecate/<pk>',deletecategoria.as_view(),name='deletecate'),
+
+    path('getsubcate',getsubcategoria.as_view(),name='getsubcate'),
+    path('postsubcate',postsubcategoria.as_view(),name='postsubcate'),
+    path('deletesubcate/<pk>',deletesubcategoria.as_view(),name='deletesubcate'),
+
+
 ]

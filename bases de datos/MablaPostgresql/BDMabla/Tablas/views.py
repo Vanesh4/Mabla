@@ -223,3 +223,80 @@ def formInsert(request):
 
 def iniciohtml(request):
     return render(request,"inicio.html")
+
+
+#CRUD TABLA CATEGORIAS
+
+class getcategoria(View):
+    def get(self,request):
+        insert= TablaCategoria.objects.all().values()
+        insertcate=list(insert)
+        return JsonResponse(insertcate, safe=False)
+    
+class postcategoria(View):
+    @method_decorator(csrf_exempt)
+    def dispatch(self, request, *args: Any, **kwargs):
+        return super().dispatch(request, *args, **kwargs)
+    
+    def post(self, request):
+        datos=json.loads(request.body)
+        request.POST.get('Categoria')
+        print("categorias", request.POST)
+        listcate=TablaCategoria.objects.create(Categoria=datos['Categoria'])
+        listcate.save()
+        return JsonResponse({'mensaje': 'Datos guardados'})
+    
+    
+class deletecategoria(View):
+    @method_decorator(csrf_exempt)
+    def dispatch(self, request: HttpRequest, *args: Any, **kwargs):
+        return super().dispatch(request, *args, **kwargs)
+    def delete(self, request, pk):
+        try:
+            registro=TablaCategoria.objects.get(pk=pk)
+        except TablaCategoria.DoesNotExist:
+            return JsonResponse({'Error':'Esta categoria no existe'})
+        registro.delete()
+
+        return JsonResponse({'mensaje': "Datos eliminados"})
+
+
+#CRUD TABLA SUBCATEGORIA
+
+class getsubcategoria(View):
+    def get(self,request):
+        insert= TablaSubcategoria.objects.all().values()
+        insertsubcate=list(insert)
+        return JsonResponse(insertsubcate, safe=False)
+    
+
+class postsubcategoria(View):
+    #notacion
+    @method_decorator(csrf_exempt)
+    def dispatch(self, request, *args: Any, **kwargs):
+        return super().dispatch(request, *args, **kwargs)
+    
+    def post(self, request):
+        data=json.loads(request.body)
+        request.POST.get('categoria_id')
+        request.POST.get('subcategoria')
+        print("Subcategorias",request.POST)
+        insert=TablaSubcategoria.objects.create(categoria_id=data['categoria_id'],subcategoria=data['subcategoria'])
+        insert.save()
+        return JsonResponse({'mensaje':'datos guardados'})
+
+class deletesubcategoria(View):
+    @method_decorator(csrf_exempt)
+    def dispatch(self, request: HttpRequest, *args: Any, **kwargs):
+        return super().dispatch(request, *args, **kwargs)
+    def delete(self, request, pk):
+        try:
+            registro=TablaSubcategoria.objects.get(pk=pk)
+        except TablaSubcategoria.DoesNotExist:
+            return JsonResponse({'Error':'Esta subactegoria no existe'})
+        registro.delete()
+
+        return JsonResponse({'mensaje': "Datos eliminados"})
+    
+
+#CRUD TABLA PALABRA

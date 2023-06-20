@@ -23,7 +23,7 @@ class TablaComentarios(models.Model):
 #karen
 
 class TablaCategoria(models.Model):
-    Categoria=models.TextField(max_length=30, primary_key=True)
+    Categoria=models.TextField(max_length=30, primary_key=True, null=False)
 
 class TablaPruebas(models.Model):   
     alias=models.ForeignKey(TablaUsuario, null=False, on_delete=models.CASCADE)
