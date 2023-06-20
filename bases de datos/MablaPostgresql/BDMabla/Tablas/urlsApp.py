@@ -6,7 +6,8 @@ from . import views
 urlpatterns = [
     path('tablaUsuario',getTablaUser.as_view(), name='tablaUsuario'),
     path('insertUser',insertTablaUser.as_view(), name='insertUser'),
-    path('insertUserForm/',views.formInsert, name='insertUserForm'),
+    path('insertUserForm/inicio.html',views.formInsertUser, name='insertUserForm'),
+    path('tablaComment',getTablaComment.as_view(), name='tablaComment'),
     path('editUser/<pk>',editTablaUser.as_view(),name='editUser'),
     path('insertComment',insertComment.as_view(),name='insertComment'),
     path('editComment/<pk>',editComment.as_view(),name='editComment/<pk>'),
