@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,6 +15,7 @@
 <body>
   <header>
     <form method="POST" id="formLogin" class="row g-3">
+      {% csrf_token %}
       <div class="col-md-6">
           <label for="validationDefaultUsername" class="form-label"> Alias</label>
           <div class="input-group">
@@ -36,6 +38,7 @@
           <button class="btn" type="submit" id="colorbtn">Ingresar</button>
         </div>
       </form>
+      <h1>{{mensaje}}</h1>
   </header>    
 </body>
 </html>

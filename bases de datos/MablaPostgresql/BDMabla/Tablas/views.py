@@ -1,5 +1,5 @@
 from typing import Any
-from django.http import JsonResponse
+from django.http import HttpResponseRedirect, JsonResponse
 from django.shortcuts import render
 from django.views.generic import View
 from django.http import HttpRequest, JsonResponse
@@ -24,6 +24,22 @@ class getTablaUser(View):
             })
         return JsonResponse(register_User, safe=False)
 
+class inciarSesion(View):
+    def get(self, request, pk):
+        try:
+            pKey=TablaUsuario.objects.get(pk=pk)
+        except(json.JSONDecodeError,UnicodeDecodeError):
+            return JsonResponse({'error':'Este usuario no existe'})
+        data= json.loads(request.body)
+        pKey.alias=data.get('alias')
+        pKey.clave=data.get('clave')
+        try:
+            return HttpResponseRedirect('/inicio')
+        
+        except(json.JSONDecodeError,UnicodeDecodeError):
+            return JsonResponse({'error':'La contraseña ingresada no es correcta'})
+
+
 class insertTablaUser(View):
     #notacion
     @method_decorator(csrf_exempt)
@@ -46,7 +62,7 @@ class insertTablaUser(View):
         print("datos del cliente ",request.POST)
         TablaUsuario.objects.create(alias=alias,nombre=nombre,apellido=apellido,telefono=telefono,correo=correo,clave=clave)
         #return JsonResponse({'mensaje':'datos guardados'})
-        return JsonResponse({"mensaje": "Datos guardados"})
+        return HttpResponseRedirect('/inicio')
 
 class editTablaUser(View):
     @method_decorator(csrf_exempt)
@@ -65,7 +81,6 @@ class editTablaUser(View):
         pKey.telefono=data.get('telefono')
         pKey.correo=data.get('correo')
         pKey.clave=data.get('clave')
-        pKey.imgPerfil=data.get('imgPerfil')
         pKey.save()
         return JsonResponse({"Mensaje":"Datos actualizados"})
 
@@ -214,12 +229,20 @@ class deletePregunta(View):
         except TablaPreguntas.DoesNotExist:
             return JsonResponse({"Error":"El numero de pregunta ingresado no existe"})
         
+
         preg.delete()
         return JsonResponse({"mensaje":"Datos eliminados"})
 
+#Usuario
+class usuarios(View):
+    def get(self, request):
+        return render(request, 'inicio.html')
 
-def formInsert(request):
+def formInsertUser(request):
     return render(request, "registro.html")
+
+def formIniciarSesion(request):
+    return render(request, "login.html")
 
 def iniciohtml(request):
     return render(request,"inicio.html")

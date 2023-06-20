@@ -2,21 +2,7 @@ function msjHtml(msj) {
     const element = document.getElementById('mensaje-error');
     element.textContent = msj; // Actualiza el contenido del elemento HTML
   } 
-  function irAInterfaz() {
-    // Código para redirigir a la interfaz deseada
-    window.location.href = 'http://127.0.0.1:5500/BDMabla/Tablas/templates/inicio.html';
-  }
 
-  
-  function mostrarErrorEnHTML(error) {
-    if (error instanceof SyntaxError) {
-        msjHtml("El alias ingresado ya existe");
-    } else {
-      // Mostrar otros errores no relacionados con JSON
-      console.log(error);
-    }
-  }
-  
 document.addEventListener("DOMContentLoaded", function(){
     document.getElementById("formInsert").addEventListener("submit",function(event){
         event.preventDefault();
@@ -38,18 +24,22 @@ document.addEventListener("DOMContentLoaded", function(){
                 'Content-Type':'Tablas/json'
             }
         })
-        .then(response => response.json())
+        .then(response => {
+          if(response.redirected){
+            response.redirected
+            window.location.href=response.url
+          }else{
+            msjHtml("El alias ingresado ya existe")
+          }
+        })
         .then(datos => {
           consultar(),
-          $('#colorbtn').on('click',function(){
-            
-          })
           console.log(datos)
+          window.location.href='inicio.html'
         })
-        .catch(error => {
-            // Capturar el error y mostrarlo en el HTML
-            mostrarErrorEnHTML(error);
-          })
+        .catch(
+            console.error()
+          )
         //promesa
     })
 })
