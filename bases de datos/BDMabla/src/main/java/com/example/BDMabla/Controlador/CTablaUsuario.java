@@ -26,7 +26,7 @@ public class CTablaUsuario {
    }
    @PostMapping("/Insertaruser")
     public String insertar(@RequestBody TablaUsuario user){
-       if (metodosUser.insertUser(user)) return "Usuario creado";
+       if (metodosUser.insertUser(user)) return "/inicio";
        else return "Este usuario ya existe";
    }
     @PutMapping("/editarUser")

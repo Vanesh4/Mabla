@@ -1,36 +1,34 @@
 
 package com.example.BDMabla.Entidad;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import javax.persistence.Entity;
-
+import java.util.Set;
 
 
 @Entity
 @Table(name="tablaCategorias")
 public class TablaCategorias {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer idCategoria;
-
-
-    @Column(name = "Categoria", nullable = false, length = 70)
+    @Column(nullable = false, length = 70)
     private String Categoria;
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "id", referencedColumnName = "id", nullable = false)
+    @JsonIgnore
+    private TablaPruebas tablaPruebas;
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "pregunta", referencedColumnName = "NumeroPregunta", nullable = false)
+    @JsonIgnore
+    private TablaPreguntas preguntas;
 
-
-    public TablaCategorias(Integer idCategoria, String categoria) {
-        this.idCategoria = idCategoria;
+    public TablaCategorias(String categoria, TablaPruebas tablaPruebas, TablaPreguntas preguntas) {
         this.Categoria = categoria;
+        this.tablaPruebas = tablaPruebas;
+        this.preguntas = preguntas;
     }
 
     public TablaCategorias() {
-    }
-
-    public Integer getIdCategoria() {
-        return idCategoria;
-    }
-
-    public void setIdCategoria(Integer idCategoria) {
-        this.idCategoria = idCategoria;
     }
 
     public String getCategoria() {
@@ -39,6 +37,22 @@ public class TablaCategorias {
 
     public void setCategoria(String categoria) {
         this.Categoria = categoria;
+    }
+
+    public TablaPruebas getTablaPruebas() {
+        return tablaPruebas;
+    }
+
+    public void setTablaPruebas(TablaPruebas tablaPruebas) {
+        this.tablaPruebas = tablaPruebas;
+    }
+
+    public TablaPreguntas getpreguntas() {
+        return preguntas;
+    }
+
+    public void setpreguntas(TablaPreguntas preguntas) {
+        this.preguntas = preguntas;
     }
 }
 

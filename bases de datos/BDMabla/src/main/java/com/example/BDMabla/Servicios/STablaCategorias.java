@@ -29,7 +29,7 @@ public class STablaCategorias {
             inserto = true;
         } else {
             for (TablaCategorias c : getCategorias()) {
-                if (c.getIdCategoria() == cat.getIdCategoria()) {
+                if (c.getCategoria() == cat.getCategoria()) {
                     inserto = false;
                 } else {
                     inserto = true;
