@@ -1,7 +1,6 @@
 
 package com.example.BDMabla.Entidad;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import javax.persistence.*;
 import javax.persistence.Entity;
 import java.util.Set;
@@ -18,14 +17,21 @@ public class TablaCategorias {
     @JsonIgnore
     private TablaPruebas tablaPruebas;
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "pregunta", referencedColumnName = "NumeroPregunta", nullable = false)
+    @JoinColumn(name = "NumeroPregunta", referencedColumnName = "NumeroPregunta", nullable = false)
     @JsonIgnore
-    private TablaPreguntas preguntas;
+    private TablaPreguntas tablaPreguntas;
 
-    public TablaCategorias(String categoria, TablaPruebas tablaPruebas, TablaPreguntas preguntas) {
-        this.Categoria = categoria;
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "IdSubcategoria", referencedColumnName = "IdSubcategoria", nullable = false)
+    @JsonIgnore
+    public TablaSubcategorias tablaSubcategorias;
+    @OneToMany(mappedBy = "tablaCategorias", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private Set<TablaPalabras> tablaPalabras;
+    public TablaCategorias(String Categoria, TablaPruebas tablaPruebas, TablaPreguntas tablaPreguntas, TablaSubcategorias tablaSubcategorias) {
+        this.Categoria = Categoria;
         this.tablaPruebas = tablaPruebas;
-        this.preguntas = preguntas;
+        this.tablaPreguntas = tablaPreguntas;
+        this.tablaSubcategorias = tablaSubcategorias;
     }
 
     public TablaCategorias() {
@@ -47,12 +53,28 @@ public class TablaCategorias {
         this.tablaPruebas = tablaPruebas;
     }
 
-    public TablaPreguntas getpreguntas() {
-        return preguntas;
+    public TablaPreguntas getTablaPreguntas() {
+        return tablaPreguntas;
     }
 
-    public void setpreguntas(TablaPreguntas preguntas) {
-        this.preguntas = preguntas;
+    public void setTablaPreguntas(TablaPreguntas tablaPreguntas) {
+        this.tablaPreguntas = tablaPreguntas;
+    }
+
+    public Set<TablaPalabras> getTablaPalabras() {
+        return tablaPalabras;
+    }
+
+    public void setTablaPalabras(Set<TablaPalabras> tablaPalabras) {
+        this.tablaPalabras = tablaPalabras;
+    }
+
+    public TablaSubcategorias getTablaSubcategorias() {
+        return tablaSubcategorias;
+    }
+
+    public void setTablaSubcategorias(TablaSubcategorias tablaSubcategorias) {
+        this.tablaSubcategorias = tablaSubcategorias;
     }
 }
 

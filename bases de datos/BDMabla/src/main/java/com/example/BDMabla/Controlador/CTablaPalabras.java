@@ -1,13 +1,10 @@
-<<<<<<< HEAD
-=======
-/*package com.example.BDMabla.Controlador;
+package com.example.BDMabla.Controlador;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
-
 /*
 @RestController
 
@@ -25,9 +22,5 @@ public class CTablaPalabras {
     public String insertarpalabra(@RequestBody TablaPalabras t){
         return servicio.insertarpalabra(t);
     }
-<<<<<<< HEAD
-}*/
-<<<<<<< HEAD
->>>>>>> e5a067e06502e1b62a256eb0d9be01f330b393c7
-=======
->>>>>>> e5a067e06502e1b62a256eb0d9be01f330b393c7
+}
+*/

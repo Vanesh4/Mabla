@@ -1,10 +1,10 @@
-/*
 package com.example.BDMabla.Entidad;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
+import java.util.Set;
 
-/*
+
 @Entity
 @Table(name = "tablaSubcategorias")
 public class TablaSubcategorias {
@@ -12,18 +12,16 @@ public class TablaSubcategorias {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer IdSubcategoria;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "IdCategoria", referencedColumnName = "IdCategoria", nullable = false)
-    @JsonIgnore
-    public TablaCategorias tablaCategorias;
+    @OneToMany(mappedBy = "tablaSubcategorias", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private Set<TablaCategorias> tablaCategorias;
 
-    @Column(name = "Subcategoria", nullable = false, length = 70)
+    @Column(nullable = false, length = 70)
     private String Subcategoria;
 
-    public TablaSubcategorias(Integer idSubcategoria, TablaCategorias tablaCategorias, String subcategoria) {
-        this.IdSubcategoria = idSubcategoria;
+    public TablaSubcategorias(Integer idSubcategoria, Set<TablaCategorias> tablaCategorias, String subcategoria) {
+        IdSubcategoria = idSubcategoria;
         this.tablaCategorias = tablaCategorias;
-        this.Subcategoria = subcategoria;
+        Subcategoria = subcategoria;
     }
 
     public TablaSubcategorias() {
@@ -38,11 +36,11 @@ public class TablaSubcategorias {
         IdSubcategoria = idSubcategoria;
     }
 
-    public TablaCategorias getTablaCategorias() {
+    public Set<TablaCategorias> getTablaCategorias() {
         return tablaCategorias;
     }
 
-    public void setTablaCategorias(TablaCategorias tablaCategorias) {
+    public void setTablaCategorias(Set<TablaCategorias> tablaCategorias) {
         this.tablaCategorias = tablaCategorias;
     }
 
@@ -62,7 +60,6 @@ public class TablaSubcategorias {
                 ", Subcategoria='" + Subcategoria + '\'' +
                 '}';
     }
-<<<<<<< HEAD
-}*/
+}
 
 
