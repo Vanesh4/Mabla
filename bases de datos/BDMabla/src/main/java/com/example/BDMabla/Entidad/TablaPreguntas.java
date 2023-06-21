@@ -9,7 +9,7 @@ import javax.persistence.*;
 public class TablaPreguntas {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer NumeroPregunta;
 
     @Column(name="Tipo")
@@ -30,6 +30,13 @@ public class TablaPreguntas {
         NumeroPregunta = numeroPregunta;
         Tipo = tipo;
         this.idCategoria = idCategoria;
+        Senia = senia;
+        Respuesta = respuesta;
+    }
+
+    public TablaPreguntas(Integer numeroPregunta, int tipo, String senia, String respuesta) {
+        NumeroPregunta = numeroPregunta;
+        Tipo = tipo;
         Senia = senia;
         Respuesta = respuesta;
     }

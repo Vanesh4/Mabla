@@ -2,7 +2,7 @@
 package com.example.BDMabla.Entidad;
 import javax.persistence.*;
 import javax.persistence.Entity;
-
+import java.util.Set;
 
 
 @Entity
@@ -16,6 +16,9 @@ public class TablaCategorias {
     @Column(name = "Categoria", nullable = false, length = 70)
     private String Categoria;
 
+
+    @OneToMany(mappedBy = "tablaCategorias", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private Set<TablaPreguntas> TablaPreguntas;
 
     public TablaCategorias(Integer idCategoria, String categoria) {
         this.idCategoria = idCategoria;
@@ -39,6 +42,14 @@ public class TablaCategorias {
 
     public void setCategoria(String categoria) {
         this.Categoria = categoria;
+    }
+
+    public Set<com.example.BDMabla.Entidad.TablaPreguntas> getTablaPreguntas() {
+        return TablaPreguntas;
+    }
+
+    public void setTablaPreguntas(Set<com.example.BDMabla.Entidad.TablaPreguntas> tablaPreguntas) {
+        TablaPreguntas = tablaPreguntas;
     }
 }
 

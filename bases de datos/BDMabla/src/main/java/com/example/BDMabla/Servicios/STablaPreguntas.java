@@ -1,4 +1,4 @@
-package com.example.BDMabla.Servicios;
+/*package com.example.BDMabla.Servicios;
 
 import com.example.BDMabla.Entidad.*;
 
@@ -16,30 +16,53 @@ public class STablaPreguntas {
     private RTablaPreguntas repTablaPreguntas;
     private RTablaCategorias repTablaCategorias;
 
-    public STablaPreguntas(RTablaPreguntas repTablaPreguntas) {
+    public STablaPreguntas(RTablaPreguntas repTablaPreguntas, RTablaCategorias repTablaCategorias) {
         this.repTablaPreguntas = repTablaPreguntas;
+        this.repTablaCategorias = repTablaCategorias;
     }
 
     public List<TablaPreguntas> getPreguntas(){
+
         return repTablaPreguntas.findAll();
-    }
+    }*/
 
     //insertar
-    public Boolean postPregunta(Integer idCategoria, TablaPreguntas preg){
+    /*public String postPreguntas(Integer idCategoria, TablaPreguntas p){
+
+        TablaPreguntas preg = new TablaPreguntas();
+
         TablaCategorias cat = repTablaCategorias.findById(idCategoria).get();
         if (repTablaCategorias.findById(idCategoria).isPresent()){
-
+            preg.setNumeroPregunta(p.getNumeroPregunta());
+            System.out.println("Entrooo o nooooo");
+            preg.setIdCategoria(cat);
+            System.out.println(cat);
+            preg.setTipo(p.getTipo());
+            preg.setSenia(p.getSenia());
+            preg.setRespuesta(p.getRespuesta());
+            repTablaPreguntas.save(preg);
+            return "se registro";
         }
+        else return "no se registro";
+    }*/
 
-            /*TablaUsuario user= repoUsuario.findById(alias).get();
-            if(repoUsuario.findById(alias).isPresent()){
-                comment.setTablaUsuario(user);
-                repostorioComents.save(comment);
-                return "Comentario guardado";
-            }
-            else return "El alias no exist";*/
-        return true;
+    /*
+    public String postPreguntas(Integer idCategoria, TablaPreguntas p){
+
+        TablaPreguntas preg = new TablaPreguntas();
+
+        TablaCategorias cat = repTablaCategorias.findById(idCategoria).get();
+        if (repTablaCategorias.findById(idCategoria).isPresent()){
+            preg.setNumeroPregunta(p.getNumeroPregunta());
+            preg.setRespuesta(p.getRespuesta());
+            preg.setSenia(p.getSenia());
+            preg.setTipo(p.getTipo());
+            preg.setIdCategoria(cat);
+            repTablaPreguntas.save(preg);
+            return "se registro";
+        }
+        else return "no se registro";
     }
 
 }
-
+*/

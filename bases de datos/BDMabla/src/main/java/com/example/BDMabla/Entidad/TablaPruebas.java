@@ -1,4 +1,4 @@
-package com.example.BDMabla.Entidad;
+/*package com.example.BDMabla.Entidad;
 
 import javax.persistence.*;
 
@@ -13,4 +13,4 @@ public class TablaPruebas {
     @Column(nullable = false)
 
 
-}
+}*/
