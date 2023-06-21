@@ -27,6 +27,7 @@ public class STablaPreguntas {
     }*/
 
     //insertar
+<<<<<<< HEAD
     /*public String postPreguntas(Integer idCategoria, TablaPreguntas p){
 
         TablaPreguntas preg = new TablaPreguntas();
@@ -63,6 +64,20 @@ public class STablaPreguntas {
         }
         else return "no se registro";
     }
+=======
+    /*public Boolean postPregunta(Integer idCategoria, TablaPreguntas preg){
+        *//*TablaCategorias cat = repTablaCategorias.
+
+            TablaUsuario user= repoUsuario.findById(alias).get();
+            if(repoUsuario.findById(alias).isPresent()){
+                comment.setTablaUsuario(user);
+                repostorioComents.save(comment);
+                return "Comentario guardado";
+            }
+            else return "El alias no exist";*//*
+        return true;
+    }*/
+>>>>>>> b8125aefa0e4cd39bd81054a99f0ac9d695eb797
 
 }
 */

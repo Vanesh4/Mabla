@@ -25,6 +25,8 @@ public class TablaUsuario {
 
     @OneToMany(mappedBy = "tablaUsuario", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Set<TablaComentarios> tablaComentarios;
+    @OneToMany(mappedBy = "tablaUsuario", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private Set<TablaPruebas> tablaPruebas;
 
     public TablaUsuario(String alias, String nombre, String apellido, int telefono, String correo, String contrasenia, String imgPerfil) {
         this.alias = alias;
@@ -106,5 +108,13 @@ public class TablaUsuario {
 
     public void setTablaComentarios(Set<TablaComentarios> tablaComentarios) {
         this.tablaComentarios = tablaComentarios;
+    }
+
+    public Set<TablaPruebas> getTablaPruebas() {
+        return tablaPruebas;
+    }
+
+    public void setTablaPruebas(Set<TablaPruebas> tablaPruebas) {
+        this.tablaPruebas = tablaPruebas;
     }
 }

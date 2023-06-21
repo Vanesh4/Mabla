@@ -12,5 +12,8 @@ public interface RTablaPalabras extends JpaRepository<TablaPalabras, String> {
 
 
 }*/
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> b8125aefa0e4cd39bd81054a99f0ac9d695eb797

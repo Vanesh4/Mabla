@@ -1,3 +1,5 @@
+<<<<<<< HEAD
+=======
 /*package com.example.BDMabla.Controlador;
 
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,4 +27,11 @@ public class CTablaPalabras {
     }
 <<<<<<< HEAD
 }*/
+<<<<<<< HEAD
 
+=======
+<<<<<<< HEAD
+>>>>>>> e5a067e06502e1b62a256eb0d9be01f330b393c7
+=======
+>>>>>>> e5a067e06502e1b62a256eb0d9be01f330b393c7
+>>>>>>> b8125aefa0e4cd39bd81054a99f0ac9d695eb797
