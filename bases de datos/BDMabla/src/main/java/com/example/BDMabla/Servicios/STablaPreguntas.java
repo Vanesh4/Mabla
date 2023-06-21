@@ -25,8 +25,8 @@ public class STablaPreguntas {
     }
 
     //insertar
-    public Boolean postPregunta(Integer idCategoria, TablaPreguntas preg){
-        /*TablaCategorias cat = repTablaCategorias.
+    /*public Boolean postPregunta(Integer idCategoria, TablaPreguntas preg){
+        *//*TablaCategorias cat = repTablaCategorias.
 
             TablaUsuario user= repoUsuario.findById(alias).get();
             if(repoUsuario.findById(alias).isPresent()){
@@ -34,9 +34,9 @@ public class STablaPreguntas {
                 repostorioComents.save(comment);
                 return "Comentario guardado";
             }
-            else return "El alias no exist";*/
+            else return "El alias no exist";*//*
         return true;
-    }
+    }*/
 
 }
 
