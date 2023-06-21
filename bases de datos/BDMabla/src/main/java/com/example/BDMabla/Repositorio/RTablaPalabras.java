@@ -1,14 +1,16 @@
-/*
+
 package com.example.BDMabla.Repositorio;
 
+import com.example.BDMabla.Entidad.TablaPalabras;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
-/*
+
 @Repository
 public interface RTablaPalabras extends JpaRepository<TablaPalabras, String> {
 
+<<<<<<< HEAD
 
 
 }*/
@@ -17,3 +19,6 @@ public interface RTablaPalabras extends JpaRepository<TablaPalabras, String> {
 
 =======
 >>>>>>> b8125aefa0e4cd39bd81054a99f0ac9d695eb797
+=======
+}
+>>>>>>> 1d807d288cb386acd61c3e5d1bbda8a713c4df60

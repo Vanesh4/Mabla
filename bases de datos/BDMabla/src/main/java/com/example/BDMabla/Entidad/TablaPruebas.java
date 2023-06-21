@@ -23,7 +23,7 @@ public class TablaPruebas {
     @JoinColumn(name = "alias", referencedColumnName = "alias", nullable = false)
     @JsonIgnore
     private TablaUsuario tablaUsuario;
-    @OneToMany(mappedBy = "tablaCategorias", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "tablaPruebas", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Set<TablaCategorias> tablaCategorias;
 
     @Column(name = "fecha")
