@@ -27,4 +27,7 @@ public class CTablaPalabras {
     }
 <<<<<<< HEAD
 }*/
+<<<<<<< HEAD
+>>>>>>> e5a067e06502e1b62a256eb0d9be01f330b393c7
+=======
 >>>>>>> e5a067e06502e1b62a256eb0d9be01f330b393c7
