@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Collections;
+import java.util.Objects;
 
 @Service
 public class STablaCategorias {
@@ -29,7 +30,7 @@ public class STablaCategorias {
             inserto = true;
         } else {
             for (TablaCategorias c : getCategorias()) {
-                if (c.getIdCategoria() == cat.getIdCategoria()) {
+                if (Objects.equals(c.getCategoria(), cat.getCategoria())) {
                     inserto = false;
                 } else {
                     inserto = true;
@@ -38,7 +39,7 @@ public class STablaCategorias {
                 }
             }
         }
-        if (inserto == true) return "se inserto correctamente";
+        if (inserto) return "se inserto correctamente";
         else return "no se inserto";
     }
 

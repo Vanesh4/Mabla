@@ -2,34 +2,27 @@ package com.example.BDMabla.Entidad;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
+import java.util.Set;
 
 
 @Entity
-@Table(name="TablaPreguntas")
+@Table(name="tablaPreguntas")
 public class TablaPreguntas {
-
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer NumeroPregunta;
-
     @Column(name="Tipo")
     private int Tipo;
-
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name="idCategoria", referencedColumnName = "idCategoria", nullable = false)
-    @JsonIgnore
-    public TablaCategorias idCategoria;
-
-    @Column(name="Senia")
+    @Column()
     private String Senia;
 
-    @Column(name="Respuesta", nullable = false)
+    @Column(nullable = false)
     private String Respuesta;
-
-    public TablaPreguntas(Integer numeroPregunta, int tipo, TablaCategorias idCategoria, String senia, String respuesta) {
+    @OneToMany(mappedBy = "tablaPreguntas", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private Set<TablaCategorias> tablaCategorias;
+    public TablaPreguntas(Integer numeroPregunta, int tipo, String senia, String respuesta) {
         NumeroPregunta = numeroPregunta;
         Tipo = tipo;
-        this.idCategoria = idCategoria;
         Senia = senia;
         Respuesta = respuesta;
     }
@@ -53,12 +46,12 @@ public class TablaPreguntas {
         Tipo = tipo;
     }
 
-    public TablaCategorias getIdCategoria() {
-        return idCategoria;
+    public Set<TablaCategorias> getTablaCategorias() {
+        return tablaCategorias;
     }
 
-    public void setIdCategoria(TablaCategorias idCategoria) {
-        this.idCategoria = idCategoria;
+    public void settablaCategorias(Set<TablaCategorias> tablaCategorias) {
+        this.tablaCategorias = tablaCategorias;
     }
 
     public String getSenia() {

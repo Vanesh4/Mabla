@@ -1,8 +1,4 @@
-/*
-
 package com.example.BDMabla.Servicios;
-
-/*
 import com.example.BDMabla.Entidad.TablaCategorias;
 import com.example.BDMabla.Entidad.TablaPalabras;
 import com.example.BDMabla.Repositorio.RTablaCategorias;
@@ -11,7 +7,7 @@ import com.example.BDMabla.Repositorio.RTablaPalabras;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-@Service
+/*@Service
 public class STablaPalabras {
     private RTablaPalabras repositorio;
 
@@ -30,10 +26,8 @@ public class STablaPalabras {
         }
     }
 
-
-   */
-/*public String insertarpalabra(TablaPalabras t){
-        for (TablaCategorias c: Mostrartodo()){
+public String insertarpalabra(TablaPalabras t){
+        for (TablaCategorias: Mostrartodo());{
             if (c.getCategoria() == repositorio.findByCategoria(t.getCategoria())){
                 repositorio.save(t);
                 return "Categoria registrada";
@@ -45,8 +39,7 @@ public class STablaPalabras {
 
         }
         return "registrada";
-    }*//*
-
+    }
 
     public String insertarpalabra(TablaPalabras t){
         if(repositorio.findById(t.getPalabra()).isPresent()){
@@ -56,5 +49,5 @@ public class STablaPalabras {
         }
         return "se ha guardado";
     }
-}
-*/
+}*/
+

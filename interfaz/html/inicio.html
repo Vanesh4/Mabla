@@ -1,0 +1,66 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MABLA</title>
+    <link rel="icon" type="image/x-icon" href="https://img.icons8.com/?size=512&id=84881&format=png">
+    <link rel="stylesheet" href="{% static 'css/inicio.css' %}">
+</head>
+<body>
+    <!-- 
+        colores:
+        azul oscuro: #0a4d68
+        azul claro: #06bfdb
+        morado: #76037a
+        naranja: #ff731c
+        beige: #fff7ea
+     -->
+    <header id="header">
+        <div id="parteizq">
+            <!-- Logo de mabla -->
+            <div class="linkContenido">
+                <p class="textomenu">Contenido</p>
+                <img src="../img/flecha-hacia-abajo-para-navegar.png" alt="flecha" style="width: 15px;height: 15px;" class="imgflecha">
+            </div>
+            <div class="linkContenido">
+                <p class="textomenu">Sobre nosotros</p>
+                <img src="../img/flecha-hacia-abajo-para-navegar.png" alt="flecha" style="width: 15px;height: 15px;" class="imgflecha">
+            </div>
+        </div>
+        <div id="partederecha">
+            <div id="login">
+                <p id="BotonRegisto">
+                    Registrarme
+                </p>
+                <p id="BotonIngresar">
+                    Ingresar
+                </p>
+            </div>
+            <div id="buscador">
+                <input type="text" name="buscador" id="buscadorMenu">
+                <div id="backgrondLupa">
+                    <img src="" alt="">
+                </div>
+            </div>
+            
+        </div>    
+    </header>
+
+    <section id="contenido">
+        <h1>MABLA</h1>
+        <p>Aprende lengua de señas colombiana</p>
+        <div class="link">Contenido</div>
+        <div class="link">Quizes</div>
+        <div class="link">Diccionarios</div>
+        <!-- <div class="link"></div> -->
+    </section>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+        <path fill="#ff731c" fill-opacity="1" d="M0,192L80,208C160,224,320,256,480,229.3C640,203,800,117,960,106.7C1120,96,1280,160,1360,192L1440,224L1440,0L1360,0C1280,0,1120,0,960,0C800,0,640,0,480,0C320,0,160,0,80,0L0,0Z"></path>
+    </svg>
+    
+    
+</body>
+</html>

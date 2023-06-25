@@ -1,0 +1,94 @@
+body{
+    background-color: #76037a;
+}
+
+header{
+    display: flex;
+    flex-direction: column;
+    background-image: url("/static/img/picoSGV.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    align-items: center;
+    height: 850px;
+    padding-left: 100px;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 40%;
+    height: 360px;
+    font-family: 'Raleway', sans-serif;
+    color: white;
+    font-size: 20px;
+}
+#boton{
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+#colorbtn{
+    background:  #ff731c;
+    color: white;
+    font-size: 20px;
+    width: 35%;
+}
+#validationUsername{
+    background-color: rgb(252,244,234);
+}
+#validationPassword{
+    background-color: rgb(252,244,234);
+    margin-bottom: 25px;
+}
+
+.links{
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+}
+.as{
+    color: white;
+    text-decoration: none;
+}
+
+@media screen and (min-width:320px) and (max-width:700px){
+    header{
+        background-image: url("/img/picoResponsiveSVG.svg");
+        background-size: contain;
+        background-repeat: no-repeat;
+        height: 1500px;
+        width: 320px;
+        justify-content: center;
+        align-items: start;
+        padding-top: 20px;
+        padding-right: 80px;
+    }
+    
+    form{
+        display: flex;
+        font-family: 'Raleway', sans-serif;
+        color: white;
+        font-size: 16px;
+        height: 400px;
+        width: 350%;
+        
+    }
+    #boton{
+        margin-top: 20px;
+    }
+    #colorbtn{
+        background-color: blue;
+        color: white;
+        font-size: 16px;
+        width: 80%;
+    }
+    #validationDefaultUsername{
+        background-color: rebeccapurple;
+    }
+    .as{
+        color: white;
+        text-decoration: none;
+        font-size: 16px;
+    }
+}
