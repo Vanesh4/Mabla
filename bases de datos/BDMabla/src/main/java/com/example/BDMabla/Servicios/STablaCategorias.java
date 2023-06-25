@@ -66,12 +66,12 @@ public class STablaCategorias {
         else return "no se registro";
     }*/
 
-    public String DeletePreg(Integer idcat){
+    public String Deletecate(Integer idcat){
         if(repCategorias.findById(idcat).isPresent()){
             repCategorias.deleteById(idcat);
-            return "Se elimino el producto";
+            return "Se ha eliminado correctamente";
         }
-        else return "No se elimino el producto";
+        else return "No se elimino";
     }
 
 

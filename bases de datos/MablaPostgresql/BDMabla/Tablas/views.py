@@ -323,3 +323,38 @@ class deletesubcategoria(View):
     
 
 #CRUD TABLA PALABRA
+
+class getPalabra(View):
+    def get(self,request):
+        insert= TablaPalabra.objects.all().values()
+        insertpalabra=list(insert)
+        return JsonResponse(insertpalabra, safe=False)
+    
+class postpalabra(View):
+    #notacion
+    @method_decorator(csrf_exempt)
+    def dispatch(self, request, *args: Any, **kwargs):
+        return super().dispatch(request, *args, **kwargs)
+    
+    def post(self, request):
+        data=json.loads(request.body)
+        request.POST.get('Palabra')
+        request.POST.get('subcategoria_id')
+        request.POST.get('Senia')
+        print("palabras",request.POST)
+        insert=TablaPalabra.objects.create(Palabra=data['Palabra'],subcategoria_id=data['subcategoria_id'], Senia=data['Senia'])
+        insert.save()
+        return JsonResponse({'mensaje':'Palabra guardada guardados'})
+
+class deletepalabra(View):
+    @method_decorator(csrf_exempt)
+    def dispatch(self, request: HttpRequest, *args: Any, **kwargs):
+        return super().dispatch(request, *args, **kwargs)
+    def delete(self, request, pk):
+        try:
+            registro=TablaPalabra.objects.get(pk=pk)
+        except TablaPalabra.DoesNotExist:
+            return JsonResponse({'Error':'Esta palabra no existe'})
+        registro.delete()
+
+        return JsonResponse({'mensaje': "Palabra eliminada"})
