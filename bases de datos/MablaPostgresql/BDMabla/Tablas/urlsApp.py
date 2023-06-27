@@ -30,5 +30,9 @@ urlpatterns = [
     path('postsubcate',postsubcategoria.as_view(),name='postsubcate'),
     path('deletesubcate/<pk>',deletesubcategoria.as_view(),name='deletesubcate'),
 
+    path('getpalabra',getPalabra.as_view(),name='getpalabra'),
+    path('postpalabra',postpalabra.as_view(),name='postpalabra'),
+    path('deletepalabra/<pk>',deletepalabra.as_view(),name='deletepalabra'),
+
 
 ]
