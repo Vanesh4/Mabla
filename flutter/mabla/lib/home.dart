@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mabla/formas/ondaHome.dart';
+import 'package:mabla/screen/login.dart';
 
 const Color darkBlue = Color(0xFF0a4d68);
 const Color lightBlue = Color(0xFF06bfdb);
@@ -56,7 +57,33 @@ class _homeState extends State<home> {
                 ),
                 Icon(Icons.arrow_forward_ios)
               ],
-            )
+            ),
+            Container(
+              width: 200,
+              child: ElevatedButton(onPressed: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>registro()));
+              },
+                child: Text('Registrarme',
+                  style: TextStyle(fontSize: 22, fontFamily: "Raleway",color: Colors.white),),
+                style: ButtonStyle(
+                  backgroundColor: MaterialStatePropertyAll(darkBlue),
+                  
+                ),
+              ),
+            ),
+            Container(
+              width: 200,
+              child: ElevatedButton(onPressed: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>login()));
+              },
+                child: Text('Iniciar Sesion',
+                  style: TextStyle(fontSize: 22, fontFamily: "Raleway",color: Colors.white),),
+                style: ButtonStyle(
+                  backgroundColor: MaterialStatePropertyAll(lightBlue),
+
+                ),
+              ),
+            ),
 
           ],
         )
@@ -116,7 +143,7 @@ class _homeState extends State<home> {
                       Container(
                         width: 200,
                         child: ElevatedButton(onPressed: (){},
-                          child: Text('Quizes',
+                          child: Text('Pruebas',
                             style: TextStyle(fontSize: 22, fontFamily: "Raleway",color: Colors.black),),
                           style: ButtonStyle(
                             backgroundColor: MaterialStatePropertyAll(beige),
