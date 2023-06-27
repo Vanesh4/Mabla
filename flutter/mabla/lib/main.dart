@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mabla/home.dart';
 
 void main() {
   runApp(const MyApp());
@@ -37,10 +38,20 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
 
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: home()
     );
   }
 }
 
 
+/*
+colores:
+azul oscuro: #0a4d68
+azul claro: #06bfdb
+morado: #76037a
+naranja: #ff731c
+beige:#fff7ea
+*/
