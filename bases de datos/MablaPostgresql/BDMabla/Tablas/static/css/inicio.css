@@ -57,9 +57,14 @@ input{
 }
 
 #comentar{
-    border: 2px solid black;
+    border: 1px solid black;
     border-radius: 10px;
     width: 40%;
-    height: 100px;
-    display: block;
+    
+}
+textarea{
+    border: none;
+    padding: 30px;
+    resize: none; 
+    overflow: hidden; 
 }
