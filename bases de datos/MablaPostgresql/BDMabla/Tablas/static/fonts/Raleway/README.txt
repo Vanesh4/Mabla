@@ -1,26 +1,36 @@
-Arimo Variable Font
-===================
+Raleway Variable Font
+=====================
 
-This download contains Arimo as both variable fonts and static fonts.
+This download contains Raleway as both variable fonts and static fonts.
 
-Arimo is a variable font with this axis:
+Raleway is a variable font with this axis:
   wght
 
 This means all the styles are contained in these files:
-  Arimo-VariableFont_wght.ttf
-  Arimo-Italic-VariableFont_wght.ttf
+  Raleway-VariableFont_wght.ttf
+  Raleway-Italic-VariableFont_wght.ttf
 
 If your app fully supports variable fonts, you can now pick intermediate styles
 that aren’t available as static fonts. Not all apps support variable fonts, and
-in those cases you can use the static font files for Arimo:
-  static/Arimo-Regular.ttf
-  static/Arimo-Medium.ttf
-  static/Arimo-SemiBold.ttf
-  static/Arimo-Bold.ttf
-  static/Arimo-Italic.ttf
-  static/Arimo-MediumItalic.ttf
-  static/Arimo-SemiBoldItalic.ttf
-  static/Arimo-BoldItalic.ttf
+in those cases you can use the static font files for Raleway:
+  static/Raleway-Thin.ttf
+  static/Raleway-ExtraLight.ttf
+  static/Raleway-Light.ttf
+  static/Raleway-Regular.ttf
+  static/Raleway-Medium.ttf
+  static/Raleway-SemiBold.ttf
+  static/Raleway-Bold.ttf
+  static/Raleway-ExtraBold.ttf
+  static/Raleway-Black.ttf
+  static/Raleway-ThinItalic.ttf
+  static/Raleway-ExtraLightItalic.ttf
+  static/Raleway-LightItalic.ttf
+  static/Raleway-Italic.ttf
+  static/Raleway-MediumItalic.ttf
+  static/Raleway-SemiBoldItalic.ttf
+  static/Raleway-BoldItalic.ttf
+  static/Raleway-ExtraBoldItalic.ttf
+  static/Raleway-BlackItalic.ttf
 
 Get started
 -----------
@@ -61,7 +71,7 @@ Android Apps
 
 License
 -------
-Please read the full license text (LICENSE.txt) to understand the permissions,
+Please read the full license text (OFL.txt) to understand the permissions,
 restrictions and requirements for usage, redistribution, and modification.
 
 You can use them in your products & projects – print or digital,

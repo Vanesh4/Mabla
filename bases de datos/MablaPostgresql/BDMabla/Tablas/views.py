@@ -248,6 +248,8 @@ def formIniciarSesion(request):
 def iniciohtml(request):
     return render(request,"inicio.html")
 
+def menuTodo(request):
+    return render(request,"menu.html")
 
 #CRUD TABLA CATEGORIAS
 
