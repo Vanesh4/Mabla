@@ -28,9 +28,9 @@ public class CTablaCategorias {
         return serCategorias.postCategorias(cat);
     }
 
-    @DeleteMapping("/deletePreg/{cat}")
-    public String eliminarProducto(@PathVariable("cat") Integer cat){
-        return serCategorias.DeletePreg(cat);
+    @DeleteMapping("/deletecate/{cat}")
+    public String eliminarcategoria(@PathVariable("cat") Integer cat){
+        return serCategorias.Deletecate(cat);
     }
 
 }

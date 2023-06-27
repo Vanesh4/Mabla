@@ -1,7 +1,7 @@
 from typing import Any
 from django.http import HttpResponseRedirect, JsonResponse
 from django.shortcuts import render
-from django.views.generic import View
+from django.views.generic import View, ListView
 from django.http import HttpRequest, JsonResponse
 from django.utils.decorators import method_decorator
 from django.views.decorators.csrf import csrf_exempt
@@ -214,7 +214,7 @@ class editPregunta(View):
     
         preg.tipo=data.get('tipo')
         preg.senia=data.get('senia')
-        preg.idCategoria=data.get('idCategoria_id')
+        #preg.idCategoria=data.get('idCategoria_id')
         preg.respuesta=data.get('respuesta')
         preg.save() 
         return JsonResponse({"Mensaje":"Datos actualizados"})
@@ -248,15 +248,29 @@ def formIniciarSesion(request):
 def iniciohtml(request):
     return render(request,"inicio.html")
 
+def menuTodo(request):
+    return render(request,"menu.html")
 
 #CRUD TABLA CATEGORIAS
 
-class getcategoria(View):
+class getCategoria(View):
+    def get(self, request):
+        datos=TablaCategoria.objects.all()
+        datos_Categoria=[]
+        for i in datos:
+            datos_Categoria.append({
+                'Categoria':i.Categoria,
+            })
+        return JsonResponse(datos_Categoria, safe=False)
+
+
+""" class getcategoria(View):
     def get(self,request):
         insert= TablaCategoria.objects.all().values()
         insertcate=list(insert)
-        return JsonResponse(insertcate, safe=False)
-    
+        return JsonResponse(insertcate, safe=False) """
+
+
 class postcategoria(View):
     @method_decorator(csrf_exempt)
     def dispatch(self, request, *args: Any, **kwargs):
@@ -324,3 +338,42 @@ class deletesubcategoria(View):
     
 
 #CRUD TABLA PALABRA
+
+class getPalabra(View):
+    def get(self,request):
+        insert= TablaPalabra.objects.all().values()
+        insertpalabra=list(insert)
+        return JsonResponse(insertpalabra, safe=False)
+    
+class postpalabra(View):
+    #notacion
+    @method_decorator(csrf_exempt)
+    def dispatch(self, request, *args: Any, **kwargs):
+        return super().dispatch(request, *args, **kwargs)
+    
+    def post(self, request):
+        data=json.loads(request.body)
+        request.POST.get('Palabra')
+        request.POST.get('subcategoria_id')
+        request.POST.get('Senia')
+        print("palabras",request.POST)
+        insert=TablaPalabra.objects.create(Palabra=data['Palabra'],subcategoria_id=data['subcategoria_id'], Senia=data['Senia'])
+        insert.save()
+        return JsonResponse({'mensaje':'Palabra guardada guardados'})
+
+class deletepalabra(View):
+    @method_decorator(csrf_exempt)
+    def dispatch(self, request: HttpRequest, *args: Any, **kwargs):
+        return super().dispatch(request, *args, **kwargs)
+    def delete(self, request, pk):
+        try:
+            registro=TablaPalabra.objects.get(pk=pk)
+        except TablaPalabra.DoesNotExist:
+            return JsonResponse({'Error':'Esta palabra no existe'})
+        registro.delete()
+
+        return JsonResponse({'mensaje': "Palabra eliminada"})
+
+
+def vercategorias(request):
+    return render(request, "consultando.html")
