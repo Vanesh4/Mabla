@@ -1,7 +1,7 @@
 from typing import Any
 from django.http import HttpResponseRedirect, JsonResponse
 from django.shortcuts import render
-from django.views.generic import View
+from django.views.generic import View, ListView
 from django.http import HttpRequest, JsonResponse
 from django.utils.decorators import method_decorator
 from django.views.decorators.csrf import csrf_exempt
@@ -253,11 +253,23 @@ def menuTodo(request):
 
 #CRUD TABLA CATEGORIAS
 
-class getcategoria(View):
+class getCategoria(ListView):
+    def get(self, request):
+        datos=TablaCategoria.objects.all()
+        datos_Categoria=[]
+        for i in datos:
+            datos_Categoria.append({
+                'Categoria':i.Categoria,
+                
+            })
+        return JsonResponse(datos_Categoria, safe=False)
+
+
+""" class getcategoria(View):
     def get(self,request):
         insert= TablaCategoria.objects.all().values()
         insertcate=list(insert)
-        return JsonResponse(insertcate, safe=False)
+        return JsonResponse(insertcate, safe=False) """
     
 class postcategoria(View):
     @method_decorator(csrf_exempt)
@@ -361,3 +373,7 @@ class deletepalabra(View):
         registro.delete()
 
         return JsonResponse({'mensaje': "Palabra eliminada"})
+
+
+def vercategorias(request):
+    return render(request, "consultando.html")
