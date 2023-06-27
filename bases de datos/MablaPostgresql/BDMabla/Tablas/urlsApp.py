@@ -1,5 +1,4 @@
 from django.urls import path
-from Tablas.models import *
 from .views import *
 from . import views
 
