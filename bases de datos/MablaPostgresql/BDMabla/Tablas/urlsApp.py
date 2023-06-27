@@ -23,9 +23,10 @@ urlpatterns = [
 
     path('inicio',views.iniciohtml, name="inicio"),
 
-    path('getcate',getcategoria.as_view(),name='getcate'),
+    path('getcate',getCategoria.as_view(),name='getcate'),
     path('postcate',postcategoria.as_view(),name='postcate'),
     path('deletecate/<pk>',deletecategoria.as_view(),name='deletecate'),
+    path('mostrar/', views.vercategorias, name='getCate'),
 
     path('getsubcate',getsubcategoria.as_view(),name='getsubcate'),
     path('postsubcate',postsubcategoria.as_view(),name='postsubcate'),

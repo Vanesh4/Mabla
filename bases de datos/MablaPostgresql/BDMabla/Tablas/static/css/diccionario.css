@@ -1,0 +1,190 @@
+.caja1{
+    display: flex;
+    flex-direction: row;
+    background-color: #3a3939;
+}
+.buscar{
+    
+    width: 40%;
+    height: 100px;
+    background-color: #393a3c;
+    padding: 10px;
+    
+
+}
+input{
+    
+    box-sizing: border-box;
+    margin-top: 13px;
+    height: 40px;
+    width: 85%;
+    padding: 0 20px;
+    color: rgb(0, 0, 0);
+    border-radius: 50px;
+    font-size: 20px;
+    border-radius: 1px solid rgb(0, 4, 255);
+    
+
+
+
+}
+
+::placeholder{
+    color: grey;
+}
+
+.btn{
+    position: absolute;
+    top: 25px;
+    right: 8%;
+    width: 50px;
+    height: 50px;
+    background: #0a4d68;
+    line-height: 80px;
+    border-radius: 50%;
+    text-align: center;
+   
+   
+
+}
+
+#lupa{
+    height: 80%;
+    color: #fefefe;
+}
+
+.btn i{
+    font-size: 25px;
+    color: rgb(16, 10, 182);
+    line-height: 80px;
+    
+}
+
+.input{
+    width: 350%;
+}
+
+
+
+.btn:hover{
+    background: rgb(126, 5, 5);
+    background-color: #ff731c;
+}
+
+
+
+.cajaboton{
+    width: 80%;
+    height: 120px;
+}
+
+.home{
+    display: flex;
+    width: 15%;
+    margin-top: 25px;
+    margin-left: 80%;
+    border-radius: 0;
+    background-color: #0a4d68;
+    justify-content: center;
+    
+}
+.abc{
+    width: 5%;
+    height: 120px;
+}
+
+
+
+.bot{
+    position: absolute;
+    right: 0;
+    top: 15px;
+    width: 50px;
+    height: 50px;
+    background: #ff731c;
+    line-height: 80px;
+    border-radius: 50%;
+    text-align: center;
+    cursor: pointer;
+    transition: .5s;
+    margin-right: 13px;
+    margin-top: 13px;
+
+}
+
+.bot:hover{
+    background: rgb(126, 5, 5);
+    background-color: #0a4d68;
+}
+
+.caja2{
+    width: 100%;
+    margin: auto;
+    height: 400px;
+    background-color: blueviolet;
+    display: flex;
+    flex-direction: row;
+}
+
+.resul{
+    width: 90%;
+    height: 200px;
+    background-color: #0a4d68;
+}
+.letras{
+    width: 10%;
+    height: 200px;
+    background-color: #0a6862;
+}
+.list_show{
+    width: 80%;
+    margin-left: auto;
+    border-left: 2px solid #303440 ;
+    list-style: none;
+    transition: height .4s;
+    height: 0;
+
+}
+
+.nav_link--inside:hover{
+    background-color: #06bfdb;
+    border-radius: 50%;
+   
+
+}
+
+.list{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 50%;
+    background: #fff;
+    background-color: #0a4d68;
+  
+}
+.nav_link{
+    color: #fefefe;
+    display: block;
+    padding: 11px 0;
+    text-decoration: none;
+   
+    
+   
+    
+}
+.nav_link--inside{
+    border-radius: 6px;
+    padding-left: 20px;
+    text-align: left;
+    
+}
+
+.show{
+    display: block;
+}
+.hider{
+    display: none;
+    height: auto;
+}
