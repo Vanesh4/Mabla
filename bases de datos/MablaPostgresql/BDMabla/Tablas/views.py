@@ -214,7 +214,7 @@ class editPregunta(View):
     
         preg.tipo=data.get('tipo')
         preg.senia=data.get('senia')
-        preg.idCategoria=data.get('idCategoria_id')
+        #preg.idCategoria=data.get('idCategoria_id')
         preg.respuesta=data.get('respuesta')
         preg.save() 
         return JsonResponse({"Mensaje":"Datos actualizados"})
@@ -253,14 +253,13 @@ def menuTodo(request):
 
 #CRUD TABLA CATEGORIAS
 
-class getCategoria(ListView):
+class getCategoria(View):
     def get(self, request):
         datos=TablaCategoria.objects.all()
         datos_Categoria=[]
         for i in datos:
             datos_Categoria.append({
                 'Categoria':i.Categoria,
-                
             })
         return JsonResponse(datos_Categoria, safe=False)
 
@@ -270,7 +269,8 @@ class getCategoria(ListView):
         insert= TablaCategoria.objects.all().values()
         insertcate=list(insert)
         return JsonResponse(insertcate, safe=False) """
-    
+
+
 class postcategoria(View):
     @method_decorator(csrf_exempt)
     def dispatch(self, request, *args: Any, **kwargs):
