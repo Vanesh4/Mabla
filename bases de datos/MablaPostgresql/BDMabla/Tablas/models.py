@@ -3,7 +3,7 @@ from django.db import models
 # Create your models here.
 
 class TablaUsuario(models.Model):
-    alias=models.TextField(max_length=30, primary_key=True)
+    alias=models.TextField(primary_key=True, max_length=30)
     nombre=models.TextField(max_length=30)
     apellido=models.TextField(max_length=30)
     telefono=models.PositiveBigIntegerField(verbose_name="Teléfono")
