@@ -1,6 +1,5 @@
+package com.example.BDMabla.Controlador;
 
-<<<<<<< HEAD
-=======
 import com.example.BDMabla.Entidad.TablaPreguntas;
 import com.example.BDMabla.Servicios.STablaPreguntas;
 import org.springframework.web.bind.annotation.*;
@@ -8,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@CrossOrigin(origins = "*")
+//@CrossOrigin(origins = "*")
 public class CTablaPreguntas {
     private STablaPreguntas serTablaPreguntas;
 
@@ -25,6 +24,16 @@ public class CTablaPreguntas {
     public Boolean insertarPregunta(@PathVariable("cat") String cat, @RequestBody TablaPreguntas p){
         return serTablaPreguntas.PostPreguntas(cat, p);
     }
+
+    @PutMapping("/editPregunta/{np}")
+    public boolean editarPregunta(@PathVariable("np") Integer np, @RequestBody TablaPreguntas preg){
+        return serTablaPreguntas.editPregunta(np, preg);
+    }
+
+    @DeleteMapping("/deletePreg/{np}")
+    public boolean deletePreg(@PathVariable("np") Integer np){
+        return serTablaPreguntas.deletePregunta(np);
+    }
 }
->>>>>>> vanessa
+
 
