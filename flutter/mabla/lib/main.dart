@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
+<<<<<<< HEAD
+import 'package:mabla/home.dart';
+import 'package:mabla/screen/login.dart';
+=======
 
 import 'package:mabla/home.dart';
 
 import 'package:mabla/screen/login.dart';
 
+>>>>>>> 489ecd398db671ef0ccd380a0405fd707947c9bc
 
 void main() {
   runApp(const MyApp());
@@ -54,7 +59,6 @@ class MyApp extends StatelessWidget {
 
 
 
-/*
 colores:
 azul oscuro: #0a4d68
 azul claro: #06bfdb
