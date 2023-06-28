@@ -12,29 +12,35 @@ public class TablaCategorias {
     @Id
     @Column(nullable = false, length = 70)
     private String Categoria;
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "id", referencedColumnName = "id", nullable = false)
-    @JsonIgnore
-    private TablaPruebas tablaPruebas;
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "NumeroPregunta", referencedColumnName = "NumeroPregunta", nullable = false)
-    @JsonIgnore
-    private TablaPreguntas tablaPreguntas;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "IdSubcategoria", referencedColumnName = "IdSubcategoria", nullable = false)
-    @JsonIgnore
-    public TablaSubcategorias tablaSubcategorias;
+
     @OneToMany(mappedBy = "tablaCategorias", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private Set<TablaPalabras> tablaPalabras;
-    public TablaCategorias(String Categoria, TablaPruebas tablaPruebas, TablaPreguntas tablaPreguntas, TablaSubcategorias tablaSubcategorias) {
-        this.Categoria = Categoria;
+    private Set<TablaPruebas> tablaPruebas;
+
+    @OneToMany(mappedBy = "tablaCategorias", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private Set<TablaPreguntas> tablaPreguntas;
+
+    @OneToMany(mappedBy = "tablaCategorias", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private Set<TablaPrueba_Pregunta> tablaPrueba_Pregunta;
+
+    @OneToMany(mappedBy = "tablaCategorias", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private Set<TablaSubcategorias> tablaSubcategorias;
+
+
+
+    public TablaCategorias() {
+    }
+
+    public TablaCategorias(String categoria, Set<TablaPruebas> tablaPruebas, Set<TablaPreguntas> tablaPreguntas, Set<TablaPrueba_Pregunta> tablaPrueba_Pregunta, Set<TablaSubcategorias> tablaSubcategorias) {
+        Categoria = categoria;
         this.tablaPruebas = tablaPruebas;
         this.tablaPreguntas = tablaPreguntas;
+        this.tablaPrueba_Pregunta = tablaPrueba_Pregunta;
         this.tablaSubcategorias = tablaSubcategorias;
     }
 
-    public TablaCategorias() {
+    public TablaCategorias(String categoria) {
+        Categoria = categoria;
     }
 
     public String getCategoria() {
@@ -42,38 +48,38 @@ public class TablaCategorias {
     }
 
     public void setCategoria(String categoria) {
-        this.Categoria = categoria;
+        Categoria = categoria;
     }
 
-    public TablaPruebas getTablaPruebas() {
+    public Set<TablaPruebas> getTablaPruebas() {
         return tablaPruebas;
     }
 
-    public void setTablaPruebas(TablaPruebas tablaPruebas) {
+    public void setTablaPruebas(Set<TablaPruebas> tablaPruebas) {
         this.tablaPruebas = tablaPruebas;
     }
 
-    public TablaPreguntas getTablaPreguntas() {
+    public Set<TablaPreguntas> getTablaPreguntas() {
         return tablaPreguntas;
     }
 
-    public void setTablaPreguntas(TablaPreguntas tablaPreguntas) {
+    public void setTablaPreguntas(Set<TablaPreguntas> tablaPreguntas) {
         this.tablaPreguntas = tablaPreguntas;
     }
 
-    public Set<TablaPalabras> getTablaPalabras() {
-        return tablaPalabras;
+    public Set<TablaPrueba_Pregunta> getTablaPrueba_Pregunta() {
+        return tablaPrueba_Pregunta;
     }
 
-    public void setTablaPalabras(Set<TablaPalabras> tablaPalabras) {
-        this.tablaPalabras = tablaPalabras;
+    public void setTablaPrueba_Pregunta(Set<TablaPrueba_Pregunta> tablaPrueba_Pregunta) {
+        this.tablaPrueba_Pregunta = tablaPrueba_Pregunta;
     }
 
-    public TablaSubcategorias getTablaSubcategorias() {
+    public Set<TablaSubcategorias> getTablaSubcategorias() {
         return tablaSubcategorias;
     }
 
-    public void setTablaSubcategorias(TablaSubcategorias tablaSubcategorias) {
+    public void setTablaSubcategorias(Set<TablaSubcategorias> tablaSubcategorias) {
         this.tablaSubcategorias = tablaSubcategorias;
     }
 }
