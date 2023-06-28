@@ -12,6 +12,7 @@ public class TablaCategorias {
     @Id
     @Column(nullable = false, length = 70)
     private String Categoria;
+
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "id", referencedColumnName = "id", nullable = false)
     @JsonIgnore
