@@ -18,9 +18,14 @@ public class TablaPreguntas {
 
     @Column(nullable = false)
     private String Respuesta;
-    @OneToMany(mappedBy = "tablaPreguntas", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private Set<TablaCategorias> tablaCategorias;
-    public TablaPreguntas(Integer numeroPregunta, int tipo, String senia, String respuesta) {
+
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "Categoria", referencedColumnName = "Categoria", nullable = false)
+    @JsonIgnore
+    private TablaCategorias tablaCategorias;
+
+
+     public TablaPreguntas(Integer numeroPregunta, int tipo, String senia, String respuesta) {
         NumeroPregunta = numeroPregunta;
         Tipo = tipo;
         Senia = senia;
@@ -52,15 +57,14 @@ public class TablaPreguntas {
     public void setTipo(int tipo) {
         Tipo = tipo;
     }
-
-    public Set<TablaCategorias> getTablaCategorias() {
+    /*public Set<TablaCategorias> getTablaCategorias() {
         return tablaCategorias;
     }
 
     public void settablaCategorias(Set<TablaCategorias> tablaCategorias) {
         this.tablaCategorias = tablaCategorias;
     }
-
+*/
     public String getSenia() {
         return Senia;
     }

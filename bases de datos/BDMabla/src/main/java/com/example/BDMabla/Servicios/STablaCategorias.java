@@ -19,10 +19,20 @@ public class STablaCategorias {
     }
 
     public List<TablaCategorias> getCategorias(){
+
         return repCategorias.findAll();
     }
 
-    public String postCategorias(TablaCategorias cat) {
+    public String PostCategoria(TablaCategorias c){
+        if (repCategorias.findById(c.getCategoria()).isPresent()){
+            return "La Categoria ya existe";
+        }else {
+            repCategorias.save(c);
+            return "Registrada corectamente";
+        }
+    }
+
+   /* public String postCategorias(TablaCategorias cat) {
         TablaCategorias catnuevo = new TablaCategorias();
         boolean inserto = false;
         if (getCategorias().isEmpty()) {
@@ -41,7 +51,7 @@ public class STablaCategorias {
         }
         if (inserto) return "se inserto correctamente";
         else return "no se inserto";
-    }
+    }*/
 
 /*public List<TablaCategorias> buscarCategoria(String cate){
 
@@ -67,13 +77,13 @@ public class STablaCategorias {
         else return "no se registro";
     }*/
 
-    public String Deletecate(Integer idcat){
+   /* public String Deletecate(Integer idcat){
         if(repCategorias.findById(idcat).isPresent()){
             repCategorias.deleteById(idcat);
             return "Se ha eliminado correctamente";
         }
         else return "No se elimino";
-    }
+    }*/
 
 
 }

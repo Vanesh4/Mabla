@@ -25,13 +25,10 @@ public class CTablaCategorias {
 
     @PostMapping("/postCategoria")
     public String insertCategoria(@RequestBody TablaCategorias cat){
-        return serCategorias.postCategorias(cat);
+        return serCategorias.PostCategoria(cat);
     }
 
-    @DeleteMapping("/deletecate/{cat}")
-    public String eliminarcategoria(@PathVariable("cat") Integer cat){
-        return serCategorias.Deletecate(cat);
-    }
+
 
 }
 

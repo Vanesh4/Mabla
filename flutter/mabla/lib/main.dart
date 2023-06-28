@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
+<<<<<<< HEAD
+import 'package:mabla/home.dart';
+import 'package:mabla/screen/login.dart';
+=======
 
 import 'package:mabla/home.dart';
 
 import 'package:mabla/screen/login.dart';
 
+>>>>>>> 489ecd398db671ef0ccd380a0405fd707947c9bc
 
 void main() {
   runApp(const MyApp());

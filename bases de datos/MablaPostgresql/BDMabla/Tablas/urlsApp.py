@@ -22,11 +22,12 @@ urlpatterns = [
 
     path('inicio',views.iniciohtml, name="inicio"),
     path('menu',views.menuTodo, name="menu"),
+    path('mostrar/',views.vercategorias, name="mostrar"),
 
     path('getcate',getCategoria.as_view(),name='getcate'),
     path('postcate',postcategoria.as_view(),name='postcate'),
     path('deletecate/<pk>',deletecategoria.as_view(),name='deletecate'),
-    path('mostrar/', views.vercategorias, name='getCate'),
+    
 
     path('getsubcate',getsubcategoria.as_view(),name='getsubcate'),
     path('postsubcate',postsubcategoria.as_view(),name='postsubcate'),
@@ -35,6 +36,7 @@ urlpatterns = [
     path('getpalabra',getPalabra.as_view(),name='getpalabra'),
     path('postpalabra',postpalabra.as_view(),name='postpalabra'),
     path('deletepalabra/<pk>',deletepalabra.as_view(),name='deletepalabra'),
+    path('getpalabrita/<pk>',getPalabraT.as_view(),name='getpalabrita'),
 
 
 ]
