@@ -1,23 +1,27 @@
 header{
-    font-family: 'Raleway', sans-serif;
     display: flex;
-    flex-direction: column;
+    justify-content: space-around;
+    flex-wrap: nowrap;
     background-image: url("/static/img/picoSGV.svg");
     background-size: contain;
     background-repeat: no-repeat;
-    align-items: start;
+    align-self: flex-start;
     height: 850px;
-    padding-top:260px;
+    padding-left: 70px;
 }
+
 form{
+    width: 40%;
     justify-content: center;
-    align-items: center;
-    width: 44%;
-    height:290px;
+    align-content: center;
     font-family: 'Raleway', sans-serif;
     color: white;
     font-size: 25px;
-    padding-left: 100px;
+}
+
+.textRegister{
+    text-align: center;
+    font-family: 'Martian Mono', monospace;
 }
 #boton{
     display: flex;
@@ -37,6 +41,7 @@ form{
     margin-left: 40px;
 }
 #clave{
+    margin-top: 50px;
     margin-left: 40px; 
 }
 #validationNombre{
@@ -61,4 +66,8 @@ form{
 }
 #validationPassword{
     background-color: rgb(252,244,234);
+}
+.imgM{
+    width: 40%;  
+    margin-top: 100px;
 }

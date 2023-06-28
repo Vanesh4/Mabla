@@ -59,7 +59,6 @@ class MyApp extends StatelessWidget {
 
 
 
-/*
 colores:
 azul oscuro: #0a4d68
 azul claro: #06bfdb

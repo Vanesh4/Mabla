@@ -26,32 +26,13 @@ public class STablaCategorias {
     public String PostCategoria(TablaCategorias c){
         if (repCategorias.findById(c.getCategoria()).isPresent()){
             return "La Categoria ya existe";
-        }else {
+        }
+        else {
             repCategorias.save(c);
             return "Registrada corectamente";
         }
     }
 
-   /* public String postCategorias(TablaCategorias cat) {
-        TablaCategorias catnuevo = new TablaCategorias();
-        boolean inserto = false;
-        if (getCategorias().isEmpty()) {
-            repCategorias.save(cat);
-            inserto = true;
-        } else {
-            for (TablaCategorias c : getCategorias()) {
-                if (Objects.equals(c.getCategoria(), cat.getCategoria())) {
-                    inserto = false;
-                } else {
-                    inserto = true;
-                    repCategorias.save(cat);
-                    break;
-                }
-            }
-        }
-        if (inserto) return "se inserto correctamente";
-        else return "no se inserto";
-    }*/
 
 /*public List<TablaCategorias> buscarCategoria(String cate){
 
