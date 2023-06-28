@@ -2,14 +2,12 @@ package com.example.BDMabla.Controlador;
 
 import com.example.BDMabla.Entidad.TablaPreguntas;
 import com.example.BDMabla.Servicios.STablaPreguntas;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = "*")
 public class CTablaPreguntas {
     private STablaPreguntas serTablaPreguntas;
 
@@ -22,9 +20,9 @@ public class CTablaPreguntas {
         return serTablaPreguntas.getPreguntas();
     }
 
-    /*@PostMapping("/postPregunta")
-    public Boolean insertarPregunta(@RequestBody TablaPreguntas p){
-        return serTablaPreguntas.postPregunta(p);
-    }*/
+    @PostMapping("/postPregunta/{cat}")
+    public Boolean insertarPregunta(@PathVariable("cat") String cat, @RequestBody TablaPreguntas p){
+        return serTablaPreguntas.PostPreguntas(cat, p);
+    }
 }
 
