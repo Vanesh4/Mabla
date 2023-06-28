@@ -10,7 +10,7 @@ from Tablas.models import *
 
 #Sara
 #tabla usuario
-class getTablaUser(View):
+class getTablaUser(ListView):
     def get(self,request):
         register= TablaUsuario.objects.all()
         register_User=[]

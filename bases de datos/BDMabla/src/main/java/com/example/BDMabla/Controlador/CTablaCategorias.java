@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = "*")
 public class CTablaCategorias {
     private STablaCategorias serCategorias;
 
@@ -27,8 +28,6 @@ public class CTablaCategorias {
     public String insertCategoria(@RequestBody TablaCategorias cat){
         return serCategorias.PostCategoria(cat);
     }
-
-
 
 }
 

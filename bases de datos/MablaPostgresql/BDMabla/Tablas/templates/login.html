@@ -11,10 +11,15 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,300;0,400;0,700;1,100&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Martian+Mono:wght@100;500&display=swap" rel="stylesheet">
 </head>
 <body>
   <header>
     <form method="POST" id="formLogin" class="row g-3">
+      <div class="textSesion">
+        <h1>INICIAR SESIÓN</h1>
+      </div>
       {% csrf_token %}
       <div class="col-md-6">
           <label for="validationDefaultUsername" class="form-label"> Alias</label>
@@ -32,13 +37,18 @@
 
         <div class="links">
           <h5><a href="" class="as">Olvidaste tu contraseña?</a></h5>
-          <h4><a href="" class="as">Registrarme</a></h4>
+          <h4><a href="http://127.0.0.1:8000/insertUserForm/inicio.html" class="as">Registrarme</a></h4>
         </div>
+
         <div class="col-16" id="boton">
           <button class="btn" type="submit" id="colorbtn">Ingresar</button>
         </div>
+        
       </form>
       <h1>{{mensaje}}</h1>
+      <div class="imgM">
+        <img src="\static\img\letrasMABLAmorado.png" alt="" srcset="" width="100%">
+      </div>
   </header>    
 </body>
 </html>
