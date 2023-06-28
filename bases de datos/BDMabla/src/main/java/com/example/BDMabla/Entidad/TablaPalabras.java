@@ -10,26 +10,29 @@ public class TablaPalabras {
     @Column(nullable = false, length = 100)
     private String Palabra;
 
+    @Column()
+    private String Senia;
+
+
+
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "Categoria", referencedColumnName = "Categoria", nullable = false)
     @JsonIgnore
     private TablaCategorias tablaCategorias;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "IdSubcategoria", referencedColumnName = "IdSubcategoria", nullable = false)
+    @JoinColumn(name = "Subcategoria", referencedColumnName = "Subcategoria", nullable = false)
     @JsonIgnore
     private TablaSubcategorias tablaSubcategorias;
 
-    @Column()
-    private String Senia;
-
-    public TablaPalabras(String palabra, TablaCategorias tablaCategorias, String senia) {
-        Palabra = palabra;
-        this.tablaCategorias = tablaCategorias;
-        Senia = senia;
+    public TablaPalabras() {
     }
 
-    public TablaPalabras() {
+    public TablaPalabras(String palabra, String senia, TablaCategorias tablaCategorias, TablaSubcategorias tablaSubcategorias) {
+        Palabra = palabra;
+        Senia = senia;
+        this.tablaCategorias = tablaCategorias;
+        this.tablaSubcategorias = tablaSubcategorias;
     }
 
     public String getPalabra() {
@@ -40,14 +43,6 @@ public class TablaPalabras {
         Palabra = palabra;
     }
 
-    public TablaCategorias getTablaCategorias() {
-        return tablaCategorias;
-    }
-
-    public void setTablaCategorias(TablaCategorias tablaCategorias) {
-        this.tablaCategorias = tablaCategorias;
-    }
-
     public String getSenia() {
         return Senia;
     }
@@ -56,12 +51,29 @@ public class TablaPalabras {
         Senia = senia;
     }
 
+    public TablaCategorias getTablaCategorias() {
+        return tablaCategorias;
+    }
+
+    public void setTablaCategorias(TablaCategorias tablaCategorias) {
+        this.tablaCategorias = tablaCategorias;
+    }
+
+    public TablaSubcategorias getTablaSubcategorias() {
+        return tablaSubcategorias;
+    }
+
+    public void setTablaSubcategorias(TablaSubcategorias tablaSubcategorias) {
+        this.tablaSubcategorias = tablaSubcategorias;
+    }
+
     @Override
     public String toString() {
         return "TablaPalabras{" +
                 "Palabra='" + Palabra + '\'' +
-                ", categoria=" + tablaCategorias +
                 ", Senia='" + Senia + '\'' +
+                ", tablaCategorias=" + tablaCategorias +
+                ", tablaSubcategorias=" + tablaSubcategorias +
                 '}';
     }
 }
