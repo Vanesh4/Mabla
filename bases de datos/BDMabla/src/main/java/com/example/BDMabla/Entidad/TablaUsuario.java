@@ -22,6 +22,7 @@ public class TablaUsuario {
      String contrasenia;
     @Column(nullable = false, length = 30)
      String imgPerfil= "img por defecto";
+
     @OneToMany(mappedBy = "tablaUsuario", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Set<TablaComentarios> tablaComentarios;
     @OneToMany(mappedBy = "tablaUsuario", cascade = CascadeType.ALL, fetch = FetchType.LAZY)

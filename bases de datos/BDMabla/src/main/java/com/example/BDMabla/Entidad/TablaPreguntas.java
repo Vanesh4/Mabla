@@ -24,8 +24,22 @@ public class TablaPreguntas {
     @JsonIgnore
     private TablaCategorias tablaCategorias;
 
+    public TablaPreguntas(Integer numeroPregunta, int tipo, String senia, String respuesta, TablaCategorias tablaCategorias) {
+        NumeroPregunta = numeroPregunta;
+        Tipo = tipo;
+        Senia = senia;
+        Respuesta = respuesta;
+        this.tablaCategorias = tablaCategorias;
+    }
 
-     public TablaPreguntas(Integer numeroPregunta, int tipo, String senia, String respuesta) {
+    public TablaPreguntas(Integer numeroPregunta, int tipo, String senia, String respuesta) {
+        NumeroPregunta = numeroPregunta;
+        Tipo = tipo;
+        Senia = senia;
+        Respuesta = respuesta;
+    }
+
+    public TablaPreguntas(Integer numeroPregunta, int tipo, String senia, String respuesta) {
         NumeroPregunta = numeroPregunta;
         Tipo = tipo;
         Senia = senia;
@@ -50,14 +64,7 @@ public class TablaPreguntas {
     public void setTipo(int tipo) {
         Tipo = tipo;
     }
-    /*public Set<TablaCategorias> getTablaCategorias() {
-        return tablaCategorias;
-    }
 
-    public void settablaCategorias(Set<TablaCategorias> tablaCategorias) {
-        this.tablaCategorias = tablaCategorias;
-    }
-*/
     public String getSenia() {
         return Senia;
     }
@@ -72,5 +79,13 @@ public class TablaPreguntas {
 
     public void setRespuesta(String respuesta) {
         Respuesta = respuesta;
+    }
+
+    public TablaCategorias getTablaCategorias() {
+        return tablaCategorias;
+    }
+
+    public void setTablaCategorias(TablaCategorias tablaCategorias) {
+        this.tablaCategorias = tablaCategorias;
     }
 }
