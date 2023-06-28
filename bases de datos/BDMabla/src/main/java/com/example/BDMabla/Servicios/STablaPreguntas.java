@@ -28,6 +28,7 @@ public class STablaPreguntas {
 
     //insertar
 <<<<<<< HEAD
+<<<<<<< HEAD
     /*public String postPreguntas(Integer idCategoria, TablaPreguntas p){
 
         TablaPreguntas preg = new TablaPreguntas();
@@ -65,6 +66,18 @@ public class STablaPreguntas {
         else return "no se registro";
     }
 =======
+=======
+    public Boolean PostPreguntas(String cat, TablaPreguntas pregnueva){
+        TablaCategorias categoria = repTablaCategorias.findById(cat).get();
+        if(repTablaCategorias.findById(cat).isPresent()){
+            pregnueva.setTablaCategorias(categoria);
+            repTablaPreguntas.save(pregnueva);
+            return true;
+        }
+        else return false;
+    }
+
+>>>>>>> vanessa
     /*public Boolean postPregunta(Integer idCategoria, TablaPreguntas preg){
         *//*TablaCategorias cat = repTablaCategorias.
 
