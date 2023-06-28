@@ -12,8 +12,6 @@ public class TablaCategorias {
     @Id
     @Column(nullable = false, length = 70)
     private String Categoria;
-
-
     @OneToMany(mappedBy = "tablaCategorias", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Set<TablaPruebas> tablaPruebas;
 
@@ -26,29 +24,24 @@ public class TablaCategorias {
     @OneToMany(mappedBy = "tablaCategorias", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Set<TablaSubcategorias> tablaSubcategorias;
 
-
-
     public TablaCategorias() {
     }
 
-    public TablaCategorias(String categoria, Set<TablaPruebas> tablaPruebas, Set<TablaPreguntas> tablaPreguntas, Set<TablaPrueba_Pregunta> tablaPrueba_Pregunta, Set<TablaSubcategorias> tablaSubcategorias) {
-        Categoria = categoria;
+    public TablaCategorias(String Categoria, Set<TablaPruebas> tablaPruebas, Set<TablaPreguntas> tablaPreguntas, Set<TablaPrueba_Pregunta> tablaPrueba_Pregunta, Set<TablaSubcategorias> tablaSubcategorias) {
+        this.Categoria = Categoria;
         this.tablaPruebas = tablaPruebas;
         this.tablaPreguntas = tablaPreguntas;
         this.tablaPrueba_Pregunta = tablaPrueba_Pregunta;
         this.tablaSubcategorias = tablaSubcategorias;
     }
 
-    public TablaCategorias(String categoria) {
-        Categoria = categoria;
-    }
 
     public String getCategoria() {
         return Categoria;
     }
 
-    public void setCategoria(String categoria) {
-        Categoria = categoria;
+    public void setCategoria(String Categoria) {
+        this.Categoria = Categoria;
     }
 
     public Set<TablaPruebas> getTablaPruebas() {
