@@ -1,5 +1,4 @@
 header{
-    font-family: 'Raleway', sans-serif;
     display: flex;
     justify-content: space-around;
     flex-wrap: nowrap;
@@ -42,6 +41,7 @@ form{
     margin-left: 40px;
 }
 #clave{
+    margin-top: 50px;
     margin-left: 40px; 
 }
 #validationNombre{

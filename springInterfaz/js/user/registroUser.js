@@ -23,7 +23,7 @@ $(document).ready(function(){
             success: function(answer){
                 if(answer=="/inicio"){
                     alert("la respuesta es: "+answer+" y se supone que la tiene que redireccionar a inicio")
-                    window.location.href='inicio.html'
+                    window.location.href='consultar.html'
                 }
                 else{
                     alert("entro al else")
