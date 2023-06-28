@@ -8,8 +8,9 @@
     <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/brands.js" integrity="sha384-sCI3dTBIJuqT6AwL++zH7qL8ZdKaHpxU43dDt9SyOzimtQ9eyRhkG3B7KMl6AO19" crossorigin="anonymous"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/fontawesome.js" integrity="sha384-7ox8Q2yzO/uWircfojVuCQOZl+ZZBg2D2J5nkpLqzH1HY0C1dHlTKIbpRz/LG23c" crossorigin="anonymous"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js" integrity="sha384-SlE991lGASHoBfWbelyBPLsUlwY1GwNDJo3jSJO04KZ33K2bwfV9YBauFfnzvynJ" crossorigin="anonymous"></script>
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="/BDMabla/Tablas/static/css/consultando.css"> 
+    <script src="{% static 'css/consultando.css' %}"></script>
 </head>
 <body>
 
@@ -25,10 +26,7 @@
                     <img src="/BDMabla/Tablas/Asset/arrow.svg" class="list_arrow">
                     
                 </div>
-                
-
-                
-
+                            
                 <ul class="list_show">
                     <li class="list_inside">
                         <a href="#" class="nav_link nav_link--inside" id="hideText_btn">ANIMALES</a>
@@ -87,6 +85,35 @@
             <li class="list_item list_item--click">
                 <div class="list_button list_button--click">
                     <img src="" class="list_img">
+                    <a href="#" class="nav_link">CONJUNCIONES</a>
+                    <img src="/BDMabla/Tablas/Asset/arrow.svg" class="list_arrow">
+          
+                </div>
+
+                <ul class="list_show">
+                    <li class="list_inside">
+                        <a href="#" class="nav_link nav_link--inside">Estoy dentro</a>
+    
+                    </li>
+
+                    <li class="list_inside">
+                        <a href="#" class="nav_link nav_link--inside">Estoy dentro</a>
+    
+                    </li>
+
+                    <li class="list_inside">
+                        <a href="#" class="nav_link nav_link--inside">Estoy dentro</a>
+    
+                    </li>
+
+
+
+                </ul>
+            </li>
+
+            <li class="list_item list_item--click">
+                <div class="list_button list_button--click">
+                    <img src="" class="list_img">
                     <a href="#" class="nav_link">ADJETIVOS</a>
                     <img src="/BDMabla/Tablas/Asset/arrow.svg" class="list_arrow">
           
@@ -116,7 +143,7 @@
             <li class="list_item list_item--click">
                 <div class="list_button list_button--click">
                     <img src="" class="list_img">
-                    <a href="#" class="nav_link">ABECEDARIO</a>
+                    <a href="#" class="nav_link">ADVERBIOS</a>
                     <img src="/BDMabla/Tablas/Asset/arrow.svg" class="list_arrow">
           
                 </div>
@@ -200,39 +227,10 @@
                 </ul>
             </li>
 
-            <li class="list_item list_item--click">
-                <div class="list_button list_button--click">
-                    <img src="" class="list_img">
-                    <a href="#" class="nav_link">TEMPORALES</a>
-                    <img src="/BDMabla/Tablas/Asset/arrow.svg" class="list_arrow">
-          
-                </div>
-
-                <ul class="list_show">
-                    <li class="list_inside">
-                        <a href="#" class="nav_link nav_link--inside">Estoy dentro</a>
-    
-                    </li>
-
-                    <li class="list_inside">
-                        <a href="#" class="nav_link nav_link--inside">Estoy dentro</a>
-    
-                    </li>
-
-                    <li class="list_inside">
-                        <a href="#" class="nav_link nav_link--inside">Estoy dentro</a>
-    
-                    </li>
-
-
-
-                </ul>
-            </li>
-
             <li class="list_item list_item--click" >
                 <div class="list_button list_button--click">
                     <img src="" class="list_img">
-                    <a href="#" class="nav_link">ADVERBIOS</a>
+                    <a href="#" class="nav_link"></a>
                     <img src="/BDMabla/Tablas/Asset/arrow.svg" class="list_arrow">
           
                 </div>
@@ -336,6 +334,7 @@
 
     </table>
 
+  
     <script src="{% static 'js/consultando.js' %}"></script>
    
 

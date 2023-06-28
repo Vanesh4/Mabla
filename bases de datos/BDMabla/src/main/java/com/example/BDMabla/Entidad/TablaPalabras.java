@@ -15,6 +15,11 @@ public class TablaPalabras {
     @JsonIgnore
     private TablaCategorias tablaCategorias;
 
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "IdSubcategoria", referencedColumnName = "IdSubcategoria", nullable = false)
+    @JsonIgnore
+    private TablaSubcategorias tablaSubcategorias;
+
     @Column()
     private String Senia;
 
@@ -59,10 +64,6 @@ public class TablaPalabras {
                 ", Senia='" + Senia + '\'' +
                 '}';
     }
-<<<<<<< HEAD
-<<<<<<< HEAD
-}*/
-=======
 }
->>>>>>> 77369b45573bee6b9d914eb15340591ed00f1d7f
+
 
