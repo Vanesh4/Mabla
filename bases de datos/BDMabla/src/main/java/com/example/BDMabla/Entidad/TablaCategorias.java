@@ -5,7 +5,6 @@ import javax.persistence.*;
 import javax.persistence.Entity;
 import java.util.Set;
 
-
 @Entity
 @Table(name="tablaCategorias")
 public class TablaCategorias {

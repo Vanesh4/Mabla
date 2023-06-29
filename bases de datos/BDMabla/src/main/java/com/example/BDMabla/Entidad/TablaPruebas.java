@@ -1,6 +1,9 @@
 
 package com.example.BDMabla.Entidad;
+<<<<<<< HEAD
 
+=======
+>>>>>>> vanessa
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -32,6 +35,7 @@ public class TablaPruebas {
     @Temporal(TemporalType.DATE)
     private Date fecha;
 
+<<<<<<< HEAD
 
     @Column(length=5, nullable = false)
     private int puntaje;
@@ -111,3 +115,7 @@ public class TablaPruebas {
 }
 
 
+=======
+
+}
+>>>>>>> vanessa
