@@ -10,10 +10,6 @@ import java.util.List;
 @Repository
 public interface RTablaPalabras extends JpaRepository<TablaPalabras, String> {
 
-<<<<<<< HEAD
+
 
 }
-
-=======
-}
->>>>>>> vanessa

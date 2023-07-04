@@ -69,9 +69,5 @@ public class TablaPalabras {
 
 
 
-<<<<<<< HEAD
 
-
-=======
->>>>>>> vanessa
 

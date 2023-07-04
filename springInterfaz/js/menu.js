@@ -2,7 +2,7 @@ $(document).ready(function () {
     
     titulosCat = document.querySelectorAll('h2')
     
-    console.log("porfis",titulosCat)
+    //console.log("porfis",titulosCat)
     $.ajax({
         url: "http://127.0.0.1:8000/getcate",
         type: "GET",
