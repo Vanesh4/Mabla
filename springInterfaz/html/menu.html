@@ -15,6 +15,9 @@
 <body>
    
     <header id="header">
+        <div class="closeBtn">
+            <img src="/img/cancelar.png" alt="" id="imgBotonCerrarMenu">
+        </div>
         <div id="parteizq">
             <div class="logo">
                 <a href="inicio.html">
@@ -40,7 +43,7 @@
                     <a href="registro.html">Registrarme</a>
                 </p>
                 <p id="BotonIngresar">
-                    <a href="login.html">Ingresar</a>
+                    <a href="login.html">Iniciar Sesión</a>
                 </p>
             </div>
             <div id="buscador">
@@ -51,9 +54,13 @@
         </div>    
     </header>
 
+    <div class="menuResponsive">
+        <img src="/img/lista.png" alt="" style="width: 40px;" id="imgBotonAbrirMenu">
+    </div>
+
     <section id="menuContenido">
         <div class="categoria">
-            <h2></h2>
+            <h2>Verbos</h2>
             <p class="subcategoria">Subcategoria</p>
             <p class="subcategoria">Subcategoria</p>
             <p class="subcategoria">Subcategoria</p>
@@ -61,14 +68,14 @@
         </div>
 
         <div class="categoria">
-            <h2></h2>
+            <h2>Categoria</h2>
             <p class="subcategoria">Subcategoria</p>
             <p class="subcategoria">Subcategoria</p>
             <p class="subcategoria">Subcategoria</p>
         </div>
 
         <div class="categoria">
-            <h2></h2>
+            <h2>Categoria</h2>
             <p class="subcategoria">Subcategoria</p>
             <p class="subcategoria">Subcategoria</p>
             <p class="subcategoria">Subcategoria</p>
@@ -97,6 +104,7 @@
     </section>
 
 
-    <script src="{%static 'js/menu.js'%}"></script>
+    <script src="/js/menu.js"></script>
+    <script src="/js/incio.js"></script>
 </body>
 </html>
