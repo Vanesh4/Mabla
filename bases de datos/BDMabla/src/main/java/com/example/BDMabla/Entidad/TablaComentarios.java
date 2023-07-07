@@ -21,6 +21,7 @@ public class TablaComentarios {
     @JoinColumn(name = "alias", referencedColumnName = "alias", nullable = false)
     @JsonIgnore
     private TablaUsuario tablaUsuario;
+
     @PrePersist
     public void fechaActual(){
         this.fecha= new Date();

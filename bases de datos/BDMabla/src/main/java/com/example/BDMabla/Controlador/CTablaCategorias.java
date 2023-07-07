@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = "*")
 public class CTablaCategorias {
     private STablaCategorias serCategorias;
 
@@ -25,12 +26,7 @@ public class CTablaCategorias {
 
     @PostMapping("/postCategoria")
     public String insertCategoria(@RequestBody TablaCategorias cat){
-        return serCategorias.postCategorias(cat);
-    }
-
-    @DeleteMapping("/deletecate/{cat}")
-    public String eliminarcategoria(@PathVariable("cat") Integer cat){
-        return serCategorias.Deletecate(cat);
+        return serCategorias.PostCategoria(cat);
     }
 
 }

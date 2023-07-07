@@ -3,6 +3,9 @@ import 'package:http/http.dart' as http;
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import '../formas/ondaHome.dart';
+import '../home.dart';
+
 class login extends StatefulWidget {
   const login({super.key});
 
@@ -51,15 +54,15 @@ class _loginState extends State<login> {
             Stack(
               children: [
                 Container(
-                  color: Color.fromRGBO(118, 3, 122, 9),
-                  height: 270,
-                  width: 345,
-                  margin: EdgeInsets.only(top: 42, left: 2),
-                ),
-                Container(
+                  height:450,
                   child: Stack(
                     children: [
-                      Image.asset("assets/img/Recurso 4.png"),
+                      ClipPath(
+                        clipper: ondaHome(),
+                        child: Container(
+                          color: purple,
+                        ),
+                      ),
                       Container(
                         padding: const EdgeInsets.only(top: 30, left: 15, right: 15),
                         child: Column(
@@ -168,8 +171,8 @@ class _loginState extends State<login> {
               ],
             ),
             Container(
-              alignment: Alignment.centerLeft,
-              child: Image.asset("assets/img/letrasMABLA.png", width: 200),
+              alignment: Alignment.center,
+              child: Image.asset("assets/img/letrasMABLAmorado.png", width: 200),
             )
           ],
         )
@@ -249,7 +252,6 @@ class _registroState extends State<registro> {
                     margin: const EdgeInsets.symmetric(horizontal: 16),
                     alignment: Alignment.topCenter,
                     decoration: BoxDecoration(
-                      color:Colors.yellow,
                       borderRadius: BorderRadius.circular(55),
                     ),
                     child: Column(
@@ -257,9 +259,15 @@ class _registroState extends State<registro> {
                         Stack(
                           children: [
                             Container(
+                              height: 550,
                               child: Stack(
                                 children: [
-                                  Image.asset("assets/img/picoRegistro_1.png"),
+                                  ClipPath(
+                                    clipper: ondaHome(),
+                                    child: Container(
+                                      color: purple,
+                                    ),
+                                  ),
                                   Container(
                                     padding: const EdgeInsets.only(top: 30, left: 15, right: 15),
                                     child: Column(
@@ -513,8 +521,8 @@ class _registroState extends State<registro> {
                           ],
                         ),
                         Container(
-                          alignment: Alignment.centerLeft,
-                          child: Image.asset("assets/img/letrasMABLA.png", width: 200),
+                          alignment: Alignment.center,
+                          child: Image.asset("assets/img/letrasMABLAmorado.png", width: 200),
                         )
                       ],
                     )

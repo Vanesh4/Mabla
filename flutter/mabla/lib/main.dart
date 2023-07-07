@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:mabla/header.dart';
+
+import 'package:mabla/home.dart';
 import 'package:mabla/screen/login.dart';
+
 
 void main() {
   runApp(const MyApp());
 }
 
 //sara
-class MyApp extends StatelessWidget {
+/*class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   // This widget is the root of your application.
@@ -18,7 +22,7 @@ class MyApp extends StatelessWidget {
         ),
     );
   }
-}
+}*/
 
 //karen
 /*class MyApp extends StatelessWidget {
@@ -31,7 +35,7 @@ class MyApp extends StatelessWidget {
 
     );
   }
-}
+}*/
 
 //vanessa
 class MyApp extends StatelessWidget {
@@ -40,10 +44,21 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
 
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: home()
     );
   }
 }
+
+
+/*
+colores:
+azul oscuro: #0a4d68
+azul claro: #06bfdb
+morado: #76037a
+naranja: #ff731c
+beige:#fff7ea
 
 */

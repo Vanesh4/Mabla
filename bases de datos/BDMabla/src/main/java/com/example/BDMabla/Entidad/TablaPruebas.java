@@ -1,4 +1,10 @@
+<<<<<<< HEAD
 package com.example.BDMabla.Entidad;
+=======
+
+package com.example.BDMabla.Entidad;
+
+>>>>>>> ebc593e160308a774d216f03440f43d81286b95a
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import javax.persistence.*;
 import java.util.Date;
@@ -8,18 +14,33 @@ import java.util.Set;
 public class TablaPruebas {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Integer idPrueba;
     @Column(nullable = false)
     private int tipo;
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "alias", referencedColumnName = "alias", nullable = false)
     @JsonIgnore
     private TablaUsuario tablaUsuario;
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "Categoria", referencedColumnName = "Categoria", nullable = false)
+    @JsonIgnore
+    private TablaCategorias tablaCategorias;
+
     @OneToMany(mappedBy = "tablaPruebas", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+<<<<<<< HEAD
     private Set<TablaCategorias> tablaCategorias;
     @Column(name = "fecha")
     @Temporal(TemporalType.DATE)
     private Date fecha;
+=======
+    private Set<TablaPrueba_Pregunta> tablaPrueba_Pregunta;
+
+    @Column(name = "fecha")
+    @Temporal(TemporalType.DATE)
+    private Date fecha;
+
+
+>>>>>>> ebc593e160308a774d216f03440f43d81286b95a
     @Column(length=5, nullable = false)
     private int puntaje;
     @PrePersist
@@ -30,21 +51,22 @@ public class TablaPruebas {
     public TablaPruebas() {
     }
 
-    public TablaPruebas(Integer id, int tipo, TablaUsuario tablaUsuario, Set<TablaCategorias> tablaCategorias, Date fecha, int puntaje) {
-        this.id = id;
+    public TablaPruebas(Integer idPrueba, int tipo, TablaUsuario tablaUsuario, TablaCategorias tablaCategorias, Set<TablaPrueba_Pregunta> tablaPrueba_Pregunta, Date fecha, int puntaje) {
+        this.idPrueba = idPrueba;
         this.tipo = tipo;
         this.tablaUsuario = tablaUsuario;
         this.tablaCategorias = tablaCategorias;
+        this.tablaPrueba_Pregunta = tablaPrueba_Pregunta;
         this.fecha = fecha;
         this.puntaje = puntaje;
     }
 
     public Integer getId() {
-        return id;
+        return idPrueba;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setId(Integer idPrueba) {
+        this.idPrueba = idPrueba;
     }
 
     public int getTipo() {
@@ -63,11 +85,11 @@ public class TablaPruebas {
         this.tablaUsuario = tablaUsuario;
     }
 
-    public Set<TablaCategorias> getTablaCategorias() {
+    public TablaCategorias getTablaCategorias() {
         return tablaCategorias;
     }
 
-    public void setTablaCategorias(Set<TablaCategorias> tablaCategorias) {
+    public void setTablaCategorias(TablaCategorias tablaCategorias) {
         this.tablaCategorias = tablaCategorias;
     }
 
@@ -86,5 +108,15 @@ public class TablaPruebas {
     public void setPuntaje(int puntaje) {
         this.puntaje = puntaje;
     }
-}
 
+<<<<<<< HEAD
+=======
+    public Set<TablaPrueba_Pregunta> getTablaPrueba_Pregunta() {
+        return tablaPrueba_Pregunta;
+    }
+
+    public void setTablaPrueba_Pregunta(Set<TablaPrueba_Pregunta> tablaPrueba_Pregunta) {
+        this.tablaPrueba_Pregunta = tablaPrueba_Pregunta;
+    }
+}
+>>>>>>> ebc593e160308a774d216f03440f43d81286b95a

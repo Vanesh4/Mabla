@@ -24,6 +24,14 @@ public class STablaComentarios {
     public List<TablaComentarios> coments(){
         return repostorioComents.findAll();
     }
+
+    /*public List<TablaComentarios> comentariosUser(){
+        List<>
+        for (TablaComentarios i: coments()) {
+            
+        }
+    }*/
+
     public String addcoment(String alias, TablaComentarios comment){
         TablaUsuario user= repoUsuario.findById(alias).get();
         if(repoUsuario.findById(alias).isPresent()){
@@ -44,6 +52,6 @@ public class STablaComentarios {
    public boolean deleteComment(Integer id){
         repostorioComents.deleteById(id);
         return true;
-    }
+   }
 }
 

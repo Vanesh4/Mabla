@@ -22,5 +22,8 @@ public class CTablaPalabras {
     public String insertarpalabra(@RequestBody TablaPalabras t){
         return servicio.insertarpalabra(t);
     }
-}
-*/
+
+}*/
+
+
+

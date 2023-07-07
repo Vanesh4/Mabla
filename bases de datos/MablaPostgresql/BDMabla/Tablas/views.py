@@ -1,7 +1,7 @@
 from typing import Any
 from django.http import HttpResponseRedirect, JsonResponse
 from django.shortcuts import render
-from django.views.generic import View
+from django.views.generic import View, ListView
 from django.http import HttpRequest, JsonResponse
 from django.utils.decorators import method_decorator
 from django.views.decorators.csrf import csrf_exempt
@@ -10,7 +10,7 @@ from Tablas.models import *
 
 #Sara
 #tabla usuario
-class getTablaUser(View):
+class getTablaUser(ListView):
     def get(self,request):
         register= TablaUsuario.objects.all()
         register_User=[]
@@ -214,7 +214,7 @@ class editPregunta(View):
     
         preg.tipo=data.get('tipo')
         preg.senia=data.get('senia')
-        preg.idCategoria=data.get('idCategoria_id')
+        #preg.idCategoria=data.get('idCategoria_id')
         preg.respuesta=data.get('respuesta')
         preg.save() 
         return JsonResponse({"Mensaje":"Datos actualizados"})
@@ -248,15 +248,32 @@ def formIniciarSesion(request):
 def iniciohtml(request):
     return render(request,"inicio.html")
 
+def menuTodo(request):
+    return render(request,"menu.html")
+
+def vercategorias(request):
+    return render(request,"consultando.html")
 
 #CRUD TABLA CATEGORIAS
 
-class getcategoria(View):
+class getCategoria(View):
+    def get(self, request):
+        datos=TablaCategoria.objects.all()
+        datos_Categoria=[]
+        for i in datos:
+            datos_Categoria.append({
+                'Categoria':i.Categoria,
+            })
+        return JsonResponse(datos_Categoria, safe=False)
+
+
+""" class getcategoria(View):
     def get(self,request):
         insert= TablaCategoria.objects.all().values()
         insertcate=list(insert)
-        return JsonResponse(insertcate, safe=False)
-    
+        return JsonResponse(insertcate, safe=False) """
+
+
 class postcategoria(View):
     @method_decorator(csrf_exempt)
     def dispatch(self, request, *args: Any, **kwargs):
@@ -330,7 +347,22 @@ class getPalabra(View):
         insert= TablaPalabra.objects.all().values()
         insertpalabra=list(insert)
         return JsonResponse(insertpalabra, safe=False)
-    
+
+class getPalabraT(View):
+    @method_decorator(csrf_exempt)
+    def dispatch(self, request: HttpRequest, *args: Any, **kwargs):
+        return super().dispatch(request, *args, **kwargs)
+    def get(self, request, pk):
+        try:
+            registro=TablaPalabra.objects.get(pk==pk)     
+        except TablaPalabra.DoesNotExist:
+            return JsonResponse({'Error':'Esta palabra no existe'})
+        
+        mostrar=list(registro)
+        return JsonResponse(mostrar, safe=False)
+
+
+
 class postpalabra(View):
     #notacion
     @method_decorator(csrf_exempt)
@@ -357,5 +389,6 @@ class deletepalabra(View):
         except TablaPalabra.DoesNotExist:
             return JsonResponse({'Error':'Esta palabra no existe'})
         registro.delete()
-
         return JsonResponse({'mensaje': "Palabra eliminada"})
+
+

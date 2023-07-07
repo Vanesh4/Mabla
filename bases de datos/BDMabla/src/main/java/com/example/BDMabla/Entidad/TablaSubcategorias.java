@@ -12,13 +12,18 @@ public class TablaSubcategorias {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer IdSubcategoria;
 
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "Categoria", referencedColumnName = "Categoria", nullable = false)
+    @JsonIgnore
+    private TablaCategorias tablaCategorias;
+
     @OneToMany(mappedBy = "tablaSubcategorias", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private Set<TablaCategorias> tablaCategorias;
+    private Set<TablaPalabras> tablaPalabras;
 
     @Column(nullable = false, length = 70)
     private String Subcategoria;
 
-    public TablaSubcategorias(Integer idSubcategoria, Set<TablaCategorias> tablaCategorias, String subcategoria) {
+    public TablaSubcategorias(Integer idSubcategoria, TablaCategorias tablaCategorias, String subcategoria) {
         IdSubcategoria = idSubcategoria;
         this.tablaCategorias = tablaCategorias;
         Subcategoria = subcategoria;
@@ -36,11 +41,11 @@ public class TablaSubcategorias {
         IdSubcategoria = idSubcategoria;
     }
 
-    public Set<TablaCategorias> getTablaCategorias() {
+    public TablaCategorias getTablaCategorias() {
         return tablaCategorias;
     }
 
-    public void setTablaCategorias(Set<TablaCategorias> tablaCategorias) {
+    public void setTablaCategorias(TablaCategorias tablaCategorias) {
         this.tablaCategorias = tablaCategorias;
     }
 
@@ -60,7 +65,12 @@ public class TablaSubcategorias {
                 ", Subcategoria='" + Subcategoria + '\'' +
                 '}';
     }
+<<<<<<< HEAD
 }
 
+=======
+
+}
+>>>>>>> ebc593e160308a774d216f03440f43d81286b95a
 
 
