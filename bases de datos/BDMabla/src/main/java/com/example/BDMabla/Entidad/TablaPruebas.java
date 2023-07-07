@@ -1,14 +1,12 @@
-<<<<<<< HEAD
-package com.example.BDMabla.Entidad;
-=======
 
 package com.example.BDMabla.Entidad;
 
->>>>>>> ebc593e160308a774d216f03440f43d81286b95a
 import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.Date;
 import java.util.Set;
+
 @Entity
 @Table(name = "tablaPruebas")
 public class TablaPruebas {
@@ -27,20 +25,12 @@ public class TablaPruebas {
     private TablaCategorias tablaCategorias;
 
     @OneToMany(mappedBy = "tablaPruebas", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-<<<<<<< HEAD
-    private Set<TablaCategorias> tablaCategorias;
-    @Column(name = "fecha")
-    @Temporal(TemporalType.DATE)
-    private Date fecha;
-=======
     private Set<TablaPrueba_Pregunta> tablaPrueba_Pregunta;
 
     @Column(name = "fecha")
     @Temporal(TemporalType.DATE)
     private Date fecha;
 
-
->>>>>>> ebc593e160308a774d216f03440f43d81286b95a
     @Column(length=5, nullable = false)
     private int puntaje;
     @PrePersist
@@ -109,8 +99,6 @@ public class TablaPruebas {
         this.puntaje = puntaje;
     }
 
-<<<<<<< HEAD
-=======
     public Set<TablaPrueba_Pregunta> getTablaPrueba_Pregunta() {
         return tablaPrueba_Pregunta;
     }
@@ -119,4 +107,3 @@ public class TablaPruebas {
         this.tablaPrueba_Pregunta = tablaPrueba_Pregunta;
     }
 }
->>>>>>> ebc593e160308a774d216f03440f43d81286b95a

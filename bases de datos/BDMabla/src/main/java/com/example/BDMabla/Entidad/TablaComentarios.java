@@ -5,7 +5,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.Date;
-
 @Entity
 @Table(name="tablaComentarios")
 public class TablaComentarios {
@@ -34,15 +33,15 @@ public class TablaComentarios {
         this.texto = texto;
         this.fecha = fecha;
     }
-    public String getTexto() {
-        return texto;
-    }
-
+    
     public TablaComentarios(String texto) {
         this.texto = texto;
         this.fecha= new Date();
     }
-
+    
+    public String getTexto() {
+        return texto;
+    }
     public void setTexto(String texto) {
         this.texto = texto;
     }

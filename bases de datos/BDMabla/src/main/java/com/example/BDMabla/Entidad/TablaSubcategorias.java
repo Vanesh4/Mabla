@@ -65,12 +65,6 @@ public class TablaSubcategorias {
                 ", Subcategoria='" + Subcategoria + '\'' +
                 '}';
     }
-<<<<<<< HEAD
-}
-
-=======
 
 }
->>>>>>> ebc593e160308a774d216f03440f43d81286b95a
-
 
