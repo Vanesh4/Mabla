@@ -42,7 +42,6 @@ public class TablaUsuario {
         this.alias = alias;
         this.contrasenia = contrasenia;
     }
-
     public TablaUsuario() {
     }
 

@@ -1,15 +1,12 @@
 package com.example.BDMabla.Servicios;
-
 import com.example.BDMabla.Entidad.TablaComentarios;
 import com.example.BDMabla.Entidad.TablaUsuario;
 import com.example.BDMabla.Repositorio.RTablaComentarios;
 import com.example.BDMabla.Repositorio.RTablaUsuario;
-import org.jetbrains.annotations.NotNull;
 import org.springframework.stereotype.Service;
-
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class STablaComentarios {
@@ -23,6 +20,14 @@ public class STablaComentarios {
 
     public List<TablaComentarios> coments(){
         return repostorioComents.findAll();
+    }
+    public List<String> commentAlias() {
+        List<String> lista = new ArrayList<>();
+        for (TablaComentarios i : coments()){
+            lista.add(i.getTablaUsuario().getAlias());
+            lista.add(i.getTexto());
+        }
+        return lista;
     }
 
     /*public List<TablaComentarios> comentariosUser(){

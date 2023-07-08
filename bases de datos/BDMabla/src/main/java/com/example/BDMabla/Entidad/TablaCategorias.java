@@ -26,8 +26,6 @@ public class TablaCategorias {
 
     public TablaCategorias() {
     }
-
-
     public TablaCategorias(String categoria, Set<TablaPruebas> tablaPruebas, Set<TablaPreguntas> tablaPreguntas, Set<TablaPrueba_Pregunta> tablaPrueba_Pregunta, Set<TablaSubcategorias> tablaSubcategorias) {
         Categoria = categoria;
 

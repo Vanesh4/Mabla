@@ -31,7 +31,6 @@ public class TablaPruebas {
     @Temporal(TemporalType.DATE)
     private Date fecha;
 
-
     @Column(length=5, nullable = false)
     private int puntaje;
     @PrePersist

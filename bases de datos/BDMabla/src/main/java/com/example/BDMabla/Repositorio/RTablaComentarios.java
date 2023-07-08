@@ -8,6 +8,5 @@ import java.util.List;
 
 @Repository
 public interface RTablaComentarios extends JpaRepository<TablaComentarios, Integer> {
-
 }
 
