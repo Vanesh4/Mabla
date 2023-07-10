@@ -21,6 +21,7 @@ form{
 }
 
 .textSesion{
+    font-size: 40px;
     text-align: center;
     font-family: 'Martian Mono', monospace;
 }
@@ -33,7 +34,7 @@ form{
 #colorbtn{
     background:  #ff731c;
     color: white;
-    font-size: 30px;
+    font-size: 20px;
     width: 35%;
 }
 #validationUsername{
@@ -41,7 +42,6 @@ form{
 }
 #validationPassword{
     background-color: rgb(252,244,234);
-    margin-bottom: 25px;
 }
 
 .links{
@@ -49,57 +49,64 @@ form{
     padding-top: 30px;
     padding-bottom: 30px;
     flex-direction: column;
-    font-size: 30px;
+    font-size: 25px;
     align-items: flex-end;
     /* margin-left: 20px; */
     /* text-align: end; */
-   
 }
 .as{
     color: white;
     text-decoration: none;
 }
-.imgM{
+.imgyText{
     width: 40%;  
-    margin-top: 100px;
+    margin-top: 40px;
+}
+.slogan{
+    text-align: center;
+    font-family: 'Martian Mono', monospace;
+    color:  #ff731c;
+    margin-top: 20px;
 }
 @media screen and (min-width:320px) and (max-width:700px){
     header{
-        background-image: url("/img/picoResponsiveSVG.svg");
-        background-size: contain;
-        background-repeat: no-repeat;
-        height: 1500px;
-        width: 320px;
-        justify-content: center;
-        align-items: start;
-        padding-top: 20px;
-        padding-right: 80px;
+        background-image: url("/static/img/picoResponsiveSVG.svg");
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        padding: 0px;
+        padding-top: 30px;
     }
-    
     form{
-        display: flex;
-        font-family: 'Raleway', sans-serif;
-        color: white;
-        font-size: 16px;
-        height: 400px;
-        width: 350%;
-        
+        width: 100%;
+        font-size: 18px;
+        padding-left: 30px;
     }
-    #boton{
-        margin-top: 20px;
+    .textSesion{
+        font-size: 24px;
+        padding-bottom: 5px;
+    }
+    #ph{
+        width: 70%;
+    }
+
+    .links{
+        margin: 0px;
+        padding: 0px;
+        font-size: 16px;
+        justify-content: end; 
     }
     #colorbtn{
-        background-color: blue;
-        color: white;
-        font-size: 16px;
-        width: 80%;
+        margin-left: 85px;
+        width: 40%;
+        margin-top: 20px;
     }
-    #validationDefaultUsername{
-        background-color: rebeccapurple;
+    .imgyText{
+        width: 60%;
+        margin-top: 62px;  
+        margin-left: 6px;
     }
-    .as{
-        color: white;
-        text-decoration: none;
-        font-size: 16px;
+    .slogan{
+        margin-top: 20px;
     }
 }

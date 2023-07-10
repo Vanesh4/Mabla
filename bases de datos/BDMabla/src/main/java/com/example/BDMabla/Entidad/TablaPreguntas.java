@@ -32,12 +32,6 @@ public class TablaPreguntas {
         this.tablaCategorias = tablaCategorias;
     }
 
-    public TablaPreguntas(Integer numeroPregunta, int tipo, String senia, String respuesta) {
-        NumeroPregunta = numeroPregunta;
-        Tipo = tipo;
-        Senia = senia;
-        Respuesta = respuesta;
-    }
 
     public TablaPreguntas(Integer numeroPregunta, int tipo, String senia, String respuesta) {
         NumeroPregunta = numeroPregunta;

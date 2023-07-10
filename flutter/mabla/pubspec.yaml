@@ -85,9 +85,9 @@ flutter:
      - family: Raleway
        fonts:
          - asset: assets/fonts/Raleway/Raleway-Medium.ttf
-  #   - family: Trajan Pro
-  #     fonts:
-  #       - asset: fonts/TrajanPro.ttf
+     - family: MartianMono
+       fonts:
+         - asset: assets/fonts/MartianMono/MartianMono-ExtraLight.ttf
   #       - asset: fonts/TrajanPro_Bold.ttf
   #         weight: 700
   #

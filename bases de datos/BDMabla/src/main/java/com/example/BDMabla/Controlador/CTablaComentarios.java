@@ -1,6 +1,7 @@
 package com.example.BDMabla.Controlador;
 
 import com.example.BDMabla.Entidad.TablaComentarios;
+import com.example.BDMabla.Entidad.TablaUsuario;
 import com.example.BDMabla.Servicios.STablaComentarios;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,9 +16,13 @@ public class CTablaComentarios {
         this.metodosComent = metodosComent;
     }
 
-    @GetMapping("/commentAlias")
-    public List<TablaComentarios> coments(){
+    @GetMapping("/comments")
+    public List<TablaComentarios> comments(){
         return metodosComent.coments();
+    }
+    @GetMapping("/commentAlias")
+    public List<String> commentAlias(){
+        return metodosComent.commentAlias();
     }
     @PostMapping("/addComment/{alias}")
     public String addComent(@PathVariable("alias") String alias, @RequestBody TablaComentarios comment){

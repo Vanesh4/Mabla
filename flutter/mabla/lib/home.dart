@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:mabla/formas/ondaHome.dart';
-import 'package:mabla/screen/login.dart';
+import 'package:mabla/header.dart';
+import 'package:mabla/screen/menu.dart';
 
 const Color darkBlue = Color(0xFF0a4d68);
 const Color lightBlue = Color(0xFF06bfdb);
 const Color purple = Color(0xFF76037a);
 const Color orange = Color(0xFFff731c);
 const Color beige = Color(0xFFfff7ea);
-
 
 class home extends StatefulWidget {
   const home({Key? key}) : super(key: key);
@@ -22,72 +22,7 @@ class _homeState extends State<home> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: _scaffoldKey,
-      drawer: Drawer(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Image.asset('assets/img/carpincho.png', width: 150,),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                TextButton(onPressed: (){},
-                    child: Text('Contenido',
-                      style: TextStyle(
-                        fontSize: 25,
-                        fontFamily: 'Raleway',
-                        color: Colors.black
-                      ),
-                    )
-                ),
-                Icon(Icons.arrow_forward_ios)
-              ],
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                TextButton(onPressed: (){},
-                    child: Text('Sobre Nosotros',
-                      style: TextStyle(
-                          fontSize: 25,
-                          fontFamily: 'Raleway',
-                          color: Colors.black
-                      ),
-                    )
-                ),
-                Icon(Icons.arrow_forward_ios)
-              ],
-            ),
-            Container(
-              width: 200,
-              child: ElevatedButton(onPressed: (){
-                Navigator.push(context, MaterialPageRoute(builder: (context)=>registro()));
-              },
-                child: Text('Registrarme',
-                  style: TextStyle(fontSize: 22, fontFamily: "Raleway",color: Colors.white),),
-                style: ButtonStyle(
-                  backgroundColor: MaterialStatePropertyAll(darkBlue),
-                  
-                ),
-              ),
-            ),
-            Container(
-              width: 200,
-              child: ElevatedButton(onPressed: (){
-                Navigator.push(context, MaterialPageRoute(builder: (context)=>login()));
-              },
-                child: Text('Iniciar Sesion',
-                  style: TextStyle(fontSize: 22, fontFamily: "Raleway",color: Colors.white),),
-                style: ButtonStyle(
-                  backgroundColor: MaterialStatePropertyAll(lightBlue),
-
-                ),
-              ),
-            ),
-
-          ],
-        )
-      ),
+      drawer: headerPrincipal(),
       //backgroundColor: Colors.transparent,
       body: SingleChildScrollView(
         child: Column(
@@ -124,39 +59,71 @@ class _homeState extends State<home> {
                           padding: EdgeInsets.only(left: 10, right: 10, bottom: 20),
                           child: Image.asset('assets/img/letrasMABLA.png',)
                       ),
+                      Text('Habla con las manos',
+                        style: TextStyle(
+                            fontSize: 20,
+                            fontFamily: "Raleway"
+                        ),
+                      ),
                       Text('Aprende lengua de señas colombiana',
                       style: TextStyle(
                         fontSize: 20,
                         fontFamily: "Raleway"
-                      ),),
-                      SizedBox(height: 20,),
+                      ),
+                      ),
+                      SizedBox(height: 30,),
                       Container(
-                        width: 200,
-                        child: ElevatedButton(onPressed: (){},
+                        width: 190,
+                        height: 48,
+                        child: ElevatedButton(
+                          onPressed: (){
+                            Navigator.push(context, MaterialPageRoute(builder: (context)=>menu()));
+                          },
                             child: Text('Contenido',
-                              style: TextStyle(fontSize: 22, fontFamily: "Raleway",color: Colors.black),),
+                              style: TextStyle(fontSize: 28, fontFamily: "Raleway",color: Colors.black),),
                           style: ButtonStyle(
                             backgroundColor: MaterialStatePropertyAll(beige),
+                            shape: MaterialStatePropertyAll(
+                                RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(20)
+                                )
+                            )
                           ),
                         ),
                       ),
+                      SizedBox(height: 13,),
                       Container(
-                        width: 200,
-                        child: ElevatedButton(onPressed: (){},
-                          child: Text('Pruebas',
-                            style: TextStyle(fontSize: 22, fontFamily: "Raleway",color: Colors.black),),
+                        width: 190,
+                        height: 48,
+                        child: ElevatedButton(
+                          onPressed: (){},
+                          child: Text('Quizes',
+                            style: TextStyle(fontSize: 28, fontFamily: "Raleway",color: Colors.black),),
                           style: ButtonStyle(
-                            backgroundColor: MaterialStatePropertyAll(beige),
+                              backgroundColor: MaterialStatePropertyAll(beige),
+                              shape: MaterialStatePropertyAll(
+                                  RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(20)
+                                  )
+                              )
                           ),
                         ),
                       ),
+                      SizedBox(height: 13,),
                       Container(
-                        width: 200,
-                        child: ElevatedButton(onPressed: (){},
+                        width: 190,
+                        height: 48,
+                        child: ElevatedButton(
+                          onPressed: (){},
                           child: Text('Diccionario',
-                            style: TextStyle(fontSize: 22, fontFamily: "Raleway",color: Colors.black),),
+                            style: TextStyle(fontSize: 28, fontFamily: "Raleway",color: Colors.black),),
                           style: ButtonStyle(
-                            backgroundColor: MaterialStatePropertyAll(beige),
+                              backgroundColor: MaterialStatePropertyAll(beige),
+                              shape: MaterialStatePropertyAll(
+                                  RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(20)
+                                  )
+                              )
                           ),
                         ),
                       ),
