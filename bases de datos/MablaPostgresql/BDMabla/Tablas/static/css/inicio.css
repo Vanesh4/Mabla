@@ -1,25 +1,26 @@
 @font-face {
     font-family: "raleway";
-    src: url(/Tablas/static/fonts/Raleway/Raleway-Medium.ttf);
+    src: url("{% static 'fonts/Raleway/Raleway-Medium.ttf' %}");
 }
 
 *{
     margin: 0;
 }
+
+
 input{
     border: none;
     font-size: 18px;
-    font-family: "raleway"; 
+    font-family: "raleway", Arial, Helvetica, sans-serif; 
     outline: none;
 }
+
 p{
-    font-family: "raleway";
-}
-#contenido{
-    background-color: #ff731c;
+    font-family: "raleway", Arial, Helvetica, sans-serif;
 }
 
 #contenido{
+    background-color: #ff731c;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -38,9 +39,12 @@ p{
     padding: 10px;
     width: 80%;
 }
-.subLema{
-    padding: 10px 0 30px 0;
+.subLema, .subLema2{
+    /* padding: 10px 0 20px 0; */
     font-size: 20px;
+    font-family: "raleway";
+}
+.subLema2{
     font-family: "raleway";
 }
 .link{
@@ -50,71 +54,148 @@ p{
     padding: 10px 0 10px 0;
     text-align: center;
     width: 20%;
-    margin: 5px;
+    margin-top: 8px;
     border-radius: 100px;
 }
+#linkDicc{
+    margin-bottom: 0;
+}
 #forma{
-    margin-top: -80px;
+    margin-top: -90px;
     margin-bottom: -60px;
 }
 
 #comentariosSection{
     /* position: relative; */
-    padding: 0 30pc 0 30px;
     margin-bottom: 40px;
     display: flex;
+    justify-content: center;
 }
 .listComent{
-    width: 55%;
-    margin-left: 10px;
+    width: 65%;
+    margin-left: 20px;
 }
 .paraComentar{
-    width: 50%;
+    width: 25%;
+    /* margin-left: 30px; */
     display: flex;
-    flex-direction: column;   
+    flex-direction: column; 
+    align-items: center; 
+    align-items: flex-end;
 }
 #comentar{    
     border-radius: 10px;
-    width: 80%;
+    width: 95%;
     height: 50px;
     border: 1px solid black;
-    padding: 15px 30px 0 30px;
+    padding: 10px 20px 0 20px;
     resize: none; 
     overflow: hidden; 
     font-size: 20px;
     font-family: "raleway";
 }
 
-
-
 ::placeholder{
     font-size: 20px;
     font-family: "raleway";
 }
+
 #enviarComentario{
     font-size: 20px;
     font-family: "raleway";
     background-color: #06bfdb;
     padding: 10px 0 10px 0;
     text-align: center;
-    width: 60%;
+    width: 40%;
     border-radius: 100px;
     margin-top: 10px;
 }
 
-
 #comentario{
-    width: 90%;
+    width: 95%;
     border: 1px solid black;
     border-radius: 10px;
-    padding: 3px 10px 0 10px;
+    padding: 5px 10px 0 10px;
     margin-bottom: 10px;
 }
 #user{
     font-size: 15px;
     color: grey;
 }
-#coment{
-    font-size: 20px;
+#comment{
+    font-size: 18px;
     margin-top: 5px;
+}
+
+@media screen and (min-width:320px) and (max-width:700px){
+    #contenido{
+        padding: 40px 0 40px 0;
+    }
+    .menuResponsive{
+        position: relative;
+        top: -30px;
+        display: flex;
+        width: 100%;
+        align-items: flex-start;
+        padding: 10px 0 0 20px;
+    }
+    #tituloMabla{
+        margin-top: 10px;
+        margin-bottom: 20px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+    #letraMabla{
+        padding: 0;
+        width: 90%;
+    }
+    .subLema, .subLema2{
+        font-size: 17px;
+    }
+    .subLema2{
+        margin-bottom: 30px;
+    }
+    .link{
+        font-size: 22px;
+        padding: 10px 0 10px 0;
+        width: 50%;
+        margin-top: 8px;
+        border-radius: 100px;
+    }
+    #linkDicc{
+        margin-bottom: 0;
+    }
+    #forma{
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+    #comentariosSection{
+        width: 100%;
+        margin-bottom: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    .paraComentar{
+        width: 84%;
+        display: flex;
+        flex-direction: column; 
+        align-items: center; 
+    }
+    #enviarComentario{
+        width: 50%;
+    }
+    .listComent{
+        width: 84%;
+        margin-left: 0;
+        margin-top: 20px;
+    }
+    #comentario{
+        width: 100%;
+        padding: 5px 0px 0 10px;
+        margin-bottom: 10px;
+        height: auto;
+    }
 }
