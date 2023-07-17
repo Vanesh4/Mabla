@@ -3,6 +3,7 @@ import 'package:mabla/header.dart';
 
 import 'package:mabla/home.dart';
 import 'package:mabla/screen/login.dart';
+import 'package:mabla/screen/quiz.dart';
 
 
 void main() {
