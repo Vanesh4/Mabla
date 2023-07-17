@@ -67,7 +67,74 @@ form{
 #validationPassword{
     background-color: rgb(252,244,234);
 }
-.imgM{
+.imgyText{
     width: 40%;  
-    margin-top: 100px;
+    margin-top: 40px;
+}
+.slogan{
+    text-align: center;
+    font-family: 'Martian Mono', monospace;
+    color:  #ff731c;
+    margin-top: 20px;
+}
+@media screen and (min-width:320px) and (max-width:700px){
+    header{
+        background-image: url("/static/img/picoResponsiveRegistro.svg");
+        align-items: start;
+        flex-direction: column;
+        padding: 0px;
+        padding-top: 10px;
+        
+    }
+    form{
+        width: 95%;
+        padding: 0%;
+        justify-content: flex-end;
+        font-size: 15px;
+    }
+    .textRegister{
+        font-size: 24px;
+        text-align: end;
+        margin-right: 15px;
+    }
+    #ph{
+        width: 70%;
+    }
+    #apellido{
+        width: 70%;
+    }
+    #correo{
+        width: 70%;
+    }
+    #alias{
+        width: 70%;
+    }
+    #clave{
+        width: 70%;
+        margin: 0px;
+        margin-top: 15px;
+    }
+    #boton{
+        margin: 0%;
+        justify-content: end;
+    }
+    #colorbtn{
+        font-size: 18px;
+        width: 45%;
+    }
+    .imgyText{
+        padding: 0%;
+        margin: 0%;
+        width: 55%;
+        padding-left: 3px;
+        margin-bottom: 40px;
+    }
+    .slogan{
+        margin-top: 15px;
+    }
+    #mensaje-error{
+        color: red;
+        font-size: 13px;
+        text-align: end;
+    }
 }

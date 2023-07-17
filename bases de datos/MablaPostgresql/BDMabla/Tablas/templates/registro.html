@@ -20,7 +20,7 @@
             <h1 class="h1">REGISTRARME</h1>
           </div>
           {% csrf_token %}
-            <div class="col-md-5">
+            <div class="col-md-5" id="ph">
               <label for="validationNombre" class="form-label">Nombre</label>
               <input type="text" class="form-control" id="validationNombre" required>
             </div>
@@ -30,7 +30,7 @@
               <input type="text" class="form-control" id="validationApellido" required>
             </div>
 
-            <div class="col-md-5">
+            <div class="col-md-5" id="ph">
                 <label for="validationTelefono" class="form-label">Teléfono</label>
                 <input type="number" class="form-control" id="validationTelefono" required>
             </div>
@@ -55,9 +55,12 @@
             </div>
           </form>
           <h1>{{mensaje}}</h1>
-          <div class="imgM">
-            <img src="\static\img\letrasMABLAnaranja.png" alt="" srcset="" width="100%">
+          <div class="imgyText">
+            <img src="/static/img/letrasMABLAnaranja.png" alt="" srcset="" width="100%">
+          <div class="slogan">
+            <h1 class="h2">HABLA CON LAS MANOS</h1>
           </div>
+        </div>
     </header>
     <script src="{% static 'js/registro.js' %}"></script>
 </body>

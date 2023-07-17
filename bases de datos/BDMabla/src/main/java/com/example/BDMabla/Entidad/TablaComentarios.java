@@ -69,4 +69,5 @@ public class TablaComentarios {
     public void setTablaUsuario(TablaUsuario tablaUsuario) {
         this.tablaUsuario = tablaUsuario;
     }
+
 }
