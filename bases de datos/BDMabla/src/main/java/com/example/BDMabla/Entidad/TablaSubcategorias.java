@@ -8,7 +8,11 @@ import java.util.Set;
 @Entity
 @Table(name = "tablaSubcategorias")
 public class TablaSubcategorias {
+
     @Id
+    @Column(nullable = false, length = 70)
+    private String Subcategoria;
+
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer IdSubcategoria;
 
@@ -20,17 +24,13 @@ public class TablaSubcategorias {
     @OneToMany(mappedBy = "tablaSubcategorias", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Set<TablaPalabras> tablaPalabras;
 
-    @Column(nullable = false, length = 70)
-    private String Subcategoria;
-
-    public TablaSubcategorias(Integer idSubcategoria, TablaCategorias tablaCategorias, String subcategoria) {
-        IdSubcategoria = idSubcategoria;
-        this.tablaCategorias = tablaCategorias;
-        Subcategoria = subcategoria;
-    }
-
     public TablaSubcategorias() {
-
+    }
+    public TablaSubcategorias(Integer idSubcategoria, String subcategoria, TablaCategorias tablaCategorias, Set<TablaPalabras> tablaPalabras) {
+        IdSubcategoria = idSubcategoria;
+        Subcategoria = subcategoria;
+        this.tablaCategorias = tablaCategorias;
+        this.tablaPalabras = tablaPalabras;
     }
 
     public Integer getIdSubcategoria() {
@@ -41,14 +41,6 @@ public class TablaSubcategorias {
         IdSubcategoria = idSubcategoria;
     }
 
-    public TablaCategorias getTablaCategorias() {
-        return tablaCategorias;
-    }
-
-    public void setTablaCategorias(TablaCategorias tablaCategorias) {
-        this.tablaCategorias = tablaCategorias;
-    }
-
     public String getSubcategoria() {
         return Subcategoria;
     }
@@ -57,14 +49,30 @@ public class TablaSubcategorias {
         Subcategoria = subcategoria;
     }
 
+    public TablaCategorias getTablaCategorias() {
+        return tablaCategorias;
+    }
+
+    public void setTablaCategorias(TablaCategorias tablaCategorias) {
+        this.tablaCategorias = tablaCategorias;
+    }
+
+    public Set<TablaPalabras> getTablaPalabras() {
+        return tablaPalabras;
+    }
+
+    public void setTablaPalabras(Set<TablaPalabras> tablaPalabras) {
+        this.tablaPalabras = tablaPalabras;
+    }
+
     @Override
     public String toString() {
         return "TablaSubcategorias{" +
                 "IdSubcategoria=" + IdSubcategoria +
-                ", tablaCategorias=" + tablaCategorias +
                 ", Subcategoria='" + Subcategoria + '\'' +
+                ", tablaCategorias=" + tablaCategorias +
+                ", tablaPalabras=" + tablaPalabras +
                 '}';
     }
-
 }
 
