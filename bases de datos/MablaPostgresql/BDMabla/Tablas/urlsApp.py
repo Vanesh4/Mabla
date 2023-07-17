@@ -23,17 +23,25 @@ urlpatterns = [
     path('inicio',views.iniciohtml, name="inicio"),
     path('menu',views.menuTodo, name="menu"),
     path('mostrar/',views.vercategorias, name="mostrar"),
+    path('mostrarsubcate/',views.versubcategorias, name="mostrarsubcate"),
+    path('perfil/',views.verperfil, name="perfil"),
+    path('diccio/', views.palabradiccionario, name='diccio'),
+    path('viendoanimals/', views.palabrasanimales, name='viendoanimals'),
+    path('viendoverbos/', views.subverbos, name='viendoverbos'),
+    path('viendosustan/', views.subsustantivos, name='viendosustan'),
+    
+
 
     path('getcate',getCategoria.as_view(),name='getcate'),
     path('postcate',postcategoria.as_view(),name='postcate'),
     path('deletecate/<pk>',deletecategoria.as_view(),name='deletecate'),
-    
 
-    path('getsubcate',getsubcategoria.as_view(),name='getsubcate'),
+
+    path('getsubcate',getsub.as_view(),name='getsubcate'),
     path('postsubcate',postsubcategoria.as_view(),name='postsubcate'),
     path('deletesubcate/<pk>',deletesubcategoria.as_view(),name='deletesubcate'),
 
-    path('getpalabra',getPalabra.as_view(),name='getpalabra'),
+    path('getpalabra',getpalabra.as_view(),name='getpalabra'),
     path('postpalabra',postpalabra.as_view(),name='postpalabra'),
     path('deletepalabra/<pk>',deletepalabra.as_view(),name='deletepalabra'),
     path('getpalabrita/<pk>',getPalabraT.as_view(),name='getpalabrita'),

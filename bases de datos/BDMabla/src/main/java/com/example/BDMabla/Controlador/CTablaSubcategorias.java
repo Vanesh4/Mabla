@@ -28,7 +28,12 @@ public class CTablaSubcategorias {
     }*/
 
     @PostMapping("/addsubcate/{cate}")
-    public String addComent(@PathVariable("cate") String cate, @RequestBody TablaSubcategorias sub){
+    public String addsubcate(@PathVariable("cate") String cate, @RequestBody TablaSubcategorias sub){
         return serSubcategorias.addsubcate(cate, sub);
+    }
+
+    @DeleteMapping("/deletesubcate/{subcate}")
+    public boolean deletesubcate(@PathVariable("subcate") String subcate){
+        return serSubcategorias.deleteSubcate(subcate);
     }
 }

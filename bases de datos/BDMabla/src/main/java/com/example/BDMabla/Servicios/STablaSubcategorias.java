@@ -51,5 +51,12 @@ public class STablaSubcategorias {
         else return "la categoria no existe no existe";
     }
 
+    public boolean deleteSubcate(String subcate){
+        repSubcategorias.deleteById(subcate);
+        return true;
+    }
+
+
+
 
 }

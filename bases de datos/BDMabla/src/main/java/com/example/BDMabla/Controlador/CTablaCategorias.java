@@ -31,5 +31,10 @@ public class CTablaCategorias {
         return serCategorias.PostCategoria(cat);
     }
 
+    @DeleteMapping("/deletecate/{cate}")
+    public boolean deletecate(@PathVariable("cate") String cate){
+        return serCategorias.deleteCategoria(cate);
+    }
+
 }
 

@@ -66,7 +66,7 @@ function toggleText(){
 
 $(document).ready(function () {
     
-    titulosCat = document.querySelectorAll('a')
+    titulosCat = document.querySelectorAll('h1')
     console.log("porfis",titulosCat)
     $.ajax({
         url: "http://127.0.0.1:8000/getcate",
@@ -82,3 +82,31 @@ $(document).ready(function () {
         } 
     })
 })
+
+
+function mostrarsubcate(){
+
+    fetch("http://127.0.0.1:8000/getsubcate",{
+        method:"GET",
+        headers:{
+            "consultar-type":"Tablas/json"
+        }
+    })
+
+    .then(response=>response.json())
+    .then(datos=>{
+        console.log(datos)
+        let caja=document.getElementById("cajita");
+        caja.innerHTML=""; // mostrar los datos en el html
+        if(datos==0){
+            caja.innerHTML+=`<h2>NO hay Datos</h2>`
+        }else{
+            for(let dat of datos){
+                caja.innerHTML+=`
+                <h2>${dat.subcategoria}</h2>
+            
+                `
+            }
+        }
+    })
+}
