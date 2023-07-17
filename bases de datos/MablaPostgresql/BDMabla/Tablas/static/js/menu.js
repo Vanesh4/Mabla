@@ -1,6 +1,6 @@
 $(document).ready(function () {
     
-    titulosCat = document.querySelectorAll('h2')
+   titulosCat = document.querySelectorAll('h2')
     
     //console.log("porfis",titulosCat)
     $.ajax({
@@ -11,7 +11,7 @@ $(document).ready(function () {
         success: function (res) {
             console.log(res)
             for(i = 0; i <= res.length ; i++){
-                titulosCat[i].innerHTML = res[i].Categoria 
+                titulosCat[i].innerHTML = res[i].Categoria
             }
             
             

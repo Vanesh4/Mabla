@@ -1,3 +1,4 @@
+{%load static%}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,7 +8,8 @@
     <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/fontawesome.js" integrity="sha384-7ox8Q2yzO/uWircfojVuCQOZl+ZZBg2D2J5nkpLqzH1HY0C1dHlTKIbpRz/LG23c" crossorigin="anonymous"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js" integrity="sha384-SlE991lGASHoBfWbelyBPLsUlwY1GwNDJo3jSJO04KZ33K2bwfV9YBauFfnzvynJ" crossorigin="anonymous"></script>
     <title>Diccionario MABLA</title>
-    <link rel="stylesheet" href="/BDMabla/Tablas/static/css/diccionario.css">
+    <link rel="stylesheet" href="{% static 'css/diccionario.css'%}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
 
@@ -105,7 +107,7 @@
       
         <div class="cajaboton" id="hider_btn"> 
                   
-            <img src="/BDMabla/Tablas/static/img/flecha-apunta-a-la-izquierda.png" alt="flecha" style="width: 50%;">
+            <img src="{% static 'img/flecha-apunta-a-la-izquierda.png'%}" alt="flecha" style="width: 50%;">
             <h1 class="ver" style="padding-top: 7px;">ver</h1>  
         </div>
 
@@ -120,7 +122,7 @@
 
         <div id="buscador">
             <input type="text" name="buscador" id="buscadorMenu" maxlength="20">
-            <img src="/BDMabla/Tablas/static/img/lupa.png" alt="lupa" style="width: 10%;">                
+            <img src="{% static 'img/lupa.png'%}" alt="lupa" style="width: 10%;">                
         </div>
 
             
@@ -129,14 +131,30 @@
     <section class="caja2">
         <div class="resul">
 
+            <table id="listadopalabras">
+                <thead>
+                    <tr>
+                        <th>Palabras</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {%for i in palabrita %}
+        
+                    <tr>
+                        <td>{{i.Palabra}}</td>
+                    </tr>
+        
+                    {%endfor%}
+                </tbody> 
+            </table>
+
         </div>
 
        
 
-
+        <script src="{%static 'js/diccionario.js'%}"></script>  
     </section>
 
-    <script src="/BDMabla/Tablas/static/js/diccionario.js"></script>
-    <script src="{% static 'js/diccionario.js' %}"></script>  
+    
 </body>
 </html>

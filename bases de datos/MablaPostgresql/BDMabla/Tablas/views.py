@@ -254,6 +254,30 @@ def menuTodo(request):
 def vercategorias(request):
     return render(request,"consultando.html")
 
+def versubcategorias(request):
+    return render(request, "consultando.html")
+
+def verperfil(request):
+    return render(request, "perfil.html")
+
+def palabradiccionario(request):
+    listarpalabras=TablaPalabra.objects.filter(Palabra__startswith='P')
+    return render(request, "diccionario.html", {"palabrita": listarpalabras })
+   #return render(request, "diccionario.html")
+
+def palabrasanimales(request):
+    listap=TablaPalabra.objects.filter(subcategoria='Animales')
+    return render(request, "consultando.html", {"animales":listap})
+
+def subverbos(request):
+    listav=TablaSubcategoria.objects.filter(categoria='Verbos')
+    
+    return render(request, "consultando.html", {"subverbos":listav})
+
+def subsustantivos(request):
+    sustan=TablaSubcategoria.objects.filter(categoria='Sustantivos')
+    return render(request, "consultando.html", {"sustantivos": sustan})
+
 #CRUD TABLA CATEGORIAS
 
 class getCategoria(View):
@@ -304,11 +328,22 @@ class deletecategoria(View):
 
 #CRUD TABLA SUBCATEGORIA
 
-class getsubcategoria(View):
+class getsub(View):
     def get(self,request):
         insert= TablaSubcategoria.objects.all().values()
-        insertsubcate=list(insert)
-        return JsonResponse(insertsubcate, safe=False)
+        insertpalabra=list(insert)
+        return JsonResponse(insertpalabra, safe=False)
+
+class getSubcategoria(ListView):
+    def get(self, request):
+        datos=TablaSubcategoria.objects.all()
+        datos_Subcate=[]
+        for i in datos:
+            datos_Subcate.append({
+                'Subcategoria':i.subcategoria,
+                'categoria':i.categoria
+            })
+        return JsonResponse(datos_Subcate, safe=False)
     
 
 class postsubcategoria(View):
@@ -342,11 +377,15 @@ class deletesubcategoria(View):
 
 #CRUD TABLA PALABRA
 
-class getPalabra(View):
-    def get(self,request):
-        insert= TablaPalabra.objects.all().values()
-        insertpalabra=list(insert)
-        return JsonResponse(insertpalabra, safe=False)
+class getpalabra(View):
+    def get(self, request):
+        datos=TablaPalabra.objects.filter(Palabra__startswith='P')
+        datos_Palabra=[]
+        for i in datos:
+            datos_Palabra.append({
+                'Palabra':i.Palabra,
+            })
+        return JsonResponse(datos_Palabra, safe=False)
 
 class getPalabraT(View):
     @method_decorator(csrf_exempt)
@@ -377,7 +416,7 @@ class postpalabra(View):
         print("palabras",request.POST)
         insert=TablaPalabra.objects.create(Palabra=data['Palabra'],subcategoria_id=data['subcategoria_id'], Senia=data['Senia'])
         insert.save()
-        return JsonResponse({'mensaje':'Palabra guardada guardados'})
+        return JsonResponse({'mensaje':'Palabra guardada'})
 
 class deletepalabra(View):
     @method_decorator(csrf_exempt)

@@ -1,0 +1,155 @@
+@font-face {
+    font-family: "raleway";
+    src: url("{% static 'fonts/Raleway/Raleway-Medium.ttf' %}");
+}
+
+*{
+    margin: 0;
+}
+
+body{
+    background-color: #fbfbfb;
+}
+
+.titulo{
+    text-align: center;
+    font-family: "raleway", Arial, Helvetica, sans-serif;
+    margin-top: -260px;
+    font-size: 60px;
+    padding: 20px;
+    
+}
+
+
+#todo{
+    display: flex;
+    height: auto;
+    margin: auto;
+    
+    
+
+}
+#imagen{
+    width: 45%;
+    height: auto;
+    
+    
+
+}
+#img{
+    display: flex;
+    float: right;
+}
+.foto{
+    margin: auto;
+}
+#contenido{
+    height: 330px;
+    width: 40%;
+   
+    
+}
+
+.dat{
+    height: auto;
+    margin: auto;
+}
+
+#inp{
+    height: auto;
+    width: 50%;
+    display: flex;
+    margin: auto;
+    margin-top: 20px;
+}
+#dato{
+   width: 80%;
+    height: 30px;
+    background-color: rgb(230, 230, 243);
+}
+#im{
+    
+    display: flex;
+    align-items: center;
+    background-color: #76037a;
+    width: 15%;
+}
+
+#lap{
+    margin: auto;
+}
+
+.progreso{
+    height: auto;
+    
+}
+
+#click{
+    float: right;
+    padding: 20px;
+    background-color:  #06bfdb;
+    color: white;
+}
+#btn{
+    display: flex;
+}
+
+.spa{
+   display: none;
+  
+
+}
+.show{
+    display: block;
+}
+.sbo{
+    color: white;
+     font-family: "raleway";
+}
+
+#result{
+    background-color: #0a4d68;
+    display: flex;
+    width: 90%;
+    height: auto;
+    padding: 20px;
+}
+#vertodo{
+    width: 90%;
+}
+
+#cuno{
+    width: 30%;
+    
+
+}
+#cdos{
+    height: auto;
+    width: 50%;
+    display: flex;
+    margin: auto;
+    margin-top: 20px;
+}
+#cajon{
+    width: 60%;
+    height: auto;
+}
+#place{
+   width: 100%;
+    height: 30px;
+    background-color: rgb(230, 230, 243);
+}
+#cajita{
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #76037a;
+    width: 8%;
+}
+#mas{
+    float: right;
+}
+#nota{
+    text-align: center;
+}
