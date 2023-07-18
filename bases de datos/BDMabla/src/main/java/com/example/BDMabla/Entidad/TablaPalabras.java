@@ -1,26 +1,26 @@
-/*package com.example.BDMabla.Entidad;
+package com.example.BDMabla.Entidad;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 
-/*@Entity
-@Table(name = "TablaPalabra")
+@Entity
+@Table(name = "TablaPalabras")
 public class TablaPalabras {
     @Id
-    @Column(unique = true, length = 100)
+    @Column(nullable = false, length = 100)
     private String Palabra;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "IdCategoria", referencedColumnName = "IdCategoria")
+    @JoinColumn(name = "Categoria", referencedColumnName = "Categoria", nullable = false)
     @JsonIgnore
-    private TablaCategorias IdCategoria;
+    private TablaCategorias tablaCategorias;
 
-    @Column(name = "img", nullable = true)
-    private String Senia="img por defecto";
+    @Column()
+    private String Senia;
 
-    public TablaPalabras(String palabra, TablaCategorias idCategoria, String senia) {
+    public TablaPalabras(String palabra, TablaCategorias tablaCategorias, String senia) {
         Palabra = palabra;
-        IdCategoria = idCategoria;
+        this.tablaCategorias = tablaCategorias;
         Senia = senia;
     }
 
@@ -35,12 +35,12 @@ public class TablaPalabras {
         Palabra = palabra;
     }
 
-    public TablaCategorias getIdCategoria() {
-        return IdCategoria;
+    public TablaCategorias getTablaCategorias() {
+        return tablaCategorias;
     }
 
-    public void setIdCategoria(TablaCategorias idCategoria) {
-        IdCategoria = idCategoria;
+    public void setTablaCategorias(TablaCategorias tablaCategorias) {
+        this.tablaCategorias = tablaCategorias;
     }
 
     public String getSenia() {
@@ -55,13 +55,14 @@ public class TablaPalabras {
     public String toString() {
         return "TablaPalabras{" +
                 "Palabra='" + Palabra + '\'' +
-                ", IdCategoria=" + IdCategoria +
+                ", categoria=" + tablaCategorias +
                 ", Senia='" + Senia + '\'' +
                 '}';
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
 }*/
 =======
 }
-*/
->>>>>>> 95f060848a07e25231932e242b809db46cf8c6e9
+>>>>>>> 77369b45573bee6b9d914eb15340591ed00f1d7f
+

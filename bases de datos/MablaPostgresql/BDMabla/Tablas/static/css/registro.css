@@ -7,7 +7,7 @@ header{
     background-repeat: no-repeat;
     align-items: start;
     height: 850px;
-    padding-top: 210px;
+    padding-top:260px;
 }
 form{
     justify-content: center;
@@ -16,7 +16,7 @@ form{
     height:290px;
     font-family: 'Raleway', sans-serif;
     color: white;
-    font-size: 20px;
+    font-size: 25px;
     padding-left: 100px;
 }
 #boton{
@@ -27,8 +27,17 @@ form{
 #colorbtn{
     background:  #ff731c;
     color: white;
-    font-size: 20px;
+    font-size: 28px;
     width: 35%;
+}
+#apellido{
+    margin-left: 40px;
+}
+#correo{
+    margin-left: 40px;
+}
+#clave{
+    margin-left: 40px; 
 }
 #validationNombre{
     background-color: rgb(252,244,234);
@@ -44,6 +53,11 @@ form{
 }
 #validationUsername{
     background-color: rgb(252,244,234);
+}
+#mensaje-error{
+    color: red;
+    font-size: 20px;
+    margin-left: 90px; 
 }
 #validationPassword{
     background-color: rgb(252,244,234);

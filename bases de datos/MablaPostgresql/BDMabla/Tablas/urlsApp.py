@@ -1,12 +1,13 @@
 from django.urls import path
-from Tablas.models import *
 from .views import *
 from . import views
 
 urlpatterns = [
     path('tablaUsuario',getTablaUser.as_view(), name='tablaUsuario'),
     path('insertUser',insertTablaUser.as_view(), name='insertUser'),
-    path('insertUserForm/',views.formInsert, name='insertUserForm'),
+    path('insertUserForm/inicio.html',views.formInsertUser, name='insertUserForm'),
+    path('login',views.formIniciarSesion, name='login'),
+    path('tablaComment',getTablaComment.as_view(), name='tablaComment'),
     path('editUser/<pk>',editTablaUser.as_view(),name='editUser'),
     path('insertComment',insertComment.as_view(),name='insertComment'),
     path('editComment/<pk>',editComment.as_view(),name='editComment/<pk>'),
@@ -16,8 +17,24 @@ urlpatterns = [
 
     path('getPreguntas/',getPreguntas.as_view(),name='getpreg'),
     path('postPreguntas/',PostPreguntas.as_view(),name='postpreg'),
-    path('putPregunta/<pk>',editPregunta.as_view(), name="editPreg"),
-    path('deletePregunta/<pk>',deletePregunta.as_view(), name="deletePreg"),
+    path('putPregunta/<int:pk>',editPregunta.as_view(), name="editPreg"),
+    path('deletePregunta/<int:pk>',deletePregunta.as_view(), name="deletePreg"),
 
-    path('inicio',views.iniciohtml, name="inicio")
+    path('inicio',views.iniciohtml, name="inicio"),
+    path('menu',views.menuTodo, name="menu"),
+
+    path('getcate',getCategoria.as_view(),name='getcate'),
+    path('postcate',postcategoria.as_view(),name='postcate'),
+    path('deletecate/<pk>',deletecategoria.as_view(),name='deletecate'),
+    path('mostrar/', views.vercategorias, name='getCate'),
+
+    path('getsubcate',getsubcategoria.as_view(),name='getsubcate'),
+    path('postsubcate',postsubcategoria.as_view(),name='postsubcate'),
+    path('deletesubcate/<pk>',deletesubcategoria.as_view(),name='deletesubcate'),
+
+    path('getpalabra',getPalabra.as_view(),name='getpalabra'),
+    path('postpalabra',postpalabra.as_view(),name='postpalabra'),
+    path('deletepalabra/<pk>',deletepalabra.as_view(),name='deletepalabra'),
+
+
 ]

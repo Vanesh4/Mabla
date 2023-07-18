@@ -1,9 +1,8 @@
 package com.example.BDMabla.Controlador;
-
-
-import com.example.BDMabla.Entidad.TablaCategorias;
 import com.example.BDMabla.Servicios.STablaCategorias;
 import org.springframework.web.bind.annotation.*;
+import com.example.BDMabla.Entidad.TablaCategorias;
+
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -29,9 +28,9 @@ public class CTablaCategorias {
         return serCategorias.postCategorias(cat);
     }
 
-    @DeleteMapping("/deletePreg/{cat}")
-    public String eliminarProducto(@PathVariable("cat") Integer cat){
-        return serCategorias.DeletePreg(cat);
+    @DeleteMapping("/deletecate/{cat}")
+    public String eliminarcategoria(@PathVariable("cat") Integer cat){
+        return serCategorias.Deletecate(cat);
     }
 
 }

@@ -1,18 +1,45 @@
 from typing import Any
-from django.http import JsonResponse
+from django.http import HttpResponseRedirect, JsonResponse
 from django.shortcuts import render
-from django.views.generic import View
+from django.views.generic import View, ListView
 from django.http import HttpRequest, JsonResponse
 from django.utils.decorators import method_decorator
 from django.views.decorators.csrf import csrf_exempt
 import json
 from Tablas.models import *
 
+#Sara
+#tabla usuario
 class getTablaUser(View):
     def get(self,request):
-        register= TablaUsuario.objects.all().values()
-        registerUser=list(register)
-        return JsonResponse(registerUser, safe=False)
+        register= TablaUsuario.objects.all()
+        register_User=[]
+        for i in  register:
+            register_User.append({
+                'alias': i.alias,
+                'nombre': i.nombre,
+                'apellido': i.apellido,
+                'telefono': i.telefono,
+                'correo': i.correo,
+                'clave': i.clave,
+            })
+        return JsonResponse(register_User, safe=False)
+
+class inciarSesion(View):
+    def get(self, request, pk):
+        try:
+            pKey=TablaUsuario.objects.get(pk=pk)
+        except(json.JSONDecodeError,UnicodeDecodeError):
+            return JsonResponse({'error':'Este usuario no existe'})
+        data= json.loads(request.body)
+        pKey.alias=data.get('alias')
+        pKey.clave=data.get('clave')
+        try:
+            return HttpResponseRedirect('/inicio')
+        
+        except(json.JSONDecodeError,UnicodeDecodeError):
+            return JsonResponse({'error':'La contraseña ingresada no es correcta'})
+
 
 class insertTablaUser(View):
     #notacion
@@ -36,7 +63,7 @@ class insertTablaUser(View):
         print("datos del cliente ",request.POST)
         TablaUsuario.objects.create(alias=alias,nombre=nombre,apellido=apellido,telefono=telefono,correo=correo,clave=clave)
         #return JsonResponse({'mensaje':'datos guardados'})
-        return JsonResponse({"mensaje": "Datos guardados"})
+        return HttpResponseRedirect('/inicio')
 
 class editTablaUser(View):
     @method_decorator(csrf_exempt)
@@ -55,10 +82,10 @@ class editTablaUser(View):
         pKey.telefono=data.get('telefono')
         pKey.correo=data.get('correo')
         pKey.clave=data.get('clave')
-        pKey.imgPerfil=data.get('imgPerfil')
         pKey.save()
         return JsonResponse({"Mensaje":"Datos actualizados"})
 
+#tabla comentarios
 class getTablaComment(View):
     def get(self,request):
         register= TablaComentarios.objects.all().values()
@@ -111,6 +138,7 @@ class deleteComment(View):
         pKey.delete()
         return JsonResponse({"mensaje":"Datos eliminados"})
 
+#tabla pruebas
 class getTablaPrueba(View):
     def get(self,request):
         register= TablaPruebas.objects.all().values()
@@ -140,7 +168,7 @@ class insertPrueba(View):
         registerInsertPrueba1.save()
         #no es necesario pero es para que genere el aviso:
         return JsonResponse({'mensaje':'datos guardados'})
-
+#Vanesha
 #Tabla preguntas
 class getPreguntas(View):
     def get(self,request):
@@ -181,12 +209,12 @@ class editPregunta(View):
             preg = TablaPreguntas.objects.get(pk=pk)
         except TablaPreguntas.DoesNotExist:
             return JsonResponse({'Error':'El numero de pregunta ingresada no existe'})
-        
+    
         data = json.loads(request.body)
-        
+    
         preg.tipo=data.get('tipo')
         preg.senia=data.get('senia')
-        preg.idCategoria=data.get('idCategoria_id')
+        #preg.idCategoria=data.get('idCategoria_id')
         preg.respuesta=data.get('respuesta')
         preg.save() 
         return JsonResponse({"Mensaje":"Datos actualizados"})
@@ -202,12 +230,150 @@ class deletePregunta(View):
         except TablaPreguntas.DoesNotExist:
             return JsonResponse({"Error":"El numero de pregunta ingresado no existe"})
         
+
         preg.delete()
         return JsonResponse({"mensaje":"Datos eliminados"})
 
+#Usuario
+class usuarios(View):
+    def get(self, request):
+        return render(request, 'inicio.html')
 
-def formInsert(request):
+def formInsertUser(request):
     return render(request, "registro.html")
+
+def formIniciarSesion(request):
+    return render(request, "login.html")
 
 def iniciohtml(request):
     return render(request,"inicio.html")
+
+def menuTodo(request):
+    return render(request,"menu.html")
+
+#CRUD TABLA CATEGORIAS
+
+class getCategoria(View):
+    def get(self, request):
+        datos=TablaCategoria.objects.all()
+        datos_Categoria=[]
+        for i in datos:
+            datos_Categoria.append({
+                'Categoria':i.Categoria,
+            })
+        return JsonResponse(datos_Categoria, safe=False)
+
+
+""" class getcategoria(View):
+    def get(self,request):
+        insert= TablaCategoria.objects.all().values()
+        insertcate=list(insert)
+        return JsonResponse(insertcate, safe=False) """
+
+
+class postcategoria(View):
+    @method_decorator(csrf_exempt)
+    def dispatch(self, request, *args: Any, **kwargs):
+        return super().dispatch(request, *args, **kwargs)
+    
+    def post(self, request):
+        datos=json.loads(request.body)
+        request.POST.get('Categoria')
+        print("categorias", request.POST)
+        listcate=TablaCategoria.objects.create(Categoria=datos['Categoria'])
+        listcate.save()
+        return JsonResponse({'mensaje': 'Datos guardados'})
+    
+    
+class deletecategoria(View):
+    @method_decorator(csrf_exempt)
+    def dispatch(self, request: HttpRequest, *args: Any, **kwargs):
+        return super().dispatch(request, *args, **kwargs)
+    def delete(self, request, pk):
+        try:
+            registro=TablaCategoria.objects.get(pk=pk)
+        except TablaCategoria.DoesNotExist:
+            return JsonResponse({'Error':'Esta categoria no existe'})
+        registro.delete()
+
+        return JsonResponse({'mensaje': "Datos eliminados"})
+
+
+#CRUD TABLA SUBCATEGORIA
+
+class getsubcategoria(View):
+    def get(self,request):
+        insert= TablaSubcategoria.objects.all().values()
+        insertsubcate=list(insert)
+        return JsonResponse(insertsubcate, safe=False)
+    
+
+class postsubcategoria(View):
+    #notacion
+    @method_decorator(csrf_exempt)
+    def dispatch(self, request, *args: Any, **kwargs):
+        return super().dispatch(request, *args, **kwargs)
+    
+    def post(self, request):
+        data=json.loads(request.body)
+        request.POST.get('categoria_id')
+        request.POST.get('subcategoria')
+        print("Subcategorias",request.POST)
+        insert=TablaSubcategoria.objects.create(categoria_id=data['categoria_id'],subcategoria=data['subcategoria'])
+        insert.save()
+        return JsonResponse({'mensaje':'datos guardados'})
+
+class deletesubcategoria(View):
+    @method_decorator(csrf_exempt)
+    def dispatch(self, request: HttpRequest, *args: Any, **kwargs):
+        return super().dispatch(request, *args, **kwargs)
+    def delete(self, request, pk):
+        try:
+            registro=TablaSubcategoria.objects.get(pk=pk)
+        except TablaSubcategoria.DoesNotExist:
+            return JsonResponse({'Error':'Esta subactegoria no existe'})
+        registro.delete()
+
+        return JsonResponse({'mensaje': "Datos eliminados"})
+    
+
+#CRUD TABLA PALABRA
+
+class getPalabra(View):
+    def get(self,request):
+        insert= TablaPalabra.objects.all().values()
+        insertpalabra=list(insert)
+        return JsonResponse(insertpalabra, safe=False)
+    
+class postpalabra(View):
+    #notacion
+    @method_decorator(csrf_exempt)
+    def dispatch(self, request, *args: Any, **kwargs):
+        return super().dispatch(request, *args, **kwargs)
+    
+    def post(self, request):
+        data=json.loads(request.body)
+        request.POST.get('Palabra')
+        request.POST.get('subcategoria_id')
+        request.POST.get('Senia')
+        print("palabras",request.POST)
+        insert=TablaPalabra.objects.create(Palabra=data['Palabra'],subcategoria_id=data['subcategoria_id'], Senia=data['Senia'])
+        insert.save()
+        return JsonResponse({'mensaje':'Palabra guardada guardados'})
+
+class deletepalabra(View):
+    @method_decorator(csrf_exempt)
+    def dispatch(self, request: HttpRequest, *args: Any, **kwargs):
+        return super().dispatch(request, *args, **kwargs)
+    def delete(self, request, pk):
+        try:
+            registro=TablaPalabra.objects.get(pk=pk)
+        except TablaPalabra.DoesNotExist:
+            return JsonResponse({'Error':'Esta palabra no existe'})
+        registro.delete()
+
+        return JsonResponse({'mensaje': "Palabra eliminada"})
+
+
+def vercategorias(request):
+    return render(request, "consultando.html")
