@@ -101,26 +101,40 @@ $(document).ready(function () {
                     li = document.createElement("li")
                     li.setAttribute("class","list_inside")
 
-                    a = document.createElement("a")
+                    a=document.createElement("a")
                     a.setAttribute("class","nav_link nav_link--inside")
               
                 
                     if (listacategorias[i] == "Sustantivos" && res[x].categoria_id=="Sustantivos"){
                         console.log(res[x].subcategoria)
-                        a[x].innerHTML= res[x].subcategoria
+                        a.innerHTML=res[x].subcategoria
 
+                        console.log(a)
+                        contenedoul.appendChild(li)
+                        li.appendChild(a)
                     }
                         
                 }
-            }
-
-            contenedoul.appendChild(li)
-            li.appendChild(a)
-            
-            
+            }    
             
         } 
     })
+
+
+
+    $.ajax({
+        url: "http://127.0.0.1:8000/getsubcate",
+        type: "GET",
+        dataType: "JSON",
+        success: function (res) {
+            
+
+        }
+    
+    })
+
+
+
 
 })
 
