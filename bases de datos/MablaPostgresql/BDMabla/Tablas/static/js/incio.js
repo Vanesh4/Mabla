@@ -24,7 +24,7 @@ $(document).ready (()=>{
         success: function (res) {
             console.log(res)
             
-            for (let i = 0; i < 4; i++) {
+            for (let i = 0; i < res.length; i++) {
             
                 comentario = document.createElement("div")
                 comentario.setAttribute("id","comentario")

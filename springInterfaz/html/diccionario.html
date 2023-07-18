@@ -1,0 +1,160 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/brands.js" integrity="sha384-sCI3dTBIJuqT6AwL++zH7qL8ZdKaHpxU43dDt9SyOzimtQ9eyRhkG3B7KMl6AO19" crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/fontawesome.js" integrity="sha384-7ox8Q2yzO/uWircfojVuCQOZl+ZZBg2D2J5nkpLqzH1HY0C1dHlTKIbpRz/LG23c" crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js" integrity="sha384-SlE991lGASHoBfWbelyBPLsUlwY1GwNDJo3jSJO04KZ33K2bwfV9YBauFfnzvynJ" crossorigin="anonymous"></script>
+    <title>Diccionario MABLA</title>
+    <link rel="stylesheet" href="/css/diccionario.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+
+    <section class="caja1">
+        
+            <div class="letras">
+                <span class="hider" id="hide_abc">
+                <ul class="list_show">
+                    <!-- <span class="hider" id="hide_abc"></span> -->
+                    <li class="list_inside">
+                        <a href="#" class="nav_link">A</a> 
+                    </li>   
+                    <li class="list_inside">
+                        <a href="#" class="nav_link">B</a> 
+                    </li>
+                    <li class="list_inside">
+                        <a href="#" class="nav_link">C</a> 
+                    </li>
+                    <li class="list_inside">
+                        <a href="#" class="nav_link">D</a> 
+                    </li>
+                    <li class="list_inside">
+                        <a href="#" class="nav_link">E</a> 
+                    </li>
+                    <li class="list_inside">
+                        <a href="#" class="nav_link">F</a> 
+                    </li>
+                    <li class="list_inside">
+                        <a href="#" class="nav_link">G</a> 
+                    </li>   
+                    <li class="list_inside">
+                        <a href="#" class="nav_link">H</a> 
+                    </li>
+                    <li class="list_inside">
+                        <a href="#" class="nav_link">I</a> 
+                    </li>
+                    <li class="list_inside">
+                        <a href="#" class="nav_link">J</a> 
+                    </li>
+                    <li class="list_inside">
+                        <a href="#" class="nav_link">K</a> 
+                    </li>
+                    <li class="list_inside">
+                        <a href="#" class="nav_link">L</a> 
+                    </li>
+                    <li class="list_inside">
+                        <a href="#" class="nav_link">M</a> 
+                    </li>   
+                    <li class="list_inside">
+                        <a href="#" class="nav_link">N</a> 
+                    </li>
+                    <li class="list_inside">
+                        <a href="#" class="nav_link">Ñ</a> 
+                    </li>
+                    <li class="list_inside">
+                        <a href="#" class="nav_link">O</a> 
+                    </li>
+                    <li class="list_inside">
+                        <a href="#" class="nav_link">P</a> 
+                    </li>
+                    <li class="list_inside">
+                        <a href="#" class="nav_link">Q</a> 
+                    </li>
+                    <li class="list_inside">
+                        <a href="#" class="nav_link">R</a> 
+                    </li>   
+                    <li class="list_inside">
+                        <a href="#" class="nav_link">S</a> 
+                    </li>
+                    <li class="list_inside">
+                        <a href="#" class="nav_link">T</a> 
+                    </li>
+                    <li class="list_inside">
+                        <a href="#" class="nav_link">U</a> 
+                    </li>
+                    <li class="list_inside">
+                        <a href="#" class="nav_link">V</a> 
+                    </li>
+                    <li class="list_inside">
+                        <a href="#" class="nav_link">X</a> 
+                    </li>
+                    <li class="list_inside">
+                        <a href="#" class="nav_link">Y</a> 
+                    </li>
+                    <li class="list_inside">
+                        <a href="#" class="nav_link">Z</a> 
+                    </li>
+                   
+    
+    
+                </ul>
+            </div>
+        </span>
+
+      
+        <div class="cajaboton" id="hider_btn"> 
+                  
+            <img src="/img/flecha-apunta-a-la-izquierda.png" alt="flecha" style="width: 50%;">
+            <h1 class="ver" style="padding-top: 7px;">ver</h1>  
+        </div>
+
+        <div id="login">
+            <p id="BotonRegisto">
+                <a class="let" href="registro.html">Registrarme</a>
+            </p>
+            <p id="BotonIngresar">
+                <a class="let" href="login.html">Ingresar</a>
+            </p>
+        </div>
+
+        <div id="buscador">
+            <input type="text" name="buscador" id="buscadorMenu" maxlength="20">
+            <img src="/img/lupa.png" alt="lupa" style="width: 10%;">                
+        </div>
+
+            
+    </section>
+
+    <section class="caja2">
+        <div class="resul">
+
+            <table id="listadopalabras">
+                <thead>
+                    <tr>
+                        <th>Palabras</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {%for i in palabrita %}
+        
+                    <tr>
+                        <td>{{i.Palabra}}</td>
+                    </tr>
+        
+                    {%endfor%}
+                </tbody> 
+            </table>
+
+        </div>
+
+       
+
+        <script src="/js/diccionario.js"></script>  
+    </section>
+
+    
+</body>
+</html>

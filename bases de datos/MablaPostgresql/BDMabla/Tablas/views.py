@@ -379,13 +379,9 @@ class deletesubcategoria(View):
 
 class getpalabra(View):
     def get(self, request):
-        datos=TablaPalabra.objects.filter(Palabra__startswith='P')
-        datos_Palabra=[]
-        for i in datos:
-            datos_Palabra.append({
-                'Palabra':i.Palabra,
-            })
-        return JsonResponse(datos_Palabra, safe=False)
+        datos=TablaPalabra.objects.all().values
+        insertpalabrita=list(datos)
+        return JsonResponse(insertpalabrita, safe=False)
 
 class getPalabraT(View):
     @method_decorator(csrf_exempt)

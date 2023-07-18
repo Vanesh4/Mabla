@@ -1,12 +1,4 @@
-@font-face {
-    font-family: "raleway";
-    src: url("/static/fonts/Raleway/Raleway-Regular.ttf");
-}
 
-@font-face {
-    font-family: "ralewayExtraBold";
-    src: url("/static/fonts/Raleway/Raleway-ExtraBold.ttf");
-}
 *{
     margin: 0;
     padding: 0;
@@ -23,14 +15,14 @@ body{
 }
 
 h1{
-    text-decoration: none;
-    font-family: "ralewayExtraBold";
-    font-size: 18px;
-    color: white;   
+    font-family: "arimo";
+    font-size: 20px;
+    
      
 }
 
-nav{    
+nav{
+    
     width: 300px;
     background-color: #0a4d68;
     
@@ -40,7 +32,9 @@ nav{
     color: #fefefe;
     display: block;
     padding: 15px 0;
-    text-decoration: none;   
+    text-decoration: none;
+   
+    
    
     
 }
@@ -49,8 +43,6 @@ nav{
     border-radius: 6px;
     padding-left: 20px;
     text-align: left;
-    font-family: "raleway";
-    font-size: 16px;
     
 }
 .nav_link--inside:hover{

@@ -26,10 +26,6 @@ urlpatterns = [
     path('mostrarsubcate/',views.versubcategorias, name="mostrarsubcate"),
     path('perfil/',views.verperfil, name="perfil"),
     path('diccio/', views.palabradiccionario, name='diccio'),
-    path('viendoanimals/', views.palabrasanimales, name='viendoanimals'),
-    path('viendoverbos/', views.subverbos, name='viendoverbos'),
-    path('viendosustan/', views.subsustantivos, name='viendosustan'),
-    
 
 
     path('getcate',getCategoria.as_view(),name='getcate'),
