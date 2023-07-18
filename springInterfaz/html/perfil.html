@@ -1,17 +1,229 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="css/perfil.css">
+    <title>MI PERFIL</title>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/brands.js" integrity="sha384-sCI3dTBIJuqT6AwL++zH7qL8ZdKaHpxU43dDt9SyOzimtQ9eyRhkG3B7KMl6AO19" crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/fontawesome.js" integrity="sha384-7ox8Q2yzO/uWircfojVuCQOZl+ZZBg2D2J5nkpLqzH1HY0C1dHlTKIbpRz/LG23c" crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js" integrity="sha384-SlE991lGASHoBfWbelyBPLsUlwY1GwNDJo3jSJO04KZ33K2bwfV9YBauFfnzvynJ" crossorigin="anonymous"></script>  
+    <link rel="stylesheet" href="/css/headerprincipal.css">
+    <link rel="stylesheet" href="/css/perfil.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+   
 </head>
-<body>      
+<body>
+       <!-- 
+        colores:
+        azul oscuro: #0a4d68
+        azul claro: #06bfdb
+        morado: #76037a
+        naranja: #ff731c
+        beige: #fff7ea
+     -->
 
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-        <path fill="#ff731c" fill-opacity="1" d="M0,192L80,208C160,224,320,256,480,229.3C640,203,800,117,960,106.7C1120,96,1280,160,1360,192L1440,224L1440,0L1360,0C1280,0,1120,0,960,0C800,0,640,0,480,0C320,0,160,0,80,0L0,0Z"></path>
-    </svg>
+     <header id="header">
+        <div class="closeBtn">
+            <img src="/img/cancelar.png" alt="" id="imgBotonCerrarMenu">
+        </div>
+        <div id="parteizq">
+            <div class="logo">
+                <a href="http://127.0.0.1:8000/inicio">
+                    <img src="" alt="cabipara" srcset="">
+                </a>                
+            </div>
+            <div class="linkContenido">
+                <a href="http://127.0.0.1:8000/menu"><p class="textomenu">Contenido</p></a>
+                <a href="http://127.0.0.1:8000/menu">
+                    <img src="/img/flecha-hacia-abajo-para-navegar.png" alt="flecha" style="width: 15px;height: 15px;" class="imgflecha">
+                </a>
+            </div>
+            <div class="linkContenido">
+                <a href="#"><p class="textomenu">Sobre nosotros</p></a>
+                <a href="#">
+                    <img src="/img/flecha-hacia-abajo-para-navegar.png" alt="flecha" style="width: 15px;height: 15px;" class="imgflecha">
+                </a>
+            </div>
+        </div>
+        <div id="partederecha">
+            <div id="login">
+                <p id="BotonRegisto">
+                    <a href="http://127.0.0.1:8000/inicio">Inicio</a>
+                </p>
+                <p id="BotonIngresar">
+                    <a href="login.html">Ingresar</a>
+                </p>
+            </div>
+            <div id="buscador">
+                <input type="text" name="buscador" id="buscadorMenu" maxlength="20">
+                <img src="/img/lupa.png" alt="lupa" style="width: 10%;">                
+            </div>
+            
+        </div>    
+    </header>
+
+
+ 
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" id="forma">
+    <path fill="#06bfdb" fill-opacity="1" d="M0,192L80,208C160,224,320,256,480,229.3C640,203,800,117,960,106.7C1120,96,1280,160,1360,192L1440,224L1440,0L1360,0C1280,0,1120,0,960,0C800,0,640,0,480,0C320,0,160,0,80,0L0,0Z"></path>
+</svg>
+
     
+<h1 class="titulo">MI PERFIL</h1>
+
+    <section id="todo">
+        <section id="imagen">
+            <div id="img">
+                <img class="foto" src="/img/carpincho.png" alt="" style="height: 200px;">
+               </div>
+
+        </section>
+
+        <section id="contenido">
+        
+            <div class="dat">
+                
+                <div id="inp">
+                    <input type="text" name="cantidad" id="dato" readonly="readonly" value="nombre" />
+                    
+                    <div id="im" >
+                        <img id="lap" src="/img/editor-lapiz.png" alt="">
+                    </div>
+                    
+                </div>
+               
+                <div id="inp">
+                    <input type="text" name="cantidad" id="dato" readonly="readonly" value="apellido"/>
+                    <div id="im">
+                        <img id="lap" src="/img/editor-lapiz.png" alt="">
+
+                    </div>      
+                </div>
+               
+                <div id="inp">
+                    <input type="text" name="cantidad" id="dato" readonly="readonly" value="celular" />
+                    <div id="im">
+                        <img id="lap" src="/img/editor-lapiz.png" alt="">
+
+                    </div>
+                </div>
+                
+                <div id="inp">
+                    <input type="text" name="cantidad" id="dato" readonly="readonly" value="correo"/>
+                    <div id="im">
+                        <img id="lap" src="/img/editor-lapiz.png" alt="">
+
+                    </div>
+                </div>
+    
+            </div>
+             
+         </section>
+
+
+    </section>
+
+    <section class="progreso">
+
+
+        <div id="click">
+            <a href="" id="btn">
+                <img src="/img/flecha-apunta-a-la-izquierda.png" alt="" style="height: 30px;">
+                <h2 class="sbo" id="sub">Mi progreso</h2>
+            </a>
+        </div>
+
+    </section>
+
+        <span class="spa" id="spant">
+            <div id="result">
+
+                <div id="cuno">
+                    <img src="/img/carpincho.png" alt="" style="height: 250px;">
+                </div>
+
+                <div id="vertodo" style="flex-direction: column;">
+
+                <div id="cdos" style="display: flex;">
+                    <div id="cajon">
+                        <div  >
+                            <input id="place" type="button" value="verbos" height="20px">
+                        </div>                    
+                        <a id="mas" href="">pruebas anteriores</a>
+                    </div>
+                    
+                    <div id="cajita" >                
+                        <h3 id="nota">3/5</h3>
+                    </div>
+                                      
+                </div>
+
+                <div id="cdos" style="display: flex;">
+                    <div id="cajon">
+                        <div  >
+                            <input id="place" type="button" value="verbos" height="20px">
+                        </div>                    
+                        <a id="mas" href="">pruebas anteriores</a>
+                    </div>
+                    
+                    <div id="cajita" >                
+                        <h3 id="nota">3/5</h3>
+                    </div>
+                                      
+                </div>
+
+                <div id="cdos" style="display: flex;">
+                    <div id="cajon">
+                        <div  >
+                            <input id="place" type="button" value="verbos" height="20px">
+                        </div>                    
+                        <a id="mas" href="">pruebas anteriores</a>
+                    </div>
+                    
+                    <div id="cajita" >                
+                        <h3 id="nota">3/5</h3>
+                    </div>
+                                      
+                </div>
+
+                <div id="cdos" style="display: flex;">
+                    <div id="cajon">
+                        <div  >
+                            <input id="place" type="button" value="verbos" height="20px">
+                        </div>                    
+                        <a id="mas" href="">pruebas anteriores</a>
+                    </div>
+                    
+                    <div id="cajita" >                
+                        <h3 id="nota">3/5</h3>
+                    </div>
+                                      
+                </div>
+
+                <div id="cdos" style="display: flex;">
+                    <div id="cajon">
+                        <div  >
+                            <input id="place" type="button" value="verbos" height="20px">
+                        </div>                    
+                        <a id="mas" href="">pruebas anteriores</a>
+                    </div>
+                    
+                    <div id="cajita" >                
+                        <h3 id="nota">3/5</h3>
+                    </div>
+                                      
+                </div>
+            </div>
+               
+            </div>
+            
+           
+        </span>
+          
+   
+    <script src="/js/perfil.js"></script>  
+
     
 </body>
 </html>
