@@ -89,7 +89,7 @@ class _headerPrincipalState extends State<headerPrincipal> {
                     Navigator.push(context, MaterialPageRoute(builder: (context)=>login()));
                   },
                     child: Text('Iniciar Sesión',
-                      style: TextStyle(fontSize: 28, fontFamily: "Raleway",color: Colors.white),),
+                      style: TextStyle(fontSize: 27, fontFamily: "Raleway",color: Colors.white),),
                     style: ButtonStyle(
                         backgroundColor: MaterialStatePropertyAll(lightBlue),
                         shape: MaterialStatePropertyAll(
