@@ -27,8 +27,6 @@ urlpatterns = [
     path('perfil/',views.verperfil, name="perfil"),
     path('diccio/', views.palabradiccionario, name='diccio'),
 
-    
-
 
     path('getcate',getCategoria.as_view(),name='getcate'),
     path('postcate',postcategoria.as_view(),name='postcate'),
