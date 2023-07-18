@@ -91,11 +91,8 @@ $(document).ready(function () {
             categorias = document.getElementsByClassName("categorias")
             console.log(contenedoul)
             listacategorias = []
-            for(let i = 0; i<categorias.length; i++){
-                
-                listacategorias.push(categorias[i].textContent)
-            
-
+            for(let i = 0; i<categorias.length; i++){        
+                listacategorias.push(categorias[i].textContent)          
                 for (let x = 0; x < res.length; x++) {
 
                     li = document.createElement("li")
@@ -108,6 +105,16 @@ $(document).ready(function () {
                     if (listacategorias[i] == "Sustantivos" && res[x].categoria_id=="Sustantivos"){
                         console.log(res[x].subcategoria)
                         a.innerHTML=res[x].subcategoria
+
+                        console.log(a)
+                        contenedoul.appendChild(li)
+                        li.appendChild(a)
+                    }
+
+                    
+                    else if (listacategorias[i] == "Adjetivos" && res[x].categoria_id=="Adjetivos"){
+                        console.log(res[x].subcategoria)
+                        a.innerHTML=res[3].subcategoria
 
                         console.log(a)
                         contenedoul.appendChild(li)
@@ -127,7 +134,39 @@ $(document).ready(function () {
         type: "GET",
         dataType: "JSON",
         success: function (res) {
+
+            divcajita = document.querySelector(".cajita")
+            subcate = document.getElementsByClassName("palabrita")
+            listasubcategorias=[]
+
+            for(let i = 0; i<subcate.length; i++){        
+                listasubcategorias.push(subcate[i].textContent)          
+                for (let x = 0; x < res.length; x++) {
+
+                    divimg = document.createElement("div")
+                    divimg.setAttribute("class","img")
+
+                    divtext=document.createElement("div")
+                    divtext.setAttribute("class","text")
+
+                    h2=document.createElement("h2")
+                    h2.setAttribute("class", "palabrita")
             
+              
+                
+                    if (listasubcategorias[i] == "Animales" && res[x].subcategoria_id=="Animales"){
+                        console.log(res[x].Palabra)
+                        h2.innerHTML=res[x].Palabra
+
+                        console.log(h2)
+                        divcajita.appendChild(divtext)
+                        divtext.appendChild(h2)
+                    }
+ 
+                }
+            }
+
+
 
         }
     
