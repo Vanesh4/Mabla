@@ -25,12 +25,6 @@ class TablaComentarios(models.Model):
 class TablaCategoria(models.Model):
     Categoria=models.TextField(max_length=30, primary_key=True, null=False)
 
-class TablaPruebas(models.Model):   
-    alias=models.ForeignKey(TablaUsuario, null=False, on_delete=models.CASCADE)
-    tipoPrueba=models.PositiveSmallIntegerField(verbose_name="Tipo de prueba")
-    categoria=models.ForeignKey(TablaCategoria, null=False, on_delete=models.CASCADE)
-    fecha=models.DateTimeField(auto_now_add=True)
-    puntaje=models.PositiveBigIntegerField(verbose_name="Puntaje")
 
 class TablaSubcategoria(models.Model):
     subcategoria=models.TextField(max_length=30, primary_key=True)
