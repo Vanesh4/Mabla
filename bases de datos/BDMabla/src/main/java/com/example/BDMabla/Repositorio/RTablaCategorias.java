@@ -9,7 +9,8 @@ import java.util.List;
 
 
 @Repository
-public interface RTablaCategorias extends JpaRepository<TablaCategorias, Integer> {
+public interface RTablaCategorias extends JpaRepository<TablaCategorias, String> {
+
 
 }
 

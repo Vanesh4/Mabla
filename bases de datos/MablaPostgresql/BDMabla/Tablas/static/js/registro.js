@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", function(){
         .then(datos => {
           consultar(),
           console.log(datos)
-          window.location.href='inicio.html'
+          window.location.href='http://127.0.0.1:8000/inicio'
         })
         .catch(
             console.error()

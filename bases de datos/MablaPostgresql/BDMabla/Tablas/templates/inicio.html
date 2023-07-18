@@ -10,6 +10,8 @@
     
     <link rel="stylesheet" href="{% static 'css/inicio.css'%}">
     <link rel="stylesheet" href="{% static 'css/headerprincipal.css'%}">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
     <!-- 
@@ -21,6 +23,9 @@
         beige: #fff7ea
      -->
     <header id="header">
+        <div class="closeBtn">
+            <img src="{% static 'img/cancelar.png'%}" alt="" id="imgBotonCerrarMenu">
+        </div>
         <div id="parteizq">
             <div class="logo">
                 <a href="http://127.0.0.1:8000/inicio">
@@ -43,14 +48,14 @@
         <div id="partederecha">
             <div id="login">
                 <p id="BotonRegisto">
-                    <a href="registro.html">Registrarme</a>
+                    <a href="http://127.0.0.1:8000/insertUserForm/inicio.html">Registrarme</a>
                 </p>
                 <p id="BotonIngresar">
-                    <a href="login.html">Ingresar</a>
+                    <a href="http://127.0.0.1:8000/login">Iniciar Sesión</a>
                 </p>
             </div>
             <div id="buscador">
-                <input type="text" name="buscador" id="buscadorMenu" maxlength="20">
+                <input  type="text" name="buscador" id="buscadorMenu" maxlength="20">
                 <img src="{% static 'img/lupa.png'%}" alt="lupa" style="width: 10%;">                
             </div>
             
@@ -58,11 +63,16 @@
     </header>
 
     <section id="contenido">
+        <div class="menuResponsive">
+            <img src="{% static 'img/lista.png'%}" alt="" style="width: 40px;" id="imgBotonAbrirMenu">
+        </div>
+
         <div id="tituloMabla">
             <img src="{% static 'img/letrasMABLA.png'%}" alt="mabla" id="letraMabla">
         </div>
-        <p class="subLema">Aprende lengua de señas colombiana</p>
-        <div class="link" id="linkConte">Contenido</div>
+        <p class="subLema">Habla con las manos</p>
+        <p class="subLema2">Aprende lengua de señas colombiana</p>
+        <div class="link" id="linkConte"><a href="http://127.0.0.1:8000/menu">Contenido</a></div>
         <div class="link" id="linkQuiz">Quizes</div>
         <div class="link" id="linkDicc">Diccionario</div>
         
@@ -72,13 +82,23 @@
     </svg>
 
 
-    <section id="comentarios">
+    <section id="comentariosSection">
+        <div class="paraComentar">
+            <textarea id="comentar" placeholder="Escribe tu comentario..."></textarea>
+            <!-- <input type="text" id="comentar" placeholder="comentar..."> -->
+            <input type="submit" value="Comentar" id="enviarComentario">
+        </div>
 
-        <textarea id="comentar" placeholder="comentar..."></textarea>
-        <!-- <input type="text" id="comentar" placeholder="comentar..."> -->
-
+        <div class="listComent">
+            
+            <!-- <div id="comentario">
+                <p id="user"></p>
+                <p id="coment"></p>
+            </div> -->
+             
+        </div>
     </section>
     
-    
+    <script src="{% static 'js/incio.js'%}"></script>
 </body>
 </html>

@@ -1,54 +1,93 @@
-
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>MABLA-CONSULTAR</title>
     <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/brands.js" integrity="sha384-sCI3dTBIJuqT6AwL++zH7qL8ZdKaHpxU43dDt9SyOzimtQ9eyRhkG3B7KMl6AO19" crossorigin="anonymous"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/fontawesome.js" integrity="sha384-7ox8Q2yzO/uWircfojVuCQOZl+ZZBg2D2J5nkpLqzH1HY0C1dHlTKIbpRz/LG23c" crossorigin="anonymous"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js" integrity="sha384-SlE991lGASHoBfWbelyBPLsUlwY1GwNDJo3jSJO04KZ33K2bwfV9YBauFfnzvynJ" crossorigin="anonymous"></script>
-
-    <link rel="stylesheet" href="/BDMabla/Tablas/static/css/consultando.css"> 
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+   <link rel="stylesheet" href="{% static 'css/consultando.css' %}">
 </head>
 <body>
 
     <section class="caja">
     <nav class="nav">
         <ul class="list">
+          
+            <li class="list_item list_item--click">
+               
+                <div class="list_button list_button--click">
+                    <h1 style=" padding: 15px; font-size: 20px; width: 100%; background-color: transparent;" class="categorias"></h1>
+                    <img src="{% static 'img/flecha-apunta-a-la-derecha.png'%}" style="height: 10px;" class="list_arrow">
+                    
+                </div>
+                                                      
+                <ul class="list_show">
+                    
+                    <!-- <li class="list_inside">
+                        <a href="#" class="nav_link nav_link--inside" id="hideText_btn">
+                        </a>
+                    </li> -->
+                    
+                </ul>
+               
+                
+            </li>
             
 
             <li class="list_item list_item--click">
-                <div class="list_button list_button--click">
-                    <img src="" class="list_img">
-                    <a href="#" class="nav_link">SUSTANTIVOS</a>
-                    <img src="/BDMabla/Tablas/Asset/arrow.svg" class="list_arrow">
-                    
+                <div class="list_button list_button--click" >
+                    <h1 style=" padding: 15px; font-size: 20px; width: 100%; background-color: transparent;" class="categorias"></h1>
+                    <img src="{% static 'img/flecha-apunta-a-la-derecha.png'%}" style="height: 10px;" class="list_arrow">
+                   
                 </div>
-                
 
-                
+               <!--  <ul class="list_show">
+                    <li class="list_inside">
+                        <a href="#" class="nav_link nav_link--inside">Estoy dentro</a>
+    
+                    </li>
+
+                    <li class="list_inside">
+                        <a href="#" class="nav_link nav_link--inside">Estoy dentro</a>
+    
+                    </li>
+
+                    <li class="list_inside">
+                        <a href="#" class="nav_link nav_link--inside">Estoy dentro</a>
+    
+                    </li>
+
+
+
+                </ul> -->
+            </li>
+
+            <li class="list_item list_item--click">
+                <div class="list_button list_button--click">
+                    <h1 style=" padding: 15px; font-size: 20px; width: 100%; background-color: transparent;" class="categorias"></h1>
+                    <img src="{% static 'img/flecha-apunta-a-la-derecha.png'%}" style="height: 10px;" class="list_arrow">
+                   
+                </div>
 
                 <ul class="list_show">
-                    <li class="list_inside">
-                        <a href="#" class="nav_link nav_link--inside" id="hideText_btn">ANIMALES</a>
+                    <!-- <li class="list_inside">
+                        <a href="#" class="nav_link nav_link--inside">Estoy dentro</a>
     
                     </li>
 
                     <li class="list_inside">
-                        <a href="#" class="nav_link nav_link--inside">CUERPO</a>
+                        <a href="#" class="nav_link nav_link--inside">Estoy dentro</a>
     
                     </li>
 
                     <li class="list_inside">
-                        <a href="#" class="nav_link nav_link--inside">HERRAMIENTAS</a>
+                        <a href="#" class="nav_link nav_link--inside">Estoy dentro</a>
     
-                    </li>
-
-                    <li class="list_inside">
-                        <a href="#" class="nav_link nav_link--inside">ÚTILES</a>
-    
-                    </li>
+                    </li> -->
 
 
 
@@ -57,14 +96,13 @@
 
             <li class="list_item list_item--click">
                 <div class="list_button list_button--click">
-                    <img src="" class="list_img">
-                    <a href="#" class="nav_link">VERBOS</a>
-                    <img src="/BDMabla/Tablas/Asset/arrow.svg" class="list_arrow">
-          
+                    <h1 style=" padding: 15px; font-size: 20px; width: 100%; background-color: transparent;" class="categorias"></h1>
+                    <img src="{% static 'img/flecha-apunta-a-la-derecha.png'%}" style="height: 10px;" class="list_arrow">
+                   
                 </div>
 
                 <ul class="list_show">
-                    <li class="list_inside">
+                    <!-- <li class="list_inside">
                         <a href="#" class="nav_link nav_link--inside">Estoy dentro</a>
     
                     </li>
@@ -77,7 +115,7 @@
                     <li class="list_inside">
                         <a href="#" class="nav_link nav_link--inside">Estoy dentro</a>
     
-                    </li>
+                    </li> -->
 
 
 
@@ -86,14 +124,13 @@
 
             <li class="list_item list_item--click">
                 <div class="list_button list_button--click">
-                    <img src="" class="list_img">
-                    <a href="#" class="nav_link">ADJETIVOS</a>
-                    <img src="/BDMabla/Tablas/Asset/arrow.svg" class="list_arrow">
-          
+                    <h1 style=" padding: 15px; font-size: 20px; width: 100%; background-color: transparent;" class="categorias"></h1>
+                    <img src="{% static 'img/flecha-apunta-a-la-derecha.png'%}" style="height: 10px;" class="list_arrow">
+                   
                 </div>
 
                 <ul class="list_show">
-                    <li class="list_inside">
+                    <!-- <li class="list_inside">
                         <a href="#" class="nav_link nav_link--inside">Estoy dentro</a>
     
                     </li>
@@ -106,7 +143,7 @@
                     <li class="list_inside">
                         <a href="#" class="nav_link nav_link--inside">Estoy dentro</a>
     
-                    </li>
+                    </li> -->
 
 
 
@@ -115,14 +152,13 @@
 
             <li class="list_item list_item--click">
                 <div class="list_button list_button--click">
-                    <img src="" class="list_img">
-                    <a href="#" class="nav_link">ABECEDARIO</a>
-                    <img src="/BDMabla/Tablas/Asset/arrow.svg" class="list_arrow">
-          
+                    <h1 style=" padding: 15px; font-size: 20px; width: 100%; background-color: transparent;" class="categorias"></h1>
+                    <img src="{% static 'img/flecha-apunta-a-la-derecha.png'%}" style="height: 10px;" class="list_arrow">
+                   
                 </div>
 
                 <ul class="list_show">
-                    <li class="list_inside">
+                    <!-- <li class="list_inside">
                         <a href="#" class="nav_link nav_link--inside">Estoy dentro</a>
     
                     </li>
@@ -135,7 +171,7 @@
                     <li class="list_inside">
                         <a href="#" class="nav_link nav_link--inside">Estoy dentro</a>
     
-                    </li>
+                    </li> -->
 
 
 
@@ -144,14 +180,13 @@
 
             <li class="list_item list_item--click">
                 <div class="list_button list_button--click">
-                    <img src="" class="list_img">
-                    <a href="#" class="nav_link">PREPOSICIONES</a>
-                    <img src="/BDMabla/Tablas/Asset/arrow.svg" class="list_arrow">
-          
+                    <h1 style=" padding: 15px; font-size: 20px; width: 100%; background-color: transparent;" class="categorias"></h1>
+                    <img src="{% static 'img/flecha-apunta-a-la-derecha.png'%}" style="height: 10px;" class="list_arrow">
+                   
                 </div>
 
                 <ul class="list_show">
-                    <li class="list_inside">
+                    <!-- <li class="list_inside">
                         <a href="#" class="nav_link nav_link--inside">Estoy dentro</a>
     
                     </li>
@@ -164,65 +199,7 @@
                     <li class="list_inside">
                         <a href="#" class="nav_link nav_link--inside">Estoy dentro</a>
     
-                    </li>
-
-
-
-                </ul>
-            </li>
-
-            <li class="list_item list_item--click">
-                <div class="list_button list_button--click">
-                    <img src="" class="list_img">
-                    <a href="#" class="nav_link">CONJUNCIONES</a>
-                    <img src="/BDMabla/Tablas/Asset/arrow.svg" class="list_arrow">
-          
-                </div>
-
-                <ul class="list_show">
-                    <li class="list_inside">
-                        <a href="#" class="nav_link nav_link--inside">Estoy dentro</a>
-    
-                    </li>
-
-                    <li class="list_inside">
-                        <a href="#" class="nav_link nav_link--inside">Estoy dentro</a>
-    
-                    </li>
-
-                    <li class="list_inside">
-                        <a href="#" class="nav_link nav_link--inside">Estoy dentro</a>
-    
-                    </li>
-
-
-
-                </ul>
-            </li>
-
-            <li class="list_item list_item--click">
-                <div class="list_button list_button--click">
-                    <img src="" class="list_img">
-                    <a href="#" class="nav_link">TEMPORALES</a>
-                    <img src="/BDMabla/Tablas/Asset/arrow.svg" class="list_arrow">
-          
-                </div>
-
-                <ul class="list_show">
-                    <li class="list_inside">
-                        <a href="#" class="nav_link nav_link--inside">Estoy dentro</a>
-    
-                    </li>
-
-                    <li class="list_inside">
-                        <a href="#" class="nav_link nav_link--inside">Estoy dentro</a>
-    
-                    </li>
-
-                    <li class="list_inside">
-                        <a href="#" class="nav_link nav_link--inside">Estoy dentro</a>
-    
-                    </li>
+                    </li> -->
 
 
 
@@ -231,14 +208,13 @@
 
             <li class="list_item list_item--click" >
                 <div class="list_button list_button--click">
-                    <img src="" class="list_img">
-                    <a href="#" class="nav_link">ADVERBIOS</a>
-                    <img src="/BDMabla/Tablas/Asset/arrow.svg" class="list_arrow">
-          
+                    <h1 style=" padding: 15px; font-size: 20px; width: 100%; background-color: transparent;" class="categorias"></h1>
+                    <img src="{% static 'img/flecha-apunta-a-la-derecha.png'%}" style="height: 10px;" class="list_arrow">
+                   
                 </div>
 
                 <ul class="list_show">
-                    <li class="list_inside">
+                    <!-- <li class="list_inside">
                         <a href="#" class="nav_link nav_link--inside">Estoy dentro</a>
     
                     </li>
@@ -251,12 +227,42 @@
                     <li class="list_inside">
                         <a href="#" class="nav_link nav_link--inside">Estoy dentro</a>
     
-                    </li>
+                    </li> -->
 
 
 
                 </ul>
             </li>
+
+            <li class="list_item list_item--click" >
+                <div class="list_button list_button--click">
+                    <h1 style=" padding: 15px; font-size: 20px; width: 100%; background-color: transparent;" class="categorias"></h1>
+                    <img src="{% static 'img/flecha-apunta-a-la-derecha.png'%}" style="height: 10px;" class="list_arrow">
+                   
+                </div>
+
+                <ul class="list_show">
+                    <!-- <li class="list_inside">
+                        <a href="#" class="nav_link nav_link--inside">Estoy dentro</a>
+    
+                    </li>
+
+                    <li class="list_inside">
+                        <a href="#" class="nav_link nav_link--inside">Estoy dentro</a>
+    
+                    </li>
+
+                    <li class="list_inside">
+                        <a href="#" class="nav_link nav_link--inside">Estoy dentro</a>
+    
+                    </li>
+ -->
+
+
+                </ul>
+            </li>
+
+
 
 
         </ul>
@@ -274,47 +280,20 @@
 
     <span class="hide" id="hideText"> 
         <div style="background-color: rgb(252, 248, 248);">
-        <h1>Subcategoria</h1>
+        <h1 class="subtitulo">Subcategoria</h1>
 
-        <div class="cajita">
+    <div id="cajita">
+        
             <div class="img">
                 <img src="" alt="">
             </div>
 
             <div class="text">
-                <h2>PERRO</h2>
+                <h2></h2>
             </div>
+       
         </div>
-
-        <div class="cajita">
-            <div class="img">
-                <img src="" alt="">
-            </div>
-
-            <div class="text">
-                <h2>PERRO</h2>
-            </div>
-        </div>
-
-        <div class="cajita">
-            <div class="img">
-                <img src="" alt="">
-            </div>
-
-            <div class="text">
-                <h2>PERRO</h2>
-            </div>
-        </div>
-
-        <div class="cajita">
-            <div class="img">
-                <img src="" alt="">
-            </div>
-
-            <div class="text">
-                <h2>PERRO</h2>
-            </div>
-        </div>
+        
     
         </div>
     </span>
@@ -328,7 +307,7 @@
 
     </div>
 
-    <script src="/BDMabla/Tablas/static/js/consultando.js"></script>
+  <!--   <script src="/BDMabla/Tablas/static/js/consultando.js"></script> -->
 
    
 
@@ -336,7 +315,9 @@
 
     </table>
 
-    <script src="{% static 'js/consultando.js' %}"></script>
+  
+    
+    <script src="{%static 'js/consultando.js'%}"></script>
    
 
     

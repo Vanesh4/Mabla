@@ -8,24 +8,29 @@ import java.util.Set;
 @Entity
 @Table(name = "tablaSubcategorias")
 public class TablaSubcategorias {
+
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer IdSubcategoria;
-
-    @OneToMany(mappedBy = "tablaSubcategorias", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private Set<TablaCategorias> tablaCategorias;
-
     @Column(nullable = false, length = 70)
     private String Subcategoria;
 
-    public TablaSubcategorias(Integer idSubcategoria, Set<TablaCategorias> tablaCategorias, String subcategoria) {
-        IdSubcategoria = idSubcategoria;
-        this.tablaCategorias = tablaCategorias;
-        Subcategoria = subcategoria;
-    }
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer IdSubcategoria;
+
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "Categoria", referencedColumnName = "Categoria", nullable = false)
+    @JsonIgnore
+    private TablaCategorias tablaCategorias;
+
+    @OneToMany(mappedBy = "tablaSubcategorias", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private Set<TablaPalabras> tablaPalabras;
 
     public TablaSubcategorias() {
-
+    }
+    public TablaSubcategorias(Integer idSubcategoria, String subcategoria, TablaCategorias tablaCategorias, Set<TablaPalabras> tablaPalabras) {
+        IdSubcategoria = idSubcategoria;
+        Subcategoria = subcategoria;
+        this.tablaCategorias = tablaCategorias;
+        this.tablaPalabras = tablaPalabras;
     }
 
     public Integer getIdSubcategoria() {
@@ -36,14 +41,6 @@ public class TablaSubcategorias {
         IdSubcategoria = idSubcategoria;
     }
 
-    public Set<TablaCategorias> getTablaCategorias() {
-        return tablaCategorias;
-    }
-
-    public void setTablaCategorias(Set<TablaCategorias> tablaCategorias) {
-        this.tablaCategorias = tablaCategorias;
-    }
-
     public String getSubcategoria() {
         return Subcategoria;
     }
@@ -52,19 +49,30 @@ public class TablaSubcategorias {
         Subcategoria = subcategoria;
     }
 
+    public TablaCategorias getTablaCategorias() {
+        return tablaCategorias;
+    }
+
+    public void setTablaCategorias(TablaCategorias tablaCategorias) {
+        this.tablaCategorias = tablaCategorias;
+    }
+
+    public Set<TablaPalabras> getTablaPalabras() {
+        return tablaPalabras;
+    }
+
+    public void setTablaPalabras(Set<TablaPalabras> tablaPalabras) {
+        this.tablaPalabras = tablaPalabras;
+    }
+
     @Override
     public String toString() {
         return "TablaSubcategorias{" +
                 "IdSubcategoria=" + IdSubcategoria +
-                ", tablaCategorias=" + tablaCategorias +
                 ", Subcategoria='" + Subcategoria + '\'' +
+                ", tablaCategorias=" + tablaCategorias +
+                ", tablaPalabras=" + tablaPalabras +
                 '}';
     }
-<<<<<<< HEAD
-<<<<<<< HEAD
-}*/
-=======
 }
->>>>>>> 77369b45573bee6b9d914eb15340591ed00f1d7f
-
 

@@ -5,7 +5,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.Date;
-
 @Entity
 @Table(name="tablaComentarios")
 public class TablaComentarios {
@@ -21,6 +20,7 @@ public class TablaComentarios {
     @JoinColumn(name = "alias", referencedColumnName = "alias", nullable = false)
     @JsonIgnore
     private TablaUsuario tablaUsuario;
+
     @PrePersist
     public void fechaActual(){
         this.fecha= new Date();
@@ -33,15 +33,15 @@ public class TablaComentarios {
         this.texto = texto;
         this.fecha = fecha;
     }
-    public String getTexto() {
-        return texto;
-    }
-
+    
     public TablaComentarios(String texto) {
         this.texto = texto;
         this.fecha= new Date();
     }
-
+    
+    public String getTexto() {
+        return texto;
+    }
     public void setTexto(String texto) {
         this.texto = texto;
     }
@@ -69,4 +69,5 @@ public class TablaComentarios {
     public void setTablaUsuario(TablaUsuario tablaUsuario) {
         this.tablaUsuario = tablaUsuario;
     }
+
 }
