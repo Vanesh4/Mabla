@@ -33,8 +33,6 @@ body{
     width: 45%;
     height: auto;
     
-    
-
 }
 #img{
     display: flex;
@@ -94,14 +92,8 @@ body{
     display: flex;
 }
 
-.spa{
-   display: none;
-  
 
-}
-.show{
-    display: block;
-}
+
 .sbo{
     color: white;
      font-family: "raleway";

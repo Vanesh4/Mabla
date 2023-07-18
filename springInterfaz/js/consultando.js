@@ -46,7 +46,7 @@ function consultarCategoria(){
     })
 }
 
-/* let hideText_btn=document.getElementById('hideText_btn');
+let hideText_btn=document.getElementById('hideText_btn');
 
 let hideText=document.getElementById('hideText');
 
@@ -61,17 +61,19 @@ function toggleText(){
     }else{
         hideText_btn.innerHTML='Animales';
     }
-} */
+}
 
 
 $(document).ready(function () {
     
     titulosCat = document.querySelectorAll('h1')
+    console.log("porfis",titulosCat)
     $.ajax({
         url: "http://127.0.0.1:8000/getcate",
         type: "GET",
         dataType: "JSON",
         success: function (res) {
+            console.log(res)
             for(i = 0; i <= res.length ; i++){
                 titulosCat[i].innerHTML = res[i].Categoria 
             }
@@ -79,73 +81,10 @@ $(document).ready(function () {
             
         } 
     })
-
-    
-    $.ajax({
-        url: "http://127.0.0.1:8000/getsubcate",
-        type: "GET",
-        dataType: "JSON",
-        success: function (res) {
-            console.log(res)           
-            contenedoul = document.querySelector(".list_show")
-            categorias = document.getElementsByClassName("categorias")
-            console.log(contenedoul)
-            listacategorias = []
-            for(let i = 0; i<categorias.length; i++){
-                
-                listacategorias.push(categorias[i].textContent)
-            
-
-                for (let x = 0; x < res.length; x++) {
-
-                    li = document.createElement("li")
-                    li.setAttribute("class","list_inside")
-
-                    a = document.createElement("a")
-                    a.setAttribute("class","nav_link nav_link--inside")
-              
-                
-                    if (listacategorias[i] == "Sustantivos" && res[x].categoria_id=="Sustantivos"){
-                        console.log(res[x].subcategoria)
-                        a[x].innerHTML= res[x].subcategoria
-
-                    }
-                        
-                }
-            }
-
-            contenedoul.appendChild(li)
-            li.appendChild(a)
-            
-            
-            
-        } 
-    })
-
 })
 
 
-
-$(document).ready(function () {
-    
-    titulosSubcat = document.querySelectorAll('a')
-    console.log(titulosSubcat)
-    $.ajax({
-        url: "http://127.0.0.1:8000/viendosustan",
-        type: "GET",
-        dataType: "JSON",
-        success: function (res) {
-            for(i = 0; i <= res.length ; i++){
-                titulosSubcat[i].innerHTML = res[i].subcategoria 
-            }
-            
-            
-        } 
-    })
-})
-
-
-/* function mostrarsubcate(){
+function mostrarsubcate(){
 
     fetch("http://127.0.0.1:8000/getsubcate",{
         method:"GET",
@@ -165,8 +104,9 @@ $(document).ready(function () {
             for(let dat of datos){
                 caja.innerHTML+=`
                 <h2>${dat.subcategoria}</h2>
+            
                 `
             }
         }
     })
-} */
+}
