@@ -27,6 +27,7 @@ public class CTablaCategorias {
 
     @PostMapping("/postCategorias")
     public String insertCategoria(@RequestBody TablaCategorias cat){
+
         return serCategorias.PostCategoria(cat);
     }
 

@@ -1,26 +1,30 @@
 package com.example.BDMabla.Servicios;
 import com.example.BDMabla.Entidad.TablaCategorias;
 import com.example.BDMabla.Entidad.TablaPalabras;
+import com.example.BDMabla.Entidad.TablaSubcategorias;
 import com.example.BDMabla.Repositorio.RTablaCategorias;
 import com.example.BDMabla.Repositorio.RTablaPalabras;
 
+import com.example.BDMabla.Repositorio.RTablaSubcategorias;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 @Service
 public class STablaPalabras {
-    private RTablaPalabras repositorio;
+    private RTablaPalabras repositoriopalab;
+    private RTablaSubcategorias repSubcategorias;
 
-    public STablaPalabras(RTablaPalabras repositorio) {
-        this.repositorio = repositorio;
+    public STablaPalabras(RTablaPalabras repositoriopalab, RTablaSubcategorias repSubcategorias) {
+        this.repositoriopalab = repositoriopalab;
+        this.repSubcategorias = repSubcategorias;
     }
 
     public List<TablaPalabras> Mostrartodo(){
-        return repositorio.findAll();
+        return repositoriopalab.findAll();
     }
     public TablaPalabras buscarpalabra(String Palabra){
-        if(repositorio.findById(Palabra).isPresent()) {
-            return repositorio.findById(Palabra).get();
+        if(repositoriopalab.findById(Palabra).isPresent()) {
+            return repositoriopalab.findById(Palabra).get();
         } else {
             return null;
         }
@@ -41,13 +45,27 @@ public class STablaPalabras {
         return "registrada";
     }*/
 
-    public String insertarpalabra(TablaPalabras t){
-        if(repositorio.findById(t.getPalabra()).isPresent()){
+  /*  public String insertarpalabra(TablaPalabras t){
+        if(repositoriopalab.findById(t.getPalabra()).isPresent()){
             return "La palabra ya existe";
         }else {
-            repositorio.save(t);
+            repositoriopalab.save(t);
         }
         return "se ha guardado";
+    }*/
+
+   public String addpalabra(String subcate, TablaPalabras pal){
+        TablaSubcategorias subc= repSubcategorias.findById(subcate).get();
+        if(repSubcategorias.findById(subcate).isPresent()){
+            pal.setTablaSubcategorias(subc);
+            repositoriopalab.save(pal);
+            return "Palabra guardada";
+        }
+        else return "ESta Subcategoria no existe";
+    }
+
+    public List<Object[]> getpalabrasforsubcate(String sub){
+        return repositoriopalab.findForSubcategoria(sub);
     }
 }
 

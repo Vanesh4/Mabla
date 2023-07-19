@@ -69,7 +69,7 @@ $(document).ready(function () {
     titulosCat = document.querySelectorAll('h1')
     console.log("porfis",titulosCat)
     $.ajax({
-        url: "http://127.0.0.1:8000/getcate",
+        url: "localhost:8080/getCategorias",
         type: "GET",
         dataType: "JSON",
         success: function (res) {
