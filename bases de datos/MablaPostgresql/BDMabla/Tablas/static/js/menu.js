@@ -36,12 +36,15 @@ $(document).ready(function () {
 
                     if(listacategorias[c] == "Sustantivos" && res[s].categoria_id=="Sustantivos"){
                         subcate.innerHTML = res[s].subcategoria
+                        console.log(subcate)
                         divCategorias[0].appendChild(subcate)
                     }
 
                     if(listacategorias[c] == "Adjetivos" && res[s].categoria_id=="Adjetivos"){
                         subcate.innerHTML = res[s].subcategoria
+                        console.log(subcate)
                         divCategorias[3].appendChild(subcate)
+                
                     }
                 }
             }

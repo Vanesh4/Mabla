@@ -91,8 +91,8 @@ $(document).ready(function () {
             categorias = document.getElementsByClassName("categorias")
             console.log(contenedoul)
             listacategorias = []
-            for(let i = 0; i<categorias.length; i++){        
-                listacategorias.push(categorias[i].textContent)          
+            for(let i = 0; i<titulosCat.length; i++){        
+                listacategorias.push(titulosCat[i].textContent)          
                 for (let x = 0; x < res.length; x++) {
 
                     li = document.createElement("li")
@@ -103,23 +103,21 @@ $(document).ready(function () {
               
                 
                     if (listacategorias[i] == "Sustantivos" && res[x].categoria_id=="Sustantivos"){
-                        console.log(res[x].subcategoria)
                         a.innerHTML=res[x].subcategoria
-
                         console.log(a)
                         contenedoul.appendChild(li)
                         li.appendChild(a)
                     }
 
-                    
-                    else if (listacategorias[i] == "Adjetivos" && res[x].categoria_id=="Adjetivos"){
-                        console.log(res[x].subcategoria)
-                        a.innerHTML=res[3].subcategoria
-
+                    if (listacategorias[i] == "Adjetivos" && res[x].categoria_id=="Adjetivos"){
+                        a.innerHTML=res[x].subcategoria
                         console.log(a)
                         contenedoul.appendChild(li)
                         li.appendChild(a)
+
+
                     }
+
                         
                 }
             }    

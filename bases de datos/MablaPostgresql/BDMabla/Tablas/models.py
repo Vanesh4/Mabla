@@ -44,9 +44,9 @@ class TablaPreguntas(models.Model):
     respuesta = models.TextField(max_length=50)
     
 
-class TablaPrueba_Pregunta(models.Model):
-    idPrueba = models.ForeignKey(TablaPruebas, null=False, on_delete=models.CASCADE)
+""" class TablaPrueba_Pregunta(models.Model):
+    idPrueba = models.ForeignKey(TablaPreguntas, null=False, on_delete=models.CASCADE)
     idCategoria = models.ForeignKey(TablaPreguntas, null=False, on_delete=models.CASCADE)
-    puntaje=models.PositiveBigIntegerField(verbose_name="Puntaje")
+    puntaje=models.PositiveBigIntegerField(verbose_name="Puntaje") """
 
 
