@@ -7,6 +7,9 @@
     font-family: "ralewayExtraBold";
     src: url("/static/fonts/Raleway/Raleway-ExtraBold.ttf");
 }
+input{
+    font-family: "raleway";
+}
 *{
     margin: 0;
     padding: 0;
@@ -109,30 +112,40 @@ nav{
     height: 0;
 
 }
-.buscar{
-    
-    width: 100%;
-    height: 100px;
-    background-color: #393a3c;
-    padding: 10px;
-    
 
+
+.buscar{    
+    width: 100%;
+    background-color: #D9D9D9;
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px 20px; 
 }
-input{
+#contenedorBuscador{
+    border: 2px solid black;
+    width: 30%;
+    border-radius: 100px;
+    padding: 5px 10px;
+    margin-right: 10px;
+}
+
+#inputBuscar{
+    width: 100%;
+    border: none;
+    height: 100%;
     outline: none;
-    box-sizing: border-box;
-    margin-top: 15px;
+    padding: 5px 20px;
+    font-size: 18px;
+    padding: 3px;
+    background-color: transparent;
+    /* margin-top: 15px;
     height: 40px;
-    width: 0;
-    padding: 0 20px;
+    width: 0;    
     color: rgb(0, 0, 0);
-    border-radius: 50px;
-    font-size: 20px;
+    border-radius: 50px;    
     border-radius: 1px solid rgb(0, 4, 255);
     transition: all .7s ease;
-    margin-left: 70%;
-
-
+    margin-left: 70%; */
 
 }
 
@@ -141,13 +154,13 @@ input{
 }
 
 .btn{
-    position: absolute;
+    /* position: absolute;
     right: 0;
-    top: 20px;
+    top: 20px; */
     width: 50px;
     height: 50px;
     background: #0a4d68;
-    line-height: 80px;
+    /* line-height: 80px; */
     border-radius: 50%;
     text-align: center;
     cursor: pointer;
@@ -156,18 +169,17 @@ input{
 }
 
 #lupa{
-    height: 80%;
+    height: 100%;
     color: #fefefe;
 }
 
 .btn i{
     font-size: 25px;
-    color: rgb(16, 10, 182);
-    line-height: 80px;
-    transition: all .7s;
+    /* line-height: 80px; */
+    transition: all .5s;
 }
 
-.buscar:hover input{
+/* .buscar:hover input{
     width: 350px;
 }
 
@@ -175,15 +187,13 @@ input{
     transform: rotate(-360deg);
     
 
-}
+} */
 
 .btn:hover{
-    background: rgb(126, 5, 5);
     background-color: #ff731c;
 }
 
-.caja2{
-    
+.caja2{    
     flex-direction: column;
     width: 100%;
 }

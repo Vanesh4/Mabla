@@ -20,20 +20,20 @@ $(document).ready (()=>{
         type: "GET",
         dataType: "JSON",
         success: function (res) {
-            //console.log(res)
+            console.log(res)
             
-            for (let i = 0; i < 9; i+=2) {
+            for (let i = 0; i < 4; i++) {
             
                 comentario = document.createElement("div")
                 comentario.setAttribute("id","comentario")
 
                 usuario = document.createElement("p")
                 usuario.setAttribute("id","user")
-                usuario.innerHTML = res[i]
+                usuario.innerHTML = res[i][0]
 
                 texto = document.createElement("p")
                 texto.setAttribute("id","coment")
-                texto.innerHTML = res[i+1]
+                texto.innerHTML = res[i][1]
 
                 comentario.appendChild(usuario)
                 comentario.appendChild(texto)
