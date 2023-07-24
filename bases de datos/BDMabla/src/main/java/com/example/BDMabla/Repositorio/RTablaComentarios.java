@@ -11,7 +11,5 @@ import java.util.List;
 public interface RTablaComentarios extends JpaRepository<TablaComentarios, Integer> {
     @Query(value = "select  alias,texto from tabla_comentarios",  nativeQuery = true)
     List<Object[]> listComentario();
-
-
 }
 

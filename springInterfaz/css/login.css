@@ -48,8 +48,8 @@ form{
 
 .links{
     display: flex;
-    padding-top: 30px;
-    padding-bottom: 30px;
+    padding-top: 15px;
+    padding-bottom: 40px;
     flex-direction: column;
     font-size: 25px;
     align-items: flex-end;
@@ -80,28 +80,13 @@ form{
     header{
         background-image: url("/img/picoResponsiveSVG.svg");
         flex-direction: column;
-        justify-content: flex-start;
-        align-items: flex-start;
-        padding: 0px;
         padding-top: 30px;
-        /* background-size: contain;
-        background-repeat: no-repeat;
-        height: 1500px;
-        width: 320px;
-        justify-content: center;
-        align-items: start;
-        padding-top: 20px;
-        padding-right: 80px; */
     }
     #form{
         width: 100%;
-        padding: 0px;
-        margin: 0px;
         padding-left: 20px;
     }
     form{
-        padding: 0px;
-        margin: 0px;
         font-size: 20px;
     }
     .textSesion{
@@ -122,18 +107,24 @@ form{
     }
     #boton{
         justify-content: flex-end;
+        margin: 0px;
         margin-left: 10px;
+        padding: 0px;
+        margin-top: 35px;
     }
     #colorbtn{
         font-size: 23px;
         width: 50%;
-        margin-top: 25px;
+        margin: 0px;
+        padding: 0px;
     }
     .imgyText{
-        width: 60%;
+        width: 62%;
         margin: 0px;
         padding: 0px;
         margin-left: 6px;
+        margin-top: 50px;
+        align-content: flex-start;
     }
     .slogan{
         margin-top: 20px;
