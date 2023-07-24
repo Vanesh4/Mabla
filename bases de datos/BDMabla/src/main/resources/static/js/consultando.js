@@ -97,7 +97,8 @@ $.ajax({
         categorias = document.getElementsByClassName("categorias")
         console.log("hggbjhbpintadooooo", contenedoul)
         listacategorias = []
-        for(let i = 0; i<titulosCat.length; i++){        
+        for(let i = 0; i<titulosCat.length; i++){  
+            console.log("bdvhbjhbjzb ")      
             listacategorias.push(titulosCat[i].textContent)          
             for (let x = 0; x < res.length; x++) {
 
@@ -108,7 +109,8 @@ $.ajax({
                 a.setAttribute("class","nav_link nav_link--inside")
           
             
-                if (listacategorias[i] == "Sustantivos" && res[x].categoria_id=="Sustantivos"){
+                if (listacategorias[i] == "sustantivos" && res[x].categoria_id=="sustantivos"){
+                    console.log("bdvhbjhbjzb "),
                     a.innerHTML=res[x].subcategoria
                     console.log(a)
                     contenedoul.appendChild(li)
