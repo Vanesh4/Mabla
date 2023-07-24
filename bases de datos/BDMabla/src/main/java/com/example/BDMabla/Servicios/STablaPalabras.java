@@ -30,9 +30,8 @@ public class STablaPalabras {
         }
     }
 
-<<<<<<< HEAD
 
-=======
+
 /*public String insertarpalabra(TablaPalabras t){
         for (TablaCategorias: Mostrartodo());{
             if (c.getCategoria() == repositorio.findByCategoria(t.getCategoria())){
@@ -47,18 +46,17 @@ public class STablaPalabras {
         }
         return "registrada";
     }*/
->>>>>>> 51582b50e48d28e2d430ab7f420db771940d787c
 
-  /*  public String insertarpalabra(TablaPalabras t){
+
+    public String insertarpalabra(TablaPalabras t){
         if(repositoriopalab.findById(t.getPalabra()).isPresent()){
             return "La palabra ya existe";
         }else {
             repositoriopalab.save(t);
         }
         return "se ha guardado";
-<<<<<<< HEAD
-=======
-    }*/
+
+    }
 
    public String addpalabra(String subcate, TablaPalabras pal){
         TablaSubcategorias subc= repSubcategorias.findById(subcate).get();
@@ -72,7 +70,7 @@ public class STablaPalabras {
 
     public List<Object[]> getpalabrasforsubcate(String sub){
         return repositoriopalab.findForSubcategoria(sub);
->>>>>>> 51582b50e48d28e2d430ab7f420db771940d787c
+
     }
 }
 
