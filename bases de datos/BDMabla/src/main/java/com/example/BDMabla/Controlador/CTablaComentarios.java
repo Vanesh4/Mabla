@@ -21,7 +21,7 @@ public class CTablaComentarios {
         return metodosComent.coments();
     }
     @GetMapping("/commentAlias")
-    public List<String> commentAlias(){
+    public List<Object[]> commentAlias(){
         return metodosComent.commentAlias();
     }
     @PostMapping("/addComment/{alias}")

@@ -21,13 +21,17 @@ public class STablaComentarios {
     public List<TablaComentarios> coments(){
         return repostorioComents.findAll();
     }
-    public List<String> commentAlias() {
+    /*public List<String> commentAlias() {
         List<String> lista = new ArrayList<>();
         for (TablaComentarios i : coments()){
             lista.add(i.getTablaUsuario().getAlias());
             lista.add(i.getTexto());
         }
         return lista;
+    }*/
+
+    public List<Object[]> commentAlias() {
+        return repostorioComents.listComentario();
     }
 
     /*public List<TablaComentarios> comentariosUser(){

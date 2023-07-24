@@ -7,7 +7,7 @@ import com.example.BDMabla.Repositorio.RTablaPalabras;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-/*@Service
+@Service
 public class STablaPalabras {
     private RTablaPalabras repositorio;
 
@@ -26,20 +26,7 @@ public class STablaPalabras {
         }
     }
 
-public String insertarpalabra(TablaPalabras t){
-        for (TablaCategorias: Mostrartodo());{
-            if (c.getCategoria() == repositorio.findByCategoria(t.getCategoria())){
-                repositorio.save(t);
-                return "Categoria registrada";
 
-            }else {
-                return "esta ya existe";
-            }
-
-
-        }
-        return "registrada";
-    }
 
     public String insertarpalabra(TablaPalabras t){
         if(repositorio.findById(t.getPalabra()).isPresent()){
@@ -49,5 +36,5 @@ public String insertarpalabra(TablaPalabras t){
         }
         return "se ha guardado";
     }
-}*/
+}
 
