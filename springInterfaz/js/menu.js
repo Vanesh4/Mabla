@@ -17,8 +17,8 @@ $(document).ready(function () {
     })*/
 
 
-    contenedor = document.querySelector("#menuContenido")
-    $.ajax({
+    /*contenedor = document.querySelector("#menuContenido")
+     $.ajax({
          url: "http://localhost:8080/getCategorias",
          type: "GET",
          dataType: "JSON",
@@ -33,6 +33,7 @@ $(document).ready(function () {
 
                 divCategoria.appendChild(h2Categoria)
 
+                
                 $.ajax({
                     url: "http://localhost:8080/listarSubCategorias/"+res[i].categoria,
                     type: "GET",
@@ -40,14 +41,14 @@ $(document).ready(function () {
                     success: function (sub){
                         console.log(sub)
                         for(let s=0; s<=sub.length; s++){
-                        console.log("porfavoooooooooor")
-                            subCategoria = document.createElement("p")
-                            //subCategoria.setAttribute("class","subcategoria")
-                            subCategoria.innerHTML = sub[s]
-
-
-                        }
-                        divCategoria.appendChild(subCategoria)
+                            subcate = document.createElement("div")
+                            console.log(subcate)
+                            subcate.innerHTML = sub[s][0]
+                            subcate.textContent = sub[s][0]
+                            console.log(subcate)
+                            divCategoria.appendChild(subcate)
+                            
+                        }                        
                     }
                 })
                 contenedor.appendChild(divCategoria)
@@ -55,8 +56,16 @@ $(document).ready(function () {
             }
 
          }
+    }) */
+
+    contenedor = document.querySelector("#menuContenido")
+    $.ajax({
+        url: "http://localhost:8080/listarSubCategorias",
+        type: "GET",
+        dataType: "JSON",
+        success: function (res){
+            pes= document.getElementById('subcate')             
+            pes.textContent=res
+        }
     })
-
-    
-
 })

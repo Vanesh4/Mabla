@@ -1,0 +1,159 @@
+@font-face {
+    font-family: "arimo";
+    src: url(/Tablas/static/fonts/Arimo/Arimo-Medium.ttf);
+}
+@font-face {
+    font-family: "raleway";
+    src: url(/Tablas/static/fonts/Raleway/Raleway-Medium.ttf);
+}
+*{
+    margin: 0;
+}
+
+a{
+    color: black;
+    text-decoration: none;
+}
+
+input{
+    border: none;
+    font-size: 18px;
+    font-family: "raleway"; 
+    outline: none;
+}
+#header{
+    display: flex;
+    justify-content: space-between;
+}
+#parteizq, #partederecha{
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#logoImg{
+    width: 50px;
+}
+.linkContenido{
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+.textomenu{
+    font-size: 20px;
+    font-family: "raleway";
+}
+.imgflecha{
+    margin-left: 3px;
+    margin-top: 6px;
+}
+#login{
+    background-color: #0a4d68;
+    display: flex;
+    justify-content: center;
+    color: white;
+    /* padding: 10px 20px; */
+    font-size: 20px;
+    font-family: "raleway";
+    border-radius: 100px;
+}
+#BotonIngresar{
+    background-color: #06bfdb;
+    padding: 7px 18px;
+    border-radius: 100px;
+}
+
+#BotonRegisto{
+    padding: 7px 13px 0 20px;
+}
+#buscador{
+    width: 40%;
+    display: flex;
+    border: 2px solid black;
+    border-radius: 100px;
+    padding: 3px;
+    margin-left: 10px;
+}
+
+#buscadorMenu{
+    border: none;
+    margin-left: 10px;
+    width: 90%;
+}
+.menuResponsive{
+    display: none;
+}
+.closeBtn{
+    visibility: hidden;
+}
+@media screen and (min-width:320px) and (max-width:700px){
+    #header{        
+        /* justify-content: center;
+        flex-direction: column;
+        align-self: center; */
+        height:100vh;
+        display: none;
+    }
+    .menuResponsive{
+        display: inherit;
+    }
+    #parteizq, #partederecha{
+        display: flex;
+        flex-direction: column;
+        /* justify-content: center; */
+        align-items: center;
+        width: 100%;
+        height: 48%;
+    }
+    #parteizq{
+        justify-content: flex-end;
+    }
+    #partederecha{
+        justify-content: flex-start;
+    }
+    .linkContenido{
+        padding: 10px 0 0 0;
+    }
+    .textomenu{
+        font-size: 25px;
+    }
+    #login{
+        background-color: transparent;
+        flex-direction: column;
+        align-items: center;
+        font-size: 25px;
+        border-radius: 0;
+        width: 80%;
+        margin-top: 20px;
+    }
+    #BotonRegisto, #BotonIngresar{
+        padding: 7px 7px;
+        border-radius: 100px;
+        text-align: center;
+        width: 60%;
+    }
+    #BotonRegisto{
+        background-color: #0a4d68;
+        
+    }
+    #BotonIngresar{
+        background-color: #06bfdb;
+    }
+    #buscador{
+        width: 80%;
+        display: flex;
+        padding: 3px;
+        margin-left: 0;
+        margin-top: 20px;
+    }
+    #logoImg{
+        width: 200px;
+    }
+    .closeBtn{
+        visibility: inherit;
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+        padding: 10px 30px 0 0;
+    }
+}

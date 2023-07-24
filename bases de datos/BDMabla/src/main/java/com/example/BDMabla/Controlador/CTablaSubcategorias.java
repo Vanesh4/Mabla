@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = "*")
 public class CTablaSubcategorias {
 
     private STablaSubcategorias serSubcategorias;
@@ -37,8 +38,8 @@ public class CTablaSubcategorias {
         return serSubcategorias.deleteSubcate(subcate);
     }
 
-    @GetMapping("/listarSubCategorias/{cat}")
-    public List<Object[]> Subcategorias(@PathVariable("cat") String cat){
-        return serSubcategorias.getSubcategoriasOfCate(cat);
+    @GetMapping("/listarSubCategorias")
+    public List<Object[]> Subcategorias(){
+        return serSubcategorias.getSubcategoriasOfCate();
     }
 }

@@ -10,6 +10,9 @@ import java.util.List;
 @Repository
 public interface RTablaSubcategorias extends JpaRepository<TablaSubcategorias, String>  {
 
-    @Query(value = "select subcategoria from tabla_subcategorias where categoria = :categoria",  nativeQuery = true)
-    List<Object[]> findForCategoria(String categoria);
+    @Query(value = "select categoria, subcategoria from tabla_subcategorias",  nativeQuery = true)
+    List<Object[]> findForCategoria();
+
+    /*@Query(value = "select subcategoria from tabla_subcategorias where categoria = :categoria",  nativeQuery = true)
+    List<Object[]> findForCategoria(String categoria);*/
 }
