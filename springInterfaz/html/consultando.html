@@ -9,7 +9,7 @@
     <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/fontawesome.js" integrity="sha384-7ox8Q2yzO/uWircfojVuCQOZl+ZZBg2D2J5nkpLqzH1HY0C1dHlTKIbpRz/LG23c" crossorigin="anonymous"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js" integrity="sha384-SlE991lGASHoBfWbelyBPLsUlwY1GwNDJo3jSJO04KZ33K2bwfV9YBauFfnzvynJ" crossorigin="anonymous"></script>
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-   <link rel="stylesheet" href="{% static 'css/consultando.css' %}">
+   <link rel="stylesheet" href="/css/consultando.css">
 </head>
 <body>
 
@@ -20,19 +20,19 @@
             <li class="list_item list_item--click">
                
                 <div class="list_button list_button--click">
-                    <h1 style=" padding: 15px; font-size: 20px; width: 100%; background-color: transparent;" ></h1>
-                    <img src="{% static 'img/flecha-apunta-a-la-derecha.png'%}" style="height: 10px;" class="list_arrow">
+                    <h1 style=" padding: 15px; font-size: 20px; width: 100%; background-color: transparent;" class="categorias"  ></h1>
+                    <img src="/img/flecha-apunta-a-la-derecha.png" style="height: 10px;" class="list_arrow">
                     
                 </div>
                   
                                          
                 <ul class="list_show">
-                    {%for i in sustantivos%}
+                    
                     <li class="list_inside">
-                        <a href="#" class="nav_link nav_link--inside" id="hideText_btn">{{i.subcategoria}}</a>
+                        <a href="#" class="nav_link nav_link--inside" id="hideText_btn"></a>
     
                     </li>
-                    {%endfor%}
+                    
 
                 </ul>
                
@@ -42,13 +42,13 @@
 
             <li class="list_item list_item--click">
                 <div class="list_button list_button--click" >
-                    <h1 style=" padding: 15px; font-size: 20px; width: 100%; background-color: transparent;"></h1>
-                    <img src="{% static 'img/flecha-apunta-a-la-derecha.png'%}" style="height: 10px;" class="list_arrow">
+                    <h1 style=" padding: 15px; font-size: 20px; width: 100%; background-color: transparent;" class="categorias" ></h1>
+                    <img src="/img/flecha-apunta-a-la-derecha.png" style="height: 10px;" class="list_arrow">
                    
                 </div>
 
                 <ul class="list_show">
-                    <li class="list_inside">
+                   <!--  <li class="list_inside">
                         <a href="#" class="nav_link nav_link--inside">Estoy dentro</a>
     
                     </li>
@@ -61,7 +61,7 @@
                     <li class="list_inside">
                         <a href="#" class="nav_link nav_link--inside">Estoy dentro</a>
     
-                    </li>
+                    </li> -->
 
 
 
@@ -70,13 +70,13 @@
 
             <li class="list_item list_item--click">
                 <div class="list_button list_button--click">
-                    <h1 style=" padding: 15px; font-size: 20px; width: 100%; background-color: transparent;" ></h1>
-                    <img src="{% static 'img/flecha-apunta-a-la-derecha.png'%}" style="height: 10px;" class="list_arrow">
+                    <h1 style=" padding: 15px; font-size: 20px; width: 100%; background-color: transparent;" class="categorias" ></h1>
+                    <img src="/img/flecha-apunta-a-la-derecha.png" style="height: 10px;" class="list_arrow">
                    
                 </div>
 
                 <ul class="list_show">
-                    <li class="list_inside">
+<!--                     <li class="list_inside">
                         <a href="#" class="nav_link nav_link--inside">Estoy dentro</a>
     
                     </li>
@@ -90,6 +90,34 @@
                         <a href="#" class="nav_link nav_link--inside">Estoy dentro</a>
     
                     </li>
+
+ -->
+
+                </ul>
+            </li>
+
+            <li class="list_item list_item--click">
+                <div class="list_button list_button--click">
+                    <h1 style=" padding: 15px; font-size: 20px; width: 100%; background-color: transparent;" class="categorias" ></h1>
+                    <img src="/img/flecha-apunta-a-la-derecha.png" style="height: 10px;" class="list_arrow">
+                   
+                </div>
+
+                <ul class="list_show">
+                    <!-- <li class="list_inside">
+                        <a href="#" class="nav_link nav_link--inside">Estoy dentro</a>
+    
+                    </li>
+
+                    <li class="list_inside">
+                        <a href="#" class="nav_link nav_link--inside">Estoy dentro</a>
+    
+                    </li>
+
+                    <li class="list_inside">
+                        <a href="#" class="nav_link nav_link--inside">Estoy dentro</a>
+    
+                    </li> -->
 
 
 
@@ -98,13 +126,13 @@
 
             <li class="list_item list_item--click">
                 <div class="list_button list_button--click">
-                    <h1 style=" padding: 15px; font-size: 20px; width: 100%; background-color: transparent;"></h1>
-                    <img src="{% static 'img/flecha-apunta-a-la-derecha.png'%}" style="height: 10px;" class="list_arrow">
+                    <h1 style=" padding: 15px; font-size: 20px; width: 100%; background-color: transparent;" class="categorias" ></h1>
+                    <img src="/img/flecha-apunta-a-la-derecha.png" style="height: 10px;" class="list_arrow">
                    
                 </div>
 
                 <ul class="list_show">
-                    <li class="list_inside">
+                   <!--  <li class="list_inside">
                         <a href="#" class="nav_link nav_link--inside">Estoy dentro</a>
     
                     </li>
@@ -118,7 +146,7 @@
                         <a href="#" class="nav_link nav_link--inside">Estoy dentro</a>
     
                     </li>
-
+ -->
 
 
                 </ul>
@@ -126,13 +154,13 @@
 
             <li class="list_item list_item--click">
                 <div class="list_button list_button--click">
-                    <h1 style=" padding: 15px; font-size: 20px; width: 100%; background-color: transparent;"></h1>
-                    <img src="{% static 'img/flecha-apunta-a-la-derecha.png'%}" style="height: 10px;" class="list_arrow">
+                    <h1 style=" padding: 15px; font-size: 20px; width: 100%; background-color: transparent;" class="categorias" ></h1>
+                    <img src="/img/flecha-apunta-a-la-derecha.png" style="height: 10px;" class="list_arrow">
                    
                 </div>
 
                 <ul class="list_show">
-                    <li class="list_inside">
+                  <!--   <li class="list_inside">
                         <a href="#" class="nav_link nav_link--inside">Estoy dentro</a>
     
                     </li>
@@ -147,20 +175,20 @@
     
                     </li>
 
-
+ -->
 
                 </ul>
             </li>
 
             <li class="list_item list_item--click">
                 <div class="list_button list_button--click">
-                    <h1 style=" padding: 15px; font-size: 20px; width: 100%; background-color: transparent;"></h1>
-                    <img src="{% static 'img/flecha-apunta-a-la-derecha.png'%}" style="height: 10px;" class="list_arrow">
+                    <h1 style=" padding: 15px; font-size: 20px; width: 100%; background-color: transparent;" class="categorias" ></h1>
+                    <img src="/img/flecha-apunta-a-la-derecha.png" style="height: 10px;" class="list_arrow">
                    
                 </div>
 
                 <ul class="list_show">
-                    <li class="list_inside">
+                  <!--   <li class="list_inside">
                         <a href="#" class="nav_link nav_link--inside">Estoy dentro</a>
     
                     </li>
@@ -175,20 +203,20 @@
     
                     </li>
 
-
+ -->
 
                 </ul>
             </li>
 
-            <li class="list_item list_item--click">
+            <li class="list_item list_item--click" >
                 <div class="list_button list_button--click">
-                    <h1 style=" padding: 15px; font-size: 20px; width: 100%; background-color: transparent;"></h1>
-                    <img src="{% static 'img/flecha-apunta-a-la-derecha.png'%}" style="height: 10px;" class="list_arrow">
+                    <h1 style=" padding: 15px; font-size: 20px; width: 100%; background-color: transparent;" class="categorias" ></h1>
+                    <img src="/img/flecha-apunta-a-la-derecha.png" style="height: 10px;" class="list_arrow">
                    
                 </div>
 
                 <ul class="list_show">
-                    <li class="list_inside">
+                   <!--  <li class="list_inside">
                         <a href="#" class="nav_link nav_link--inside">Estoy dentro</a>
     
                     </li>
@@ -202,7 +230,7 @@
                         <a href="#" class="nav_link nav_link--inside">Estoy dentro</a>
     
                     </li>
-
+ -->
 
 
                 </ul>
@@ -210,13 +238,13 @@
 
             <li class="list_item list_item--click" >
                 <div class="list_button list_button--click">
-                    <h1 style=" padding: 15px; font-size: 20px; width: 100%; background-color: transparent;"></h1>
-                    <img src="{% static 'img/flecha-apunta-a-la-derecha.png'%}" style="height: 10px;" class="list_arrow">
+                    <h1 style=" padding: 15px; font-size: 20px; width: 100%; background-color: transparent;" class="categorias" ></h1>
+                    <img src="/img/flecha-apunta-a-la-derecha.png" style="height: 10px;" class="list_arrow">
                    
                 </div>
 
                 <ul class="list_show">
-                    <li class="list_inside">
+                <!--     <li class="list_inside">
                         <a href="#" class="nav_link nav_link--inside">Estoy dentro</a>
     
                     </li>
@@ -229,35 +257,7 @@
                     <li class="list_inside">
                         <a href="#" class="nav_link nav_link--inside">Estoy dentro</a>
     
-                    </li>
-
-
-
-                </ul>
-            </li>
-
-            <li class="list_item list_item--click" >
-                <div class="list_button list_button--click">
-                    <h1 style=" padding: 15px; font-size: 20px; width: 100%; background-color: transparent;"></h1>
-                    <img src="{% static 'img/flecha-apunta-a-la-derecha.png'%}" style="height: 10px;" class="list_arrow">
-                   
-                </div>
-
-                <ul class="list_show">
-                    <li class="list_inside">
-                        <a href="#" class="nav_link nav_link--inside">Estoy dentro</a>
-    
-                    </li>
-
-                    <li class="list_inside">
-                        <a href="#" class="nav_link nav_link--inside">Estoy dentro</a>
-    
-                    </li>
-
-                    <li class="list_inside">
-                        <a href="#" class="nav_link nav_link--inside">Estoy dentro</a>
-    
-                    </li>
+                    </li> -->
 
 
 
@@ -273,8 +273,10 @@
     <section class="caja2">
 
     <div class="buscar">
-
-        <input type="text" placeholder="Buscar">
+        <div id="contenedorBuscador">
+            <input type="text" placeholder="Buscar" id="inputBuscar">
+        </div>
+        
         <div class="btn">
             <i class="fa fa-search" id="lupa"></i>
         </div>
@@ -284,7 +286,6 @@
         <div style="background-color: rgb(252, 248, 248);">
         <h1 class="subtitulo">Subcategoria</h1>
 
-        {%for p in animales%}
     <div id="cajita">
         
             <div class="img">
@@ -292,11 +293,11 @@
             </div>
 
             <div class="text">
-                <h2>{{p.Palabra}}</h2>
+                <h2></h2>
             </div>
        
         </div>
-        {%endfor%}
+    
     
         </div>
     </span>
@@ -320,7 +321,7 @@
 
   
     
-    <script src="{%static 'js/consultando.js'%}"></script>
+    <script src="/js/consultando.js"></script>
    
 
     

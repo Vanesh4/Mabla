@@ -16,7 +16,8 @@ $(document).ready (()=>{
     commentsList = document.querySelector(".listComent")
     
     $.ajax({
-        url: "http://127.0.0.1:8000/tablaComment",
+        url: "http://192.168.1.10/tablaComment",
+        //url: "http://127.0.0.1:8000/tablaComment",
         //url: "http://localhost:8080/users",
         type: "GET",
         dataType: "JSON",

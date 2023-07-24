@@ -1,7 +1,12 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:mabla/formas/ondaHome.dart';
 import 'package:mabla/header.dart';
 import 'package:mabla/screen/menu.dart';
+import 'package:mabla/screen/quiz.dart';
+
+import 'package:http/http.dart' as http;
 
 const Color darkBlue = Color(0xFF0a4d68);
 const Color lightBlue = Color(0xFF06bfdb);
@@ -18,6 +23,31 @@ class home extends StatefulWidget {
 
 class _homeState extends State<home> {
   GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+
+  List<dynamic> comments = [];
+  Future<void> getComments() async{
+    final url = Uri.parse('http://192.168.1.10/tablaComment');
+    final response = await http.get(url);
+    
+    if(response.statusCode == 200){
+      print("data connected successfull");
+      final jsonResponse = json.decode(response.body);
+
+      setState(() {
+        comments = jsonResponse;
+        //print(comments);
+      });
+    }
+    else{
+      print("data didn't connect");
+    }
+  }
+
+  void initState(){
+    super.initState();
+    getComments();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -96,7 +126,9 @@ class _homeState extends State<home> {
                         width: 190,
                         height: 48,
                         child: ElevatedButton(
-                          onPressed: (){},
+                          onPressed: (){
+                            Navigator.push(context, MaterialPageRoute(builder: (context)=>quiz()));
+                          },
                           child: Text('Quizes',
                             style: TextStyle(fontSize: 28, fontFamily: "Raleway",color: Colors.black),),
                           style: ButtonStyle(
@@ -142,7 +174,7 @@ class _homeState extends State<home> {
               padding: EdgeInsets.only(left: 10),
               child: TextFormField(
                 decoration: const InputDecoration(
-                  hintText: 'comenta...',
+                  hintText: 'Escribe tu comentario...',
                   enabledBorder: OutlineInputBorder(borderSide: BorderSide.none),
                   focusedBorder: OutlineInputBorder(borderSide: BorderSide.none)
                 ),
@@ -152,7 +184,60 @@ class _homeState extends State<home> {
                 ),
 
               ),
-            )
+            ),
+            SizedBox(height: 20,),
+            Container(
+              width: 170,
+              height: 48,
+              child: ElevatedButton(
+                onPressed: (){
+
+                },
+                child: Text('Comenta',
+                  style: TextStyle(fontSize: 25, fontFamily: "Raleway",color: Colors.black),),
+                style: ButtonStyle(
+                    backgroundColor: MaterialStatePropertyAll(lightBlue),
+                    shape: MaterialStatePropertyAll(
+                        RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(20)
+                        )
+                    )
+                ),
+              ),
+            ),
+            SizedBox(height: 20,),
+
+            ListView.builder(
+                //listView se ajuste al tamaño de su contenido:
+                shrinkWrap: true,
+                //para evitar que el ListView.builder tenga su propio desplazamiento:
+                physics: NeverScrollableScrollPhysics(),
+                padding: const EdgeInsets.all(8),
+                itemCount: comments.length,
+                itemBuilder: (context, index) {
+                  final item =  comments[index];
+                  return Container(
+                      margin: EdgeInsets.only(left: 18, right: 18, top: 10),
+                      decoration: BoxDecoration(
+                          border: Border.all(color: Colors.black, width: 0.2),
+                          borderRadius: BorderRadius.circular(10)
+                      ),
+                    child: ListTile(
+                      title: Text(item['alias_id'], style: TextStyle(
+                          color: Colors.grey, fontSize: 20, fontFamily: 'Raleway'
+                        ),
+                      ),
+                      subtitle: Text(item['texto'], style: TextStyle(
+                          color: Colors.black, fontSize: 20, fontFamily: 'Raleway'
+                      ),
+                      ),
+                      //isThreeLine: true
+                    ),
+                  );
+                }
+            ),
+
+            SizedBox(height: 20,),
           ],
         ),
       ),

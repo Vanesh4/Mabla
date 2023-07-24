@@ -67,15 +67,16 @@ function toggleText(){
 $(document).ready(function () {
     
     titulosCat = document.querySelectorAll('h1')
-    console.log("porfis",titulosCat)
+    /* console.log("porfis",titulosCat) */
     $.ajax({
-        url: "http://127.0.0.1:8000/getcate",
+        url: "http://localhost:8080/getCategorias",
         type: "GET",
         dataType: "JSON",
         success: function (res) {
-            console.log(res)
+           /*  console.log("jbvhbvjxzj holaaa",res) */
             for(i = 0; i <= res.length ; i++){
-                titulosCat[i].innerHTML = res[i].Categoria 
+                /* console.log("mirandoooo",res) */
+                titulosCat[i].innerHTML = res[i].categoria 
             }
             
             
@@ -84,7 +85,47 @@ $(document).ready(function () {
 })
 
 
-function mostrarsubcate(){
+$.ajax({
+    url: "http://localhost:8080/getSubcategoria",
+    type: "GET",
+    dataType: "JSON",
+    
+    success: function (res) {
+        console.log("bdvhbjhbjzb "),
+        console.log(res)           
+        contenedoul = document.querySelector(".list_show")
+        categorias = document.getElementsByClassName("categorias")
+        console.log("hggbjhbpintadooooo", contenedoul)
+        listacategorias = []
+        for(let i = 0; i<titulosCat.length; i++){        
+            listacategorias.push(titulosCat[i].textContent)          
+            for (let x = 0; x < res.length; x++) {
+
+                li = document.createElement("li")
+                li.setAttribute("class","list_inside")
+
+                a=document.createElement("a")
+                a.setAttribute("class","nav_link nav_link--inside")
+          
+            
+                if (listacategorias[i] == "Sustantivos" && res[x].categoria_id=="Sustantivos"){
+                    a.innerHTML=res[x].subcategoria
+                    console.log(a)
+                    contenedoul.appendChild(li)
+                    li.appendChild(a)
+                }
+
+               
+
+                    
+            }
+        }    
+        
+    } 
+})
+
+
+/* function mostrarsubcate(){
 
     fetch("http://127.0.0.1:8000/getsubcate",{
         method:"GET",
@@ -109,4 +150,4 @@ function mostrarsubcate(){
             }
         }
     })
-}
+} */

@@ -19,7 +19,6 @@ public class STablaCategorias {
     }
 
     public List<TablaCategorias> getCategorias(){
-
         return repCategorias.findAll();
     }
 
