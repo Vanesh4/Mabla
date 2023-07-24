@@ -29,6 +29,9 @@ public class STablaSubcategorias {
         return repSubcategorias.findAll();
     }
 
+    public List<Object[]> getSubcategoriasOfCate(String cat){
+        return repSubcategorias.findForCategoria(cat);
+    }
 
    /* public String postSubcategoria(TablaSubcategorias s){
         if (repSubcategorias.findById(s.getSubcategoria()).isPresent()){

@@ -15,35 +15,37 @@
 </head>
 <body>
   <header>
-    <form method="POST" id="formLogin" class="row g-3">
-      <div class="textSesion">
-        INICIAR SESIÓN
-      </div>
-      <div class="col-md-6" id="ph">
-          <label for="validationDefaultUsername" class="form-label"> Alias</label>
-          <div class="input-group">
-            <input type="text" class="form-control" id="validationDefaultUsername" aria-describedby="inputGroupPrepend2" required>
+    <div id="form">
+      <form method="POST" id="formLogin" class="row g-3">
+        <div class="textSesion">
+          INICIAR SESIÓN
+        </div>
+        <div class="col-md-8" id="ph">
+            <label for="validationDefaultUsername" class="form-label"> Alias</label>
+            <div class="input-group">
+              <input type="text" class="form-control" id="validationDefaultUsername" aria-describedby="inputGroupPrepend2" required>
+            </div>
           </div>
-        </div>
-        <div class="col-md-6" id="ph">
-          <label for="validationDefaultPassword" class="form-label">Clave</label>
-          <div class="input-group">
-          <input type="password" class="form-control" id="validationDefaultPassword" required>
-        </div>
-        </div>
-        <p id="mensaje-error"></p>     
-        <div class="links">
-          <a href="" class="as">Olvidaste tu contraseña?</a>
-          <a href="/html/consultar.html" class="as">Registrarme</a>
-        </div>
-        <div class="col-16" id="boton">
-          <button class="btn" type="submit" id="colorbtn">Ingresar</button>
-        </div>
-      </form>
+          <div class="col-md-8" id="ph">
+            <label for="validationDefaultPassword" class="form-label">Clave</label>
+            <div class="input-group">
+            <input type="password" class="form-control" id="validationDefaultPassword" required>
+          </div>
+          </div>
+          <p id="mensaje-error"></p>     
+          <div class="links">
+            <a href="" class="as">Olvidaste tu contraseña?</a>
+            <a href="/html/consultar.html" class="as">Registrarme</a>
+          </div>
+          <div id="boton">
+            <button class="btn" type="submit" id="colorbtn">Ingresar</button>
+          </div>
+        </form>
+    </div>
       <div class="imgyText">
         <img src="/img/letrasMABLAnaranja.png" alt="" srcset="" width="100%">
       <div class="slogan">
-        <h1 class="h2">HABLA CON LAS MANOS</h1>
+        <h1 class="h1">HABLA CON LAS MANOS</h1>
       </div>
     </div>
   </header>    

@@ -1,20 +1,23 @@
 header{
     display: flex;
-    justify-content: space-around;
+    justify-content:space-between;
     flex-wrap: nowrap;
     background-image: url("/img/picoSGV.svg");
     background-size: contain;
     background-repeat: no-repeat;
     align-self: flex-start;
-    height: 850px;
-    padding-left: 70px;
+    height: 900px;
 }
 
-form{
-    flex-direction: column;
+#form{    
+    width:50%;
+    display: flex;
     justify-content: center;
     align-items: center;
-    width: 30%;
+    
+}
+form{
+    flex-direction: column;
     font-family: 'Raleway', sans-serif;
     color: white;
     font-size: 25px;
@@ -23,6 +26,7 @@ form{
     font-size: 40px;
     text-align: center;
     font-family: 'Martian Mono', monospace;
+    margin-bottom: 25px;
 }
 #boton{
     display: flex;
@@ -32,8 +36,8 @@ form{
 #colorbtn{
     background:  #ff731c;
     color: white;
-    font-size: 20px;
-    width: 35%;
+    font-size: 30px;
+    width: 40%;
 }
 #validationUsername{
     background-color: rgb(252,244,234);
@@ -55,14 +59,22 @@ form{
     text-decoration: none;
 }
 .imgyText{
-    width: 40%;  
-    margin-top: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    width: 43%;  
+    height: 450px;
+    align-content: center;
+    justify-content: end;
+    margin-right: 20px;                                                 
 }
 .slogan{
-    text-align: center;
+    margin-top: 30px;
     font-family: 'Martian Mono', monospace;
+    margin-right: 20px;                                                                                                                                                                                                                                                                                                                                                     
     color:  #ff731c;
-    margin-top: 20px;
+}
+#ph{
+    margin-left: 40px;
 }
 body{
     background-color: aqua;
@@ -88,33 +100,46 @@ body{
         padding-top: 20px;
         padding-right: 80px; */
     }
-    form{
+    #form{
         width: 100%;
-        font-size: 18px;
-        padding-left: 30px;
+        padding: 0px;
+        margin: 0px;
+        padding-left: 20px;
+    }
+    form{
+        padding: 0px;
+        margin: 0px;
+        font-size: 20px;
     }
     .textSesion{
         font-size: 24px;
-        padding-bottom: 5px;
+        padding: 0px;
+        margin: 0px;
+        padding-bottom:5px;
+        padding-top: 10px;
     }
     #ph{
-        
         width: 70%;
     }
     .links{
         margin: 0px;
         padding: 0px;
-        font-size: 16px;
+        font-size: 17px;
         justify-content: end; 
     }
+    #boton{
+        justify-content: flex-end;
+        margin-left: 10px;
+    }
     #colorbtn{
-        margin-left: 85px;
-        width: 40%;
-        margin-top: 20px;
+        font-size: 23px;
+        width: 50%;
+        margin-top: 25px;
     }
     .imgyText{
         width: 60%;
-        margin-top: 62px;  
+        margin: 0px;
+        padding: 0px;
         margin-left: 6px;
     }
     .slogan{

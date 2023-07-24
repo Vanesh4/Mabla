@@ -12,11 +12,14 @@ body{
 }
 
 .titulo{
-    text-align: center;
     font-family: "raleway", Arial, Helvetica, sans-serif;
-    margin-top: -260px;
-    font-size: 60px;
+    margin-top: -280px;
+    font-size: 70px;
     padding: 20px;
+    width: 75%;
+    text-align: right;
+    
+    
     
 }
 
@@ -36,9 +39,10 @@ body{
 }
 #img{
     display: flex;
-    float: right;
+    
 }
 .foto{
+    height: 250px;
     margin: auto;
 }
 #contenido{
@@ -63,7 +67,9 @@ body{
 #dato{
    width: 80%;
     height: 30px;
-    background-color: rgb(230, 230, 243);
+    background-color:  #D9D9D9;
+    border-radius: 100px;
+    text-align: center;
 }
 #im{
     
@@ -71,10 +77,12 @@ body{
     align-items: center;
     background-color: #76037a;
     width: 15%;
+    border-radius: 100px;
 }
 
 #lap{
     margin: auto;
+    height: 25px;
 }
 
 .progreso{

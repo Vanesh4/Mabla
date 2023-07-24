@@ -13,12 +13,15 @@ public class TablaPalabras {
     @Column()
     private String Senia;
 
+<<<<<<< HEAD
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "Categoria", referencedColumnName = "Categoria", nullable = false)
     @JsonIgnore
     private TablaCategorias tablaCategorias;
 
+=======
+>>>>>>> 007468cd6f490e68988f836d106c71443982a836
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "Subcategoria", referencedColumnName = "Subcategoria", nullable = false)
     @JsonIgnore
@@ -27,10 +30,9 @@ public class TablaPalabras {
     public TablaPalabras() {
     }
 
-    public TablaPalabras(String palabra, String senia, TablaCategorias tablaCategorias, TablaSubcategorias tablaSubcategorias) {
+    public TablaPalabras(String palabra, String senia, TablaSubcategorias tablaSubcategorias) {
         Palabra = palabra;
         Senia = senia;
-        this.tablaCategorias = tablaCategorias;
         this.tablaSubcategorias = tablaSubcategorias;
     }
 
@@ -50,14 +52,6 @@ public class TablaPalabras {
         Senia = senia;
     }
 
-    public TablaCategorias getTablaCategorias() {
-        return tablaCategorias;
-    }
-
-    public void setTablaCategorias(TablaCategorias tablaCategorias) {
-        this.tablaCategorias = tablaCategorias;
-    }
-
     public TablaSubcategorias getTablaSubcategorias() {
         return tablaSubcategorias;
     }
@@ -71,7 +65,6 @@ public class TablaPalabras {
         return "TablaPalabras{" +
                 "Palabra='" + Palabra + '\'' +
                 ", Senia='" + Senia + '\'' +
-                ", tablaCategorias=" + tablaCategorias +
                 ", tablaSubcategorias=" + tablaSubcategorias +
                 '}';
     }
