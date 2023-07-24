@@ -1,3 +1,4 @@
 {
-    "editor.fontFamily": "Inconsolata"
+    "editor.fontFamily": "Inconsolata",
+    "liveServer.settings.port": 5501
 }
