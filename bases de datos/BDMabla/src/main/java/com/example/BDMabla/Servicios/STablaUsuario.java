@@ -23,7 +23,6 @@ public class STablaUsuario {
     }
     public boolean iniciarSesion(String alias, String clave){
         if (repositorioUser.findById(alias).isPresent()) return Objects.equals(repositorioUser.findById(alias).get().getContrasenia(), clave);
-
         else return false;
     }
     public boolean insertUser(TablaUsuario user){

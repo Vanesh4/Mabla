@@ -1,10 +1,7 @@
 package com.example.BDMabla.Servicios;
-import com.example.BDMabla.Entidad.TablaCategorias;
 import com.example.BDMabla.Entidad.TablaPalabras;
 import com.example.BDMabla.Entidad.TablaSubcategorias;
-import com.example.BDMabla.Repositorio.RTablaCategorias;
 import com.example.BDMabla.Repositorio.RTablaPalabras;
-
 import com.example.BDMabla.Repositorio.RTablaSubcategorias;
 import org.springframework.stereotype.Service;
 

@@ -6,7 +6,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
-
 @RestController
 
 public class CTablaPalabras {
@@ -23,14 +22,10 @@ public class CTablaPalabras {
     public String insertarpalabra(@RequestBody TablaPalabras t){
         return serviciopalabra.insertarpalabra(t);
     }
-
    @PostMapping("/addpalabra/{subcate}")
     public String insertarpalabra(@PathVariable("subcate") String subcate, @RequestBody TablaPalabras t){
         return serviciopalabra.addpalabra(subcate, t);
     }
-
-
-
     @GetMapping("/listandopalabras/{sub}")
     public List<Object[]> Palabras(@PathVariable("sub") String sub){
         return serviciopalabra.getpalabrasforsubcate(sub);
