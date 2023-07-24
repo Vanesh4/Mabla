@@ -21,7 +21,7 @@ public class CTablaUsuario {
     public Optional<TablaUsuario> myuser(@PathVariable("alias") String alias){return metodosUser.myuser(alias);}
     @GetMapping("/IniciarSesion/{alias}/{clave}")
    public String login(@PathVariable("alias") String alias, @PathVariable("clave") String clave){
-        if(metodosUser.iniciarSesion(alias,clave)) return "Hola "+alias;
+        if(metodosUser.iniciarSesion(alias,clave)) return "alias";
         else return "El usuario no ha sido registrado";
    }
    @PostMapping("/Insertaruser")

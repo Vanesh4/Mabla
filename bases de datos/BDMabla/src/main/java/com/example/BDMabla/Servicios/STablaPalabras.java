@@ -1,10 +1,7 @@
 package com.example.BDMabla.Servicios;
-import com.example.BDMabla.Entidad.TablaCategorias;
 import com.example.BDMabla.Entidad.TablaPalabras;
 import com.example.BDMabla.Entidad.TablaSubcategorias;
-import com.example.BDMabla.Repositorio.RTablaCategorias;
 import com.example.BDMabla.Repositorio.RTablaPalabras;
-
 import com.example.BDMabla.Repositorio.RTablaSubcategorias;
 import org.springframework.stereotype.Service;
 
@@ -32,9 +29,12 @@ public class STablaPalabras {
 
 <<<<<<< HEAD
 =======
+<<<<<<< HEAD
+=======
 
 
 >>>>>>> 4203639c441754e245a26c257ee7d66fea5b55cc
+>>>>>>> 04ade1e81b0cb7cc4baf3ba37f4d254cd7a7641c
 /*public String insertarpalabra(TablaPalabras t){
         for (TablaCategorias: Mostrartodo());{
             if (c.getCategoria() == repositorio.findByCategoria(t.getCategoria())){
@@ -54,7 +54,6 @@ public class STablaPalabras {
 =======
 >>>>>>> 4203639c441754e245a26c257ee7d66fea5b55cc
 
-
     public String insertarpalabra(TablaPalabras t){
         if(repositoriopalab.findById(t.getPalabra()).isPresent()){
             return "La palabra ya existe";
@@ -62,7 +61,6 @@ public class STablaPalabras {
             repositoriopalab.save(t);
         }
         return "se ha guardado";
-
     }
 
    public String addpalabra(String subcate, TablaPalabras pal){
@@ -77,7 +75,6 @@ public class STablaPalabras {
 
     public List<Object[]> getpalabrasforsubcate(String sub){
         return repositoriopalab.findForSubcategoria(sub);
-
     }
 }
 

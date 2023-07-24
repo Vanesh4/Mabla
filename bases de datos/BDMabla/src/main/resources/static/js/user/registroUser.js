@@ -22,11 +22,9 @@ $(document).ready(function(){
             datatype: JSON,
             success: function(answer){
                 if(answer=="/inicio"){
-                    alert("la respuesta es: "+answer+" y se supone que la tiene que redireccionar a inicio")
-                    window.location.href='consultar.html'
+                    window.location.href='index.html'
                 }
                 else{
-                    alert("entro al else")
                     msjHtml("El alias ingresado ya existe")
                 }
             },

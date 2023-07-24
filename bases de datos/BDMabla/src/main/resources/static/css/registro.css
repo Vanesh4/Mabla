@@ -1,22 +1,28 @@
 header{
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     flex-wrap: nowrap;
     background-image: url("/img/picoSGV.svg");
     background-size: contain;
     background-repeat: no-repeat;
     align-self: flex-start;
-    height: 850px;
-    padding-left: 70px;
+    height: 900px;
 }
 
 form{
     justify-content: center;
     align-content: center;
-    width: 40%;
+    width: 50%;
     font-family: 'Raleway', sans-serif;
     color: white;
     font-size: 25px;
+    padding: 0px 50px 0px 50px;
+}
+
+#sectionform{
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 30px;
 }
 .textRegister{
     text-align: center;
@@ -30,8 +36,7 @@ form{
 #colorbtn{
     background:  #ff731c;
     color: white;
-    font-size: 20px;
-    width: 35%;
+    font-size: 30px;
 }
 #validationNombre{
     background-color: rgb(252,244,234);
@@ -57,14 +62,19 @@ form{
     background-color: rgb(252,244,234);
 }
 .imgyText{
-    width: 40%;  
-    margin-top: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    width: 43%;
+    height: 450px;
+    align-content: center;
+    justify-content: end;
+    margin-right: 20px;
 }
 .slogan{
-    text-align: center;
+    margin-top: 30px;
     font-family: 'Martian Mono', monospace;
+    margin-right: 20px;
     color:  #ff731c;
-    margin-top: 20px;
 }
 #clave{
     margin-top: 50px;
