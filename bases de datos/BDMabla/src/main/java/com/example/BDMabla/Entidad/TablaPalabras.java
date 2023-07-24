@@ -14,7 +14,6 @@ public class TablaPalabras {
     private String Senia;
 
 
-
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "Categoria", referencedColumnName = "Categoria", nullable = false)
     @JsonIgnore

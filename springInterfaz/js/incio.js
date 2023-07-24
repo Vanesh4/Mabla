@@ -29,11 +29,11 @@ $(document).ready (()=>{
 
                 usuario = document.createElement("p")
                 usuario.setAttribute("id","user")
-                usuario.innerHTML = res[i][0]
+                usuario.innerHTML = res[i].
 
                 texto = document.createElement("p")
                 texto.setAttribute("id","coment")
-                texto.innerHTML = res[i][1]
+                texto.innerHTML = res[i]
 
                 comentario.appendChild(usuario)
                 comentario.appendChild(texto)

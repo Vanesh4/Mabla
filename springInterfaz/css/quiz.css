@@ -100,3 +100,23 @@ header{
         gap: 15px;
     }
 } 
+
+@media screen and (min-width: 1600px) {
+
+    #senia{
+        width: 400px;
+        height: 400px;
+    }
+    #sectionPregunta{
+        margin-top: 40px;
+        
+    }
+    #respuestas{
+        margin-top: 40px;
+        gap: 30px;
+    }
+    #pregunta{
+        margin-bottom: 30px;
+    }
+    
+} 
