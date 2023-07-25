@@ -1,6 +1,7 @@
 package com.example.BDMabla.Controlador;
 import com.example.BDMabla.Entidad.TablaPalabras;
 import com.example.BDMabla.Servicios.STablaPalabras;
+<<<<<<< HEAD
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -16,6 +17,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 
+=======
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+>>>>>>> 126f5010ca88475cf74d05cce3081a280371de66
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 @RestController
@@ -30,6 +36,7 @@ public class CTablaPalabras {
     public List<TablaPalabras> listapalabras(){
         return serviciopalabra.Mostrartodo();
     }
+<<<<<<< HEAD
    /* @GetMapping("/insertpalabra")
     public String insertarpalabra(@RequestBody TablaPalabras t){
         return serviciopalabra.insertarpalabra(t);
@@ -39,6 +46,8 @@ public class CTablaPalabras {
 */
 
 
+=======
+>>>>>>> 126f5010ca88475cf74d05cce3081a280371de66
    @PostMapping("/addpalabra/{subcate}")
     public String insertarpalabra(@PathVariable("subcate") String subcate, @RequestBody TablaPalabras t){
         return serviciopalabra.addpalabra(subcate, t);

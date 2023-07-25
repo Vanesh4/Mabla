@@ -18,6 +18,7 @@ class login extends StatefulWidget {
   State<login> createState() => _loginState();
 }
 
+
 class _loginState extends State<login> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   bool _obscureText = true;
@@ -40,221 +41,218 @@ class _loginState extends State<login> {
   }
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(
-        child: Stack(
-            children: [
-              SvgPicture.asset(
-                    'assets/img/picoResponsiveSVG.svg',
-                      colorFilter: ColorFilter.mode(purple, BlendMode.srcIn),
-                     width: double.infinity,
-                     height: 820,
-                     // Cambia "Colors.red" por el color deseado
-                  ),
-              Column(
-                children: [
-                  Container(
-                    padding: const EdgeInsets.only(top: 50, left: 30, right: 5),
-                    child: Column(
-                        children:[
-                          Container(
-                            margin: EdgeInsets.only(bottom: 25),
-                            child: Text("INICIA SESIÓN", style: TextStyle(fontSize: 24, fontFamily: "MartianMono", color: Colors.white),),
+        body: SingleChildScrollView(
+              child: Stack(
+                    children: [
+                      SvgPicture.asset(
+                        'assets/img/picoLogin-01.svg',
+                        colorFilter: ColorFilter.mode(purple, BlendMode.srcIn),
+                        width: double.infinity,
+                        height: 658,
+                            // Cambia "Colors.red" por el color deseado
                           ),
+                      Column(
+                        children: [
                           Container(
-                            margin: EdgeInsets.symmetric(vertical: 25),
-                            child: Form(
-                              key: _formKey,
-                              child: Column(
-                                children: [
+                            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 25),
+                            //padding: const EdgeInsets.only(top: 30, left: 30, right: 5),
+                            child: Column(
+                                children:[
                                   Container(
-                                    margin: EdgeInsets.only(right: 20, left: 20),
-                                    child:
-                                      Column(
+                                    margin: EdgeInsets.only(bottom: 15, top: 15, left: 15),
+                                    child: Text("INICIA SESIÓN", style: TextStyle(fontSize: 30, fontFamily: "MartianMono", color: Colors.white),),
+                                  ),
+                                  Container(
+                                    margin: EdgeInsets.symmetric(vertical: 20),
+                                    padding: EdgeInsets.only(left: 20),
+                                    child: Form(
+                                      key: _formKey,
+                                      child: Column(
                                         children: [
                                           Container(
-                                            margin: EdgeInsets.only(left: 20),
-                                            alignment: Alignment.centerLeft,
-                                            child: Text(
-                                              "Alias",
-                                              style: TextStyle(
-                                                  color: Colors.white,
-                                                  fontFamily: "Raleway",
-                                                  fontSize: 20
-                                              ),
-                                            ),
-                                          ),
-                                          Padding(
-                                            padding: const EdgeInsets.only(bottom: 20),
-                                            child: TextFormField(
-                                              cursorColor: Colors.white,
-                                              validator: (value) {
-                                                if (value!.isEmpty) {
-                                                }
-                                                return null;
-                                              },
-                                              style: TextStyle(
-                                                color: Colors.white, // Cambia este valor al color deseado
-                                              ),
-                                              decoration: InputDecoration(
-                                                enabledBorder: UnderlineInputBorder(
-                                                  borderSide: BorderSide(color: Colors.white), // Cambia este valor al color deseado
+                                            margin: EdgeInsets.only(left: 50, right: 50),
+                                            child: Column(
+                                              children: [
+                                                Container(
+                                                  margin: EdgeInsets.only(left: 15),
+                                                  alignment: Alignment.centerLeft,
+                                                  child: Text(
+                                                    "Alias",
+                                                    style: TextStyle(
+                                                        color: Colors.white,
+                                                        fontFamily: "Raleway",
+                                                        fontSize: 20
+                                                    ),
+                                                  ),
                                                 ),
-                                                focusedBorder: UnderlineInputBorder(
-                                                  borderSide: BorderSide(color: Colors.white), // Cambia este valor al color deseado
+                                                Padding(
+                                                  padding: const EdgeInsets.only(bottom: 20),
+                                                  child: TextFormField(
+                                                    cursorColor: Colors.white,
+                                                    validator: (value) {
+                                                      if (value!.isEmpty) {
+                                                      }
+                                                      return null;
+                                                    },
+                                                    style: TextStyle(
+                                                      color: Colors.white, // Cambia este valor al color deseado
+                                                    ),
+                                                    decoration: InputDecoration(
+                                                      enabledBorder: UnderlineInputBorder(
+                                                        borderSide: BorderSide(color: Colors.white), // Cambia este valor al color deseado
+                                                      ),
+                                                      focusedBorder: UnderlineInputBorder(
+                                                        borderSide: BorderSide(color: Colors.white), // Cambia este valor al color deseado
+                                                      ),
+                                                    ),
+                                                  ),
                                                 ),
-                                              ),
+                                                Container(
+                                                  margin: EdgeInsets.only(left: 15),
+                                                  alignment: Alignment.centerLeft,
+                                                  child: const Text(
+                                                    "Clave",
+                                                    style: TextStyle(
+                                                        color: Colors.white,
+                                                        fontFamily: "Raleway",
+                                                        fontSize: 20
+                                                    ),
+                                                  ),
+                                                ),
+                                                TextFormField(
+                                                  cursorColor: Colors.white,
+                                                  obscureText: _obscureText,
+                                                  validator: (value) {
+                                                    if (value!.isEmpty) {
+                                                    }
+                                                    return null;
+                                                  },
+                                                  style: TextStyle(
+                                                    color: Colors.white, // Cambia este valor al color deseado
+                                                  ),
+                                                  decoration: InputDecoration(
+                                                    enabledBorder: UnderlineInputBorder(
+                                                      borderSide: BorderSide(color: Colors.white), // Cambia este valor al color deseado
+                                                    ),
+                                                    focusedBorder: UnderlineInputBorder(
+                                                      borderSide: BorderSide(color: Colors.white), // Cambia este valor al color deseado
+                                                    ),
+                                                    suffixIcon: IconButton(
+                                                      onPressed: () {
+                                                        setState(() {
+                                                          _obscureText = !_obscureText;
+                                                        });
+                                                      },
+                                                      icon: Icon(
+                                                        _obscureText ? Icons.visibility : Icons.visibility_off, color: Colors.white,
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ),
+                                              ],
                                             ),
                                           ),
                                           Container(
-                                            margin: EdgeInsets.only(left: 20),
-                                            alignment: Alignment.centerLeft,
-                                            child: const Text(
-                                              "Clave",
-                                              style: TextStyle(
-                                                  color: Colors.white,
-                                                  fontFamily: "Raleway",
-                                                  fontSize: 20
-                                              ),
-                                            ),
+                                              margin: EdgeInsets.symmetric(vertical: 24, horizontal: 30),
+                                              child: Column(
+                                                  children:[
+                                                    GestureDetector(
+                                                        onTap: () {
+                                                          registro();
+                                                        },
+                                                        child: Container(
+                                                          alignment: Alignment.bottomRight,
+                                                          child: Text(
+                                                            "Olvidaste tu contraseña?",
+                                                            style: TextStyle(
+                                                                color: Colors.white,
+                                                                fontFamily: "Raleway",
+                                                                fontSize: 16
+                                                            ),
+                                                          ),
+                                                        )
+                                                    ),
+                                                    SizedBox(
+                                                      child: Padding(
+                                                        padding: EdgeInsets.only(bottom: 5),
+                                                      ),
+                                                    ),
+                                                    GestureDetector(
+                                                        onTap: (){
+                                                          Navigator.push(
+                                                            context,
+                                                            MaterialPageRoute(builder: (context) => const registro()),
+                                                          );
+                                                        },
+                                                        child: Container(
+                                                          alignment: Alignment.bottomRight,
+                                                          child: Text(
+                                                            "Registrarme",
+                                                            style: TextStyle(
+                                                                color: Colors.white,
+                                                                fontFamily: "Raleway",
+                                                                fontSize: 16
+                                                            ),
+                                                          ),
+                                                        )
+                                                    ),
+                                                  ]
+                                              )
                                           ),
-                                          TextFormField(
-                                              cursorColor: Colors.white,
-                                              obscureText: _obscureText,
-                                              validator: (value) {
-                                                if (value!.isEmpty) {
-                                                }
-                                                return null;
+                                          Container(
+                                            alignment: Alignment.bottomRight,
+                                            child: ElevatedButton.icon(
+                                              onPressed: () {
+                                                singIn(context);
                                               },
-                                              style: TextStyle(
-                                                color: Colors.white, // Cambia este valor al color deseado
-                                              ),
-                                              decoration: InputDecoration(
-                                                enabledBorder: UnderlineInputBorder(
-                                                  borderSide: BorderSide(color: Colors.white), // Cambia este valor al color deseado
-                                                ),
-                                                focusedBorder: UnderlineInputBorder(
-                                                  borderSide: BorderSide(color: Colors.white), // Cambia este valor al color deseado
-                                                ),
-                                                suffixIcon: IconButton(
-                                                  onPressed: () {
-                                                    setState(() {
-                                                      _obscureText = !_obscureText;
-                                                    });
-                                                  },
-                                                  icon: Icon(
-                                                    _obscureText ? Icons.visibility : Icons.visibility_off, color: Colors.white,
+                                              style: ElevatedButton.styleFrom(
+                                                backgroundColor: const Color.fromRGBO(255, 115, 28, 9),
+                                                minimumSize: const Size(200, 50),
+                                                shape: const RoundedRectangleBorder(
+                                                  borderRadius: BorderRadius.only(
+                                                    topLeft: Radius.circular(10),
+                                                    topRight: Radius.circular(25),
+                                                    bottomRight: Radius.circular(25),
+                                                    bottomLeft: Radius.circular(25),
                                                   ),
                                                 ),
                                               ),
-                                          ),
+                                              icon: const Icon(
+                                                CupertinoIcons.arrow_right,
+                                                color: Color.fromRGBO(255, 205, 163, 9),
+                                              ),
+                                              label: const Text("INGRESAR", style: TextStyle(fontFamily: "Raleway", fontSize: 25)),
+                                            ),
+                                          )
                                         ],
                                       ),
-                                  ),
-                                  Container(
-                                    margin: EdgeInsets.symmetric(vertical: 35, horizontal: 25),
-                                    child: Column(
-                                      children:[
-                                        GestureDetector(
-                                          onTap: () {
-                                            registro();
-                                          },
-                                          child: Container(
-                                            alignment: Alignment.bottomRight,
-                                            child: Text(
-                                              "Olvidaste tu contraseña?",
-                                              style: TextStyle(
-                                                  color: Colors.white,
-                                                  fontFamily: "Raleway",
-                                                  fontSize: 17
-                                              ),
-                                            ),
-                                          )
-                                        ),
-                                        SizedBox(
-                                          child: Padding(
-                                            padding: EdgeInsets.only(bottom: 5),
-                                          ),
-                                        ),
-                                        GestureDetector(
-                                          onTap: (){
-                                            Navigator.push(
-                                              context,
-                                              MaterialPageRoute(builder: (context) => const registro()),
-                                            );
-                                          },
-                                          child: Container(
-                                            alignment: Alignment.bottomRight,
-                                            child: Text(
-                                              "Registrarme",
-                                              style: TextStyle(
-                                                  color: Colors.white,
-                                                  fontFamily: "Raleway",
-                                                  fontSize: 17
-                                              ),
-                                            ),
-                                          )
-                                        ),
-                                      ]
-                                    )
-                                  ),
-                                  Container(
-                                    alignment: Alignment.bottomRight,
-                                    margin: const EdgeInsets.only(top: 15, right: 20),
-                                    child: ElevatedButton.icon(
-                                        onPressed: () {
-                                          singIn(context);
-                                        },
-                                        style: ElevatedButton.styleFrom(
-                                          backgroundColor: const Color.fromRGBO(255, 115, 28, 9),
-                                          minimumSize: const Size(200, 60),
-                                          shape: const RoundedRectangleBorder(
-                                            borderRadius: BorderRadius.only(
-                                              topLeft: Radius.circular(10),
-                                              topRight: Radius.circular(25),
-                                              bottomRight: Radius.circular(25),
-                                              bottomLeft: Radius.circular(25),
-                                            ),
-                                          ),
-                                        ),
-                                        icon: const Icon(
-                                          CupertinoIcons.arrow_right,
-                                          color: Color.fromRGBO(255, 205, 163, 9),
-                                        ),
-                                        label: const Text("SIGN IN", style: TextStyle(fontFamily: "Raleway", fontSize: 25)),
-                                      ),
+                                    ),
                                   )
-                                ],
-                              ),
+                                ]
                             ),
-                          )
-                        ]
-                    ),
-                  ),
-                  Container(
-                      padding: EdgeInsets.only(left: 10),
-                      margin: EdgeInsets.only(top: 45, right: 70),
-                      child: Column(
-                        children: [
-                          Container(
-                            margin: EdgeInsets.only(top:15, right: 58),
-                            child: Image.asset("assets/img/letrasMABLAnaranja.png", width: 210),
                           ),
                           Container(
-                            margin: EdgeInsets.only(top: 20, right: 50),
-                            child: Text("HABLA CON LAS MANOS", style: TextStyle(fontFamily: "MartianMono", fontSize: 20, color: orange), textAlign: TextAlign.center,),
+                              margin: EdgeInsets.only(top: 15, right: 50),
+                              padding: EdgeInsets.only(left: 10, right: 50),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Image.asset("assets/img/letrasMABLAnaranja.png", width: 230),
+                                  Container(
+                                    padding: EdgeInsets.only(top: 20, right: 45),
+                                    child: Text("HABLA CON LAS MANOS", style: TextStyle(fontFamily: "MartianMono", fontSize: 23, color: orange), textAlign: TextAlign.center,),
+                                  )
+                                ],
+                              )
                           )
                         ],
                       )
-                  )
-                ],
-              )
-                ],
-              )
-              )
-          );
+                    ],
+                  ),
+                )
+        );
   }
 }
-
 class registro extends StatefulWidget {
   const registro({super.key});
 
@@ -280,7 +278,6 @@ class _registroState extends State<registro> {
     );
     if (response.statusCode == 200) {
       print('Dato enviado exitosamente a Django, datos: '+body);
-
     } else {
       print('Error al enviar el dato a Django. Código de estado: ${response.statusCode}'+body);
     }
@@ -314,124 +311,40 @@ class _registroState extends State<registro> {
   Widget build(BuildContext context) {
     return Scaffold(
         body: SingleChildScrollView(
-            child: Stack(
-                  children: [
-                    SvgPicture.asset(
-                        'assets/img/picoResponsiveSVG.svg',
-                        width: double.infinity,
-                        height: 820,
-                        colorFilter: ColorFilter.mode(purple, BlendMode.srcIn)
-                    ),
-                    Container(
-                      padding: const EdgeInsets.only(top: 50, left: 20, right: 15),
-                      child: Column(
-                          children:[
-                            Container(
-                              alignment: Alignment.center,
-                              margin: EdgeInsets.only(bottom: 40, left: 15),
-                              child: Text("REGISTRATE", style: TextStyle(fontSize: 25, fontFamily: "MartianMono", color: Colors.white),),
-                            ),
-                            Column(
-                              children: [
-                                Form(
-                                    key: _formKey,
-                                    child: Column(
-                                        children: [
-                                          Row(
-                                              children:[
-                                                Expanded(
-                                                    child: Column(
-                                                      children: [
-                                                        Container(
-                                                          alignment: Alignment.centerLeft,
-                                                          margin: EdgeInsets.only(left: 10),
-                                                          child: const Text(
-                                                            "Nombre",
-                                                            style: TextStyle(
-                                                                color: Colors.white,
-                                                                fontFamily: "Raleway",
-                                                                fontSize: 19
-                                                            ),
-                                                          ),
-                                                        ),
-                                                        TextFormField(
-                                                          cursorColor: Colors.white,
-                                                          controller: _nombre,
-                                                          validator: (value) {
-                                                            if (value!.isEmpty) {
-
-                                                            }
-                                                            return null;
-                                                          },
-                                                          style: TextStyle(
-                                                            color: Colors.white, // Cambia este valor al color deseado
-                                                          ),
-                                                          decoration: InputDecoration(
-                                                            enabledBorder: UnderlineInputBorder(
-                                                              borderSide: BorderSide(color: Colors.white), // Cambia este valor al color deseado
-                                                            ),
-                                                            focusedBorder: UnderlineInputBorder(
-                                                              borderSide: BorderSide(color: Colors.white), // Cambia este valor al color deseado
-                                                            ),
-                                                          ),
-                                                        )
-                                                      ],
-                                                    )
-                                                ),
-                                                const SizedBox(width: 10),
-                                                Expanded(
-                                                    child: Column(
-                                                      children: [
-                                                        Container(
-                                                          alignment: Alignment.centerLeft,
-                                                          margin: EdgeInsets.only(left: 10),
-                                                          child: const Text(
-                                                            "Apellido",
-                                                            style: TextStyle(
-                                                                color: Colors.white,
-                                                                fontFamily: "Raleway",
-                                                                fontSize: 19
-                                                            ),
-                                                          ),
-                                                        ),
-                                                        TextFormField(
-                                                          cursorColor: Colors.white,
-                                                          controller: _apellido,
-                                                          validator: (value) {
-                                                            if (value!.isEmpty) {
-
-                                                            }
-                                                            return null;
-                                                          },
-                                                          style: TextStyle(
-                                                            color: Colors.white, // Cambia este valor al color deseado
-                                                          ),
-                                                          decoration: InputDecoration(
-                                                            enabledBorder: UnderlineInputBorder(
-                                                              borderSide: BorderSide(color: Colors.white), // Cambia este valor al color deseado
-                                                            ),
-                                                            focusedBorder: UnderlineInputBorder(
-                                                              borderSide: BorderSide(color: Colors.white), // Cambia este valor al color deseado
-                                                            ),
-                                                          ),
-                                                        )
-                                                      ],
-                                                    )
-                                                ),
-                                              ]
-                                          ),
-                                          Container(
-                                            margin: EdgeInsets.only(top: 30),
-                                            child: Row(
+          child:
+                  Stack(
+                    children: [
+                      SvgPicture.asset(
+                              'assets/img/pico.svg',
+                              width: double.infinity,
+                              height: 840,
+                              colorFilter: ColorFilter.mode(purple, BlendMode.srcIn)
+                      ),
+                      Container(
+                        padding: const EdgeInsets.only(top: 40, left: 20, right: 15),
+                        child: Column(
+                            children:[
+                              Container(
+                                alignment: Alignment.center,
+                                margin: EdgeInsets.only(bottom: 40, left: 15),
+                                child: Text("REGISTRATE", style: TextStyle(fontSize: 30, fontFamily: "MartianMono", color: Colors.white),),
+                              ),
+                              Column(
+                                children: [
+                                  Form(
+                                      key: _formKey,
+                                      child: Column(
+                                          children: [
+                                            Row(
                                                 children:[
                                                   Expanded(
                                                       child: Column(
                                                         children: [
                                                           Container(
                                                             alignment: Alignment.centerLeft,
-                                                            margin: EdgeInsets.only(top: 20, left: 5),
+                                                            margin: EdgeInsets.only(left: 10),
                                                             child: const Text(
-                                                              "Teléfono",
+                                                              "Nombre",
                                                               style: TextStyle(
                                                                   color: Colors.white,
                                                                   fontFamily: "Raleway",
@@ -441,7 +354,7 @@ class _registroState extends State<registro> {
                                                           ),
                                                           TextFormField(
                                                             cursorColor: Colors.white,
-                                                            controller: _telefono,
+                                                            controller: _nombre,
                                                             validator: (value) {
                                                               if (value!.isEmpty) {
 
@@ -469,25 +382,22 @@ class _registroState extends State<registro> {
                                                         children: [
                                                           Container(
                                                             alignment: Alignment.centerLeft,
-                                                            margin: EdgeInsets.only(top:20,left: 10),
+                                                            margin: EdgeInsets.only(left: 10),
                                                             child: const Text(
-                                                              "Correo electrónico",
+                                                              "Apellido",
                                                               style: TextStyle(
                                                                   color: Colors.white,
                                                                   fontFamily: "Raleway",
-                                                                  fontSize: 18
+                                                                  fontSize: 19
                                                               ),
                                                             ),
                                                           ),
                                                           TextFormField(
                                                             cursorColor: Colors.white,
-                                                            controller: _correo,
+                                                            controller: _apellido,
                                                             validator: (value) {
                                                               if (value!.isEmpty) {
 
-                                                              }
-                                                              else if(!value.contains("@")){
-                                                                return "Correo no válido";
                                                               }
                                                               return null;
                                                             },
@@ -505,41 +415,171 @@ class _registroState extends State<registro> {
                                                           )
                                                         ],
                                                       )
-                                                  )
+                                                  ),
                                                 ]
                                             ),
-                                          ),
-                                          Container(
-                                            margin: EdgeInsets.only(top: 20),
-                                            child:
-                                            Row(
-                                                children:[
-                                                  Expanded(
-                                                      child: Column(
-                                                        children: [
-                                                          Container(
-                                                            alignment: Alignment.centerLeft,
-                                                            margin: EdgeInsets.only(left: 10),
-                                                            child: const Text(
-                                                              "Nombre de usuario (Alias)",
-                                                              style: TextStyle(
-                                                                  color: Colors.white,
-                                                                  fontFamily: "Raleway",
-                                                                  fontSize: 18
+                                            Container(
+                                              margin: EdgeInsets.only(top: 30),
+                                              child: Row(
+                                                  children:[
+                                                    Expanded(
+                                                        child: Column(
+                                                          children: [
+                                                            Container(
+                                                              alignment: Alignment.centerLeft,
+                                                              margin: EdgeInsets.only(top: 20, left: 5),
+                                                              child: const Text(
+                                                                "Teléfono",
+                                                                style: TextStyle(
+                                                                    color: Colors.white,
+                                                                    fontFamily: "Raleway",
+                                                                    fontSize: 19
+                                                                ),
                                                               ),
                                                             ),
-                                                          ),
-                                                          Container(
-                                                            margin: EdgeInsets.only(left: 20),
-                                                            child: TextFormField(
-                                                              style: TextStyle(
-                                                                color: Colors.white, // Cambia este valor al color deseado
-                                                              ),
+                                                            TextFormField(
                                                               cursorColor: Colors.white,
-                                                              controller: _alias,
+                                                              controller: _telefono,
                                                               validator: (value) {
                                                                 if (value!.isEmpty) {
 
+                                                                }
+                                                                return null;
+                                                              },
+                                                              style: TextStyle(
+                                                                color: Colors.white, // Cambia este valor al color deseado
+                                                              ),
+                                                              decoration: InputDecoration(
+                                                                enabledBorder: UnderlineInputBorder(
+                                                                  borderSide: BorderSide(color: Colors.white), // Cambia este valor al color deseado
+                                                                ),
+                                                                focusedBorder: UnderlineInputBorder(
+                                                                  borderSide: BorderSide(color: Colors.white), // Cambia este valor al color deseado
+                                                                ),
+                                                              ),
+                                                            )
+                                                          ],
+                                                        )
+                                                    ),
+                                                    const SizedBox(width: 10),
+                                                    Expanded(
+                                                        child: Column(
+                                                          children: [
+                                                            Container(
+                                                              alignment: Alignment.centerLeft,
+                                                              margin: EdgeInsets.only(top: 20, left: 10),
+                                                              child: const Text(
+                                                                "Correo electrónico",
+                                                                style: TextStyle(
+                                                                    color: Colors.white,
+                                                                    fontFamily: "Raleway",
+                                                                    fontSize: 18
+                                                                ),
+                                                              ),
+                                                            ),
+                                                            TextFormField(
+                                                              cursorColor: Colors.white,
+                                                              controller: _correo,
+                                                              validator: (value) {
+                                                                if (value!.isEmpty) {
+
+                                                                }
+                                                                else if(!value.contains("@")){
+                                                                  return "Correo no válido";
+                                                                }
+                                                                return null;
+                                                              },
+                                                              style: TextStyle(
+                                                                color: Colors.white, // Cambia este valor al color deseado
+                                                              ),
+                                                              decoration: InputDecoration(
+                                                                enabledBorder: UnderlineInputBorder(
+                                                                  borderSide: BorderSide(color: Colors.white), // Cambia este valor al color deseado
+                                                                ),
+                                                                focusedBorder: UnderlineInputBorder(
+                                                                  borderSide: BorderSide(color: Colors.white), // Cambia este valor al color deseado
+                                                                ),
+                                                              ),
+                                                            )
+                                                          ],
+                                                        )
+                                                    )
+                                                  ]
+                                              ),
+                                            ),
+                                            Container(
+                                              margin: EdgeInsets.only(top: 20),
+                                              child:
+                                              Row(
+                                                  children:[
+                                                    Expanded(
+                                                        child: Column(
+                                                          children: [
+                                                            Container(
+                                                              alignment: Alignment.centerLeft,
+                                                              margin: EdgeInsets.only(left: 10),
+                                                              child: const Text(
+                                                                "Nombre de usuario (Alias)",
+                                                                style: TextStyle(
+                                                                    color: Colors.white,
+                                                                    fontFamily: "Raleway",
+                                                                    fontSize: 18
+                                                                ),
+                                                              ),
+                                                            ),
+                                                            Container(
+                                                                margin: EdgeInsets.only(left: 20),
+                                                                child: TextFormField(
+                                                                  style: TextStyle(
+                                                                    color: Colors.white, // Cambia este valor al color deseado
+                                                                  ),
+                                                                  cursorColor: Colors.white,
+                                                                  controller: _alias,
+                                                                  validator: (value) {
+                                                                    if (value!.isEmpty) {
+
+                                                                    }
+                                                                    return null;
+                                                                  },
+                                                                  decoration: InputDecoration(
+                                                                    enabledBorder: UnderlineInputBorder(
+                                                                      borderSide: BorderSide(color: Colors.white), // Cambia este valor al color deseado
+                                                                    ),
+                                                                    focusedBorder: UnderlineInputBorder(
+                                                                      borderSide: BorderSide(color: Colors.white), // Cambia este valor al color deseado
+                                                                    ),
+                                                                  ),
+                                                                )
+                                                            )
+                                                          ],
+                                                        )
+                                                    ),
+                                                    const SizedBox(width: 10),
+                                                    Expanded(
+                                                        child: Column(
+                                                          children: [
+                                                            Container(
+                                                              alignment: Alignment.centerLeft,
+                                                              margin: EdgeInsets.only(left: 10, top: 20),
+                                                              child: const Text(
+                                                                "Clave",
+                                                                style: TextStyle(
+                                                                    color: Colors.white,
+                                                                    fontFamily: "Raleway",
+                                                                    fontSize: 19
+                                                                ),
+                                                              ),
+                                                            ),
+                                                            TextFormField(
+                                                              cursorColor: Colors.white,
+                                                              obscureText: _obscureText,
+                                                              controller: _clave,
+                                                              validator: (value) {
+                                                                if (value!.isEmpty) {
+
+                                                                }
+                                                                else if(value.length<8){
+                                                                  return "Ingrese 8 caracteres o más";
                                                                 }
                                                                 return null;
                                                               },
@@ -550,125 +590,81 @@ class _registroState extends State<registro> {
                                                                 focusedBorder: UnderlineInputBorder(
                                                                   borderSide: BorderSide(color: Colors.white), // Cambia este valor al color deseado
                                                                 ),
-                                                              ),
-                                                            )
-                                                          )
-                                                        ],
-                                                      )
-                                                  ),
-                                                  const SizedBox(width: 10),
-                                                  Expanded(
-                                                      child: Column(
-                                                        children: [
-                                                          Container(
-                                                            alignment: Alignment.centerLeft,
-                                                            margin: EdgeInsets.only(left: 10, top: 20),
-                                                            child: const Text(
-                                                              "Clave",
-                                                              style: TextStyle(
-                                                                  color: Colors.white,
-                                                                  fontFamily: "Raleway",
-                                                                  fontSize: 19
-                                                              ),
-                                                            ),
-                                                          ),
-                                                          TextFormField(
-                                                            cursorColor: Colors.white,
-                                                            obscureText: _obscureText,
-                                                            controller: _clave,
-                                                            validator: (value) {
-                                                              if (value!.isEmpty) {
-
-                                                              }
-                                                              else if(value.length<8){
-                                                                return "Ingrese 8 caracteres o más";
-                                                              }
-                                                              return null;
-                                                            },
-                                                            decoration: InputDecoration(
-                                                              enabledBorder: UnderlineInputBorder(
-                                                                borderSide: BorderSide(color: Colors.white), // Cambia este valor al color deseado
-                                                              ),
-                                                              focusedBorder: UnderlineInputBorder(
-                                                                borderSide: BorderSide(color: Colors.white), // Cambia este valor al color deseado
-                                                              ),
-                                                              suffixIcon: IconButton(
-                                                                onPressed: () {
-                                                                  setState(() {
-                                                                    _obscureText = !_obscureText;
-                                                                  });
-                                                                },
-                                                                icon: Icon(
-                                                                  _obscureText ? Icons.visibility : Icons.visibility_off, color: Colors.white,
+                                                                suffixIcon: IconButton(
+                                                                  onPressed: () {
+                                                                    setState(() {
+                                                                      _obscureText = !_obscureText;
+                                                                    });
+                                                                  },
+                                                                  icon: Icon(
+                                                                    _obscureText ? Icons.visibility : Icons.visibility_off, color: Colors.white,
+                                                                  ),
                                                                 ),
                                                               ),
+                                                              style: TextStyle(
+                                                                color: Colors.white, // Cambia este valor al color deseado
+                                                              ),
                                                             ),
-                                                            style: TextStyle(
-                                                              color: Colors.white, // Cambia este valor al color deseado
-                                                            ),
-                                                          ),
-                                                        ],
-                                                      )
-                                                  )
-                                                ]
-                                            ),
-                                          ),
-                                          Container(
-                                            alignment: Alignment.bottomRight,
-                                            margin: EdgeInsets.only(top: 35),
-                                            child: Padding(
-                                              padding: const EdgeInsets.only(top: 5),
-                                              child: ElevatedButton.icon(
-                                                onPressed: () {
-                                                  singIn(context);
-                                                },
-                                                style: ElevatedButton.styleFrom(
-                                                  backgroundColor: const Color.fromRGBO(255, 115, 28, 9),
-                                                  minimumSize: const Size(200, 56),
-                                                  shape: const RoundedRectangleBorder(
-                                                    borderRadius: BorderRadius.only(
-                                                      topLeft: Radius.circular(10),
-                                                      topRight: Radius.circular(25),
-                                                      bottomRight: Radius.circular(25),
-                                                      bottomLeft: Radius.circular(25),
-                                                    ),
-                                                  ),
-                                                ),
-                                                icon: const Icon(
-                                                  CupertinoIcons.arrow_right,
-                                                  color: Color.fromRGBO(255, 205, 163, 9),
-                                                ),
-                                                label: const Text("SIGN UP", style: TextStyle(fontFamily: "Raleway", fontSize: 25)),
+                                                          ],
+                                                        )
+                                                    )
+                                                  ]
                                               ),
                                             ),
+                                            Container(
+                                              alignment: Alignment.bottomRight,
+                                              margin: EdgeInsets.only(top: 50, bottom: 50),
+                                              child: Padding(
+                                                padding: const EdgeInsets.only(top: 5),
+                                                child: ElevatedButton.icon(
+                                                  onPressed: () {
+                                                    singIn(context);
+                                                  },
+                                                  style: ElevatedButton.styleFrom(
+                                                    backgroundColor: const Color.fromRGBO(255, 115, 28, 9),
+                                                    minimumSize: const Size(200, 56),
+                                                    shape: const RoundedRectangleBorder(
+                                                      borderRadius: BorderRadius.only(
+                                                        topLeft: Radius.circular(10),
+                                                        topRight: Radius.circular(25),
+                                                        bottomRight: Radius.circular(25),
+                                                        bottomLeft: Radius.circular(25),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  icon: const Icon(
+                                                    CupertinoIcons.arrow_right,
+                                                    color: Color.fromRGBO(255, 205, 163, 9),
+                                                  ),
+                                                  label: const Text("REGISTRARME", style: TextStyle(fontFamily: "Raleway", fontSize: 21)),
+                                                ),
+                                              ),
+                                            )
+                                          ])
+                                  ),
+                                  Container(
+                                      margin: EdgeInsets.only(top: 40, right: 50),
+                                      padding: EdgeInsets.only(right: 50),
+                                      child: Column(
+                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                        children: [
+                                          Image.asset("assets/img/letrasMABLAnaranja.png", width: 225),
+                                          Container(
+                                            padding: EdgeInsets.only(top: 20, right: 30),
+                                            child: Text("HABLA CON LAS MANOS", style: TextStyle(fontFamily: "MartianMono", fontSize: 22, color: orange), textAlign: TextAlign.center,),
                                           )
-                                        ])
-                                ),
-                                Container(
-                                    padding: EdgeInsets.only(left: 10),
-                                    margin: EdgeInsets.only(top: 40, right: 70),
-                                    child: Column(
-                                      children: [
-                                        Container(
-                                          margin: EdgeInsets.only(top:15, right: 58),
-                                          child: Image.asset("assets/img/letrasMABLAnaranja.png"),
-                                        ),
-                                        Container(
-                                          margin: EdgeInsets.only(top: 20, right: 50),
-                                          child: Text("HABLA CON LAS MANOS", style: TextStyle(fontFamily: "MartianMono", fontSize: 20, color: orange), textAlign: TextAlign.center,),
-                                        )
-                                      ],
-                                    )
-                                )
-                              ],
-                            )
-                                ]
+                                        ],
+                                      )
+                                  )
+                                ],
+                              )
+                            ]
 
+                        ),
                       ),
-                    ),
-                  ],
-                )
-        )
+                    ],
+                  ),
+    )
     );
   }
 }
