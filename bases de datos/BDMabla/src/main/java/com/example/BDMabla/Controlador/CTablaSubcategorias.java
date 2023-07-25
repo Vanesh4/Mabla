@@ -38,8 +38,9 @@ public class CTablaSubcategorias {
         return serSubcategorias.deleteSubcate(subcate);
     }
 
-    @GetMapping("/listarSubCategorias")
-    public List<Object[]> Subcategorias(){
-        return serSubcategorias.getSubcategoriasOfCate();
+    @GetMapping("/listarSubCategorias/{cat}")
+    public List<Object[]> Subcategorias(@PathVariable("cat") String cat){
+
+        return serSubcategorias.getSubcategoriasOfCate(cat);
     }
 }

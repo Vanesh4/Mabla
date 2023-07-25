@@ -16,8 +16,8 @@ $(document).ready(function () {
         }
     })*/
 
-
-    /*contenedor = document.querySelector("#menuContenido")
+    categorias = []
+    contenedor = document.querySelector("#menuContenido")
      $.ajax({
          url: "http://localhost:8080/getCategorias",
          type: "GET",
@@ -31,41 +31,50 @@ $(document).ready(function () {
                 h2Categoria = document.createElement("h2")
                 h2Categoria.innerHTML = res[i].categoria
 
+                categorias.push(res[i].categoria)
                 divCategoria.appendChild(h2Categoria)
-
                 
-                $.ajax({
+                /* $.ajax({
                     url: "http://localhost:8080/listarSubCategorias/"+res[i].categoria,
                     type: "GET",
                     dataType: "JSON",
                     success: function (sub){
                         console.log(sub)
                         for(let s=0; s<=sub.length; s++){
-                            subcate = document.createElement("div")
+                            subcate = document.createElement("p")
                             console.log(subcate)
                             subcate.innerHTML = sub[s][0]
-                            subcate.textContent = sub[s][0]
                             console.log(subcate)
-                            divCategoria.appendChild(subcate)
-                            
+                            divCategoria.appendChild(subcate)                            
                         }                        
                     }
-                })
+                }) */
+                
                 contenedor.appendChild(divCategoria)
 
             }
 
-         }
-    }) */
-
-    contenedor = document.querySelector("#menuContenido")
-    $.ajax({
-        url: "http://localhost:8080/listarSubCategorias",
-        type: "GET",
-        dataType: "JSON",
-        success: function (res){
-            pes= document.getElementById('subcate')             
-            pes.textContent=res
         }
+        
     })
+    console.log(categorias)
+    for (let i = 0; i < categorias.length; i++) {
+        $.ajax({
+            url: "http://localhost:8080/listarSubCategorias/"+categorias[i],
+            type: "GET",
+            dataType: "JSON",
+            success: function (sub){
+                console.log(sub)
+                for(let s=0; s<=sub.length; s++){
+                    subcate = document.createElement("p")
+                    console.log(subcate)
+                    subcate.innerHTML = sub[s][0]
+                    console.log(subcate)
+                    divCategoria.appendChild(subcate)                            
+                }                        
+            }
+        })        
+    }
+    
+    
 })
