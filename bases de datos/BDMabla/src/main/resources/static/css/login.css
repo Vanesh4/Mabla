@@ -62,24 +62,24 @@ form{
     display: flex;
     flex-wrap: wrap;
     width: 43%;  
-    height: 450px;
-    align-content: center;
     justify-content: end;
-    margin-right: 20px;                                                 
+    padding-top: 7%;
 }
 .slogan{
-    margin-top: 30px;
-    font-family: 'Martian Mono', monospace;
-    margin-right: 20px;                                                                                                                                                                                                                                                                                                                                                     
-    color:  #ff731c;
+    font-family: 'Martian Mono', monospace;                                                                                                                                                                                                                                                                                                                                                
+    color:  #ff731c;   
+    margin-top: 30px; 
+    margin-right: 50px;    
+}
+#capi{
+    margin-top: 30%;
+    margin-left: 50px;
+    width: 39%;
+    height: 50%;    
 }
 #ph{
     margin-left: 40px;
 }
-body{
-    background-color: aqua;
-}
-
 #mensaje-error{
     color: red;
     font-size: 20px;
