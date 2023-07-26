@@ -1,4 +1,4 @@
-let listElements=document.querySelectorAll('.list_button--click');
+let listElements=document.querySelectorAll('.categorias');
 
 listElements.forEach(listElement => {
     listElement.addEventListener('click',()=>{
@@ -46,11 +46,11 @@ function consultarCategoria(){
     })
 }
 
-let hideText_btn=document.getElementById('hideText_btn');
+/* let list_show=document.getElementById('list_show');
 
 let hideText=document.getElementById('hideText');
 
-hideText_btn.addEventListener('click', toggleText);
+list_show.addEventListener('click', toggleText);
 
 function toggleText(){
     hideText.classList.toggle('show');
@@ -61,7 +61,7 @@ function toggleText(){
     }else{
         hideText_btn.innerHTML='Animales';
     }
-}
+}  */
 
 
 $(document).ready(function () {
@@ -73,38 +73,38 @@ $(document).ready(function () {
         dataType: "JSON",
         success: function (res) {
             for(i = 0; i <= res.length ; i++){
-                titulosCat[i].innerHTML = res[i].Categoria
+                titulosCat[i].innerHTML = res[i].Categoria 
             }
-
-
-        }
+            
+            
+        } 
     }) */
 
 
 
 
     contenedor = document.querySelector("#caja")
-
+    
     $.ajax({
         url: "http://localhost:8080/getCategorias",
         type: "GET",
-        dataType: "JSON",
-        success: function (res) {
-            console.log("categorias",res)
+        dataType: "JSON",      
+        success: function (res) {    
+            console.log("categorias",res)               
             for(let x = 0; x<=res.length; x++) {
                 console.log("hollaaaaaa",res[x])
                 divcategoria=document.createElement("div")
                 divcategoria.setAttribute("class","nav")
+                
 
-
-                h1categoria = document.createElement("h1")
+                h1categoria = document.createElement("h1")    
                 h1categoria.setAttribute("class","categorias")
-                h1categoria.innerHTML = res[x].categoria
+                h1categoria.innerHTML = res[x].categoria 
                 divcategoria.appendChild(h1categoria)
 
                 console.log("los datos",divcategoria)
 
-
+            
                 subcategorias=res[x].tablaSubcategorias
                 for(let s=0; s<subcategorias.length; s++){
 
@@ -115,44 +115,44 @@ $(document).ready(function () {
                     li.setAttribute("class","list_inside")
 
                     a=document.createElement("a")
-                    a.setAttribute("class","nav_link nav_link--inside") */
+                    a.setAttribute("class","nav_link nav_link--inside") */                      
                     contenedorsub.innerHTML=subcategorias[s].subcategoria
                     divcategoria.appendChild(contenedorsub)
 
+                    
 
-
-
-                }
+                    
+                } 
 
                 contenedor.appendChild(divcategoria)
 
 
-
+                    
             }
-        }
+        }    
 
     })
 
 
-
+    
     $.ajax({
         url: "http://localhost:8080/getSubcategoria",
         type: "GET",
-        dataType: "JSON",
-        success: function (res) {
-            console.log("subcategorias",res)
+        dataType: "JSON",      
+        success: function (res) {    
+            console.log("subcategorias",res)               
             for(let i = 0; i<=res.length; x++) {
                 console.log("hollaaaaaa",res[x])
                 divcategoria=document.createElement("div")
                 divcategoria.setAttribute("class","nav")
+                
 
-
-                h1categoria = document.createElement("h1")
+                h1categoria = document.createElement("h1")    
                 h1categoria.setAttribute("class","categorias")
-                h1categoria.innerHTML = res[x].categoria
+                h1categoria.innerHTML = res[x].categoria 
                 divcategoria.appendChild(h1categoria)
 
-                console.log("los datosoooooo",divcategoria)
+                console.log("los datosoooooo",divcategoria) 
 
                 contenedorsub=document.createElement("div")
                 contenedorsub.setAttribute("class", "list_show")
@@ -161,17 +161,17 @@ $(document).ready(function () {
                     li.setAttribute("class","list_inside")
 
                     a=document.createElement("a")
-                    a.setAttribute("class","nav_link nav_link--inside") */
+                    a.setAttribute("class","nav_link nav_link--inside") */                      
                     contenedorsub.innerHTML=subcategorias[s].subcategoria
                     divcategoria.appendChild(contenedorsub)
 
+            
 
-
-
+            
                 palabras=res[i].tablaPalabras
                 console.log("revisandoooo",palabras)
                 for(let p=0; p<palabras.length; p++){
-
+                    
 
                     contenedorpalabra=document.createElement("div")
                     contenedorpalabra.setAttribute("class", "palab")
@@ -180,22 +180,22 @@ $(document).ready(function () {
                     li.setAttribute("class","list_inside")
 
                     a=document.createElement("a")
-                    a.setAttribute("class","nav_link nav_link--inside") */
+                    a.setAttribute("class","nav_link nav_link--inside") */                      
                     contenedorpalabra.innerHTML=palabras[p].palabra
                     console.log("viendo las palabras",contenedorpalabra)
                     contenedorsub.appendChild(contenedorpalabra)
                     console.log("mi contenedorrrr",contenedorsub)
 
+                    
 
+                    
+                } 
 
+               
 
-                }
-
-
-
-
+                    
             }
-        }
+        }    
 
     })
 
@@ -203,6 +203,23 @@ $(document).ready(function () {
 
 
 
+$(document).ready(function () {
+    
+    titulosSubcat = document.querySelectorAll('a')
+    console.log(titulosSubcat)
+    $.ajax({
+        url: "http://127.0.0.1:8000/viendosustan",
+        type: "GET",
+        dataType: "JSON",
+        success: function (res) {
+            for(i = 0; i <= res.length ; i++){
+                titulosSubcat[i].innerHTML = res[i].subcategoria 
+            }
+            
+            
+        } 
+    })
+})
 
 
 /* function mostrarsubcate(){
@@ -225,7 +242,6 @@ $(document).ready(function () {
             for(let dat of datos){
                 caja.innerHTML+=`
                 <h2>${dat.subcategoria}</h2>
-            
                 `
             }
         }
