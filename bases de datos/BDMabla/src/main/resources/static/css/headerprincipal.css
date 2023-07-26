@@ -1,10 +1,6 @@
 @font-face {
-    font-family: "arimo";
-    src: url(/Tablas/static/fonts/Arimo/Arimo-Medium.ttf);
-}
-@font-face {
     font-family: "raleway";
-    src: url(/Tablas/static/fonts/Raleway/Raleway-Medium.ttf);
+    src: url(/fonts/Raleway/Raleway-Medium.ttf);
 }
 *{
     margin: 0;
@@ -20,13 +16,19 @@ input{
     font-size: 18px;
     font-family: "raleway"; 
     outline: none;
+    background-color: transparent;
 }
 #header{
     display: flex;
     justify-content: space-between;
 }
+#parteizq{
+    width: 40%;
+}
+#partederecha{
+    width: 60%;
+}
 #parteizq, #partederecha{
-    width: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -56,6 +58,7 @@ input{
     font-size: 20px;
     font-family: "raleway";
     border-radius: 100px;
+    margin-right: 10px;
 }
 #BotonIngresar{
     background-color: #06bfdb;
@@ -67,12 +70,12 @@ input{
     padding: 7px 13px 0 20px;
 }
 #buscador{
-    width: 40%;
+    width: 35%;
     display: flex;
     border: 2px solid black;
     border-radius: 100px;
     padding: 3px;
-    margin-left: 10px;
+    
 }
 
 #buscadorMenu{

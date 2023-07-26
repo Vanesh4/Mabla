@@ -1,5 +1,4 @@
 
-
 let hider_btn=document.getElementById('hider_btn');
 
 let hide_abc=document.getElementById('hide_abc');
@@ -17,7 +16,6 @@ function toggleText(){
 
 
 }
-
 
 function consultar(){
     console.log("holaaaaaa")
