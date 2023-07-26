@@ -9,18 +9,13 @@ public class TablaPalabras {
     @Id
     @Column(nullable = false, length = 100)
     private String Palabra;
-
     @Column()
     private String Senia;
-
-
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "Categoria", referencedColumnName = "Categoria", nullable = false)
     @JsonIgnore
     private TablaCategorias tablaCategorias;
-
-
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "Subcategoria", referencedColumnName = "Subcategoria", nullable = false)
     @JsonIgnore

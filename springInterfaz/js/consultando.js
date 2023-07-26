@@ -119,7 +119,6 @@ $(document).ready(function () {
                     contenedorsub.innerHTML=subcategorias[s].subcategoria
                     divcategoria.appendChild(contenedorsub)
 
-                    
 
                     
                 } 
@@ -133,93 +132,28 @@ $(document).ready(function () {
 
     })
 
-
     
     $.ajax({
         url: "http://localhost:8080/getSubcategoria",
         type: "GET",
         dataType: "JSON",      
         success: function (res) {    
-            console.log("subcategorias",res)               
-            for(let i = 0; i<=res.length; x++) {
-                console.log("hollaaaaaa",res[x])
-                divcategoria=document.createElement("div")
-                divcategoria.setAttribute("class","nav")
+            console.log("subcategorias",res) 
+            for(let s=0; s<=res.length; s++){
                 
-
-                h1categoria = document.createElement("h1")    
-                h1categoria.setAttribute("class","categorias")
-                h1categoria.innerHTML = res[x].categoria 
-                divcategoria.appendChild(h1categoria)
-
-                console.log("los datosoooooo",divcategoria) 
-
-                contenedorsub=document.createElement("div")
-                contenedorsub.setAttribute("class", "list_show")
-
-                    /* li = document.createElement("li")
-                    li.setAttribute("class","list_inside")
-
-                    a=document.createElement("a")
-                    a.setAttribute("class","nav_link nav_link--inside") */                      
-                    contenedorsub.innerHTML=subcategorias[s].subcategoria
-                    divcategoria.appendChild(contenedorsub)
+            }
 
             
-
-            
-                palabras=res[i].tablaPalabras
-                console.log("revisandoooo",palabras)
-                for(let p=0; p<palabras.length; p++){
-                    
-
-                    contenedorpalabra=document.createElement("div")
-                    contenedorpalabra.setAttribute("class", "palab")
-
-                    /* li = document.createElement("li")
-                    li.setAttribute("class","list_inside")
-
-                    a=document.createElement("a")
-                    a.setAttribute("class","nav_link nav_link--inside") */                      
-                    contenedorpalabra.innerHTML=palabras[p].palabra
-                    console.log("viendo las palabras",contenedorpalabra)
-                    contenedorsub.appendChild(contenedorpalabra)
-                    console.log("mi contenedorrrr",contenedorsub)
-
-                    
-
-                    
-                } 
 
                
 
                     
             }
-        }    
+    })    
+
 
     })
 
-})
-
-
-
-$(document).ready(function () {
-    
-    titulosSubcat = document.querySelectorAll('a')
-    console.log(titulosSubcat)
-    $.ajax({
-        url: "http://127.0.0.1:8000/viendosustan",
-        type: "GET",
-        dataType: "JSON",
-        success: function (res) {
-            for(i = 0; i <= res.length ; i++){
-                titulosSubcat[i].innerHTML = res[i].subcategoria 
-            }
-            
-            
-        } 
-    })
-})
 
 
 /* function mostrarsubcate(){

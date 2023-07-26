@@ -26,15 +26,6 @@ public class STablaPalabras {
             return null;
         }
     }
-<<<<<<< HEAD
-
-=======
-<<<<<<< HEAD
-=======
-
-
->>>>>>> 18613e63b8f3f3c73505e944bc7062f28061177c
->>>>>>> be1877a5319c35fe6bdd5416176a1acd737267cd
 /*public String insertarpalabra(TablaPalabras t){
         for (TablaCategorias: Mostrartodo());{
             if (c.getCategoria() == repositorio.findByCategoria(t.getCategoria())){
@@ -49,15 +40,6 @@ public class STablaPalabras {
         }
         return "registrada";
     }*/
-<<<<<<< HEAD
-
-=======
-<<<<<<< HEAD
-=======
->>>>>>> be1877a5319c35fe6bdd5416176a1acd737267cd
-
-
->>>>>>> 18613e63b8f3f3c73505e944bc7062f28061177c
     public String insertarpalabra(TablaPalabras t){
         if(repositoriopalab.findById(t.getPalabra()).isPresent()){
             return "La palabra ya existe";

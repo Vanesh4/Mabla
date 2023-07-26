@@ -83,7 +83,7 @@ $(document).ready(function () {
 
 
 
-    contenedor = document.querySelector("#caja")
+   contenedor = document.querySelector("#caja")
 
     $.ajax({
         url: "http://localhost:8080/getCategorias",
