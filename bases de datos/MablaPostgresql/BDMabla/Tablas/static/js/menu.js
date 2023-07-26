@@ -11,7 +11,7 @@ $(document).ready(function () {
         success: function (res) {
             console.log(res)
             for(i = 0; i <= res.length ; i++){
-                console.log(res[i].Categoria)
+                //console.log(res[i].Categoria)
                 titulosCat[i].innerHTML = res[i].Categoria
             }           
             
@@ -24,7 +24,7 @@ $(document).ready(function () {
         success: function (res) {
 
             divCategorias = document.getElementsByClassName("categoria")
-            console.log(divCategorias)
+            //console.log(divCategorias)
 
             console.log(res)
             listacategorias=[]
