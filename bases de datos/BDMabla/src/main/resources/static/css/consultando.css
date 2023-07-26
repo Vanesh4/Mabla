@@ -7,9 +7,6 @@
     font-family: "ralewayExtraBold";
     src: url("/static/fonts/Raleway/Raleway-ExtraBold.ttf");
 }
-input{
-    font-family: "raleway";
-}
 *{
     margin: 0;
     padding: 0;
@@ -19,33 +16,60 @@ input{
 body{
     background-color: rgb(251, 250, 250);
 }
-.caja{
-    height: auto;
+.contenido{
     display: flex;
-    flex-direction: row;
+}
+#caja{
+    height: auto;
+    width: 25%;
+    height: 750px;
+    background-color: #0a4d68;
+
 }
 
 h1{
     text-decoration: none;
-    font-family: "ralewayExtraBold";
+    display: block;
     font-size: 18px;
-    color: white;   
-     
-}
-
-nav{    
-    width: 300px;
+    color: white;
+    cursor: pointer;
+    text-align: center;
+    padding-top: 25px;
     background-color: #0a4d68;
-    
+    box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.653);
+
+
 }
 
+nav{
+
+    flex-direction: column;
+    display: block;
+    width: 30%;
+    background-color: #0a4d68;
+    height: 500px;
+
+
+
+}
+
+.list_show{
+    text-align: center;
+    cursor: pointer;
+
+
+}
+.arrow .list_show{
+    transform: rotate(90deg);
+}
+/*
 .nav_link{
     color: #fefefe;
     display: block;
     padding: 15px 0;
-    text-decoration: none;   
-   
-    
+    text-decoration: none;
+
+
 }
 
 .nav_link--inside{
@@ -54,7 +78,7 @@ nav{
     text-align: left;
     font-family: "raleway";
     font-size: 16px;
-    
+
 }
 .nav_link--inside:hover{
     background-color: #06bfdb;
@@ -70,7 +94,7 @@ nav{
     border-radius: 0 16px 16px 0;
     background: #fff;
     background-color: #0a4d68;
-  
+
 }
 .list_item{
     list-style-type: none;
@@ -81,7 +105,7 @@ nav{
 }
 .list__item--click{
     cursor: pointer;
-    
+
 
 }
 
@@ -103,49 +127,56 @@ nav{
     background-color: #fefefe;
 }
 
-.list_show{
-    width: 80%;
-    margin-left: auto;
-    border-left: 2px solid #303440 ;
-    list-style: none;
-    transition: height .4s;
-    height: 0;
-
-}
+*/
 
 
-.buscar{    
+.buscar{
+
     width: 100%;
-    background-color: #D9D9D9;
-    display: flex;
-    justify-content: flex-end;
-    padding: 10px 20px; 
+    height: 100px;
+    background-color: #393a3c;
+    padding: 10px;
+
+
 }
-#contenedorBuscador{
-    border: 2px solid black;
+#buscador{
     width: 30%;
+    display: flex;
+    border: 2px solid black;
     border-radius: 100px;
-    padding: 5px 10px;
-    margin-right: 10px;
-}
-
-#inputBuscar{
-    width: 100%;
-    border: none;
-    height: 100%;
-    outline: none;
-    padding: 5px 20px;
-    font-size: 18px;
     padding: 3px;
+    float: right;
+
+}
+.cajabuscador{
+    width: 100%;
+    height: 100px;
+    background-color: #393a3c;
+    padding: 12px;
+
+
+}
+#buscadorMenu{
+    border: none;
     background-color: transparent;
-    /* margin-top: 15px;
+    margin-left: 10px;
+    width: 90%;
+
+}
+input{
+    outline: none;
+    box-sizing: border-box;
     height: 40px;
-    width: 0;    
-    color: rgb(0, 0, 0);
-    border-radius: 50px;    
+    width: 0;
+    padding: 0 20px;
+    color: rgb(253, 251, 251);
+    border-radius: 50px;
+    font-size: 20px;
     border-radius: 1px solid rgb(0, 4, 255);
     transition: all .7s ease;
-    margin-left: 70%; */
+    margin-left: 70%;
+
+
 
 }
 
@@ -154,13 +185,13 @@ nav{
 }
 
 .btn{
-    /* position: absolute;
+    position: absolute;
     right: 0;
-    top: 20px; */
+    top: 20px;
     width: 50px;
     height: 50px;
     background: #0a4d68;
-    /* line-height: 80px; */
+    line-height: 80px;
     border-radius: 50%;
     text-align: center;
     cursor: pointer;
@@ -169,31 +200,33 @@ nav{
 }
 
 #lupa{
-    height: 100%;
+    height: 80%;
     color: #fefefe;
 }
 
 .btn i{
     font-size: 25px;
-    /* line-height: 80px; */
-    transition: all .5s;
+    color: rgb(16, 10, 182);
+    line-height: 80px;
+    transition: all .7s;
 }
 
-/* .buscar:hover input{
+.buscar:hover input{
     width: 350px;
 }
 
 .buscar:hover i{
     transform: rotate(-360deg);
-    
 
-} */
+
+}
 
 .btn:hover{
+    background: rgb(126, 5, 5);
     background-color: #ff731c;
 }
 
-.caja2{    
+.caja2{
     flex-direction: column;
     width: 100%;
 }
