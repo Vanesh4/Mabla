@@ -181,13 +181,13 @@ form{
         padding: 0px;
         margin: 0px;
         width: 80%;
-        margin: 30px 0px 0px 35px;
+        margin: 30px 0px 0px 50px;
     }
 
 }
 @media screen and (min-width:1200px) and (max-width:1600px) {       
     header{
-        height: 605px;
+        height: 710px;
         padding: 0px;
         margin: 0px;
     }
@@ -208,7 +208,8 @@ form{
         margin: 0px;
         flex-direction: column;
         align-items: end;
-        padding: 39px 20px 0px 0px;
+        margin-top: 30px;
+        padding: 50px 20px 0px 0px;
     }
     .slogan{
         padding-bottom: 50px;
@@ -218,6 +219,8 @@ form{
         margin-top: 5px;
     }
     #capi{
-        padding: 50px 0px 0px 58px;
+        width: 50%;
+        height: 50%;
+        padding: 50px 0px 0px 10%;
     }
 }

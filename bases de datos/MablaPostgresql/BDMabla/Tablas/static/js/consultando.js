@@ -66,7 +66,7 @@ function toggleText(){
 
 $(document).ready(function () {
     
-    titulosCat = document.querySelectorAll('h1')
+ /*    titulosCat = document.querySelectorAll('h1')
     $.ajax({
         url: "http://127.0.0.1:8000/getcate",
         type: "GET",
@@ -78,51 +78,50 @@ $(document).ready(function () {
             
             
         } 
-    })
+    }) */
 
     
     $.ajax({
-        url: "http://127.0.0.1:8000/getsubcate",
+        url: "http://127.0.0.1:8000/getcate",
         type: "GET",
-        dataType: "JSON",
-        success: function (res) {
-            console.log(res)           
-            contenedoul = document.querySelector(".list_show")
-            categorias = document.getElementsByClassName("categorias")
-            console.log(contenedoul)
-            listacategorias = []
-            for(let i = 0; i<titulosCat.length; i++){        
-                listacategorias.push(titulosCat[i].textContent)          
-                for (let x = 0; x < res.length; x++) {
+        dataType: "JSON",      
+        success: function (res) {  
+            contenedoul = document.querySelector(".list_item list_item--click")         
+            for(x = 0; x<=res.length; x++) {
+                contenedorlist = document.getElementsByClassName("list_item list_item--click")
+     
+                divcategoria=document.createElement("div")
+                divcategoria.setAttribute("class","list_button list_button--click")
+                contenedoul.appendChild(divcategoria)
+
+                h1categoria = document.createElement("h1")    
+                divcategoria.setAttribute("class","categorias")
+                h1categoria.innerHTML = res[x].Categoria 
+                divcategoria.appendChild(h1categoria)
+
+            
+               /*  subcategorias=res[x].tablaSubcategorias
+                for(let s=0; s<subcategorias.length; s++){
+
+                    contenedorul=document.createElement("ul")
+                    contenedorul.setAttribute("class", "list_show")
 
                     li = document.createElement("li")
                     li.setAttribute("class","list_inside")
 
                     a=document.createElement("a")
-                    a.setAttribute("class","nav_link nav_link--inside")
-              
+                    a.setAttribute("class","nav_link nav_link--inside")                      
+                    a.innerHTML=subcategorias[s].subcategoria
+                    contenedorul.appendChild(li)
+                    li.appendChild(a)
+                } */
                 
-                    if (listacategorias[i] == "Sustantivos" && res[x].categoria_id=="Sustantivos"){
-                        a.innerHTML=res[x].subcategoria
-                        console.log(a)
-                        contenedoul.appendChild(li)
-                        li.appendChild(a)
-                    }
-
-                    if (listacategorias[i] == "Adjetivos" && res[x].categoria_id=="Adjetivos"){
-                        a.innerHTML=res[x].subcategoria
-                        console.log(a)
-                        contenedoul.appendChild(li)
-                        li.appendChild(a)
 
 
-                    }
+                    
+            }
+        }    
 
-                        
-                }
-            }    
-            
-        } 
     })
 
 
