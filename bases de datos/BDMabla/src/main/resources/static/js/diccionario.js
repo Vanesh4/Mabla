@@ -1,21 +1,32 @@
 
+<<<<<<< HEAD
+function mostrarTeclado() {
+    const contenidoDiv = document.getElementById('hide_abc');
+=======
 /*let hider_btn=document.getElementById('hider_btn');
+>>>>>>> 0e797abdea980efffe1e89917c87a3fbac19ff74
 
-let hide_abc=document.getElementById('hide_abc');
-
-hider_btn.addEventListener('click', toggleText);
-
-function toggleText(){
-    hide_abc.classList.toggle('show');
-    if(hideText.classList.contains('show')){
-        hideText_btn.innerHTML='r';
-        
-    }else{
-        hideText_btn.innerHTML='y';
+    if (contenidoDiv.style.visibility == 'hidden') {
+        contenidoDiv.style.visibility = 'inherit';
+    } else {
+        contenidoDiv.style.visibility = 'hidden';
     }
+<<<<<<< HEAD
+}
+=======
 
 
 }*/
+>>>>>>> 0e797abdea980efffe1e89917c87a3fbac19ff74
+
+alturaAbc = ()=>{
+    teclado = document.getElementById('hide_abc');
+    alturaPantalla = window.innerHeight;
+    teclado.style.height = alturaPantalla + 'px';
+}
+alturaAbc()
+window.addEventListener('resize', ajustarAlturaContenedor)
+
 
 function consultar(){
     console.log("holaaaaaa")
