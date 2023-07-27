@@ -1,8 +1,8 @@
 import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:mabla/formas/ondaHome.dart';
 import 'package:mabla/header.dart';
+import 'package:mabla/screen/diccionario.dart';
 import 'package:mabla/screen/menu.dart';
 import 'package:mabla/screen/quiz.dart';
 
@@ -146,7 +146,14 @@ class _homeState extends State<home> {
                         width: 190,
                         height: 48,
                         child: ElevatedButton(
-                          onPressed: (){},
+                          onPressed: (){
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const diccionario(),
+                              ),
+                            );
+                          },
                           child: Text('Diccionario',
                             style: TextStyle(fontSize: 28, fontFamily: "Raleway",color: Colors.black),),
                           style: ButtonStyle(
