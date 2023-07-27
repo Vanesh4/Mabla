@@ -20,7 +20,7 @@ class _headerPrincipalState extends State<headerPrincipal> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      //margin: EdgeInsets.only(right: 80),
+      margin: EdgeInsets.only(right: 100),
       color: beige,
       child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,

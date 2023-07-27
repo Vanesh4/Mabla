@@ -23,7 +23,7 @@ class _menuState extends State<menu> {
 
   List<dynamic> categorias = [];
   Future<void> getCategorias() async{
-    final url = Uri.parse('http://192.168.1.10/getcate');
+    final url = Uri.parse('http://192.168.1.6/getcate');
     final response = await http.get(url);
 
     if(response.statusCode == 200){
@@ -71,13 +71,7 @@ class _menuState extends State<menu> {
           SizedBox(height: 30,),
 
           //Text('${categorias[0]}',
-            Text('${categorias[0]}',
-            style: TextStyle(
-            fontFamily: 'Raleway',
-            fontSize: 35,
-            color: Colors.white
-            ),
-          ),
+
           SizedBox(height: 30,),
           Text('Movimiento', style: TextStyle(
               fontFamily: 'Raleway',

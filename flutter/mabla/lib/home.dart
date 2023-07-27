@@ -26,7 +26,8 @@ class _homeState extends State<home> {
 
   List<dynamic> comments = [];
   Future<void> getComments() async{
-    final url = Uri.parse('http://192.168.1.10/tablaComment');
+    // ipv4 vanessa: http://192.168.1.6/
+    final url = Uri.parse('http://192.168.1.6/tablaComment');
     final response = await http.get(url);
     
     if(response.statusCode == 200){
@@ -58,10 +59,7 @@ class _homeState extends State<home> {
         child: Column(
           children: [
             Container(
-              /*child: CustomPaint(
-                painter: ondaHome(),
-                size: Size(double.infinity, double.infinity),
-              ),*/
+
               height: 650,
               child: Stack(
                 children: [
