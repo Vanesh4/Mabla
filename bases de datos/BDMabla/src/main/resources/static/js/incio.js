@@ -20,7 +20,7 @@ $(document).ready (()=>{
         type: "GET",
         dataType: "JSON",
         success: function (res) {
-            console.log(res)
+            //console.log(res)
             
             for (let i = 0; i < 4; i++) {
             

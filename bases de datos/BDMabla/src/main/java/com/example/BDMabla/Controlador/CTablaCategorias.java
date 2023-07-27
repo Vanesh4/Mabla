@@ -2,11 +2,8 @@ package com.example.BDMabla.Controlador;
 import com.example.BDMabla.Servicios.STablaCategorias;
 import org.springframework.web.bind.annotation.*;
 import com.example.BDMabla.Entidad.TablaCategorias;
-
-
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
-
 
 import java.util.List;
 
@@ -21,7 +18,6 @@ public class CTablaCategorias {
 
     @GetMapping("/getCategorias")
     public List<TablaCategorias> vercategorias(){
-
         return serCategorias.getCategorias();
     }
 
