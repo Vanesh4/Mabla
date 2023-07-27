@@ -7,6 +7,7 @@
     <link rel="icon" type="image/x-icon" href="https://img.icons8.com/?size=512&id=84881&format=png">
 
     <link rel="stylesheet" href="/css/quiz1.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
 
@@ -15,13 +16,15 @@
 
     <section id="sectionPregunta">
         <div class="flecha">
-            <img src="/img/flecha-apunta-a-la-izquierda.png" alt="retrocede" class="imgflecha">
+            <img src="/img/flecha-apunta-a-la-izquierda.png" id="retrocede" class="imgflecha">
         </div>
         
         <div id="espacioQuiz">
             <div id="preguntas">
                 <p id="pregunta">A que palabra corresponde esta seña</p>
-                <div id="senia"></div>
+                <div id="senia">
+                    <!-- <img src="" alt="" id="linkSenia"> -->
+                </div>
             </div>
             <div id="respuestas">
                 <div id="opcion1" class="opcion">Lorem</div>
@@ -32,9 +35,11 @@
         </div>
 
         <div class="flecha">
-            <img src="/img/flecha-apunta-a-la-derecha.png" alt="avanza" class="imgflecha">
+            <img src="/img/flecha-apunta-a-la-derecha.png" id="avanza" class="imgflecha">
         </div>
 
     </section>
+
+    <script src="/js/quizTipo1.js"></script>
 </body>
 </html>

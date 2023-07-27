@@ -60,18 +60,13 @@ header{
     align-items: center;
 }
 .opcion{
-    font-family: "raleway";
-    font-size: 28px;
-    text-align: center;
     padding: 10px 0 10px 0;
 }
 #opcion1{
     background-color: #76037a;
-    color: white;
 }
 #opcion2{
     background-color: #0a4d68;
-    color: white;
 }
 #opcion3{
     background-color: #06bfdb;
@@ -130,3 +125,24 @@ header{
     }
     
 } 
+@media screen and (min-width: 1600px) {
+
+    #sectionPregunta{
+        margin-top: 40px;
+        
+    }
+    #palabra{
+        font-size: 30px;
+    }
+    .opcion{
+        padding: 30px 0 30px 0;
+    }
+    .senia{
+        width: 250px;
+        height: 250px;
+    }
+    .flecha{
+        height: 180px;
+        align-items: flex-end;
+    }
+}

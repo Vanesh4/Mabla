@@ -1,0 +1,267 @@
+@font-face {
+    font-family: "raleway";
+    src: url("/static/fonts/Raleway/Raleway-Regular.ttf");
+}
+
+@font-face {
+    font-family: "ralewayExtraBold";
+    src: url("/static/fonts/Raleway/Raleway-ExtraBold.ttf");
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: rgb(251, 250, 250);
+}
+.contenido{
+    display: flex;
+}
+#caja{
+    height: auto;
+    width: 25%;
+    height: 750px;
+    background-color: #0a4d68;
+
+}
+
+h1{
+    text-decoration: none;
+    display: block;
+    font-size: 18px;
+    color: white;   
+    cursor: pointer;
+    text-align: center;
+    padding-top: 25px;
+    background-color: #0a4d68;
+    box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.653);
+
+     
+}
+
+nav{  
+    
+    flex-direction: column; 
+    display: block;
+    width: 30%;
+    background-color: #0a4d68;
+    height: 500px;
+    
+    
+    
+}
+
+.list_show{
+    text-align: center;
+    cursor: pointer;
+    
+
+} 
+.arrow .list_show{
+    transform: rotate(90deg);
+}
+/*
+.nav_link{
+    color: #fefefe;
+    display: block;
+    padding: 15px 0;
+    text-decoration: none;   
+   
+    
+}
+
+.nav_link--inside{
+    border-radius: 6px;
+    padding-left: 20px;
+    text-align: left;
+    font-family: "raleway";
+    font-size: 16px;
+    
+}
+.nav_link--inside:hover{
+    background-color: #06bfdb;
+
+}
+
+.list{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 0 16px 16px 0;
+    background: #fff;
+    background-color: #0a4d68;
+  
+}
+.list_item{
+    list-style-type: none;
+    width: 100%;
+    text-align: center;
+    overflow: hidden;
+
+}
+.list__item--click{
+    cursor: pointer;
+    
+
+}
+
+.list_button{
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    width: 70%;
+    margin: 0 auto;
+
+}
+.arrow .list_arrow{
+    transform: rotate(90deg);
+}
+
+.list_arrow{
+    margin-left: auto;
+    transition: transform .3s;
+    background-color: #fefefe;
+}
+
+*/
+
+
+.buscar{
+    
+    width: 100%;
+    height: 100px;
+    background-color: #393a3c;
+    padding: 10px;
+    
+
+}
+#buscador{
+    width: 30%;
+    display: flex;
+    border: 2px solid black;
+    border-radius: 100px;
+    padding: 3px;
+    float: right;
+
+}
+.cajabuscador{
+    width: 100%;
+    height: 100px;
+    background-color: #393a3c;
+    padding: 12px;
+
+    
+}
+#buscadorMenu{
+    border: none;
+    background-color: transparent;
+    margin-left: 10px;
+    width: 90%;
+    
+}
+input{
+    outline: none;
+    box-sizing: border-box;
+    height: 40px;
+    width: 0;
+    padding: 0 20px;
+    color: rgb(253, 251, 251);
+    border-radius: 50px;
+    font-size: 20px;
+    border-radius: 1px solid rgb(0, 4, 255);
+    transition: all .7s ease;
+    margin-left: 70%;
+
+
+
+}
+
+::placeholder{
+    color: grey;
+}
+
+.btn{
+    position: absolute;
+    right: 0;
+    top: 20px;
+    width: 50px;
+    height: 50px;
+    background: #0a4d68;
+    line-height: 80px;
+    border-radius: 50%;
+    text-align: center;
+    cursor: pointer;
+    transition: .5s;
+
+}
+
+#lupa{
+    height: 80%;
+    color: #fefefe;
+}
+
+.btn i{
+    font-size: 25px;
+    color: rgb(16, 10, 182);
+    line-height: 80px;
+    transition: all .7s;
+}
+
+.buscar:hover input{
+    width: 350px;
+}
+
+.buscar:hover i{
+    transform: rotate(-360deg);
+    
+
+}
+
+.btn:hover{
+    background: rgb(126, 5, 5);
+    background-color: #ff731c;
+}
+
+.caja2{
+    flex-direction: column;
+    width: 100%;
+}
+
+.hide{
+    display: none;
+    height: auto;
+}
+
+.show{
+    display: block;
+}
+
+#cajita{
+    height: auto;
+    width: 80%;
+    margin: auto;
+    margin-top: 40px;
+    display: flex;
+    flex-direction: row;
+    background-color: #0a4d68;
+}
+
+
+.img{
+    width: 50%;
+    height: 300px;
+    background-color: #ff731c;
+}
+.text{
+    width: 50%;
+    height: 300px;
+    background-color: #0a4d68;
+    display: flex;
+    align-items: center;
+    padding-left: 30px;
+}
+

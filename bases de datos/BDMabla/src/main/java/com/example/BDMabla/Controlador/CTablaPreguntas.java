@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-//@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "*")
 public class CTablaPreguntas {
     private STablaPreguntas serTablaPreguntas;
 
@@ -18,6 +18,11 @@ public class CTablaPreguntas {
     @GetMapping("/getPreguntas")
     public List<TablaPreguntas> listarPreguntas(){
         return serTablaPreguntas.getPreguntas();
+    }
+
+    @GetMapping("/preguntas/{categoria}")
+    public List<Object[]> preguntasCategoria(@PathVariable("categoria") String categoria){
+        return serTablaPreguntas.getPreguntasOfCategoria(categoria);
     }
 
     @PostMapping("/postPregunta/{cat}")
