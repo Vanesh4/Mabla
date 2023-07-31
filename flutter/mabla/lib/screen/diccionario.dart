@@ -7,6 +7,7 @@ const Color lightBlue = Color(0xFF06bfdb);
 const Color purple = Color(0xFF76037a);
 const Color orange = Color(0xFFff731c);
 const Color beige = Color(0xFFfff7ea);
+const Color gris = Color(0xFFd9d9d9);
 
 class diccionario extends StatefulWidget {
   const diccionario({super.key});
@@ -25,16 +26,17 @@ class _diccionarioState extends State<diccionario> {
       key: _scaffoldKey,
       endDrawer: abecedario(),
       body: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 10, vertical: 30),
+          padding: EdgeInsets.symmetric(vertical: 30),
           child: Column(
             children: [
-              Padding(
-                padding: EdgeInsets.only(top: 20, bottom: 10),
+              Container(
+                color: gris,
+                padding: EdgeInsets.only(top: 10, bottom: 10),
                 child: Row(
                   children: [
                     Container(
                       alignment: Alignment.topLeft,
-                      margin: EdgeInsets.only(bottom: 18, right: 2),
+                      margin: EdgeInsets.only(bottom: 18, top: 10),
                       child: IconButton(onPressed: (){
                         _scaffoldKey.currentState?.openEndDrawer();
                         Navigator.push(context, MaterialPageRoute(builder: (context)=>home()));
@@ -43,29 +45,28 @@ class _diccionarioState extends State<diccionario> {
                       ),
                     ),
                     Container(
-                      margin: EdgeInsets.only(left: 13),
-                      padding: EdgeInsets.only(bottom: 9, left: 20, right: 20, top: 5),
+                      margin: EdgeInsets.only(left: 15, top: 10),
+                      padding: EdgeInsets.only(bottom: 9, left: 25, right: 20, top: 5),
                       width: 250,
                       height: 50,
                       decoration: BoxDecoration(
-                          color: beige,
                           borderRadius: BorderRadius.circular(100),
                           border: Border.all(color: Colors.black45)
                       ),
                       child: TextField(
                         decoration: InputDecoration(
-                          hintText: 'Busca vocabulario...',
-                          contentPadding: EdgeInsets.only(top: 3),
+                          hintText: 'Busca vocabulario',
+                          contentPadding: EdgeInsets.only(top: 3, left: 5),
                           enabledBorder: UnderlineInputBorder(
                             borderSide: BorderSide.none, // Cambia este valor al color deseado
                           ),
                           focusedBorder: UnderlineInputBorder(
-                            borderSide: BorderSide(color: darkBlue),
+                            borderSide: BorderSide.none, // Cambia este valor al color deseado
                           ),
                           suffixIcon: IconButton(
                             onPressed: () {
                             },
-                            icon: Icon(Icons.search,size: 25,),color: darkBlue,
+                            icon: Icon(Icons.search,size: 25,),color: darkBlue
                           ),
                         ), style: TextStyle(
                             fontFamily: "Raleway",
@@ -74,12 +75,11 @@ class _diccionarioState extends State<diccionario> {
                       ),
                     ),
                     Container(
-                      alignment: Alignment.topRight,
-                      margin: EdgeInsets.only(bottom: 15),
+                      margin: EdgeInsets.only(bottom: 30),
                       child: IconButton(onPressed: (){
                         _scaffoldKey.currentState?.openEndDrawer();
                       },
-                        icon: Icon(Icons.menu_rounded,size: 50,),color: darkBlue,
+                        icon: Icon(Icons.chevron_left_sharp, size: 80),color: darkBlue,
                       ),
                     ),
                   ],
@@ -92,8 +92,8 @@ class _diccionarioState extends State<diccionario> {
                     return Column(
                       children: [
                         Container(
-                          width: 300,
-                          height: 300,
+                          width: 250,
+                          height: 250,
                           color: beige,
                         ),
                         ListTile(

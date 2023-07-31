@@ -18,13 +18,11 @@ class abecedario extends StatelessWidget {
       color: Colors.purple,
       alignment: Alignment.center,
       padding: EdgeInsets.symmetric(horizontal: 50, vertical: 30),
-
       child: SingleChildScrollView(
-
         child:  Wrap(
           alignment: WrapAlignment.spaceBetween,
-          spacing: 40, // Espacio horizontal entre elementos
-          runSpacing: 30, // Espacio vertical entre filas de elementos
+          spacing: 50, // Espacio horizontal entre elementos
+          runSpacing: 20, // Espacio vertical entre filas de elementos
           children: letra.map((item) => buildItem(item)).toList(),
         ),
       )
@@ -33,6 +31,6 @@ class abecedario extends StatelessWidget {
 }
 Widget buildItem(String item) {
   return Text(
-      item, style: TextStyle(fontSize: 40, color: Colors.white, fontFamily: "Raleway"),
+      item, style: TextStyle(fontSize: 30, color: Colors.white, fontFamily: "Raleway"),
   );
 }

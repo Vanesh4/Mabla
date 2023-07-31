@@ -195,7 +195,7 @@ form{
 
 @media screen and (min-width:1200px) and (max-width:1600px) {       
     header{
-        height: 710px;
+        height: 630px;
         padding: 0px;
         margin: 0px;
     }
@@ -215,20 +215,28 @@ form{
         padding: 0px;
         margin: 0px;
         flex-direction: column;
-        align-items: end;
-        margin-top: 30px;
-        padding: 50px 20px 0px 0px;
-    }
-    .slogan{
-        padding-bottom: 50px;
-        font-size: 35px;
+        align-items: flex-end;
+        justify-content: flex-end;
+        margin-top: 24px;
+        padding-left: 10px;
     }
     #mablaNaranja{
-        margin-top: 5px;
+        margin: 0px;
+        padding: 0px;
+        padding-right: 25px;
+    }
+    .slogan{
+        padding: 0px;
+        margin: 0px;
+        margin-bottom: 50px;
+        margin-top: 15px;
+        font-size: 35px;
+        padding-right: 50px;
     }
     #capi{
-        width: 55%;
-        height: 60%;
-        padding: 50px 0px 0px 13%;
+        padding: 0px;
+        margin: 0px;
+        width: 50%;
+        height: 50%;
     }
 }

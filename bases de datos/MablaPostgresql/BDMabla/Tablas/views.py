@@ -141,7 +141,7 @@ class deleteComment(View):
 #tabla pruebas
 class getTablaPrueba(View):
     def get(self,request):
-        register= TablaPruebas.objects.all().values()
+        register= TablaPrueba.objects.all().values()
         registerPrueba=list(register)
         return JsonResponse(registerPrueba, safe=False)
 
@@ -159,11 +159,11 @@ class insertPrueba(View):
         request.POST.get('tipoPrueba')
         request.POST.get('categoria_id')
         request.POST.get('puntaje')
-        registerInsertPrueba1 = TablaPruebas.objects.create(idPrueba=registerInsertPrueba['idPrueba'],
-                                    alias=registerInsertPrueba['alias'],
+        registerInsertPrueba1 = TablaPrueba.objects.create(
+                                    alias=registerInsertPrueba['alias_id'],
                                     tipoPrueba=registerInsertPrueba['tipoPrueba'],
                                     categoria_id=registerInsertPrueba['categoria_id'],
-                                    fecha=registerInsertPrueba['fecha'],
+
                                     puntaje=registerInsertPrueba['puntaje'])
         registerInsertPrueba1.save()
         #no es necesario pero es para que genere el aviso:

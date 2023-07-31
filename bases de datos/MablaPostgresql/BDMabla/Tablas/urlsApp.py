@@ -1,4 +1,5 @@
 from django.urls import path
+from .viewLogin import *
 from .views import *
 from . import views
 
@@ -6,6 +7,7 @@ urlpatterns = [
     path('tablaUsuario',getTablaUser.as_view(), name='tablaUsuario'),
     path('insertUser',insertTablaUser.as_view(), name='insertUser'),
     path('insertUserForm/inicio.html',views.formInsertUser, name='insertUserForm'),
+    #path('register',registerUser.as_view, name='register'),
     path('login',views.formIniciarSesion, name='login'),
     path('tablaComment',getTablaComment.as_view(), name='tablaComment'),
     path('editUser/<pk>',editTablaUser.as_view(),name='editUser'),
