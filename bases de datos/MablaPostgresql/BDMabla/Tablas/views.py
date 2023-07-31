@@ -234,6 +234,18 @@ class deletePregunta(View):
         preg.delete()
         return JsonResponse({"mensaje":"Datos eliminados"})
 
+
+def subCategoriasDeCate(request, cat):
+    subCategorias = TablaSubcategoria.objects.filter(categoria=cat)
+    subCatedeCate = [
+        {
+            'subcategoria': TablaSubcategoria.subcategoria,
+            
+        }     
+        for TablaSubcategoria in subCategorias   
+    ]
+    return JsonResponse(subCatedeCate, safe=False)
+
 #Usuario
 class usuarios(View):
     def get(self, request):
@@ -278,6 +290,10 @@ def subsustantivos(request):
     sustan=TablaSubcategoria.objects.filter(categoria='Sustantivos')
     return render(request, "consultando.html", {"sustantivos": sustan})
 
+
+
+
+
 #CRUD TABLA CATEGORIAS
 
 class getCategoria(View):
@@ -290,12 +306,6 @@ class getCategoria(View):
             })
         return JsonResponse(datos_Categoria, safe=False)
 
-
-""" class getcategoria(View):
-    def get(self,request):
-        insert= TablaCategoria.objects.all().values()
-        insertcate=list(insert)
-        return JsonResponse(insertcate, safe=False) """
 
 
 class postcategoria(View):

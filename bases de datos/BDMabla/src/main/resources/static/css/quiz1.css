@@ -55,18 +55,18 @@ header{
     text-align: center;
     padding: 20px 0 20px 0;
 }
-#opcion1{
+#opcion0{
     background-color: #76037a;
     color: white;
 }
-#opcion2{
+#opcion1{
     background-color: #0a4d68;
     color: white;
 }
-#opcion3{
+#opcion2{
     background-color: #06bfdb;
 }
-#opcion4{
+#opcion3{
     background-color: #ff731c;
 }
 .imgflecha{

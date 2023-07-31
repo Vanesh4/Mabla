@@ -58,8 +58,8 @@ public class STablaPreguntas {
     }
 
     //Preguntas por Categoria
-    public List<Object[]> getPreguntasOfCategoria(String cat){
-        return repTablaPreguntas.PreguntasCategoria(cat);
+    public List<Object[]> getPreguntasOfCategoria(String cat, int tipo){
+        return repTablaPreguntas.PreguntasCategoria(cat, tipo);
     }
 
 }
