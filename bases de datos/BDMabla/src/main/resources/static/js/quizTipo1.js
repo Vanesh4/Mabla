@@ -1,38 +1,66 @@
+/*
+Boton html1:
+cat = document.getElementById("butCat").value
+localStorage.setItem('categoria', cat)
+//aca tambien puedo guardar el tipo, aleatoriamente 1 o 2
+function llevar() {
+    window.location.href = "quiiz.html";
+}
+
+
+html2:
+const valorRecibido = localStorage.getItem('categoria');
+console.log(valorRecibido);
+
+*/
+
 categoria = "sustantivos"
-respuestasIncorrectas = ["vaca","tren","pajaro","hospital","foca","carro","colegio","bus","gato",]
+
+function generarNumeroAleatorio(num) {
+    /* return Math.floor(Math.random() * num) + 1; */
+    return Math.floor(Math.random() * num)
+}
+
+respuestasIncorrectas = ["vaca","tren","pajaro","hospital","foca","carro","colegio","bus","gato","camiseta","falda","medias"]
 $(document).ready (()=>{
     divsenia = document.getElementById("senia")
-    numero = 3
-    opcionResCorrecta = "opcion"+numero
-    console.log(opcionResCorrecta)
+    opcionResCorrecta = "opcion"+generarNumeroAleatorio(4)
+    //console.log(opcionResCorrecta)
     resCorrecta = document.getElementById(opcionResCorrecta)
-    console.log(resCorrecta)
+    //console.log(resCorrecta)
+
     $.ajax({
-        url: "http://localhost:8080/preguntas/"+categoria,
+        url: "http://localhost:8080/preguntas/"+categoria+"/"+1,
         type: "GET",
         dataType: "JSON",
         success: function (res) {
             console.log(res)
-                img = document.createElement("img")
-                img.setAttribute("id","linkSenia")
-                console.log(res[1][0]) //id de la pregunta
-                /* img.setAttribute("src","linkSenia") */
+            
+            idpreg = generarNumeroAleatorio(res.length)
+            
+
+            img = document.createElement("img")
+            img.setAttribute("id","linkSenia")
+            /* console.log(res[1][0]) */ //id de la pregunta
+            img.setAttribute("src", res[idpreg][2]) // res[1] el segundo arreglo que trae de las respuestas (aleatorio con el res.length)
+            divsenia.appendChild(img)
+
+            for (let i = 0; i < 4; i++) {
+                pos=generarNumeroAleatorio(respuestasIncorrectas.length)
+                document.getElementById("opcion"+i).innerHTML= respuestasIncorrectas[pos]
+                //validar que dos veces no me genere el mismo aleatorio. Eliminar de la lista
+            }
+            resCorrecta.innerHTML = res[idpreg][1]
+            
             
         }
-    })
-     // con el id de la pregunta aleatoriamente crear un arreglo con las imagenes y respues
-    function generarNumeroAleatorio(num) {
-        /* return Math.floor(Math.random() * num) + 1; */
-        return Math.floor(Math.random() * num)
-    }
-      
-      // Ejemplo de uso
-      numeroAleatorio = generarNumeroAleatorio(4);
-      /* console.log(numeroAleatorio); */
+    })   
+     
 
     /*
     para avanzar a la misma pagina
     document.getElementById('avanza').addEventListener('click', function() {
         window.location.href = 'quizTipo1.html';
-    })  */
+    }) */
+
 })

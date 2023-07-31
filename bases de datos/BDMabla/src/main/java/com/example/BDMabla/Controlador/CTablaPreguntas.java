@@ -20,9 +20,9 @@ public class CTablaPreguntas {
         return serTablaPreguntas.getPreguntas();
     }
 
-    @GetMapping("/preguntas/{categoria}")
-    public List<Object[]> preguntasCategoria(@PathVariable("categoria") String categoria){
-        return serTablaPreguntas.getPreguntasOfCategoria(categoria);
+    @GetMapping("/preguntas/{categoria}/{tipo}")
+    public List<Object[]> preguntasCategoria(@PathVariable("categoria") String categoria, @PathVariable("tipo") int tipo){
+        return serTablaPreguntas.getPreguntasOfCategoria(categoria, tipo);
     }
 
     @PostMapping("/postPregunta/{cat}")

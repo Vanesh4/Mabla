@@ -8,8 +8,8 @@ import java.util.List;
 
 
 public interface RTablaPreguntas extends JpaRepository <TablaPreguntas, Integer> {
-    @Query(value = "select * from tabla_preguntas where categoria= :categoria", nativeQuery = true)
-    List<Object[]> PreguntasCategoria(String categoria);
+    @Query(value = "select * from tabla_preguntas where categoria = :categoria and tipo = :tipo", nativeQuery = true)
+    List<Object[]> PreguntasCategoria(String categoria, int tipo);
 
 }
 
