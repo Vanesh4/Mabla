@@ -99,10 +99,10 @@ class _loginState extends State<login> {
                                                     ),
                                                     decoration: InputDecoration(
                                                       enabledBorder: UnderlineInputBorder(
-                                                        borderSide: BorderSide(color: Colors.white), // Cambia este valor al color deseado
+                                                        borderSide: BorderSide.none,
                                                       ),
                                                       focusedBorder: UnderlineInputBorder(
-                                                        borderSide: BorderSide(color: Colors.white), // Cambia este valor al color deseado
+                                                        borderSide: BorderSide.none,
                                                       ),
                                                     ),
                                                   ),
@@ -132,10 +132,10 @@ class _loginState extends State<login> {
                                                   ),
                                                   decoration: InputDecoration(
                                                     enabledBorder: UnderlineInputBorder(
-                                                      borderSide: BorderSide(color: Colors.white), // Cambia este valor al color deseado
+                                                      borderSide: BorderSide.none,
                                                     ),
                                                     focusedBorder: UnderlineInputBorder(
-                                                      borderSide: BorderSide(color: Colors.white), // Cambia este valor al color deseado
+                                                      borderSide: BorderSide.none,
                                                     ),
                                                     suffixIcon: IconButton(
                                                       onPressed: () {
@@ -352,26 +352,36 @@ class _registroState extends State<registro> {
                                                               ),
                                                             ),
                                                           ),
-                                                          TextFormField(
-                                                            cursorColor: Colors.white,
-                                                            controller: _nombre,
-                                                            validator: (value) {
-                                                              if (value!.isEmpty) {
+                                                          Container(
+                                                              height: 30,
+                                                              margin: EdgeInsets.only(top: 15),
+                                                              padding: EdgeInsets.only(left: 15),
+                                                              decoration: BoxDecoration(
+                                                                color: Colors.white,
+                                                                  borderRadius: BorderRadius.circular(100),
+                                                                  border: Border.all(color: Colors.white)
+                                                              ),
+                                                            child: TextFormField(
+                                                              cursorColor: Colors.white,
+                                                              controller: _nombre,
+                                                              validator: (value) {
+                                                                if (value!.isEmpty) {
 
-                                                              }
-                                                              return null;
-                                                            },
-                                                            style: TextStyle(
-                                                              color: Colors.white, // Cambia este valor al color deseado
-                                                            ),
-                                                            decoration: InputDecoration(
-                                                              enabledBorder: UnderlineInputBorder(
-                                                                borderSide: BorderSide(color: Colors.white), // Cambia este valor al color deseado
+                                                                }
+                                                                return null;
+                                                              },
+                                                              style: TextStyle(
+                                                                color: Colors.black, // Cambia este valor al color deseado
                                                               ),
-                                                              focusedBorder: UnderlineInputBorder(
-                                                                borderSide: BorderSide(color: Colors.white), // Cambia este valor al color deseado
+                                                              decoration: InputDecoration(
+                                                                enabledBorder: UnderlineInputBorder(
+                                                                  borderSide: BorderSide.none,
+                                                                ),
+                                                                focusedBorder: UnderlineInputBorder(
+                                                                  borderSide: BorderSide.none,
+                                                                ),
                                                               ),
-                                                            ),
+                                                            )
                                                           )
                                                         ],
                                                       )
@@ -406,10 +416,10 @@ class _registroState extends State<registro> {
                                                             ),
                                                             decoration: InputDecoration(
                                                               enabledBorder: UnderlineInputBorder(
-                                                                borderSide: BorderSide(color: Colors.white), // Cambia este valor al color deseado
+                                                                borderSide: BorderSide.none,
                                                               ),
                                                               focusedBorder: UnderlineInputBorder(
-                                                                borderSide: BorderSide(color: Colors.white), // Cambia este valor al color deseado
+                                                                borderSide: BorderSide.none,
                                                               ),
                                                             ),
                                                           )
@@ -447,14 +457,14 @@ class _registroState extends State<registro> {
                                                                 return null;
                                                               },
                                                               style: TextStyle(
-                                                                color: Colors.white, // Cambia este valor al color deseado
+                                                                color: Colors.black, // Cambia este valor al color deseado
                                                               ),
                                                               decoration: InputDecoration(
                                                                 enabledBorder: UnderlineInputBorder(
-                                                                  borderSide: BorderSide(color: Colors.white), // Cambia este valor al color deseado
+                                                                  borderSide: BorderSide.none,
                                                                 ),
                                                                 focusedBorder: UnderlineInputBorder(
-                                                                  borderSide: BorderSide(color: Colors.white), // Cambia este valor al color deseado
+                                                                  borderSide: BorderSide.none,
                                                                 ),
                                                               ),
                                                             )
@@ -490,14 +500,14 @@ class _registroState extends State<registro> {
                                                                 return null;
                                                               },
                                                               style: TextStyle(
-                                                                color: Colors.white, // Cambia este valor al color deseado
+                                                                color: Colors.black, // Cambia este valor al color deseado
                                                               ),
                                                               decoration: InputDecoration(
                                                                 enabledBorder: UnderlineInputBorder(
-                                                                  borderSide: BorderSide(color: Colors.white), // Cambia este valor al color deseado
+                                                                  borderSide: BorderSide.none,
                                                                 ),
                                                                 focusedBorder: UnderlineInputBorder(
-                                                                  borderSide: BorderSide(color: Colors.white), // Cambia este valor al color deseado
+                                                                  borderSide: BorderSide.none,
                                                                 ),
                                                               ),
                                                             )
@@ -543,10 +553,10 @@ class _registroState extends State<registro> {
                                                                   },
                                                                   decoration: InputDecoration(
                                                                     enabledBorder: UnderlineInputBorder(
-                                                                      borderSide: BorderSide(color: Colors.white), // Cambia este valor al color deseado
+                                                                      borderSide: BorderSide.none,
                                                                     ),
                                                                     focusedBorder: UnderlineInputBorder(
-                                                                      borderSide: BorderSide(color: Colors.white), // Cambia este valor al color deseado
+                                                                      borderSide: BorderSide.none,
                                                                     ),
                                                                   ),
                                                                 )
@@ -585,10 +595,10 @@ class _registroState extends State<registro> {
                                                               },
                                                               decoration: InputDecoration(
                                                                 enabledBorder: UnderlineInputBorder(
-                                                                  borderSide: BorderSide(color: Colors.white), // Cambia este valor al color deseado
+                                                                  borderSide: BorderSide.none,
                                                                 ),
                                                                 focusedBorder: UnderlineInputBorder(
-                                                                  borderSide: BorderSide(color: Colors.white), // Cambia este valor al color deseado
+                                                                  borderSide: BorderSide.none,
                                                                 ),
                                                                 suffixIcon: IconButton(
                                                                   onPressed: () {
@@ -602,7 +612,7 @@ class _registroState extends State<registro> {
                                                                 ),
                                                               ),
                                                               style: TextStyle(
-                                                                color: Colors.white, // Cambia este valor al color deseado
+                                                                color: Colors.black, // Cambia este valor al color deseado
                                                               ),
                                                             ),
                                                           ],
@@ -616,27 +626,18 @@ class _registroState extends State<registro> {
                                               margin: EdgeInsets.only(top: 50, bottom: 50),
                                               child: Padding(
                                                 padding: const EdgeInsets.only(top: 5),
-                                                child: ElevatedButton.icon(
+                                                child: ElevatedButton(
                                                   onPressed: () {
                                                     singIn(context);
                                                   },
                                                   style: ElevatedButton.styleFrom(
-                                                    backgroundColor: const Color.fromRGBO(255, 115, 28, 9),
-                                                    minimumSize: const Size(200, 56),
-                                                    shape: const RoundedRectangleBorder(
-                                                      borderRadius: BorderRadius.only(
-                                                        topLeft: Radius.circular(10),
-                                                        topRight: Radius.circular(25),
-                                                        bottomRight: Radius.circular(25),
-                                                        bottomLeft: Radius.circular(25),
-                                                      ),
-                                                    ),
+                                                    padding: EdgeInsets.all(15),
+                                                      backgroundColor: orange,
+                                                    shape: RoundedRectangleBorder(
+                                                            borderRadius: BorderRadius.circular(20)
+                                                        )
                                                   ),
-                                                  icon: const Icon(
-                                                    CupertinoIcons.arrow_right,
-                                                    color: Color.fromRGBO(255, 205, 163, 9),
-                                                  ),
-                                                  label: const Text("REGISTRARME", style: TextStyle(fontFamily: "Raleway", fontSize: 21)),
+                                                  child: const Text("REGISTRARME", style: TextStyle(fontFamily: "Raleway", fontSize: 21)),
                                                 ),
                                               ),
                                             )

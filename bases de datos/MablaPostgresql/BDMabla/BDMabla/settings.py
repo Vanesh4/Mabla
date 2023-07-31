@@ -32,7 +32,7 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
-    'django.contrib.admin',
+    #'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -83,7 +83,6 @@ DATABASES = {
         'DATABASE_PORT':'5432',
         'USER':'postgres',
         'PASSWORD':'0000',
-
     }
 }
 
@@ -129,3 +128,4 @@ STATICFILES_DIRS=(os.path.join(BASE_DIR,'Tablas/static'),)
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+AUTH_USER_MODEL='Tablas.user'

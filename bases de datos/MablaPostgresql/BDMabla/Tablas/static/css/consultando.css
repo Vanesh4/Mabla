@@ -16,10 +16,14 @@
 body{
     background-color: rgb(251, 250, 250);
 }
-.caja{
+#caja{
     height: auto;
     display: flex;
     flex-direction: row;
+    width: 50%;
+    height: 400px;
+    background-color: #06bfdb;
+
 }
 
 h1{
@@ -33,6 +37,7 @@ h1{
 nav{    
     width: 300px;
     background-color: #0a4d68;
+    height: 500px;
     
 }
 

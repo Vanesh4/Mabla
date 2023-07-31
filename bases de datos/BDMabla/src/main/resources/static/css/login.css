@@ -14,13 +14,13 @@ header{
     display: flex;
     justify-content: center;
     align-items: center;
-    
 }
 form{
     flex-direction: column;
     font-family: 'Raleway', sans-serif;
     color: white;
     font-size: 25px;
+    padding: 0px 50px 50px 50px;
 }
 .textSesion{
     font-size: 40px;
@@ -62,24 +62,28 @@ form{
     display: flex;
     flex-wrap: wrap;
     width: 43%;  
-    height: 450px;
-    align-content: center;
     justify-content: end;
-    margin-right: 20px;                                                 
+    padding: 10% 5px 0px 10px;
 }
 .slogan{
-    margin-top: 30px;
-    font-family: 'Martian Mono', monospace;
-    margin-right: 20px;                                                                                                                                                                                                                                                                                                                                                     
-    color:  #ff731c;
+    font-family: 'Martian Mono', monospace;                                                                                                                                                                                                                                                                                                                                                
+    color:  #ff731c;   
+    margin-top: 30px; 
+    margin-right: 50px;    
+    font-size: 40px;    
+}
+#mablaNaranja{
+    width: 100%; 
+}
+#capi{
+    margin-top: 25%;
+    margin-left: 50px;
+    width: 39%;
+    height: 50%;    
 }
 #ph{
     margin-left: 40px;
 }
-body{
-    background-color: aqua;
-}
-
 #mensaje-error{
     color: red;
     font-size: 20px;
@@ -89,88 +93,109 @@ body{
 @media screen and (min-width:320px) and (max-width:700px){
     header{
         background-image: url("/img/picoResponsiveSVG.svg");
+        width: 81%;
         flex-direction: column;
         padding: 0px;
-        justify-content: flex-start;
+        margin: 0px;
+    }
+    #form{
+        width: 100%;
+        padding: 0px;
+        margin: 0px;
+        padding-right: 50px;
     }
     form{
-        width: 100%;
-        justify-content: flex-end;
-        background-color: #ff731c;
-        font-size: 19px;
+        font-size: 15px;
+        align-items: end;
         padding: 0px;
         margin: 0px;
-        padding: 15px 30px 0px 30px;
+        padding-right: 20px;
+        padding-left: 12px;
     }
     .textSesion{
-        font-size: 24px;
-        text-align: end;
+        font-size:18px;
+        text-align: center;
         margin: 0px;
         padding: 0px;
-        margin-right: 15px;
+        padding-top: 20px;
+        margin-left: 35px;
     }
     #ph{
         width: 90%;
+        margin-right: 10px;
+    }
+    input{
+        height: 30px;
+    }
+    #mensaje-error{
+        color: red;
+        font-size: 13px;
+        text-align: end;
+        margin: 0px;
+        margin: 15px 0px 15px 0px;
     }
     .links{
         margin: 0px;
         padding: 0px;
-        font-size: 17px;
-        justify-content: end; 
+        font-size: 13px;
+        text-align: end; 
     }
     #boton{
         justify-content: flex-end;
         margin: 0px;
         margin-left: 10px;
         padding: 0px;
-        margin-top: 35px;
+        margin-top: 25px;
+        margin-left: 40px;
     }
     #colorbtn{
-        font-size: 23px;
-        width: 50%;
+        font-size: 17px;
         margin: 0px;
         padding: 0px;
+        padding: 5px;
+        width: 50%;
+        margin-top: 10px;
     }
     .imgyText{
-        display: grid;
+        /* display: grid; */
         padding: 0%;
         margin: 0%;
-        grid-template-columns: repeat(2); /* Dos columnas de 150px cada una */
-        grid-template-rows: repeat(2); 
-        width: 88%;
+        /* grid-template-columns: repeat(2);
+        grid-template-rows: repeat(2);  */
+        width: 100%;
         justify-content: flex-start;
-        padding: 0px 5px 0px 10px;
+        padding: 0px 0px 0px 10px;
+        position: absolute;
+        top: 50%;
+        z-index: 2;
     }
     #mablaNaranja{
-        grid-row: 1;
-        grid-column: 1;
+        width: 49%; 
+        margin-top: 45px;
     }
     .slogan{
-        grid-column: 1;
+        width: 80%;
+        /* flex-wrap: wrap; */
+        /* height: 10%;
+        grid-column: 1; */
         margin: 0px;
         padding: 0px;
-        margin-top: 15px;
+        margin-top: 10px;
         font-size: 15px;
+        margin-right: 50%;
         text-align: center;
     }
-    #mensaje-error{
-        color: red;
-        font-size: 13px;
-        text-align: end;
-    }
     #capi{
-        grid-column: 2;
         padding: 0px;
         margin: 0px;
-        width: 80%;
-        margin: 30px 0px 0px 35px;
+        width: 30%;
+        margin-left: 30px;
     }
-
 }
 
 @media screen and (min-width:1200px) and (max-width:1600px) {       
     header{
-        height: 605px;
+        height: 630px;
         padding: 0px;
         margin: 0px;
     }
@@ -190,17 +215,28 @@ body{
         padding: 0px;
         margin: 0px;
         flex-direction: column;
-        align-items: end;
-        padding: 39px 20px 0px 0px;
-    }
-    .slogan{
-        padding-bottom: 50px;
-        font-size: 35px;
+        align-items: flex-end;
+        justify-content: flex-end;
+        margin-top: 24px;
+        padding-left: 10px;
     }
     #mablaNaranja{
-        margin-top: 5px;
+        margin: 0px;
+        padding: 0px;
+        padding-right: 25px;
+    }
+    .slogan{
+        padding: 0px;
+        margin: 0px;
+        margin-bottom: 50px;
+        margin-top: 15px;
+        font-size: 35px;
+        padding-right: 50px;
     }
     #capi{
-        padding: 50px 0px 0px 58px;
+        padding: 0px;
+        margin: 0px;
+        width: 50%;
+        height: 50%;
     }
 }
