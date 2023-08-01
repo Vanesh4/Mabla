@@ -1,4 +1,4 @@
-from django import forms
+""" from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import get_user_model
 
@@ -11,4 +11,4 @@ class registro(UserCreationForm):
 
     class Meta:
         model= user
-        fields= ['alias', 'nombre', 'apellido', 'telefono', 'correo', 'clave']
+        fields= ['alias', 'nombre', 'apellido', 'telefono', 'correo', 'clave'] """

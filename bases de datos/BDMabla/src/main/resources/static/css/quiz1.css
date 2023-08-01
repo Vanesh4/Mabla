@@ -97,6 +97,7 @@ header{
     }
     #respuestas{
         margin-top: 20px;
+        margin-bottom: 30px;
         width: 100%;
         display: grid;
         grid-template-columns: 1fr;

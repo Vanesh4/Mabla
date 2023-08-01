@@ -49,6 +49,7 @@ $(document).ready (()=>{
                 pos=generarNumeroAleatorio(respuestasIncorrectas.length)
                 document.getElementById("opcion"+i).innerHTML= respuestasIncorrectas[pos]
                 //validar que dos veces no me genere el mismo aleatorio. Eliminar de la lista
+                respuestasIncorrectas.splice(pos, 1);
             }
             resCorrecta.innerHTML = res[idpreg][1]
             
@@ -57,10 +58,11 @@ $(document).ready (()=>{
     })   
      
 
-    /*
-    para avanzar a la misma pagina
+    
+    //para avanzar a la misma pagina
     document.getElementById('avanza').addEventListener('click', function() {
         window.location.href = 'quizTipo1.html';
-    }) */
+    }) 
+   
 
 })
