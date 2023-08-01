@@ -1,4 +1,4 @@
-from django.shortcuts import redirect, render
+""" from django.shortcuts import redirect, render
 from django.views import View
 from .forms import *
 
@@ -12,4 +12,4 @@ class registerUser(View):
         if form.is_valid():
             form.save()
             return redirect('home')
-        return render(request, 'formRegister',{'form': form})
+        return render(request, 'formRegister',{'form': form}) """
