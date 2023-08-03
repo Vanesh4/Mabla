@@ -6,7 +6,11 @@ from django.contrib.auth.forms import AuthenticationForm
 User = get_user_model()
 
 class registro(UserCreationForm):
+<<<<<<< HEAD
     
+=======
+
+>>>>>>> 6241c09d22ace5abf0efae40eeea25ab72f4d418
     class Meta:
         model= User
         fields= ['username','first_name', 'last_name', 'email', 'password1', 'password2']

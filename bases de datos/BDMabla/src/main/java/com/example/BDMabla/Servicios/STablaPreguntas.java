@@ -41,7 +41,7 @@ public class STablaPreguntas {
         if (repTablaPreguntas.findById(numpreg).isPresent()){
             TablaPreguntas preg = repTablaPreguntas.findById(numpreg).get();
             preg.setTipo(p.getTipo());
-            preg.setSenia(p.getSenia());
+            preg.setPregunta(p.getPregunta());
             preg.setRespuesta(p.getRespuesta());
             repTablaPreguntas.save(preg);
             return true;
