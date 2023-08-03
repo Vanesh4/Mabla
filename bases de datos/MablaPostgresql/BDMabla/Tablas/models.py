@@ -11,7 +11,7 @@ class TablaUsuario(models.Model):
     telefono=models.PositiveBigIntegerField(verbose_name="Teléfono")
     correo=models.TextField(max_length=30)
     clave=models.TextField(max_length=30)
-    """ #user= models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='User', null=True, blank=True) """
+    #user= models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='User', null=True, blank=True)
 
 class user(AbstractUser):
     alias=models.TextField(primary_key=True, max_length=30)
@@ -45,8 +45,8 @@ class TablaPreguntas(models.Model):
     respuesta = models.TextField(max_length=50)
 
 class TablaPrueba(models.Model):
-    tipoPrueba= models.PositiveSmallIntegerField(max_length=1, null=False)
-    puntaje=models.PositiveSmallIntegerField(max_length=1, verbose_name="Puntaje")
+    tipoPrueba= models.PositiveSmallIntegerField(null=False)
+    puntaje=models.PositiveSmallIntegerField(verbose_name="Puntaje")
     fecha=models.DateField(auto_now_add=True)
     alias=models.ForeignKey(TablaUsuario, null=True, on_delete=models.CASCADE)
     idCategoria = models.ForeignKey(TablaCategoria, null=False, on_delete=models.CASCADE)
