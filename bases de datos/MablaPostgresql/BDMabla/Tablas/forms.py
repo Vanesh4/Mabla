@@ -1,17 +1,16 @@
+from tkinter import Widget
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import get_user_model
-from django.contrib.auth.forms import AuthenticationForm
+from .models import *
 
 User = get_user_model()
 
 class registro(UserCreationForm):
-    
-    telefono =forms.IntegerField()
 
     class Meta:
         model= User
-        fields= ['username','first_name', 'last_name', 'telefono', 'email', 'password1', 'password2']
+        fields= ['username','first_name', 'last_name', 'email', 'password1', 'password2']
     
     def save(self, commit=True):
         user = super().save(commit=False)
@@ -20,7 +19,12 @@ class registro(UserCreationForm):
             user.save()
         return user 
 
-class LoginForm(AuthenticationForm):
+class LoginForm(forms.ModelForm):
     class Meta:
-        model = User
-        fields = ['username', 'password']
+        model = TablaUsuario
+        fields = ['alias', 'nombre', 'apellido']
+        Widget ={
+            'alias': forms.TextInput(attrs={'placeholder': 'alias'}),
+            'nombre': forms.TextInput(attrs={'placeholder': 'nombre'}),
+            'apellido': forms.TextInput(attrs={'placeholder': 'apellido'}),
+        }

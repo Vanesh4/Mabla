@@ -21,54 +21,47 @@
       {% csrf_token %}
       <section id="sectionform">
             <div class="inputs" id="ph">
-              <label for="{{ form.first_name.id_for_label }}"  >Nombre</label>
+                <label for="{{ form.first_name.id_for_label }}"  >Nombre</label>
               <!-- <input type="text" class="form-control" id="validationNombre" required> -->
-              {{ form.first_name }}
+                {{ form.first_name }}
             </div>
 
             <div id="apellido" class="inputs">
-              <label for="{{ form.last_name.id_for_label }}" >Apellido</label>
+                <label for="{{ form.last_name.id_for_label }}" >Apellido</label>
               <!-- <input type="text" class="form-control" id="validationApellido" required> -->
-              {{ form.last_name }}
-            </div>
-
-            <div class="inputs" id="ph">
-                <label for="{{ form.Teléfono.id_for_label }}" >Teléfono</label>
-                <!-- <input type="number" class="form-control" id="validationTelefono" required> -->
-                {{ form.Teléfono }}
+                {{ form.last_name }}
             </div>
 
             <div id="correo" class="inputs">
-              <label for="{{ form.email.id_for_label }}" >Correo</label>
+                <label for="{{ form.email.id_for_label }}" >Correo electrónico</label>
               <!-- <input type="email" class="form-control" id="validationCorreo" required> -->
-              {{ form.email }}
+                {{ form.email }}
             </div>
 
             <div id="alias" class="inputs">
-                <label for="{{ form.username.id_for_label }}" class="formLabel">Nombre de usuario (Alias)</label>
+                  <label for="{{ form.username.id_for_label }}" class="formLabel" id="pAlias">Nombre de usuario (Alias)</label>
                 <!-- <input type="text" class="form-control" id="validationUsername" required> -->
-                {{ form.username }}
+                  {{ form.username }}
               </div>
               
             <div id="clave" class="inputs">
-              <label for="{{ form.password1.id_for_label }}" >Clave</label>
+                <label for="{{ form.password1.id_for_label }}" >Clave</label>
               <!-- <input type="password" class="form-control" id="validationPassword" required> -->
-              {{ form.password1 }}
+                {{ form.password1 }}
             </div>
 
             <div id="clave1" class="inputs">
-              <label for="{{ form.password2.id_for_label }}" >Confirma tu clave</label>
+                <label for="{{ form.password2.id_for_label }}" >Confirma tu clave</label>
               <!-- <input type="password" class="form-control" id="validationPassword" required> -->
-              {{ form.password2 }}
+                {{ form.password2 }}
             </div>
-
+            <div class="col-16" id="boton">
+              <button class="btn" type="submit" id="colorbtn">Registrarme</button>
+          </div>
           </section>
             <!-- <p id="mensaje-error"></p>        -->
-            <div class="col-16" id="boton">
-                <button class="btn" type="submit" id="colorbtn">Registrarme</button>
-            </div>
           </form>
-          <h1>{{mensaje}}</h1>
+            <h1>{{mensaje}}</h1>
           <div class="imgyText">
             <img id="mablaNaranja" src="/static/img/letrasMABLAnaranja.png" alt="" srcset="">
           <div class="slogan">
