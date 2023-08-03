@@ -9,6 +9,8 @@ urlpatterns = [
     path('insertUserForm/inicio.html',views.formInsertUser, name='insertUserForm'),
     #path('register',registerUser.as_view, name='register'),
     #path('login',views.formIniciarSesion, name='login'),
+    path('registroForm',registerUser.as_view(), name='registroForm'),
+    path('ingresar',IniciarSesionView.as_view(), name='ingresar'),
     path('tablaComment',getTablaComment.as_view(), name='tablaComment'),
     path('editUser/<pk>',editTablaUser.as_view(),name='editUser'),
     path('insertComment',insertComment.as_view(),name='insertComment'),
@@ -22,7 +24,7 @@ urlpatterns = [
     path('putPregunta/<int:pk>',editPregunta.as_view(), name="editPreg"),
     path('deletePregunta/<int:pk>',deletePregunta.as_view(), name="deletePreg"),
 
-    path('',views.iniciohtml, name="inicio"),
+    path('inicio',views.iniciohtml, name="inicio"),
     path('menu',views.menuTodo, name="menu"),
     path('mostrar/',views.vercategorias, name="mostrar"),
     path('mostrarsubcate/',views.versubcategorias, name="mostrarsubcate"),
