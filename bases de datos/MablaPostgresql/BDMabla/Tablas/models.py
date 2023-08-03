@@ -43,8 +43,8 @@ class TablaPreguntas(models.Model):
     respuesta = models.TextField(max_length=50)
 
 class TablaPrueba(models.Model):
-    tipoPrueba= models.PositiveSmallIntegerField(max_length=1, null=False)
-    puntaje=models.PositiveSmallIntegerField(max_length=1, verbose_name="Puntaje")
+    tipoPrueba= models.PositiveSmallIntegerField(null=False)
+    puntaje=models.PositiveSmallIntegerField(verbose_name="Puntaje")
     fecha=models.DateField(auto_now_add=True)
     alias=models.ForeignKey(TablaUsuario, null=True, on_delete=models.CASCADE)
     idCategoria = models.ForeignKey(TablaCategoria, null=False, on_delete=models.CASCADE)
