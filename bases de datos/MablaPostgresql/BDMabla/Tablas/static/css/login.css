@@ -2,7 +2,7 @@ header{
     display: flex;
     justify-content:space-between;
     flex-wrap: nowrap;
-    background-image: url("/img/picoSGV.svg");
+    background-image: url("/static/img/picoSGV.svg");
     background-size: contain;
     background-repeat: no-repeat;
     align-self: flex-start;

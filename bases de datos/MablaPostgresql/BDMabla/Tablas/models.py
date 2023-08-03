@@ -2,21 +2,32 @@ from django.conf import settings
 from django.contrib.auth.models import AbstractUser
 from django.db import models
 
-# Create your models here.
-
 class TablaUsuario(models.Model):
     alias=models.TextField(primary_key=True, max_length=30)
+<<<<<<< HEAD
     nombre=models.TextField(max_length=30)
     apellido=models.TextField(max_length=30)
     telefono=models.PositiveBigIntegerField(verbose_name="Teléfono")
     correo=models.TextField(max_length=30)
     clave=models.TextField(max_length=30)
-    """ #user= models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='User', null=True, blank=True) """
+    #user= models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='User', null=True, blank=True)
 
 class user(AbstractUser):
     alias=models.TextField(primary_key=True, max_length=30)
     clave= models.TextField(max_length=30, null= False)
+=======
+    nombre=models.TextField(null= False)
+    apellido=models.TextField(null= False)
+    telefono=models.PositiveBigIntegerField(verbose_name="Teléfono", null=True)
+    #correo=models.TextField(max_length=30)
+    #clave=models.TextField(max_length=30)
+    user= models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='User', null=True, blank=True)
+ 
+class User(AbstractUser):
+>>>>>>> 1c84692fee3132833fa566067095805ef9ffe4cb
     imgPerfil=models.ImageField(default='user.png', upload_to='img/', null=True, blank=True)
+    #clave= models.TextField(max_length=30, null= False)
+    alias=models.TextField(primary_key=True, max_length=30)
 
 class TablaComentarios(models.Model):
     alias=models.ForeignKey(TablaUsuario, null=True, on_delete=models.CASCADE)
@@ -45,8 +56,8 @@ class TablaPreguntas(models.Model):
     respuesta = models.TextField(max_length=50)
 
 class TablaPrueba(models.Model):
-    tipoPrueba= models.PositiveSmallIntegerField(max_length=1, null=False)
-    puntaje=models.PositiveSmallIntegerField(max_length=1, verbose_name="Puntaje")
+    tipoPrueba= models.PositiveSmallIntegerField(null=False)
+    puntaje=models.PositiveSmallIntegerField(verbose_name="Puntaje")
     fecha=models.DateField(auto_now_add=True)
     alias=models.ForeignKey(TablaUsuario, null=True, on_delete=models.CASCADE)
     idCategoria = models.ForeignKey(TablaCategoria, null=False, on_delete=models.CASCADE)

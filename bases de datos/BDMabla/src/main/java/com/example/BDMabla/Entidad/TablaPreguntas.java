@@ -14,7 +14,7 @@ public class TablaPreguntas {
     @Column(name="Tipo")
     private int Tipo;
     @Column()
-    private String Senia;
+    private String Pregunta;
 
     @Column(nullable = false)
     private String Respuesta;
@@ -24,19 +24,19 @@ public class TablaPreguntas {
     @JsonIgnore
     private TablaCategorias tablaCategorias;
 
-    public TablaPreguntas(Integer numeroPregunta, int tipo, String senia, String respuesta, TablaCategorias tablaCategorias) {
+    public TablaPreguntas(Integer numeroPregunta, int tipo, String pregunta, String respuesta, TablaCategorias tablaCategorias) {
         NumeroPregunta = numeroPregunta;
         Tipo = tipo;
-        Senia = senia;
+        Pregunta = pregunta;
         Respuesta = respuesta;
         this.tablaCategorias = tablaCategorias;
     }
 
 
-    public TablaPreguntas(Integer numeroPregunta, int tipo, String senia, String respuesta) {
+    public TablaPreguntas(Integer numeroPregunta, int tipo, String pregunta, String respuesta) {
         NumeroPregunta = numeroPregunta;
         Tipo = tipo;
-        Senia = senia;
+        Pregunta = pregunta;
         Respuesta = respuesta;
     }
 
@@ -59,12 +59,12 @@ public class TablaPreguntas {
         Tipo = tipo;
     }
 
-    public String getSenia() {
-        return Senia;
+    public String getPregunta() {
+        return Pregunta;
     }
 
-    public void setSenia(String senia) {
-        Senia = senia;
+    public void setPregunta(String pregunta) {
+        Pregunta = pregunta;
     }
 
     public String getRespuesta() {

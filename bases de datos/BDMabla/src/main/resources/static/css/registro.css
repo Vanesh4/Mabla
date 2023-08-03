@@ -19,6 +19,12 @@ form{
     padding: 0px 50px 50px 50px;
 }
 
+input{
+    width: 50%;
+    height: 50%;
+    border-radius: 100px;
+}
+
 #sectionform{
     display: flex;
     flex-wrap: wrap;
@@ -100,6 +106,7 @@ form{
 #clave{
     margin-top: 50px;
 }
+
 @media screen and (min-width:320px) and (max-width:700px){
     header{
         background-image: url("/img/picoResponsiveRegistro.svg");
@@ -247,7 +254,7 @@ form{
     #capi{
         padding: 0px;
         margin: 0px;
-        width: 50%;
-        height: 50%;
+        width: 45%;
+        height: 45%;
     }
 }

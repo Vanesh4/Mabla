@@ -158,7 +158,7 @@ class _loginState extends State<login> {
                                                   children:[
                                                     GestureDetector(
                                                         onTap: () {
-                                                          registro();
+                                                          registro1();
                                                         },
                                                         child: Container(
                                                           alignment: Alignment.bottomRight,
@@ -181,7 +181,7 @@ class _loginState extends State<login> {
                                                         onTap: (){
                                                           Navigator.push(
                                                             context,
-                                                            MaterialPageRoute(builder: (context) => const registro()),
+                                                            MaterialPageRoute(builder: (context) => const registro1()),
                                                           );
                                                         },
                                                         child: Container(
@@ -253,14 +253,14 @@ class _loginState extends State<login> {
         );
   }
 }
-class registro extends StatefulWidget {
-  const registro({super.key});
+class registro1 extends StatefulWidget {
+  const registro1({super.key});
 
   @override
-  State<registro> createState() => _registroState();
+  State<registro1> createState() => _registro1State();
 }
 
-class _registroState extends State<registro> {
+class _registro1State extends State<registro1> {
   final _alias= TextEditingController();
   final _nombre= TextEditingController();
   final _apellido= TextEditingController();
