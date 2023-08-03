@@ -1,8 +1,8 @@
 import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:mabla/formas/ondaHome.dart';
 import 'package:mabla/header.dart';
+import 'package:mabla/screen/diccionario.dart';
 import 'package:mabla/screen/menu.dart';
 import 'package:mabla/screen/quiz.dart';
 
@@ -26,7 +26,8 @@ class _homeState extends State<home> {
 
   List<dynamic> comments = [];
   Future<void> getComments() async{
-    final url = Uri.parse('http://192.168.1.10/tablaComment');
+    // ipv4 vanessa: http://192.168.1.6/
+    final url = Uri.parse('http://192.168.1.6/tablaComment');
     final response = await http.get(url);
     
     if(response.statusCode == 200){
@@ -58,10 +59,7 @@ class _homeState extends State<home> {
         child: Column(
           children: [
             Container(
-              /*child: CustomPaint(
-                painter: ondaHome(),
-                size: Size(double.infinity, double.infinity),
-              ),*/
+
               height: 650,
               child: Stack(
                 children: [
@@ -146,7 +144,14 @@ class _homeState extends State<home> {
                         width: 190,
                         height: 48,
                         child: ElevatedButton(
-                          onPressed: (){},
+                          onPressed: (){
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const diccionario(),
+                              ),
+                            );
+                          },
                           child: Text('Diccionario',
                             style: TextStyle(fontSize: 28, fontFamily: "Raleway",color: Colors.black),),
                           style: ButtonStyle(

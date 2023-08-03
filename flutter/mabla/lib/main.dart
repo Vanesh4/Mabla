@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:mabla/header.dart';
-
 import 'package:mabla/home.dart';
+<<<<<<< HEAD
 import 'package:mabla/screen/login.dart';
 import 'package:mabla/screen/perfil.dart';
 import 'package:mabla/screen/quiz.dart';
+=======
+import 'package:mabla/screen/registro.dart';
+>>>>>>> 1c84692fee3132833fa566067095805ef9ffe4cb
 
 
 void main() {
@@ -12,19 +14,20 @@ void main() {
 }
 
 //sara
-/*class MyApp extends StatelessWidget {
+class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+        debugShowCheckedModeBanner: false,
         home: Center(
           child: registro()
         ),
     );
   }
-}*/
+}
 
 //karen
 /*class MyApp extends StatelessWidget {
@@ -40,6 +43,7 @@ void main() {
 }*/
 
 //vanessa
+/*
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
@@ -54,6 +58,7 @@ class MyApp extends StatelessWidget {
   }
 }
 
+*/
 
 /*
 colores:

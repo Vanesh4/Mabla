@@ -141,7 +141,7 @@ class deleteComment(View):
 #tabla pruebas
 class getTablaPrueba(View):
     def get(self,request):
-        register= TablaPruebas.objects.all().values()
+        register= TablaPrueba.objects.all().values()
         registerPrueba=list(register)
         return JsonResponse(registerPrueba, safe=False)
 
@@ -159,11 +159,11 @@ class insertPrueba(View):
         request.POST.get('tipoPrueba')
         request.POST.get('categoria_id')
         request.POST.get('puntaje')
-        registerInsertPrueba1 = TablaPruebas.objects.create(idPrueba=registerInsertPrueba['idPrueba'],
-                                    alias=registerInsertPrueba['alias'],
+        registerInsertPrueba1 = TablaPrueba.objects.create(
+                                    alias=registerInsertPrueba['alias_id'],
                                     tipoPrueba=registerInsertPrueba['tipoPrueba'],
                                     categoria_id=registerInsertPrueba['categoria_id'],
-                                    fecha=registerInsertPrueba['fecha'],
+
                                     puntaje=registerInsertPrueba['puntaje'])
         registerInsertPrueba1.save()
         #no es necesario pero es para que genere el aviso:
@@ -234,6 +234,18 @@ class deletePregunta(View):
         preg.delete()
         return JsonResponse({"mensaje":"Datos eliminados"})
 
+
+def subCategoriasDeCate(request, cat):
+    subCategorias = TablaSubcategoria.objects.filter(categoria=cat)
+    subCatedeCate = [
+        {
+            'subcategoria': TablaSubcategoria.subcategoria,
+            
+        }     
+        for TablaSubcategoria in subCategorias   
+    ]
+    return JsonResponse(subCatedeCate, safe=False)
+
 #Usuario
 class usuarios(View):
     def get(self, request):
@@ -279,6 +291,10 @@ def subsustantivos(request):
     sustan=TablaSubcategoria.objects.filter(categoria='Sustantivos')
     return render(request, "consultando.html", {"sustantivos": sustan})
 
+
+
+
+
 #CRUD TABLA CATEGORIAS
 
 class getCategoria(View):
@@ -291,12 +307,6 @@ class getCategoria(View):
             })
         return JsonResponse(datos_Categoria, safe=False)
 
-
-""" class getcategoria(View):
-    def get(self,request):
-        insert= TablaCategoria.objects.all().values()
-        insertcate=list(insert)
-        return JsonResponse(insertcate, safe=False) """
 
 
 class postcategoria(View):

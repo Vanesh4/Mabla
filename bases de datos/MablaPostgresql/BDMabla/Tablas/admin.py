@@ -1,4 +1,4 @@
-from django.contrib import admin
+""" from django.contrib import admin
 from Tablas.models import *
 # Register your models here.
 
@@ -8,4 +8,4 @@ class userAdmin(admin.ModelAdmin):
 
 @admin.register(TablaComentarios)
 class commentAdmin(admin.ModelAdmin):
-    list_display=('alias', 'texto')
+    list_display=('alias', 'texto') """

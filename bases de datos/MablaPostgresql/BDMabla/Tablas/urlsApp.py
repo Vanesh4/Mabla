@@ -1,4 +1,5 @@
 from django.urls import path
+from .viewLogin import *
 from .views import *
 from . import views
 
@@ -6,7 +7,10 @@ urlpatterns = [
     path('tablaUsuario',getTablaUser.as_view(), name='tablaUsuario'),
     path('insertUser',insertTablaUser.as_view(), name='insertUser'),
     path('insertUserForm/inicio.html',views.formInsertUser, name='insertUserForm'),
-    path('login',views.formIniciarSesion, name='login'),
+    #path('register',registerUser.as_view, name='register'),
+    #path('login',views.formIniciarSesion, name='login'),
+    path('registroForm',registerUser.as_view(), name='registroForm'),
+    path('ingresar',IniciarSesionView.as_view(), name='ingresar'),
     path('tablaComment',getTablaComment.as_view(), name='tablaComment'),
     path('editUser/<pk>',editTablaUser.as_view(),name='editUser'),
     path('insertComment',insertComment.as_view(),name='insertComment'),
@@ -42,5 +46,5 @@ urlpatterns = [
     path('deletepalabra/<pk>',deletepalabra.as_view(),name='deletepalabra'),
     path('getpalabrita/<pk>',getPalabraT.as_view(),name='getpalabrita'),
 
-
+    path('getSubcategorias/<cat>', views.subCategoriasDeCate, name='SucategoriasFiltradas')
 ]
