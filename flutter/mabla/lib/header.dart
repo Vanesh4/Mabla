@@ -68,7 +68,7 @@ class _headerPrincipalState extends State<headerPrincipal> {
                   width: 200,
                   height: 48,
                   child: ElevatedButton(onPressed: (){
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=>registro()));
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>registro1()));
                   },
                     child: Text('Registrarme',
                       style: TextStyle(fontSize: 28, fontFamily: "Raleway",color: Colors.white),),
