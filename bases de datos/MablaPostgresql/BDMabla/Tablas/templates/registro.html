@@ -11,6 +11,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Martian+Mono:wght@100;500&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="{% static 'img/mablaLOGO-removebg.png' %}">
 </head>
 <body>
   <header>
@@ -30,12 +31,6 @@
               <label for="{{ form.last_name.id_for_label }}" >Apellido</label>
               <!-- <input type="text" class="form-control" id="validationApellido" required> -->
               {{ form.last_name }}
-            </div>
-
-            <div class="inputs" id="ph">
-                <label for="{{ form.Teléfono.id_for_label }}" >Teléfono</label>
-                <!-- <input type="number" class="form-control" id="validationTelefono" required> -->
-                {{ form.Teléfono }}
             </div>
 
             <div id="correo" class="inputs">

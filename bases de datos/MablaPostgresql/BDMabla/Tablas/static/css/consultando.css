@@ -16,6 +16,9 @@
 body{
     background-color: rgb(251, 250, 250);
 }
+.todoo{
+    display: flex;
+}
 #caja{
     height: auto;
     display: flex;
@@ -188,9 +191,9 @@ input{
 }
 
 .caja2{
-    
-    flex-direction: column;
+
     width: 100%;
+    display: flex;
 }
 
 .hide{
