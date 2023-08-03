@@ -82,7 +82,7 @@ $(document).ready(function () {
 
     
     $.ajax({
-        url: "http://127.0.0.1:8000/getcate",
+        url: "http://127.0.0.1:8000/getcate", 
         type: "GET",
         dataType: "JSON",      
         success: function (res) {  
@@ -96,7 +96,7 @@ $(document).ready(function () {
 
                 h1categoria = document.createElement("h1")    
                 divcategoria.setAttribute("class","categorias")
-                h1categoria.innerHTML = res[x].Categoria 
+                h1categoria.innerHTML = res[x].categoria 
                 divcategoria.appendChild(h1categoria)
 
             

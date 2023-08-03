@@ -1,6 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:mabla/home.dart';
+<<<<<<< HEAD
+import 'package:mabla/screen/login.dart';
+import 'package:mabla/screen/perfil.dart';
+import 'package:mabla/screen/quiz.dart';
+=======
 import 'package:mabla/screen/registro.dart';
+>>>>>>> 1c84692fee3132833fa566067095805ef9ffe4cb
 
 
 void main() {
@@ -47,7 +53,7 @@ class MyApp extends StatelessWidget {
 
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: home()
+      home: miperfil()
     );
   }
 }

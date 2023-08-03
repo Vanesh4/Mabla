@@ -282,9 +282,10 @@ def palabrasanimales(request):
     return render(request, "consultando.html", {"animales":listap})
 
 def subverbos(request):
-    listav=TablaSubcategoria.objects.filter(categoria='Verbos')
-    
+    listav=TablaSubcategoria.objects.filter(categoria='Verbos') 
     return render(request, "consultando.html", {"subverbos":listav})
+
+    
 
 def subsustantivos(request):
     sustan=TablaSubcategoria.objects.filter(categoria='Sustantivos')
