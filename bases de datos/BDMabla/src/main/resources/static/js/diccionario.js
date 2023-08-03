@@ -1,8 +1,8 @@
 
-<<<<<<< HEAD
+
 function mostrarTeclado() {
     const contenidoDiv = document.getElementById('hide_abc');
-=======
+
 /*let hider_btn=document.getElementById('hider_btn');
 >>>>>>> 0e797abdea980efffe1e89917c87a3fbac19ff74
 
@@ -17,7 +17,7 @@ function mostrarTeclado() {
 
 
 }*/
->>>>>>> 0e797abdea980efffe1e89917c87a3fbac19ff74
+
 
 alturaAbc = ()=>{
     teclado = document.getElementById('hide_abc');
