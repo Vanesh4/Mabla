@@ -1,4 +1,3 @@
-from django.conf import settings
 from django.contrib.auth.models import AbstractUser
 from django.db import models
 
@@ -6,15 +5,16 @@ class TablaUsuario(models.Model):
     alias=models.TextField(primary_key=True, max_length=30)
     nombre=models.TextField(null= False)
     apellido=models.TextField(null= False)
-    telefono=models.PositiveBigIntegerField(verbose_name="Teléfono", null=True)
+    #telefono=models.PositiveBigIntegerField(verbose_name="Teléfono", null=True)
     #correo=models.TextField(max_length=30)
     #clave=models.TextField(max_length=30)
-    user= models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='User', null=True, blank=True)
+    #user= models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='User', null=True, blank=True)
  
-class User(AbstractUser):
+""" class User(AbstractUser):
     imgPerfil=models.ImageField(default='user.png', upload_to='img/', null=True, blank=True)
     #clave= models.TextField(max_length=30, null= False)
-    alias=models.TextField(primary_key=True, max_length=30)
+    #alias=models.TextField(primary_key=True, max_length=30)
+    alias= models.OneToOneField(TablaUsuario,primary_key=True, on_delete=models.CASCADE) """
 
 class TablaComentarios(models.Model):
     alias=models.ForeignKey(TablaUsuario, null=True, on_delete=models.CASCADE)

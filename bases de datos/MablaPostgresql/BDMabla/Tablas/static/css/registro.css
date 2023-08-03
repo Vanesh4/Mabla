@@ -195,18 +195,32 @@ input{
     }
 }
 @media screen and (min-width:1200px) and (max-width:1600px) {       
+    *{
+        padding: 0px;
+        margin: 0px;
+    }
     header{
         height: 630px;
         padding: 0px;
         margin: 0px;
     }
-    #sectionform .inputs{
+   /*  #sectionform .inputs{
         padding-left: 40px;  
         margin-top: 18px;
         font-size: 18px;
+        background-color: red;
     }
-    .inputs{
-        width: 50%;
+     */
+    #sectionform{
+        flex-wrap: wrap;
+        justify-content: center;
+        background-color: red;
+        padding: 0px;
+        margin: 0px;
+    } 
+    #pAlias{
+        background-color: blue;
+        font-size: 25px;
     }
     #colorbtn{
         font-size: 25px;
