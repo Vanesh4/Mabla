@@ -1,4 +1,6 @@
+from msilib.schema import ListView
 from django.contrib.auth import authenticate, login
+from django.http import JsonResponse
 from django.shortcuts import redirect, render
 from django.views import View
 from .models import *
@@ -6,6 +8,23 @@ from .forms import *
 from django.utils.decorators import method_decorator
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib import messages
+
+""" class getUser(ListView):
+    def get(self,request):
+        users = User.objects.all()
+        user_list = []
+        for i in  users:
+            user_list.append({
+                'username': i.username,
+                'first_name': i.first_name,
+                'last_name': i.last_name,
+                'email': i.email,
+                'password': i.password,
+                'alias': i.alias,
+                'imgPerfil': i.imgPerfil,
+            })
+        
+        return JsonResponse(user_list, safe=False) """
 
 class registerUser(View):    
     template_name='registro.html'
@@ -28,7 +47,7 @@ class registerUser(View):
                 if form.is_valid():
                     form.save()
                     messages.success(request, 'Usuario registrado correctamente desde formulario HTML.')
-                    return redirect('ingresar')
+                    return redirect('inicio')
                 else:
                     messages.error(request, 'Error al registrar el usuario desde formulario HTML.')
         
@@ -43,7 +62,7 @@ class registerUser(View):
         return render(request, self.template_name, {'form': form})
  
 
-class IniciarSesionView(View):
+""" class IniciarSesionView(View):
     def get(self, request):
         form = LoginForm()
         return render(request, 'editUser.html', {'form': form})
@@ -62,7 +81,7 @@ class IniciarSesionView(View):
                 #validar si el registro coincide con los datos en la base de datos
                 login(request, user)
                 try:
-                    aliasPk= user.alias_id
+                    aliasPk= user.alias
                     #aliasPk=TablaUsuario.objects.get(username=username) 
                     print(aliasPk)
                     
@@ -72,7 +91,7 @@ class IniciarSesionView(View):
                         if formLog.is_valid():
                             formLog.save()
                             messages.success(request, 'Cambios guardados')        
-                            return redirect ('tablaUsuario')
+                            return redirect ('inicio')
                         
                         else:
                             messages.error(request, 'el usuario no esta registrado')
@@ -80,7 +99,7 @@ class IniciarSesionView(View):
                         formLog=LoginForm(instance=aliasPk)
                     return render(request, 'editUser.html', {'usuario': aliasPk, 'form': formLog})
                     
-                except TablaUsuario.DoesNotExist:
+                except User.DoesNotExist:
                     messages.error(request, 'No se encontraron los datos')
                 #return redirect('inicio')  # Redirigir a la página de clientes
           # Redirigir a otra página para otros roles
@@ -88,4 +107,24 @@ class IniciarSesionView(View):
                 form.add_error(None, 'Credenciales inválidas. Por favor, intenta nuevamente.')
 
         return render(request, 'editUser.html', {'form': form})
-    
+      """
+
+
+class IniciarSesionView(View):
+    def get(self, request):
+        form = LoginForm()
+        return render(request, 'login.html', {'form': form})
+
+    def post(self, request):
+        form = LoginForm(data=request.POST)
+        if form.is_valid():
+            username = form.cleaned_data.get('username')
+            password = form.cleaned_data.get('password')
+            user = authenticate(username=username, password=password)
+            if user is not None:
+                login(request, user)
+                return redirect('incio')  # Redirigir a la página de clientes
+          # Redirigir a otra página para otros roles
+            else:
+                form.add_error(None, 'Credenciales inválidas. Por favor, intenta nuevamente.')
+        return render(request, 'login.html', {'form': form})

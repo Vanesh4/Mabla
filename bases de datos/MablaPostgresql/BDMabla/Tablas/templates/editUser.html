@@ -6,7 +6,10 @@
     <title>Editar usuario</title>
 </head>
 <body>
-    {% if form %}
+    {% for user in users %}
+            <li>{{ user.username }}</li>
+        {% endfor %}
+    <!-- {% if form %}
         <h1>Datos del usuario</h1>
         <form method="post">
             {% csrf_token %}
@@ -15,6 +18,6 @@
         </form>
     {% else %}
     <div>Este usuario no se ha registrado</div>
-    {% endif %}
+    {% endif %} -->
 </body>
 </html>
