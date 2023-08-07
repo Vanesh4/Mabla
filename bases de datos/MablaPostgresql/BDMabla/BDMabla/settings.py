@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-_41-9j+h5az9lg8*nygz4cep*h+vy-win3lslr(6j(5(+b*17g
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
@@ -37,8 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'Tablas',
-    'corsheaders'
+    'Tablas'
 ]
 
 MIDDLEWARE = [
@@ -52,12 +51,6 @@ MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
 ]
-
-CORS_ALLOWED_ORIGINS = [
-    'http://192.168.137.1',
-]
-
-ALLOWED_HOSTS = ['*']
 
 ROOT_URLCONF = 'BDMabla.urls'
 
@@ -90,7 +83,11 @@ DATABASES = {
         'HOST':'127.0.0.1',
         'DATABASE_PORT':'5432',
         'USER':'postgres',
+<<<<<<< HEAD
         'PASSWORD':'2004',
+=======
+        'PASSWORD':'0000',
+>>>>>>> 528d065a2fd730aec7c5bcdbe1dc6f0071087e59
 
     }
 }

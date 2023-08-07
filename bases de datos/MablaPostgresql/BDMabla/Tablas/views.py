@@ -8,8 +8,9 @@ from django.views.decorators.csrf import csrf_exempt
 import json
 from Tablas.models import *
 
-#Sara
-#tabla usuario
+""" #Sara
+ #tabla usuario
+ 
 class getTablaUser(ListView):
     def get(self,request):
         register= TablaUsuario.objects.all()
@@ -84,7 +85,7 @@ class editTablaUser(View):
         pKey.clave=data.get('clave')
         pKey.save()
         return JsonResponse({"Mensaje":"Datos actualizados"})
-
+ """ 
 #tabla comentarios
 class getTablaComment(View):
     def get(self,request):
@@ -291,12 +292,7 @@ def subsustantivos(request):
     sustan=TablaSubcategoria.objects.filter(categoria='Sustantivos')
     return render(request, "consultando.html", {"sustantivos": sustan})
 
-
-
-
-
 #CRUD TABLA CATEGORIAS
-
 class getCategoria(View):
     def get(self, request):
         datos=TablaCategoria.objects.all()
