@@ -27,11 +27,13 @@ class _miperfilState extends State<miperfil> {
           children: [
             Container(
 
+
               child: Stack(
                 children: [
                   Column(
                     children: [
                       Container(
+
                         height: 300,
                         child: Stack(
                           children: [
@@ -88,6 +90,7 @@ class _miperfilState extends State<miperfil> {
             Row(
               children: [
                 Container(
+
                   width: 300,
                   margin: EdgeInsets.only(left: 20, top: 60),
                   decoration: BoxDecoration(
@@ -97,7 +100,7 @@ class _miperfilState extends State<miperfil> {
                   padding: EdgeInsets.only(left: 10),
                   child: TextFormField(
                     decoration: const InputDecoration(
-                        hintText: 'Escribe tu comentario...',
+                        hintText: 'Nombre...',
                         enabledBorder: OutlineInputBorder(borderSide: BorderSide.none),
                         focusedBorder: OutlineInputBorder(borderSide: BorderSide.none)
                     ),
@@ -117,7 +120,7 @@ class _miperfilState extends State<miperfil> {
                   ),
                   child: Padding(
                       padding: EdgeInsets.only(left: 10, right: 10, bottom: 20),
-                      child: Image.asset('assets/img/lupa.png')
+                      child: Image.asset('assets/img/lapiz-editar.png')
                   ),
 
                 )
@@ -136,7 +139,7 @@ class _miperfilState extends State<miperfil> {
                   padding: EdgeInsets.only(left: 10),
                   child: TextFormField(
                     decoration: const InputDecoration(
-                        hintText: 'Escribe tu comentario...',
+                        hintText: 'Apellido...',
                         enabledBorder: OutlineInputBorder(borderSide: BorderSide.none),
                         focusedBorder: OutlineInputBorder(borderSide: BorderSide.none)
                     ),
@@ -156,7 +159,7 @@ class _miperfilState extends State<miperfil> {
                   ),
                   child: Padding(
                       padding: EdgeInsets.only(left: 10, right: 10, bottom: 20),
-                      child: Image.asset('assets/img/lupa.png')
+                      child: Image.asset('assets/img/lapiz-editar.png')
                   ),
 
                 )
@@ -175,7 +178,7 @@ class _miperfilState extends State<miperfil> {
                   padding: EdgeInsets.only(left: 10),
                   child: TextFormField(
                     decoration: const InputDecoration(
-                        hintText: 'Escribe tu comentario...',
+                        hintText: 'Telefono...',
                         enabledBorder: OutlineInputBorder(borderSide: BorderSide.none),
                         focusedBorder: OutlineInputBorder(borderSide: BorderSide.none)
                     ),
@@ -195,7 +198,7 @@ class _miperfilState extends State<miperfil> {
                   ),
                   child: Padding(
                       padding: EdgeInsets.only(left: 10, right: 10, bottom: 20),
-                      child: Image.asset('assets/img/lupa.png')
+                      child: Image.asset('assets/img/lapiz-editar.png')
                   ),
 
                 )
@@ -216,7 +219,7 @@ class _miperfilState extends State<miperfil> {
                   padding: EdgeInsets.only(left: 10),
                   child: TextFormField(
                     decoration: const InputDecoration(
-                        hintText: 'Escribe tu comentario...',
+                        hintText: 'Correo..',
                         enabledBorder: OutlineInputBorder(borderSide: BorderSide.none),
                         focusedBorder: OutlineInputBorder(borderSide: BorderSide.none)
                     ),
@@ -236,7 +239,7 @@ class _miperfilState extends State<miperfil> {
                   ),
                   child: Padding(
                       padding: EdgeInsets.only(left: 10, right: 10, bottom: 20),
-                      child: Image.asset('assets/img/lupa.png')
+                      child: Image.asset('assets/img/lapiz-editar.png')
                   ),
 
                 )
@@ -244,18 +247,18 @@ class _miperfilState extends State<miperfil> {
             ),
 
             Container(
-              margin: EdgeInsets.only(top: 40),
-
+              height: 70,
+              width: 130,
+              margin: EdgeInsets.only(top: 40,left: 230),
               child: ElevatedButton(
-
-                child: Text("Mi proceso"),
+                child: Text("Mi proceso",
+                style: TextStyle(fontSize: 20),),
                 style: ElevatedButton.styleFrom(
                   primary: Colors.purple,
-                  //side: BorderSide(color: Colors.yellow, width: 5),
-                  shape: borderRadius: BorderRadius.all(Radius.circular(10)),
-                  textStyle: const TextStyle(color: Colors.white, fontSize: 25),
-                  shadowColor: Colors.lightBlue,
+                  //side: BorderSide(color: Colors.deepOrange, width: 2),
+
                 ),
+
                 onPressed: () {
                   Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>home()
                 )
@@ -264,9 +267,9 @@ class _miperfilState extends State<miperfil> {
               },
               ),
 
-
-
             )
+
+
 
 
 
