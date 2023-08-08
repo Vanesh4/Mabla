@@ -18,7 +18,7 @@ input{
     outline: none;
     background-color: transparent;
 }
-#header{
+.header{
     display: flex;
     justify-content: space-between;
 }
