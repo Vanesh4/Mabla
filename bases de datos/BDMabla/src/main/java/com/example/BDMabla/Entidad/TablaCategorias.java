@@ -24,6 +24,10 @@ public class TablaCategorias {
     @OneToMany(mappedBy = "tablaCategorias", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Set<TablaSubcategorias> tablaSubcategorias;
 
+    public TablaCategorias(String categoria) {
+        Categoria = categoria;
+    }
+
     public TablaCategorias() {
     }
     public TablaCategorias(String categoria, Set<TablaPruebas> tablaPruebas, Set<TablaPreguntas> tablaPreguntas, Set<TablaPrueba_Pregunta> tablaPrueba_Pregunta, Set<TablaSubcategorias> tablaSubcategorias) {

@@ -1,11 +1,9 @@
 let listElements=document.querySelectorAll('.list_button--click');
+
 listElements.forEach(listElement => {
     listElement.addEventListener('click',()=>{
-        console.log("observando el boton",listElement)
 
         listElement.classList.toggle('arrow');
-
-        console.log("mirando el scroll",listElement)
 
         let height=0;
         let menu=listElement.nextElementSibling;
@@ -93,7 +91,7 @@ $(document).ready(function () {
             for(let x = 0; x<=res.length; x++) {
                 console.log("hollaaaaaa",res[x])
                 contenedorli=document.createElement("li")
-                contenedorli.setAttribute("class","list_item list__item--click")
+                contenedorli.setAttribute("class","list_item list_item--click")
 
                 divcategoria=document.createElement("div")
                 divcategoria.setAttribute("class","list_button list_button--click")
