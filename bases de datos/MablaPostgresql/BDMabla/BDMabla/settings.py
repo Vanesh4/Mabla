@@ -83,11 +83,7 @@ DATABASES = {
         'HOST':'127.0.0.1',
         'DATABASE_PORT':'5432',
         'USER':'postgres',
-<<<<<<< HEAD
-        'PASSWORD':'2004',
-=======
         'PASSWORD':'0000',
->>>>>>> 528d065a2fd730aec7c5bcdbe1dc6f0071087e59
 
     }
 }
@@ -134,4 +130,4 @@ STATICFILES_DIRS=(os.path.join(BASE_DIR,'Tablas/static'),)
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-AUTH_USER_MODEL='Tablas.User'
+#AUTH_USER_MODEL='Tablas.User'
