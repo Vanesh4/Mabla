@@ -7,14 +7,11 @@ from django import forms
 User = get_user_model()
 
 class registro(UserCreationForm):
-<<<<<<< HEAD
     class Meta:
-=======
 
-    password1= forms.CharField()
+     password1= forms.CharField()
 
     class Meta:        
->>>>>>> 528d065a2fd730aec7c5bcdbe1dc6f0071087e59
         model= User
         fields= ['username','first_name', 'last_name', 'email', 'password', 'password1']
     
