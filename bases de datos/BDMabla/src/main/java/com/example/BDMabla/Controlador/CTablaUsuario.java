@@ -19,11 +19,15 @@ public class CTablaUsuario {
     public List<TablaUsuario> user(){return metodosUser.users();}
     @GetMapping("/user/{alias}")
     public Optional<TablaUsuario> myuser(@PathVariable("alias") String alias){return metodosUser.myuser(alias);}
-    @GetMapping("/IniciarSesion/{alias}/{clave}")
+    /*@GetMapping("/IniciarSesion")
    public String login(@PathVariable("alias") String alias, @PathVariable("clave") String clave){
         if(metodosUser.iniciarSesion(alias,clave)) return "alias";
         else return "El usuario no ha sido registrado";
-   }
+   }*/
+    @GetMapping("/IniciarSesion")
+    public String login(){
+        return "registro.html";
+    }
    @PostMapping("/Insertaruser")
     public String insertar(@RequestBody TablaUsuario user){
        if (metodosUser.insertUser(user)) return "/inicio";
