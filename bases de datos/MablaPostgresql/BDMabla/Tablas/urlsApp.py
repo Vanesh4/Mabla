@@ -47,5 +47,6 @@ urlpatterns = [
     path('deletepalabra/<pk>',deletepalabra.as_view(),name='deletepalabra'),
     path('getpalabrita/<pk>',getPalabraT.as_view(),name='getpalabrita'),
 
-    path('getSubcategorias/<cat>', views.subCategoriasDeCate, name='SucategoriasFiltradas')
+    path('getSubcategorias/<cat>', views.subCategoriasDeCate, name='SucategoriasFiltradas'),
+    path('preguntas/<ti>/<cat>', views.pregTipoCat, name='PreguntasFiltradas')
 ]

@@ -31,7 +31,8 @@ $(document).ready (()=>{
 
 
     $.ajax({
-        url: "http://localhost:8080/preguntas/"+categoria+"/"+1,
+        /* url: "http://localhost:8080/preguntas/"+categoria+"/"+1, */
+        url: "http://127.0.0.1:8000/preguntas/"+1+"/"+categoria,
         type: "GET",
         dataType: "JSON",
         success: function (res) {
@@ -41,8 +42,8 @@ $(document).ready (()=>{
 
             img = document.createElement("img")
             img.setAttribute("id","linkSenia")
-            /* console.log(res[1][0]) */ //id de la pregunta
-            img.setAttribute("src", res[p][1]) // res[1] el segundo arreglo que trae de las respuestas (aleatorio con el res.length)
+            // console.log(res[1][0]) //id de la pregunta
+            img.setAttribute("src", res[0][2]) // res[1] el segundo arreglo que trae de las respuestas (aleatorio con el res.length)
             divsenia.appendChild(img)
 
             for (let i = 0; i < 4; i++) {
@@ -51,14 +52,16 @@ $(document).ready (()=>{
                 //validar que dos veces no me genere el mismo aleatorio. Eliminar de la lista
                 respuestasIncorrectas.splice(pos, 1);
             }
-            resCorrecta.innerHTML = res[p][2]
-            
+
+            console.log("src: ",res[0][2])
+            console.log("src: ",res[0].respuesta)
+            resCorrecta.innerHTML = res[0][1]            
             
         }
     })   
      
 
-    conteo = 0
+    /* conteo = 0
     //para avanzar a la misma pagina
     document.getElementById('avanza').addEventListener('click', function() {
         window.location.href = 'quizTipo1.html';
@@ -66,6 +69,6 @@ $(document).ready (()=>{
         localStorage.setItem('conteopag', conteo)
         
     }) 
-    console.log(localStorage.getItem('conteopag'))
+    console.log(localStorage.getItem('conteopag')) */
 
 })

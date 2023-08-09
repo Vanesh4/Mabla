@@ -247,6 +247,19 @@ def subCategoriasDeCate(request, cat):
     ]
     return JsonResponse(subCatedeCate, safe=False)
 
+def pregTipoCat(request, ti, cat):
+    preguntas = TablaPreguntas.objects.filter(idCategoria_id=cat).filter(tipo=ti)
+    
+    resPreguntas = [
+        {
+            'id': TablaPreguntas.id,
+            'senia': TablaPreguntas.senia,
+            'respuesta': TablaPreguntas.respuesta,            
+        }     
+        for TablaPreguntas in preguntas 
+    ]
+    return JsonResponse(resPreguntas, safe=False)
+
 #Usuario
 class usuarios(View):
     def get(self, request):
