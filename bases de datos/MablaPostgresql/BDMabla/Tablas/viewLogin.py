@@ -27,6 +27,7 @@ from django.contrib import messages
         return JsonResponse(user_list, safe=False) """
 
 class registerUser(View):    
+    
     template_name='registro.html'
     
     @method_decorator(csrf_exempt)
@@ -46,10 +47,12 @@ class registerUser(View):
                 form= registro(request.POST)
                 if form.is_valid():
                     form.save()
+                    print("se valido el formulario")
                     messages.success(request, 'Usuario registrado correctamente desde formulario HTML.')
                     return redirect('inicio')
                 else:
                     messages.error(request, 'Error al registrar el usuario desde formulario HTML.')
+                    print("no ingreso")
         
         else:
             print("no metodo")
