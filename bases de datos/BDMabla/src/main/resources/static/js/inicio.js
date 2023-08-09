@@ -1,6 +1,6 @@
 $(document).ready (()=>{
     
-    header = document.getElementById("header")
+    header = document.getElementById("h")
 
     $("#imgBotonAbrirMenu").on("click", ()=>{      
         header.style.setProperty("display", "inherit")

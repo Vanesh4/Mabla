@@ -21,17 +21,19 @@ $(document).ready(function () {
                     type: "GET",
                     dataType: "JSON",
                     success: function (resSub) {                        
-                        
+                        console.log("div: ",div)
                         console.log(resSub)
-                        for (let s = 0; s < resSub.length; s++) {
-                            p = document.createElement("p")
-                            p.setAttribute("class", "subcategoria")                            
-                            p.innerHTML = resSub[s].subcategoria                         
-                            
-                            divsCategorias[div].appendChild(p)                     
-                        }           
+                        if (resSub.length != 0) {
+                            for (let s = 0; s < resSub.length; s++) {
+                                p = document.createElement("p")
+                                p.setAttribute("class", "subcategoria")                            
+                                p.innerHTML = resSub[s].subcategoria                         
+                                
+                                divsCategorias[div].appendChild(p)                     
+                            } 
+                        }                                  
                         div++
-                        console.log(div)
+                        //console.log(div)
                     } 
                 })
                 
