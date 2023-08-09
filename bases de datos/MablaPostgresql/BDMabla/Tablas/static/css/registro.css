@@ -10,66 +10,90 @@ header{
     background-image: url("/static/img/picoSGV.svg");
     background-size: contain;
     background-repeat: no-repeat;
-    height: 40%;
-    background-color: #ff731c;
+    height: 100%;
 }
 
 form{
+    display: flex;
+    flex-direction: column;
     width: 55%;
-    background-color: red;
     align-self: center;
     font-family: 'Raleway', sans-serif;
     color: white;
     font-size: 35px;
+    align-items: center;
 }
 
 .textRegister{
-    font-size: 50px;
+    font-size: 60px;
     text-align: center;
     font-family: 'Martian Mono', monospace;
-    margin-bottom: 25px;
 }
 
 #sectionform{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
+    display: grid;
+    justify-content: baseline;
+    grid-template-columns: 2;
+    grid-template-rows: 3;
+    width: 100%;
     font-size: 30px;
+    margin: 50px 0px 50px 50px;
+    padding-left: 50px;
 }
-
-.inputs{
+input{
     display: flex;
     flex-direction: column;
-    /* width: 25%; */
-}
-
-input{
     border-radius: 8px;
-    height: 30px;
-    width: 200%;
-    margin-top: 10px;
+    height:35px;
+    width: 75%;
+    margin: 12px 0px 15px 0px;
+    padding-left: 10px;
     border: none;
     font-family: 'Raleway', sans-serif;
-    font-size: 16px;
+    font-size: 18px;
 }
-
+.inputs{
+    margin:10px 0px 10px 50px;
+}
+#ph{
+    grid-column: 1;
+    grid-row: 1;
+}
+#apellido{
+    grid-column: 2;
+    grid-row: 1;
+    width: 78%;
+}
+#correo{
+    grid-column: 1;
+    grid-row: 2;
+}
 #alias{
-    width: 25%;
+    grid-column: 2;
+    grid-row: 2;
+    width: 78%;
+    font-size: 26px;
+    margin-top: 20px;
 }
-
-#boton{
-    display: flex;
-    justify-content: center;
-    margin-top: 40px;  
+#clave{
+    grid-column: 1;
+    grid-row: 3;
+}
+#clave1{  
+    grid-column: 2;
+    grid-row: 3;
+    width: 78%;
 }
 
 #colorbtn{
     background:  #ff731c;
     color: white;
-    font-size: 35px;
+    font-size: 32px;
     font-family: 'Raleway', sans-serif;
     border-radius: 10px;
-    padding: 10px;
+    padding: 15px;
+    border: none;
+    margin-top: 25px;
 }
 
 .imgyText{

@@ -15,7 +15,7 @@
 </head>
 <body>
   <header>
-    <form method="POST" id="formInsert" class="row g-3" enctype="multipart/form-data">
+    <form method="POST" action="/register/" id="formInsert" class="row g-3" enctype="multipart/form-data">
       <div class="textRegister">
         REGISTRARME
       </div>
@@ -31,9 +31,7 @@
                 <label for="{{ form.last_name.id_for_label }}" id="lApellido" >Apellido </label>
               <!-- <input type="text" class="form-control" id="validationApellido" required> -->
               {{ form.last_name }}
-                  {% if form.last_name.errors %}
-                    <p class="warning-message1">Por favor, corrige los siguientes errores:</p>
-                  {% endif %}
+          
             </div>
 
             <div id="correo" class="inputs">
@@ -46,6 +44,9 @@
                   <label for="{{ form.username.id_for_label }}" id="lAlias" >Nombre de usuario (Alias) </label>
                 <!-- <input type="text" class="form-control" id="validationUsername" required> -->
                   {{ form.username }}
+                  <!-- {% if form.username.errors %}
+                    <p class="warning-message1">Por favor, corrige los siguientes errores:</p>
+                  {% endif %} -->
               </div>
               
             <div id="clave" class="inputs">
@@ -53,7 +54,7 @@
               <!-- <input type="password" class="form-control" id="validationPassword" required> -->
               {{ form.password1 }}
                   {% if form.errors %}
-                    <p class="warning-message">La clave tiene que contener más de 8 caracteres, incluyendo al menor un número y una mayúscula</p>
+                    <p class="warning-message">La clave tiene que contener más de 8 caracteres, incluyendo al menor un número y al menos una mayúscula</p>
                   {% endif %}
             </div>
             <div id="clave1" class="inputs">
