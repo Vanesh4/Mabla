@@ -43,6 +43,33 @@ $(document).ready (()=>{
             }
         }
     })
+
+    //enviar comentarios
+
+    contenedorComentar = document.getElementsByClassName('paraComentar')
+    console.log(contenedorComentar)
+    $(".inputEnviarComentario").on("click", ()=>{
+
+        console.log("entroofuncionn")
+        
+        /* msj = document.createElement("p")
+        msj.setAttribute("id","msj")
+        msj.textContent = "Debe iniciar sesión para poder comentar";
+        contenedorComentar.appendChild(msj) */
+
+        // Crear un nuevo elemento <p>
+        var nuevoParrafo = document.createElement("p");
+        nuevoParrafo.textContent = "Este es un nuevo párrafo.";
+
+        // Obtener el elemento <div> al que deseas agregar el párrafo
+        var contenedorDiv = document.getElementById("miDiv");
+
+        // Agregar el nuevo párrafo al <div>
+        contenedorDiv.appendChild(nuevoParrafo);
+    })
+       
+    
+    
 })
 
 
