@@ -7,6 +7,8 @@ from django.utils.decorators import method_decorator
 from django.views.decorators.csrf import csrf_exempt
 import json
 from Tablas.models import *
+from django.contrib.auth.decorators import login_required
+from django.utils.decorators import method_decorator
 
 """ #Sara
  #tabla usuario
@@ -93,12 +95,13 @@ class getTablaComment(View):
         registerComment=list(register)
         return JsonResponse(registerComment, safe=False)
 
-class insertComment(View):
+class postComment(View):
     #notacion
     @method_decorator(csrf_exempt)
     def dispatch(self, request, *args: Any, **kwargs):
         return super().dispatch(request, *args, **kwargs)
     
+    @method_decorator(login_required)
     def post(self, request):
         registerInsertComment=json.loads(request.body)
         request.POST.get('alias_id')

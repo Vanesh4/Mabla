@@ -15,14 +15,12 @@ header{
 
 form{
     display: flex;
-    flex-wrap: wrap;
     flex-direction: column;
     align-self: center;
     font-family: 'Raleway', sans-serif;
     color: white;
     font-size: 35px;
     width: 50%;
-    justify-content: center;
 }
 
 .textRegister{
@@ -35,6 +33,8 @@ form{
     display: grid;
     grid-template-columns: auto auto;
     font-size: 30px;
+    justify-content: space-around;
+    margin: 20px 0px 20px 50px;
 }
 
 input{
@@ -42,6 +42,7 @@ input{
     flex-direction: column;
     border-radius: 8px;
     height:35px;
+    width: 100%;
     margin: 12px 0px 15px 0px;
     padding-left: 10px;
     border: none;
@@ -74,7 +75,10 @@ input{
     grid-column: 2;
     grid-row: 3;
 } */
-
+#boton{
+    display: flex;
+    justify-content: center;
+}
 #colorbtn{
     background:  #ff731c;
     color: white;
