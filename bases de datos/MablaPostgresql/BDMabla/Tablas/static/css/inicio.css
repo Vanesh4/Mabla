@@ -3,6 +3,11 @@
     src: url("/static/fonts/Raleway/Raleway-Regular.ttf");
 }
 
+@font-face {
+    font-family: "ralewayExtraBold";
+    src: url("/static/fonts/Raleway/Raleway-ExtraBold.ttf");
+}
+
 *{
     margin: 0;
 }
@@ -18,7 +23,11 @@ input{
 p{
     font-family: "raleway", Arial, Helvetica, sans-serif;
 }
-
+#msj{
+    margin-top: 10px;
+    color: red;
+    font-family: "ralewayExtraBold";
+}
 #contenido{
     background-color: #ff731c;
     display: flex;
@@ -100,7 +109,8 @@ p{
     font-family: "raleway";
 }
 
-#enviarComentario{
+
+.inputEnviarComentario{
     font-size: 20px;
     font-family: "raleway";
     background-color: #06bfdb;

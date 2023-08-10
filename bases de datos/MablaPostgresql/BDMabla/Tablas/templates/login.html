@@ -2,8 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <link rel="stylesheet" href="{% static 'css/login.css' %}" type="text/css"> 
@@ -16,29 +15,30 @@
 <body>
   <header>
     <div id="form">
-    <form method="POST" id="formLogin" class="row g-3">
+    <form method="post" id="formLogin" class="row g-3">
       <div class="textSesion">
         INICIAR SESIÓN
       </div>
       {% csrf_token %}
-      <div class="col-md-8" id="ph">
-          <label for="{{ form.username.id_for_label }}" class="form-label"> Alias</label>
+      {{form.as_div}}
+      <!-- <div class="col-md-8" id="ph">
+          <label for="{{ username_id }}" class="form-label"> Alias</label>
           {{ form.username }}
         </div>
         <div class="col-md-8" id="ph">
-          <label for="{{ form.password.id_for_label }}" class="form-label">Clave</label>
+          <label for="{{ password_id }}" class="form-label">Clave</label>
           {{ form.password }}
         </div>
         <div class="links">
           <a href="" class="as">Olvidaste tu contraseña?</a>
           <a href="http://127.0.0.1:8000/registroForm" class="as">Registrarme</a>
         </div>
-        <div id="boton">
+        <div id="boton"> -->
           <button class="btn" type="submit" id="colorbtn">Ingresar</button>
-        </div>
+        <!-- </div> -->
       </form>
     </div>
-      <h1>{{mensaje}}</h1>
+      <h1>{{ mensaje }}</h1>
       <div class="imgyText">
         <img id="mablaNaranja" src="/static/img/letrasMABLAnaranja.png" alt="" srcset="">
       <div class="slogan">

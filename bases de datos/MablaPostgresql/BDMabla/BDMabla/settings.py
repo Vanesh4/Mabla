@@ -26,6 +26,8 @@ SECRET_KEY = 'django-insecure-_41-9j+h5az9lg8*nygz4cep*h+vy-win3lslr(6j(5(+b*17g
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+ALLOWED_HOSTS = ['*']
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -51,10 +53,9 @@ MIDDLEWARE = [
 ]
 
 """ CORS_ALLOWED_ORIGINS = [
-    'http://192.168.137.1'
+    'http://192.168.137.1',
 ]
 """
-ALLOWED_HOSTS = ['*']
 
 AUTHENTICATION_BACKENDS =(
     'django.contrib.auth.backends.ModelBackend'
@@ -95,7 +96,6 @@ DATABASES = {
         'DATABASE_PORT':'5432',
         'USER':'postgres',
         'PASSWORD':'0000',
-
     }
 }
 

@@ -24,14 +24,23 @@
         gris: #D9D9D9
      -->
 
+<<<<<<< HEAD
+    <!-- Si el usuario no esta logeado -->
+    <!-- <header class="header" id="h">
+=======
     <header class="header" sec:authorize="!isAuthenticated()">
+>>>>>>> 40e61e4ec204ff87ee2bd822343fa1a4f15781e3
         <div class="closeBtn">
             <img src="/img/cancelar.png" alt="" id="imgBotonCerrarMenu">
         </div>
-        <div id="parteizq">
+        <div class="parteizq">
             <div class="logo">
                 <a href="index.html">
+<<<<<<< HEAD
+                    <img src="/img/mablaLOGO-removebg.png" alt="logoImg" class="logoImg">
+=======
                     <img src="/img/mablaLOGO-removebg.png" alt="logoImg" id="logoImg">
+>>>>>>> 40e61e4ec204ff87ee2bd822343fa1a4f15781e3
                 </a>                
             </div>
             <div class="linkContenido">
@@ -47,7 +56,7 @@
                 </a>
             </div>
         </div>
-        <div id="partederecha">
+        <div class="partederecha">
             <div id="login">
                 <p id="BotonRegisto">
                     <a href="registro.html">Registrarme</a>
@@ -57,22 +66,28 @@
                     <a th:href="@{/oauth2/authorization/auth0}">Log In</a>
                 </p>
             </div>
-            <div id="buscador">
-                <input type="text" name="buscador" id="buscadorMenu" maxlength="20">
+            <div class="buscador">
+                <input type="text" name="buscador" class="buscadorMenu" maxlength="20">
                 <img src="/img/lupa.png" alt="lupa" style="width: 10%;">                
             </div>
             
         </div>    
-    </header>
+    </header> -->
 
+<<<<<<< HEAD
+
+    <!-- Si el usuario esta logeado -->
+    <header class="header" id="h">
+=======
      <header class="header" sec:authorize="isAuthenticated()">
+>>>>>>> 40e61e4ec204ff87ee2bd822343fa1a4f15781e3
         <div class="closeBtn">
             <img src="/img/cancelar.png" alt="" id="imgBotonCerrarMenu">
         </div>
-        <div id="parteizq">
+        <div class="parteizq">
             <div class="logo">
                 <a href="index.html">
-                    <img src="" alt="cabipara" id="logoImg">
+                    <img src="/img/mablaLOGO-removebg.png" alt="logoImg" class="logoImg">
                 </a>                
             </div>
             <div class="linkContenido">
@@ -88,14 +103,22 @@
                 </a>
             </div>
         </div>
-        <div id="partederecha">
-            <div id="buscador">
-                <input type="text" name="buscador" id="buscadorMenu" maxlength="20">
+        <div class="partederecha" id="LogeoParteDerecha">
+            <div class="buscador">
+                <input type="text" name="buscador" class="buscadorMenu" maxlength="20">
                 <img src="/img/lupa.png" alt="lupa" style="width: 10%;">                
             </div>
 
+<<<<<<< HEAD
+            <a href="perfil.html">
+                <img id="fotoUser" src="/img/user.png" alt="">
+            </a>
+                
+                        
+=======
             <img class="foto" src="/img/user.png" alt="">
             
+>>>>>>> 40e61e4ec204ff87ee2bd822343fa1a4f15781e3
         </div>    
     </header>
 
@@ -134,8 +157,8 @@
     </section>
     
     <!-- <script src="/js/inicioComentarios.js"></script> -->
-    <script src="/js/incio.js"></script>
+    <script src="/js/inicio.js"></script>
 </body>
 </html>
- src/main/resources/templates/inicio.html
+
 

@@ -25,6 +25,7 @@ urlpatterns = [
     path('deletePregunta/<int:pk>',deletePregunta.as_view(), name="deletePreg"),
 
     path('inicio',views.iniciohtml, name="inicio"),
+    path('quiz',views.viewQuiz, name="quiz"),
     path('menu',views.menuTodo, name="menu"),
     path('mostrar/',views.vercategorias, name="mostrar"),
     path('mostrarsubcate/',views.versubcategorias, name="mostrarsubcate"),
@@ -46,5 +47,6 @@ urlpatterns = [
     path('deletepalabra/<pk>',deletepalabra.as_view(),name='deletepalabra'),
     path('getpalabrita/<pk>',getPalabraT.as_view(),name='getpalabrita'),
 
-    path('getSubcategorias/<cat>', views.subCategoriasDeCate, name='SucategoriasFiltradas')
+    path('getSubcategorias/<cat>', views.subCategoriasDeCate, name='SucategoriasFiltradas'),
+    path('preguntas/<ti>/<cat>', views.pregTipoCat, name='PreguntasFiltradas')
 ]

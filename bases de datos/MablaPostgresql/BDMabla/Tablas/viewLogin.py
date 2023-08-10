@@ -5,6 +5,7 @@ from django.shortcuts import redirect, render
 from django.views import View
 from .models import *
 from .forms import *
+from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib import messages
@@ -112,22 +113,27 @@ class registerUser(View):
         return render(request, 'editUser.html', {'form': form})
       """
 
-
 class IniciarSesionView(View):
     def get(self, request):
         form = LoginForm()
+        print("formulario:" ,form)
         return render(request, 'login.html', {'form': form})
-
+    
     def post(self, request):
         form = LoginForm(data=request.POST)
+
         if form.is_valid():
             username = form.cleaned_data.get('username')
             password = form.cleaned_data.get('password')
             user = authenticate(username=username, password=password)
+            print("el user: ", user)
             if user is not None:
                 login(request, user)
-                return redirect('incio')  # Redirigir a la página de clientes
+                print("ya se tuvo que redirigir")
+                return redirect('quiz')  # Redirigir a la página de clientes
           # Redirigir a otra página para otros roles
             else:
+                print("no funciono")
                 form.add_error(None, 'Credenciales inválidas. Por favor, intenta nuevamente.')
+        
         return render(request, 'login.html', {'form': form})

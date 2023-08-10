@@ -250,6 +250,19 @@ def subCategoriasDeCate(request, cat):
     ]
     return JsonResponse(subCatedeCate, safe=False)
 
+def pregTipoCat(request, ti, cat):
+    preguntas = TablaPreguntas.objects.filter(idCategoria_id=cat).filter(tipo=ti)
+    
+    resPreguntas = [
+        {
+            'id': TablaPreguntas.id,
+            'senia': TablaPreguntas.senia,
+            'respuesta': TablaPreguntas.respuesta,            
+        }     
+        for TablaPreguntas in preguntas 
+    ]
+    return JsonResponse(resPreguntas, safe=False)
+
 #Usuario
 class usuarios(View):
     def get(self, request):
@@ -261,8 +274,13 @@ def formInsertUser(request):
 def formIniciarSesion(request):
     return render(request, "login.html")
 
+@login_required
 def iniciohtml(request):
     return render(request,"inicio.html")
+
+@login_required
+def viewQuiz(request):
+    return render(request,"quizTipo1.html")
 
 def menuTodo(request):
     return render(request,"menu.html")
