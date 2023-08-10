@@ -6,7 +6,7 @@ from . import views
 urlpatterns = [
     #path('insertUser',insertTablaUser.as_view(), name='insertUser'),
     #path('insertUserForm/inicio.html',views.formInsertUser, name='insertUserForm'),
-    path('register/',registerUser.as_view(), name='register'),
+    path('register',registerUser.as_view(), name='register'),
     #path('login',views.formIniciarSesion, name='login'),
     #path('registroForm',registerUser.as_view(), name='registroForm'),
     path('ingresar',IniciarSesionView.as_view(), name='ingresar'),
