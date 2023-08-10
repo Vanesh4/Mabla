@@ -10,7 +10,7 @@ header{
     background-size: contain;
     background-repeat: no-repeat;
     height: 92vh;
-    padding: 20px;
+    padding: 20px 20px 0px 10px;
 }
 
 form{
@@ -24,6 +24,7 @@ form{
 }
 
 .textRegister{
+    margin-bottom: 10px;
     font-size: 60px;
     text-align: center;
     font-family: 'Martian Mono', monospace;
@@ -33,8 +34,7 @@ form{
     display: grid;
     grid-template-columns: auto auto;
     font-size: 30px;
-    justify-content: space-around;
-    margin: 50px 20px 20px 50px;
+    margin: 40px 0px 30px 50px;    
 }
 
 input{
@@ -42,41 +42,23 @@ input{
     flex-direction: column;
     border-radius: 8px;
     height:35px;
-    /* margin: 12px 0px 15px 0px; */
+    width: 85%;
+    margin-top: 12px;
     padding-left: 10px;
     border: none;
     font-family: 'Raleway', sans-serif;
     font-size: 18px;
+    background-color: #fff7ea;
+    outline: none;
 }
-/* #ph{
-    grid-column: 1;
-    grid-row: 1;
+.inputs{
+    margin-bottom: 25px;
+    padding: 0px 40px 0px 40px;
 }
-#apellido{
-    grid-column: 2;
-    grid-row: 1;
-}
-#correo{
-    grid-column: 1;
-    grid-row: 2;
-}
-#alias{
-    grid-column: 2;
-    grid-row: 2;
-    font-size: 26px;
-    margin-top: 20px;
-}
-#clave{
-    grid-column: 1;
-    grid-row: 3;
-}
-#clave1{  
-    grid-column: 2;
-    grid-row: 3;
-} */
 #boton{
     display: flex;
     justify-content: center;
+    margin-top: 50px;
 }
 #colorbtn{
     background:  #ff731c;
@@ -86,7 +68,6 @@ input{
     border-radius: 10px;
     padding: 15px;
     border: none;
-    margin-top: 25px;
 }
 
 .imgyText{
@@ -96,6 +77,9 @@ input{
     height: 75%;
     justify-content: end;
     align-self: flex-end;
+    margin-top: 50px;
+    padding-top: 50px;
+    margin-left: 50px;
     /* padding: 0px 35px 15px 50px; */
 }
 
@@ -115,8 +99,8 @@ input{
 #capi{
     margin-top: 50px;
     padding-top: 50px;
-    width: 40%;
-    height: 50%;    
+    width: 44%;
+    height: 55%;    
 }
 /* .warning-message {
     color: red;

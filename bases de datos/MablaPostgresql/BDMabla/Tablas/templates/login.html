@@ -14,30 +14,29 @@
   </head>
 <body>
   <header>
-    <div id="form">
     <form method="post" id="formLogin" class="row g-3">
       <div class="textSesion">
         INICIAR SESIÓN
       </div>
       {% csrf_token %}
-      {{form.as_div}}
-      <!-- <div class="col-md-8" id="ph">
-          <label for="{{ username_id }}" class="form-label"> Alias</label>
+      <section class="sectionForm">
+      <div class="col-md-8" id="ph">
+          <label for="{{ username }}" class="form-label"> Alias</label>
           {{ form.username }}
         </div>
         <div class="col-md-8" id="ph">
-          <label for="{{ password_id }}" class="form-label">Clave</label>
+          <label for="{{ password }}" class="form-label">Clave</label>
           {{ form.password }}
         </div>
         <div class="links">
           <a href="" class="as">Olvidaste tu contraseña?</a>
           <a href="http://127.0.0.1:8000/registroForm" class="as">Registrarme</a>
         </div>
-        <div id="boton"> -->
+        <div id="boton">
           <button class="btn" type="submit" id="colorbtn">Ingresar</button>
-        <!-- </div> -->
+        </div>
+      </section>
       </form>
-    </div>
       <h1>{{ mensaje }}</h1>
       <div class="imgyText">
         <img id="mablaNaranja" src="/static/img/letrasMABLAnaranja.png" alt="" srcset="">
