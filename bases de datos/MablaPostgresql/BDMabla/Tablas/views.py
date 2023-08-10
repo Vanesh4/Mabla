@@ -274,6 +274,9 @@ def formIniciarSesion(request):
 def iniciohtml(request):
     return render(request,"inicio.html")
 
+def inicioConSesion(request):
+    return render(request,"inicioConSesion.html")
+
 def viewQuiz(request):
     return render(request,"quizTipo1.html")
 
