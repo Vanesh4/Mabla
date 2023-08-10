@@ -274,10 +274,11 @@ def formInsertUser(request):
 def formIniciarSesion(request):
     return render(request, "login.html")
 
-@login_required
+
 def iniciohtml(request):
     return render(request,"inicio.html")
 
+@login_required
 def inicioConSesion(request):
     return render(request,"inicioConSesion.html")
 

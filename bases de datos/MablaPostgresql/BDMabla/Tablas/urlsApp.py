@@ -25,7 +25,7 @@ urlpatterns = [
     path('deletePregunta/<int:pk>',deletePregunta.as_view(), name="deletePreg"),
 
     path('inicio',views.iniciohtml, name="inicio"),
-    path('iniciosesion',views.inicioConSesion, name="inicio"),
+    path('iniciosesion',views.inicioConSesion, name="iniciosesion"),
     path('quiz',views.viewQuiz, name="quiz"),
     path('menu',views.menuTodo, name="menu"),
     path('mostrar/',views.vercategorias, name="mostrar"),

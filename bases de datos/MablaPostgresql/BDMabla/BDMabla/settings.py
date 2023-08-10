@@ -52,13 +52,12 @@ MIDDLEWARE = [
     'django.middleware.common.CommonMiddleware',
 ]
 
-""" CORS_ALLOWED_ORIGINS = [
+CORS_ALLOWED_ORIGINS = [
     'http://192.168.137.1',
 ]
-"""
 
-AUTHENTICATION_BACKENDS =(
-    'django.contrib.auth.backends.ModelBackend'
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
 )
 
 LOGIN_URL = 'ingresar'

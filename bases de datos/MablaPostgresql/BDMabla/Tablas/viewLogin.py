@@ -50,7 +50,7 @@ class registerUser(View):
                     form.save()
                     print("se valido el formulario")
                     messages.success(request, 'Usuario registrado correctamente desde formulario HTML.')
-                    return redirect('inicio')
+                    return redirect('iniciosesion')
                 else:
                     messages.error(request, 'Error al registrar el usuario desde formulario HTML.')
                     print("no ingreso")
@@ -130,7 +130,7 @@ class IniciarSesionView(View):
             if user is not None:
                 login(request, user)
                 print("ya se tuvo que redirigir")
-                return redirect('quiz')  # Redirigir a la página de clientes
+                return redirect('iniciosesion')  # Redirigir a la página de clientes
           # Redirigir a otra página para otros roles
             else:
                 print("no funciono")
