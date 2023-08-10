@@ -27,7 +27,7 @@
 
     
         <!-- con inicio de sesion  --> 
-    <!-- <header class="header">
+    <header class="header">
         <div class="closeBtn">
             <img src="{% static 'img/cancelar.png'%}" alt="" id="imgBotonCerrarMenu">
         </div>
@@ -61,12 +61,11 @@
             </a>
 
         </div>    
-    </header> -->
+    </header>
     
-
-    <!-- sin iniciar sesion  --> 
+        <!-- sin iniciar sesion  --> 
     
-        <header class="header">
+        <!-- <header class="header">
         <div class="closeBtn">
             <img src="{% static 'img/cancelar.png'%}" alt="" id="imgBotonCerrarMenu">
         </div>
@@ -104,8 +103,8 @@
             </div>
             
         </div>    
-    </header>
-    
+    </header> -->    
+
     <section id="contenido">
         <div class="menuResponsive">
             <img src="{% static 'img/lista.png'%}" alt="" style="width: 40px;" id="imgBotonAbrirMenu">
@@ -134,6 +133,7 @@
                 <input name="btncomentar" type="submit" value="Comentar" class="inputEnviarComentario">
             {% else %}
                 <input name="btncomentar" type="submit" value="Comentar"  id="miDiv" class="inputEnviarComentario">
+                <!-- <p id="msj">Debe iniciar sesion para poder comentar</p> -->
             {% endif %}
 
         </div>
