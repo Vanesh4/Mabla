@@ -22,7 +22,6 @@
       </div>
       {% csrf_token %}
       <section id="sectionform">
-        
             <div id="ph" class="inputs">
                 <label for="{{ form.first_name.id_for_label }}" id="lNombre"  >Nombre </label>
               <!-- <input type="text" class="form-control" id="validationNombre" required> -->
@@ -42,7 +41,7 @@
             </div>
 
             <div id="alias" class="inputs">
-                  <label for="{{ form.username.id_for_label }}" id="lAlias" >Nombre de usuario (Alias) </label>
+                  <label for="{{ form.username.id_for_label }}" id="lAlias" >Usuario (Alias) </label>
                 <!-- <input type="text" class="form-control" id="validationUsername" required> -->
                   {{ form.username }}
                   <!-- {% if form.username.errors %}
