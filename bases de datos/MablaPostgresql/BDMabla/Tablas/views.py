@@ -239,7 +239,7 @@ class deletePregunta(View):
         return JsonResponse({"mensaje":"Datos eliminados"})
 
 
-def subCategoriasDeCate(request, cat):
+def subCategoriasDeCate(cat):
     subCategorias = TablaSubcategoria.objects.filter(categoria=cat)
     subCatedeCate = [
         {
@@ -248,7 +248,22 @@ def subCategoriasDeCate(request, cat):
         }     
         for TablaSubcategoria in subCategorias   
     ]
-    return JsonResponse(subCatedeCate, safe=False)
+    #return JsonResponse(subCatedeCate, safe=False)
+    return subCatedeCate
+
+class ListaCategoriaSub(View):
+    def get(self, request):
+        categorias=TablaCategoria.objects.all()
+        datos_Categoria=[]
+        
+        print("siuuuuuuuuuuuuuu?")
+        for i in categorias:
+            #print(subCategoriasDeCate(i.Categoria))            
+            datos_Categoria.append({
+                'Categoria':i.Categoria,
+                'Subcategorias': subCategoriasDeCate(i.Categoria),
+            })
+        return JsonResponse(datos_Categoria, safe=False)
 
 def pregTipoCat(request, ti, cat):
     preguntas = TablaPreguntas.objects.filter(idCategoria_id=cat).filter(tipo=ti)
@@ -310,7 +325,6 @@ def subverbos(request):
     listav=TablaSubcategoria.objects.filter(categoria='Verbos') 
     return render(request, "consultando.html", {"subverbos":listav})
 
-    
 
 def subsustantivos(request):
     sustan=TablaSubcategoria.objects.filter(categoria='Sustantivos')

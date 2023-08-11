@@ -27,10 +27,7 @@ public class STablaPalabras {
         }
     }
 
-<<<<<<< HEAD
-=======
 
->>>>>>> 9ce82ef0b926b168dd41877d7d3c2c7aaf406211
 /*public String insertarpalabra(TablaPalabras t){
         for (TablaCategorias: Mostrartodo());{
             if (c.getCategoria() == repositorio.findByCategoria(t.getCategoria())){
