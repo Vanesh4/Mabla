@@ -7,6 +7,8 @@ from django.utils.decorators import method_decorator
 from django.views.decorators.csrf import csrf_exempt
 import json
 from Tablas.models import *
+from django.contrib.auth.decorators import login_required
+from django.utils.decorators import method_decorator
 
 """ #Sara
  #tabla usuario
@@ -93,12 +95,13 @@ class getTablaComment(View):
         registerComment=list(register)
         return JsonResponse(registerComment, safe=False)
 
-class insertComment(View):
+class postComment(View):
     #notacion
     @method_decorator(csrf_exempt)
     def dispatch(self, request, *args: Any, **kwargs):
         return super().dispatch(request, *args, **kwargs)
     
+    @method_decorator(login_required)
     def post(self, request):
         registerInsertComment=json.loads(request.body)
         request.POST.get('alias_id')
@@ -236,7 +239,7 @@ class deletePregunta(View):
         return JsonResponse({"mensaje":"Datos eliminados"})
 
 
-def subCategoriasDeCate(request, cat):
+def subCategoriasDeCate(cat):
     subCategorias = TablaSubcategoria.objects.filter(categoria=cat)
     subCatedeCate = [
         {
@@ -245,7 +248,35 @@ def subCategoriasDeCate(request, cat):
         }     
         for TablaSubcategoria in subCategorias   
     ]
-    return JsonResponse(subCatedeCate, safe=False)
+    #return JsonResponse(subCatedeCate, safe=False)
+    return subCatedeCate
+
+class ListaCategoriaSub(View):
+    def get(self, request):
+        categorias=TablaCategoria.objects.all()
+        datos_Categoria=[]
+        
+        print("siuuuuuuuuuuuuuu?")
+        for i in categorias:
+            #print(subCategoriasDeCate(i.Categoria))            
+            datos_Categoria.append({
+                'Categoria':i.Categoria,
+                'Subcategorias': subCategoriasDeCate(i.Categoria),
+            })
+        return JsonResponse(datos_Categoria, safe=False)
+
+def pregTipoCat(request, ti, cat):
+    preguntas = TablaPreguntas.objects.filter(idCategoria_id=cat).filter(tipo=ti)
+    
+    resPreguntas = [
+        {
+            'id': TablaPreguntas.id,
+            'senia': TablaPreguntas.senia,
+            'respuesta': TablaPreguntas.respuesta,            
+        }     
+        for TablaPreguntas in preguntas 
+    ]
+    return JsonResponse(resPreguntas, safe=False)
 
 #Usuario
 class usuarios(View):
@@ -258,8 +289,16 @@ def formInsertUser(request):
 def formIniciarSesion(request):
     return render(request, "login.html")
 
+
 def iniciohtml(request):
     return render(request,"inicio.html")
+
+@login_required
+def inicioConSesion(request):
+    return render(request,"inicioConSesion.html")
+
+def viewQuiz(request):
+    return render(request,"quizTipo1.html")
 
 def menuTodo(request):
     return render(request,"menu.html")
@@ -286,7 +325,6 @@ def subverbos(request):
     listav=TablaSubcategoria.objects.filter(categoria='Verbos') 
     return render(request, "consultando.html", {"subverbos":listav})
 
-    
 
 def subsustantivos(request):
     sustan=TablaSubcategoria.objects.filter(categoria='Sustantivos')

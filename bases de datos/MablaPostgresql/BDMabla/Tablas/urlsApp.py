@@ -13,7 +13,7 @@ urlpatterns = [
     #path('users',getUser.as_view(), name='users'),
     path('tablaComment',getTablaComment.as_view(), name='tablaComment'),
     #path('editUser/<pk>',editTablaUser.as_view(),name='editUser'),
-    path('insertComment',insertComment.as_view(),name='insertComment'),
+    path('postComment',postComment.as_view(),name='insertComment'),
     path('editComment/<pk>',editComment.as_view(),name='editComment/<pk>'),
     path('deleteComment/<pk>',deleteComment.as_view(),name='deleteComment/<pk>'),
     path('tablaPrueba',getTablaPrueba.as_view(),name='tablaPrueba'),
@@ -25,6 +25,8 @@ urlpatterns = [
     path('deletePregunta/<int:pk>',deletePregunta.as_view(), name="deletePreg"),
 
     path('inicio',views.iniciohtml, name="inicio"),
+    path('iniciosesion',views.inicioConSesion, name="iniciosesion"),
+    path('quiz',views.viewQuiz, name="quiz"),
     path('menu',views.menuTodo, name="menu"),
     path('mostrar/',views.vercategorias, name="mostrar"),
     path('mostrarsubcate/',views.versubcategorias, name="mostrarsubcate"),
@@ -46,5 +48,7 @@ urlpatterns = [
     path('deletepalabra/<pk>',deletepalabra.as_view(),name='deletepalabra'),
     path('getpalabrita/<pk>',getPalabraT.as_view(),name='getpalabrita'),
 
-    path('getSubcategorias/<cat>', views.subCategoriasDeCate, name='SucategoriasFiltradas')
+    path('getSubcategorias/<cat>', views.subCategoriasDeCate, name='SucategoriasFiltradas'),
+    path('preguntas/<ti>/<cat>', views.pregTipoCat, name='PreguntasFiltradas'),
+    path('listaCatSub', ListaCategoriaSub.as_view(), name='listaCatSub'),
 ]

@@ -1,6 +1,6 @@
 @font-face {
     font-family: "raleway";
-    src: url(/fonts/Raleway/Raleway-Regular.ttf);
+    src: url("/static/fonts/Raleway/Raleway-Regular.ttf");
 }
 
 *{
@@ -26,7 +26,7 @@ header{
 }
 #pregunta{
     font-size: 28px;
-    font-family: "raleway";
+    font-family: "raleway", Arial, Helvetica, sans-serif;
     margin-bottom: 20px;
     text-align: center;
 }
@@ -55,23 +55,26 @@ header{
     text-align: center;
     padding: 20px 0 20px 0;
 }
-#opcion1{
+#opcion0{
     background-color: #76037a;
     color: white;
 }
-#opcion2{
+#opcion1{
     background-color: #0a4d68;
     color: white;
 }
-#opcion3{
+#opcion2{
     background-color: #06bfdb;
 }
-#opcion4{
+#opcion3{
     background-color: #ff731c;
 }
 .imgflecha{
     width: 80px; 
     height: 80px;
+}
+#linkSenia{
+    width: 98%;
 }
 @media screen and (min-width: 320px) and (max-width: 700px) {
     header{
@@ -94,9 +97,30 @@ header{
     }
     #respuestas{
         margin-top: 20px;
+        margin-bottom: 30px;
         width: 100%;
         display: grid;
         grid-template-columns: 1fr;
         gap: 15px;
     }
+} 
+
+@media screen and (min-width: 1600px) {
+
+    #senia{
+        width: 400px;
+        height: 400px;
+    }
+    #sectionPregunta{
+        margin-top: 40px;
+        
+    }
+    #respuestas{
+        margin-top: 40px;
+        gap: 30px;
+    }
+    #pregunta{
+        margin-bottom: 30px;
+    }
+    
 } 

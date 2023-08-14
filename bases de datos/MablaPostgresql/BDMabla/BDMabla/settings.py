@@ -52,6 +52,17 @@ MIDDLEWARE = [
     'django.middleware.common.CommonMiddleware',
 ]
 
+CORS_ALLOWED_ORIGINS = [
+    'http://192.168.137.1',
+]
+
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
+)
+
+LOGIN_URL = 'ingresar'
+SESSION_COOKIE_AGE = 60
+
 ROOT_URLCONF = 'BDMabla.urls'
 
 TEMPLATES = [
@@ -84,7 +95,6 @@ DATABASES = {
         'DATABASE_PORT':'5432',
         'USER':'postgres',
         'PASSWORD':'0000',
-
     }
 }
 
@@ -130,4 +140,4 @@ STATICFILES_DIRS=(os.path.join(BASE_DIR,'Tablas/static'),)
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-#AUTH_USER_MODEL='Tablas.User'
+AUTH_USER_MODEL='Tablas.User'

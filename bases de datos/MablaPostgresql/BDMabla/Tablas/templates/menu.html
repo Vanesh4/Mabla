@@ -15,14 +15,14 @@
 </head>
 <body>
    
-    <header id="header">
+    <header class="header">
         <div class="closeBtn">
             <img src="{% static 'img/cancelar.png'%}" alt="" id="imgBotonCerrarMenu">
         </div>
-        <div id="parteizq">
+        <div class="parteizq">
             <div class="logo">
                 <a href="http://127.0.0.1:8000/inicio">
-                    <img src="" alt="cabipara" srcset="">
+                    <img src="{% static 'img/mablaLOGO-removebg.png'%}" alt="logo" class="logoImg">
                 </a>                
             </div>
             <div class="linkContenido">
@@ -38,17 +38,17 @@
                 </a>
             </div>
         </div>
-        <div id="partederecha">
+        <div class="partederecha">
             <div id="login">
                 <p id="BotonRegisto">
-                    <a href="http://127.0.0.1:8000/insertUserForm/inicio.html">Registrarme</a>
+                    <a href="http://127.0.0.1:8000/registroForm">Registrarme</a>
                 </p>
                 <p id="BotonIngresar">
-                    <a href="http://127.0.0.1:8000/login">Iniciar Sesión</a>
+                    <a href="http://127.0.0.1:8000/ingresar">Iniciar Sesión</a>
                 </p>
             </div>
-            <div id="buscador">
-                <input type="text" name="buscador" id="buscadorMenu" maxlength="20">
+            <div class="buscador">
+                <input  type="text" name="buscador" class="buscadorMenu" maxlength="20">
                 <img src="{% static 'img/lupa.png'%}" alt="lupa" style="width: 10%;">                
             </div>
             
@@ -56,8 +56,10 @@
     </header>
 
     <section id="menuContenido">
-        <div class="categoria">
-            <a href="http://127.0.0.1:8000/mostrar/"><h2></h2></a>
+        <!-- <div class="categoria">
+            <a href="http://127.0.0.1:8000/mostrar/">
+                <h2></h2>
+            </a>
         </div>
 
         <div class="categoria">
@@ -93,7 +95,7 @@
         <div class="categoria">
             <h2></h2>            
             
-        </div>
+        </div> -->
         
     </section>
 

@@ -21,9 +21,8 @@ public class CTablaCategorias {
         return serCategorias.getCategorias();
     }
 
-    @PostMapping("/postCategorias")
+    @PostMapping("/postCategorias/{cat}")
     public String insertCategoria(@RequestBody TablaCategorias cat){
-
         return serCategorias.PostCategoria(cat);
     }
 

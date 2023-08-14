@@ -2,9 +2,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registrate</title>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <link rel="stylesheet" type="text/css" href="{% static 'css/registro.css' %}">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,300;0,400;0,700;1,100&display=swap" rel="stylesheet">
@@ -15,13 +16,13 @@
 </head>
 <body>
   <header>
-    <form method="POST" id="formInsert" class="row g-3" enctype="multipart/form-data">
+    <form method="POST" action="/register" id="formInsert" class="row g-3" enctype="multipart/form-data">
       <div class="textRegister">
         REGISTRARME
       </div>
       {% csrf_token %}
       <section id="sectionform">
-            <div class="inputs" id="ph">
+            <div id="ph" class="inputs">
                 <label for="{{ form.first_name.id_for_label }}" id="lNombre"  >Nombre </label>
               <!-- <input type="text" class="form-control" id="validationNombre" required> -->
                 {{ form.first_name }}
@@ -31,9 +32,6 @@
                 <label for="{{ form.last_name.id_for_label }}" id="lApellido" >Apellido </label>
               <!-- <input type="text" class="form-control" id="validationApellido" required> -->
               {{ form.last_name }}
-                  {% if form.last_name.errors %}
-                    <p class="warning-message1">Por favor, corrige los siguientes errores:</p>
-                  {% endif %}
             </div>
 
             <div id="correo" class="inputs">
@@ -43,19 +41,23 @@
             </div>
 
             <div id="alias" class="inputs">
-                  <label for="{{ form.username.id_for_label }}" id="lAlias" >Nombre de usuario (Alias) </label>
+                  <label for="{{ form.username.id_for_label }}" id="lAlias" >Usuario (Alias) </label>
                 <!-- <input type="text" class="form-control" id="validationUsername" required> -->
                   {{ form.username }}
+                  <!-- {% if form.username.errors %}
+                    <p class="warning-message1">Por favor, corrige los siguientes errores:</p>
+                  {% endif %} -->
               </div>
               
             <div id="clave" class="inputs">
                 <label for="{{ form.password1.id_for_label }}" id="lClave1" >Clave </label>
               <!-- <input type="password" class="form-control" id="validationPassword" required> -->
               {{ form.password1 }}
-                  {% if form.errors %}
-                    <p class="warning-message">Por favor, corrige los siguientes errores:</p>
-                  {% endif %}
+                  <!-- {% if form.errors %}
+                    <p class="warning-message">La clave tiene que contener más de 8 caracteres, incluyendo al menor un número y al menos una mayúscula</p>
+                  {% endif %} -->
             </div>
+            
             <div id="clave1" class="inputs">
                 <label for="{{ form.password2.id_for_label }}" id="lClave2" >Confirma tu clave </label>
               <!-- <input type="password" class="form-control" id="validationPassword" required> -->
