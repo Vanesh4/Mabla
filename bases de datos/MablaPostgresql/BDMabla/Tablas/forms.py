@@ -7,13 +7,9 @@ from django import forms
 User = get_user_model()
 
 class registro(UserCreationForm):
-    class Meta:
-
-     password1= forms.CharField()
-
     class Meta:        
         model= User
-        fields= ['username','first_name', 'last_name', 'email', 'password', 'password1']
+        fields= ['username','first_name', 'last_name', 'email', 'password1', 'password2']
     
     def save(self, commit=True):
         user = super().save(commit=False)
@@ -26,3 +22,5 @@ class LoginForm(AuthenticationForm):
     class Meta:
         model = User
         fields = ['username', 'password']
+
+

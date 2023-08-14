@@ -5,80 +5,82 @@
 
 header{
     display: flex;
-    justify-content: space-between;
-    flex-wrap: nowrap;
+    justify-content: space-around;
     background-image: url("/static/img/picoSGV.svg");
     background-size: contain;
     background-repeat: no-repeat;
-    height: 40%;
-    background-color: #ff731c;
+    height: 92vh;
+    padding: 20px 20px 0px 10px;
 }
 
 form{
-    width: 55%;
-    background-color: red;
+    display: flex;
+    flex-direction: column;
     align-self: center;
     font-family: 'Raleway', sans-serif;
     color: white;
     font-size: 35px;
+    width: 50%;
 }
 
 .textRegister{
-    font-size: 50px;
+    margin-bottom: 10px;
+    font-size: 60px;
     text-align: center;
     font-family: 'Martian Mono', monospace;
-    margin-bottom: 25px;
 }
 
 #sectionform{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
+    display: grid;
+    grid-template-columns: auto auto;
     font-size: 30px;
-}
-
-.inputs{
-    display: flex;
-    flex-direction: column;
-    /* width: 25%; */
+    margin: 40px 0px 30px 50px;    
 }
 
 input{
+    display: flex;
+    flex-direction: column;
     border-radius: 8px;
-    height: 30px;
-    width: 200%;
-    margin-top: 10px;
+    height:35px;
+    width: 85%;
+    margin-top: 12px;
+    padding-left: 10px;
     border: none;
     font-family: 'Raleway', sans-serif;
-    font-size: 16px;
+    font-size: 18px;
+    background-color: #fff7ea;
+    outline: none;
 }
-
-#alias{
-    width: 25%;
+.inputs{
+    margin-bottom: 25px;
+    padding: 0px 40px 0px 40px;
 }
-
 #boton{
     display: flex;
     justify-content: center;
-    margin-top: 40px;  
+    margin-top: 50px;
 }
-
 #colorbtn{
     background:  #ff731c;
     color: white;
-    font-size: 35px;
+    font-size: 32px;
     font-family: 'Raleway', sans-serif;
     border-radius: 10px;
-    padding: 10px;
+    padding: 15px;
+    border: none;
 }
 
 .imgyText{
     display: flex;
     flex-wrap: wrap;
-    width: 43%;  
-    height: 100%;
+    width: 40%;  
+    height: 75%;
     justify-content: end;
-    padding: 10% 5px 0px 10px;
+    align-self: flex-end;
+    margin-top: 50px;
+    padding-top: 50px;
+    margin-left: 50px;
+    /* padding: 0px 35px 15px 50px; */
 }
 
 #mablaNaranja{
@@ -89,26 +91,22 @@ input{
     font-family: 'Martian Mono', monospace;                                                                                                                                                                                                                                                                                                                                                
     color:  #ff731c;   
     margin-top: 30px; 
-    margin-right: 50px;    
+    margin-bottom: 50px;
+    margin-right: 40px;    
     font-size: 40px;       
 }
 
 #capi{
-    margin-top: 25%;
-    margin-left: 50px;
-    width: 39%;
-    height: 60%;    
+    margin-top: 50px;
+    padding-top: 50px;
+    width: 44%;
+    height: 55%;    
 }
-.warning-message {
+/* .warning-message {
     color: red;
     font-weight: bold;
-    font-size: 13px;
-}
-.warning-message1 {
-    color: white;
-    font-weight: bold;
-    font-size: 13px;
-}
+    font-size: 16px;
+} */
 @media screen and (min-width:320px) and (max-width:700px){
     header{
         background-image: url("/img/picoResponsiveRegistro.svg");

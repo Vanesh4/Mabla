@@ -18,22 +18,22 @@ input{
     outline: none;
     background-color: transparent;
 }
-#header{
+.header{
     display: flex;
     justify-content: space-between;
 }
-#parteizq{
+.parteizq{
     width: 40%;
 }
-#partederecha{
+.partederecha{
     width: 60%;
 }
-#parteizq, #partederecha{
+.parteizq, .partederecha{
     display: flex;
     align-items: center;
     justify-content: center;
 }
-#logoImg{
+.logoImg{
     width: 50px;
 }
 .linkContenido{
@@ -69,7 +69,7 @@ input{
 #BotonRegisto{
     padding: 7px 13px 0 20px;
 }
-#buscador{
+.buscador{
     width: 35%;
     display: flex;
     border: 2px solid black;
@@ -78,7 +78,7 @@ input{
     
 }
 
-#buscadorMenu{
+.buscadorMenu{
     border: none;
     margin-left: 10px;
     width: 90%;
@@ -89,30 +89,40 @@ input{
 .closeBtn{
     visibility: hidden;
 }
+#fotoUser{
+    border-radius: 100%;
+    height: 60px;
+    margin-left: 30px;
+}
 @media screen and (min-width:320px) and (max-width:700px){
-    #header{        
-        /* justify-content: center;
-        flex-direction: column;
-        align-self: center; */
+    .header{        
         height:100vh;
         display: none;
     }
     .menuResponsive{
         display: inherit;
     }
-    #parteizq, #partederecha{
+    .parteizq, .partederecha{
         display: flex;
         flex-direction: column;
-        /* justify-content: center; */
         align-items: center;
         width: 100%;
         height: 48%;
     }
-    #parteizq{
+    .parteizq{
         justify-content: flex-end;
     }
-    #partederecha{
+    .partederecha{
         justify-content: flex-start;
+    }
+    #LogeoParteDerecha{
+        flex-direction: column-reverse;
+        align-self: center;
+        margin-top: 0;
+    }
+    #fotoUser{
+        height: 80px;
+        margin-left: 0px;
     }
     .linkContenido{
         padding: 10px 0 0 0;
@@ -142,14 +152,14 @@ input{
     #BotonIngresar{
         background-color: #06bfdb;
     }
-    #buscador{
+    .buscador{
         width: 80%;
         display: flex;
         padding: 3px;
         margin-left: 0;
         margin-top: 20px;
     }
-    #logoImg{
+    .logoImg{
         width: 200px;
     }
     .closeBtn{
