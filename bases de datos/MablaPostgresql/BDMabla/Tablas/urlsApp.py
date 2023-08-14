@@ -42,9 +42,12 @@ urlpatterns = [
     path('deletesubcate/<pk>',deletesubcategoria.as_view(),name='deletesubcate'),
 
     path('getpalabra',getpalabra.as_view(),name='getpalabra'),
+    path('getpalsubcate',getPalabrassubcate.as_view(),name='getpalsubcate'),
     path('postpalabra',postpalabra.as_view(),name='postpalabra'),
     path('deletepalabra/<pk>',deletepalabra.as_view(),name='deletepalabra'),
     path('getpalabrita/<pk>',getPalabraT.as_view(),name='getpalabrita'),
 
-    path('getSubcategorias/<cat>', views.subCategoriasDeCate, name='SucategoriasFiltradas')
+    path('getSubcategorias/<cat>', views.subCategoriasDeCate, name='SucategoriasFiltradas'),
+    path('getpalabrassub/<subcate>', views.palabrasdesubcate, name='palabrasFiltradas'),
+    path('getpalabrasdiccio/<inicial>', views.buscar_por_inicial, name='getpalabrasdiccio')
 ]

@@ -8,9 +8,10 @@
     <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/fontawesome.js" integrity="sha384-7ox8Q2yzO/uWircfojVuCQOZl+ZZBg2D2J5nkpLqzH1HY0C1dHlTKIbpRz/LG23c" crossorigin="anonymous"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js" integrity="sha384-SlE991lGASHoBfWbelyBPLsUlwY1GwNDJo3jSJO04KZ33K2bwfV9YBauFfnzvynJ" crossorigin="anonymous"></script>
     <title>Diccionario MABLA</title>
-    <link rel="stylesheet" href="{% static 'css/diccionario.css'%}">
+    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <link rel="icon" type="image/x-icon" href="{% static 'img/mablaLOGO-removebg.png' %}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- <link rel="icon" type="image/x-icon" href="{% static 'img/mablaLOGO-removebg.png' %}"> -->
 </head>
 <body>
 
@@ -21,82 +22,86 @@
                 <ul class="list_show">
                     <!-- <span class="hider" id="hide_abc"></span> -->
                     <li class="list_inside">
-                        <a href="#" class="nav_link">A</a> 
+                        <a href="#" id="enlace" data-valor="A" class="nav_link">A</a>      
                     </li>   
                     <li class="list_inside">
-                        <a href="#" class="nav_link">B</a> 
+                        <a href="#" id="enlace" data-valor="B"  class="nav_link">B</a> 
                     </li>
                     <li class="list_inside">
-                        <a href="#" class="nav_link">C</a> 
+                        <a href="#" id="enlace" data-valor="C"  class="nav_link">C</a> 
                     </li>
                     <li class="list_inside">
-                        <a href="#" class="nav_link">D</a> 
+                        <a href="#" id="enlace" data-valor="D"  class="nav_link">D</a> 
                     </li>
                     <li class="list_inside">
-                        <a href="#" class="nav_link">E</a> 
+                        <a href="#" id="enlace" data-valor="E"  class="nav_link">E</a> 
                     </li>
                     <li class="list_inside">
-                        <a href="#" class="nav_link">F</a> 
+                        <a href="#" id="enlace" data-valor="F"  class="nav_link">F</a> 
                     </li>
                     <li class="list_inside">
-                        <a href="#" class="nav_link">G</a> 
+                        <a href="#" id="enlace" data-valor="G"  class="nav_link">G</a> 
                     </li>   
                     <li class="list_inside">
-                        <a href="#" class="nav_link">H</a> 
+                        <a href="#" id="enlace" data-valor="H"  class="nav_link">H</a> 
                     </li>
                     <li class="list_inside">
-                        <a href="#" class="nav_link">I</a> 
+                        <a href="#" id="enlace" data-valor="I"  class="nav_link">I</a> 
                     </li>
                     <li class="list_inside">
-                        <a href="#" class="nav_link">J</a> 
+                        <a href="#" id="enlace" data-valor="J"  class="nav_link">J</a> 
                     </li>
                     <li class="list_inside">
-                        <a href="#" class="nav_link">K</a> 
+                        <a href="#" id="enlace" data-valor="K"  class="nav_link">K</a> 
                     </li>
                     <li class="list_inside">
-                        <a href="#" class="nav_link">L</a> 
+                        <a href="#" id="enlace" data-valor="L"  class="nav_link">L</a> 
                     </li>
                     <li class="list_inside">
-                        <a href="#" class="nav_link">M</a> 
+                        <a href="#" id="enlace" data-valor="M"  class="nav_link">M</a> 
                     </li>   
                     <li class="list_inside">
-                        <a href="#" class="nav_link">N</a> 
+                        <a href="#" id="enlace" data-valor="N"  class="nav_link">N</a> 
+                    </li>
+                  
+                    <li class="list_inside">
+                        <a href="#" id="enlace" data-valor="Ñ" class="nav_link">Ñ</a> 
                     </li>
                     <li class="list_inside">
-                        <a href="#" class="nav_link">Ñ</a> 
+                        <a href="#" id="enlace" data-valor="O"  class="nav_link">O</a> 
                     </li>
                     <li class="list_inside">
-                        <a href="#" class="nav_link">O</a> 
+                        <a href="#" id="enlace" data-valor="P"  class="nav_link">P</a> 
                     </li>
                     <li class="list_inside">
-                        <a href="#" class="nav_link">P</a> 
+                        <a href="#" id="enlace" data-valor="Q" class="nav_link">Q</a> 
                     </li>
                     <li class="list_inside">
-                        <a href="#" class="nav_link">Q</a> 
-                    </li>
-                    <li class="list_inside">
-                        <a href="#" class="nav_link">R</a> 
+                        <a href="#" id="enlace" data-valor="R" class="nav_link">R</a> 
                     </li>   
                     <li class="list_inside">
-                        <a href="#" class="nav_link">S</a> 
+                        <a href="#" id="enlace" data-valor="S" class="nav_link">S</a> 
                     </li>
                     <li class="list_inside">
-                        <a href="#" class="nav_link">T</a> 
+                        <a href="#" id="enlace" data-valor="T" class="nav_link">T</a> 
                     </li>
                     <li class="list_inside">
-                        <a href="#" class="nav_link">U</a> 
+                        <a href="#" id="enlace" data-valor="U"  class="nav_link">U</a> 
                     </li>
                     <li class="list_inside">
-                        <a href="#" class="nav_link">V</a> 
+                        <a href="#" id="enlace" data-valor="V" class="nav_link">V</a> 
                     </li>
                     <li class="list_inside">
-                        <a href="#" class="nav_link">X</a> 
+                        <a href="#" id="enlace" data-valor="W" class="nav_link">V</a> 
                     </li>
                     <li class="list_inside">
-                        <a href="#" class="nav_link">Y</a> 
+                        <a href="#" id="enlace" data-valor="X" class="nav_link">X</a> 
                     </li>
                     <li class="list_inside">
-                        <a href="#" class="nav_link">Z</a> 
+                        <a href="#" id="enlace" data-valor="Y" class="nav_link">Y</a> 
+                    </li>
+                    <li class="list_inside">
+                        <a href="#" id="enlace" data-valor="Z" class="nav_link">Z</a> 
                     </li>
                    
     
@@ -108,7 +113,7 @@
       
         <div class="cajaboton" id="hider_btn"> 
                   
-            <img src="{% static 'img/flecha-apunta-a-la-izquierda.png'%}" alt="flecha" style="width: 50%;">
+            <img id="flecha" src="{% static 'img/flecha-apunta-a-la-izquierda.png'%}" alt="flecha" style="width: 50%;">
             <h1 class="ver" style="padding-top: 7px;">ver</h1>  
         </div>
 
@@ -121,34 +126,21 @@
             </p>
         </div>
 
-        <div id="buscador">
-            <input type="text" name="buscador" id="buscadorMenu" maxlength="20">
-            <img src="{% static 'img/lupa.png'%}" alt="lupa" style="width: 10%;">                
-        </div>
+        <form id="buscador">
+            <label for="inicial"></label>
+            <input style="width: 90%; margin-left: 10px;" type="text" id="inicial" name="inicial">
+            <button style="background-color: transparent; border: none;" type="submit" ><img src="{% static 'img/lupa.png'%}" alt="" style="height: 30px;"></button>
+        </form>
+        
+        
 
             
     </section>
 
     <section class="caja2">
-        <div class="resul">
-
-            <table id="listadopalabras">
-                <thead>
-                    <tr>
-                        <th>Palabras</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {%for i in palabrita %}
-        
-                    <tr>
-                        <td>{{i.Palabra}}</td>
-                    </tr>
-        
-                    {%endfor%}
-                </tbody> 
-            </table>
-
+        <div id="results">
+            
+            <!-- Los resultados se mostrarán aquí -->
         </div>
 
        
@@ -156,6 +148,6 @@
         <script src="{%static 'js/diccionario.js'%}"></script>  
     </section>
 
-    
+    <link rel="stylesheet" href="{% static 'css/diccionario.css'%}">
 </body>
 </html>
