@@ -25,7 +25,6 @@ public class STablaCategorias {
     public String PostCategoria(TablaCategorias c){
         if (repCategorias.findById(c.getCategoria()).isPresent()){
             return "La Categoria ya existe";
-
         }
         else {
             repCategorias.save(c);
