@@ -1,75 +1,73 @@
+*{
+    padding: 0px;
+    margin: 0px;
+}
+
 header{
     display: flex;
-    justify-content: space-between;
-    flex-wrap: nowrap;
+    justify-content: space-around;
     background-image: url("/img/picoSGV.svg");
     background-size: contain;
     background-repeat: no-repeat;
-    align-self: flex-start;
-    height: 900px;
+    height: 92vh;
+    padding: 20px 20px 0px 10px;
 }
 
 form{
-    justify-content: center;
-    align-content: center;
-    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-self: center;
     font-family: 'Raleway', sans-serif;
     color: white;
-    font-size: 25px;
-    padding: 0px 50px 50px 50px;
+    font-size: 35px;
+    width: 55%;
+}
+.textRegister{
+     margin-bottom: 10px;
+     font-size: 60px;
+     text-align: center;
+     font-family: 'Martian Mono', monospace;
+}
+#sectionform{
+    display: grid;
+    grid-template-columns: auto auto;
+    font-size: 30px;
+    margin: 40px 0px 30px 50px;
 }
 
 input{
-    width: 50%;
-    height: 50%;
-    border-radius: 100px;
-}
-
-#sectionform{
     display: flex;
-    flex-wrap: wrap;
-}
-#sectionform .inputs{
-  padding-left: 50px;  
-  margin-top: 20px;
+    flex-direction: column;
+    border-radius: 8px;
+    height:35px;
+    width: 75%;
+    margin-top: 12px;
+    padding-left: 10px;
+    border: none;
+    font-family: 'Raleway', sans-serif;
+    font-size: 18px;
+    background-color: #fff7ea;
+    outline: none;
 }
 .inputs{
-    width: 50%;
-}
-.textRegister{
-    font-size: 50px;
-    text-align: center;
-    font-family: 'Martian Mono', monospace;
-    margin-bottom: 25px;
-}
-#alias{
-    font-size: 19px;
+  margin-bottom: 25px;
+  padding: 0px 40px 0px 40px;
 }
 #boton{
     display: flex;
     justify-content: center;
-    margin-top: 40px;  
+    margin-top: 50px;
 }
 #colorbtn{
     background:  #ff731c;
     color: white;
-    font-size: 30px;
+    font-size: 32px;
+    font-family: 'Raleway', sans-serif;
+    border-radius: 10px;
+    padding: 15px;
+    border: none;
 }
-#validationNombre{
-    background-color: rgb(252,244,234);
-}
-#validationApellido{
-    background-color: rgb(252,244,234);
-}
-#validationTelefono{
-    background-color: rgb(252,244,234);
-}
-#validationCorreo{
-    background-color: rgb(252,244,234);
-}
-#validationUsername{
-    background-color: rgb(252,244,234);
-}
+
 #mensaje-error{
     color: red;
     font-size: 23px;
@@ -77,15 +75,16 @@ input{
     padding-top: 5px;
      
 }
-#validationPassword{
-    background-color: rgb(252,244,234);
-}
 .imgyText{
     display: flex;
     flex-wrap: wrap;
-    width: 43%;  
+    width: 40%;
+    height: 75%;
     justify-content: end;
-    padding: 10% 5px 0px 10px;
+    align-self: flex-end;
+    margin-top: 50px;
+    padding-top: 50px;
+    margin-left: 50px;
 }
 #mablaNaranja{
     width: 100%; 
@@ -94,17 +93,16 @@ input{
     font-family: 'Martian Mono', monospace;                                                                                                                                                                                                                                                                                                                                                
     color:  #ff731c;   
     margin-top: 30px; 
-    margin-right: 50px;    
-    font-size: 40px;       
+    margin-bottom: 50px;
+    margin-right: 40px;
+    font-size: 40px;
 }
+
 #capi{
-    margin-top: 25%;
-    margin-left: 50px;
-    width: 39%;
-    height: 50%;    
-}
-#clave{
     margin-top: 50px;
+    padding-top: 50px;
+    width: 44%;
+    height: 55%;
 }
 
 @media screen and (min-width:320px) and (max-width:700px){

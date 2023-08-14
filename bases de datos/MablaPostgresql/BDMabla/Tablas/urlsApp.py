@@ -50,11 +50,6 @@ urlpatterns = [
     path('getpalabrita/<pk>',getPalabraT.as_view(),name='getpalabrita'),
 
     path('getSubcategorias/<cat>', views.subCategoriasDeCate, name='SucategoriasFiltradas'),
-<<<<<<< HEAD
-    path('getpalabrassub/<subcate>', views.palabrasdesubcate, name='palabrasFiltradas'),
-    path('getpalabrasdiccio/<inicial>', views.buscar_por_inicial, name='getpalabrasdiccio')
-=======
     path('preguntas/<ti>/<cat>', views.pregTipoCat, name='PreguntasFiltradas'),
     path('listaCatSub', ListaCategoriaSub.as_view(), name='listaCatSub'),
->>>>>>> 3d80b7f9a93e24e8febccbf90ae0fa844e599d48
 ]
