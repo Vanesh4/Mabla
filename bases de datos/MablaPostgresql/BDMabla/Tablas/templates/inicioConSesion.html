@@ -129,12 +129,9 @@
         <div class="paraComentar">
             <textarea id="comentar" placeholder="Escribe tu comentario..."></textarea>
 
-            {% if request.user.is_authenticated %}
-                <input name="btncomentar" type="submit" value="Comentar" class="inputEnviarComentario">
-            {% else %}
-                <input name="btncomentar" type="submit" value="Comentar"  id="miDiv" class="inputEnviarComentario">
-                <!-- <p id="msj">Debe iniciar sesion para poder comentar</p> -->
-            {% endif %}
+            
+            <input name="btncomentar" type="submit" value="Comentar" class="inputEnviarComentario" id="btnComentar">
+            
 
         </div>
 
