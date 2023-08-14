@@ -54,7 +54,10 @@ header{
     font-size: 28px;
     text-align: center;
     padding: 20px 0 20px 0;
+    border: none;
+    /* box-shadow:  0px 0px 20px green; */
 }
+
 #opcion0{
     background-color: #76037a;
     color: white;

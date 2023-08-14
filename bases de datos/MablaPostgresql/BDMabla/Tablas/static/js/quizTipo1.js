@@ -43,7 +43,7 @@ $(document).ready (()=>{
             img = document.createElement("img")
             img.setAttribute("id","linkSenia")
             // console.log(res[1][0]) //id de la pregunta
-            img.setAttribute("src", res[0][2]) // res[1] el segundo arreglo que trae de las respuestas (aleatorio con el res.length)
+            img.setAttribute("src", res[0].senia) // res[1] el segundo arreglo que trae de las respuestas (aleatorio con el res.length)
             divsenia.appendChild(img)
 
             for (let i = 0; i < 4; i++) {
@@ -53,9 +53,9 @@ $(document).ready (()=>{
                 respuestasIncorrectas.splice(pos, 1);
             }
 
-            console.log("src: ",res[0][2])
-            console.log("src: ",res[0].respuesta)
-            resCorrecta.innerHTML = res[0][1]            
+            /* console.log("src: ",res[0].senia)
+            console.log("src: ",res[0].respuesta) */
+            resCorrecta.innerHTML = res[0].respuesta            
             
         }
     })   

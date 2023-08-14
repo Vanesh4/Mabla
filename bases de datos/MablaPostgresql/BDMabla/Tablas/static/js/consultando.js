@@ -1,16 +1,97 @@
+
+
+
+$(document).ready(function () {
+
+contenedor = document.querySelector("#list")
+
+    
+$.ajax({
+    url: "http://127.0.0.1:8000/getcate",
+    type: "GET",
+    dataType: "JSON",      
+    success: function (res) {    
+        console.log("categorias",res)               
+        for(let x = 0; x<=res.length; x++) {
+            console.log("hollaaaaaa",res[x])
+            contenedorli=document.createElement("li")
+            contenedorli.setAttribute("class","list_item list_item--click")
+
+            divcategoria=document.createElement("div")
+            divcategoria.setAttribute("class","list_button list_button--click")
+            console.log("creacion del div",divcategoria)
+
+            imgdesplegar=document.createElement("img")
+            imgdesplegar.setAttribute("src","/img/flecha-apunta-a-la-derecha.png")
+            imgdesplegar.setAttribute("class","list_arrow")
+
+            h1categoria = document.createElement("h1")    
+            h1categoria.setAttribute("class","categorias")
+            h1categoria.innerHTML = res[x].Categoria
+            console.log("si se esta escribiendo la categoria", h1categoria)          
+            divcategoria.appendChild(h1categoria)
+            divcategoria.appendChild(imgdesplegar)
+            contenedorli.appendChild(divcategoria)
+            contenedor.appendChild(contenedorli)
+          
+
+            console.log("los datos",contenedorli)
+
+         
+            subdecategorias=res[x].Subcategorias
+            console.log("subcategorias ijuemadre",subdecategorias)
+            for(let s=0; s<subdecategorias.length; s++){
+        
+                contenedorsub=document.createElement("ul")
+                contenedorsub.setAttribute("class", "list_show")
+
+                li = document.createElement("li")
+                li.setAttribute("class","list_inside")    
+
+                a=document.createElement("a")
+                a.setAttribute("class","nav_link nav_link--inside")                      
+                a.innerHTML=subdecategorias[s].subcategoria
+                console.log("que hay en a",a)
+                li.appendChild(a)
+                contenedorsub.appendChild(li)
+                contenedorli.appendChild(contenedorsub)
+
+                console.log("viendo mi html",contenedorli)
+
+
+
+                
+            } 
+            
+            contenedor.appendChild(contenedorli)
+
+                
+        }
+
+
+    }  
+    
+    
+
+})
+})
+
+
+
 let listElements=document.querySelectorAll('.list_button--click');
 
-listElements.forEach(listElement => {
+console.log("viendo js desplegable")
+
+listElements.forEach(listElement=>{
+    console.log("holaaa si entra a foreach")
     listElement.addEventListener('click',()=>{
-
-        listElement.classList.toggle('arrow');
-
+        console.log("dando click en la fecha")
+        listElement.classList.toggle('.arrow');
         let height=0;
         let menu=listElement.nextElementSibling;
         if(menu.clientHeight=="0"){
             height=menu.scrollHeight
         }
-
         menu.style.height =`${height}px`;
 
     })
@@ -18,7 +99,8 @@ listElements.forEach(listElement => {
 }); 
 
 
-function consultarCategoria(){
+
+/* function consultarCategoria(){
 
     fetch("http://127.0.0.1:8000/getcate",{
         method:"GET",
@@ -44,7 +126,55 @@ function consultarCategoria(){
             }
         }
     })
-}
+} */
+
+
+/* $(document).ready(function () {
+    
+    titulosCat = document.querySelectorAll('h1')
+    divsCategorias = document.querySelectorAll('.list')
+    uldesubcate=document.querySelectorAll('.list_item .list_item--click')
+    lia=document.querySelector('.list_inside')
+    console.log("porfis",divsCategorias)
+    
+    $.ajax({
+        url: "http://127.0.0.1:8000/getcate",
+        type: "GET",
+        dataType: "JSON",
+        success: function (res) {
+            
+            console.log(res)
+            for(i = 0; i <= titulosCat.length ; i++){
+                //console.log(res[i].Categoria)                
+                titulosCat[i].innerHTML = res[i].Categoria
+                
+                $.ajax({
+                    url: "http://127.0.0.1:8000/getSubcategorias/"+res[i].Categoria,
+                    type: "GET",
+                    dataType: "JSON",
+                    success: function (resSubcate) {  
+                    
+                        console.log("subcates",resSubcate)                              
+                        for (let s = 0; s < resSubcate.length; s++) {
+                            
+                                a=document.createElement("a")
+                                a.setAttribute("class","nav_link nav_link--inside")                       
+                                a.innerHTML = resSubcate[s].subcategoria                                                      
+                                lia.appendChild(a)
+                            
+                                                                                               
+                        }           
+                        
+                    } 
+                })
+                
+            }           
+            
+        } 
+    })
+    
+    
+}) */
 
 /* let hideText_btn=document.getElementById('hideText_btn');
 
@@ -64,7 +194,7 @@ function toggleText(){
 } */
 
 
-$(document).ready(function () {
+/* $(document).ready(function () { */
     
  /*    titulosCat = document.querySelectorAll('h1')
     $.ajax({
@@ -81,7 +211,7 @@ $(document).ready(function () {
     }) */
 
     
-    $.ajax({
+/*     $.ajax({
         url: "http://127.0.0.1:8000/getcate", 
         type: "GET",
         dataType: "JSON",      
@@ -100,21 +230,6 @@ $(document).ready(function () {
                 divcategoria.appendChild(h1categoria)
 
             
-               /*  subcategorias=res[x].tablaSubcategorias
-                for(let s=0; s<subcategorias.length; s++){
-
-                    contenedorul=document.createElement("ul")
-                    contenedorul.setAttribute("class", "list_show")
-
-                    li = document.createElement("li")
-                    li.setAttribute("class","list_inside")
-
-                    a=document.createElement("a")
-                    a.setAttribute("class","nav_link nav_link--inside")                      
-                    a.innerHTML=subcategorias[s].subcategoria
-                    contenedorul.appendChild(li)
-                    li.appendChild(a)
-                } */
                 
 
 
@@ -123,10 +238,10 @@ $(document).ready(function () {
         }    
 
     })
+ */
 
 
-
-    $.ajax({
+/*     $.ajax({
         url: "http://127.0.0.1:8000/getsubcate",
         type: "GET",
         dataType: "JSON",
@@ -172,11 +287,11 @@ $(document).ready(function () {
 
 
 
-})
+}) */
 
 
 
-$(document).ready(function () {
+/* $(document).ready(function () {
     
     titulosSubcat = document.querySelectorAll('a')
     console.log(titulosSubcat)
@@ -192,7 +307,7 @@ $(document).ready(function () {
             
         } 
     })
-})
+}) */
 
 
 /* function mostrarsubcate(){
