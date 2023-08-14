@@ -6,6 +6,7 @@ import 'package:mabla/screen/quiz.dart';
 import 'package:mabla/screen/registro.dart';
 import 'package:mabla/screen/menu.dart';
 import 'package:mabla/screen/consultar.dart';
+import 'package:mabla/screen/prueba.dart';
 
 void main() {
   runApp(const MyApp());

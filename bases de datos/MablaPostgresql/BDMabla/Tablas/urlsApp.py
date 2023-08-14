@@ -44,10 +44,20 @@ urlpatterns = [
     path('deletesubcate/<pk>',deletesubcategoria.as_view(),name='deletesubcate'),
 
     path('getpalabra',getpalabra.as_view(),name='getpalabra'),
+    path('getpalsubcate',getPalabrassubcate.as_view(),name='getpalsubcate'),
     path('postpalabra',postpalabra.as_view(),name='postpalabra'),
     path('deletepalabra/<pk>',deletepalabra.as_view(),name='deletepalabra'),
     path('getpalabrita/<pk>',getPalabraT.as_view(),name='getpalabrita'),
 
+<<<<<<< HEAD
+=======
+    path('getSubcategorias/<cat>', views.subCategoriasDeCate, name='SucategoriasFiltradas'),
+<<<<<<< HEAD
+    path('getpalabrassub/<subcate>', views.palabrasdesubcate, name='palabrasFiltradas'),
+    path('getpalabrasdiccio/<inicial>', views.buscar_por_inicial, name='getpalabrasdiccio')
+=======
+>>>>>>> c2d2257dc17516b07894d046b868a349a3e6c841
     path('preguntas/<ti>/<cat>', views.pregTipoCat, name='PreguntasFiltradas'),
     path('listaCatSub', ListaCategoriaSub.as_view(), name='listaCatSub'),
+>>>>>>> 3d80b7f9a93e24e8febccbf90ae0fa844e599d48
 ]
