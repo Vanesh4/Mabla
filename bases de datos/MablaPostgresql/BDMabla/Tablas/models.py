@@ -38,8 +38,8 @@ class TablaPreguntas(models.Model):
     #numeroPregunta = models.AutoField(primary_key=True)
     tipo = models.PositiveIntegerField(verbose_name="Tipo")
     idCategoria = models.ForeignKey(TablaCategoria, null=False, on_delete=models.CASCADE)
-    senia = models.TextField()
-    respuesta = models.TextField(max_length=50)
+    pregunta = models.TextField()
+    respuesta = models.TextField()
 
 class TablaPrueba(models.Model):
     tipoPrueba= models.PositiveSmallIntegerField(null=False)

@@ -21,10 +21,10 @@ public class STablaUsuario {
     public Optional<TablaUsuario> myuser(String alias){
         return repositorioUser.findById(alias);
     }
-    public boolean iniciarSesion(String alias, String clave){
+    /*public boolean iniciarSesion(String alias, String clave){
         if (repositorioUser.findById(alias).isPresent()) return Objects.equals(repositorioUser.findById(alias).get().getContrasenia(), clave);
         else return false;
-    }
+    }*/
     public boolean insertUser(TablaUsuario user){
         if(repositorioUser.findById(user.getAlias()).isPresent())
             return false;
