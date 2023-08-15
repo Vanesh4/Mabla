@@ -11,7 +11,7 @@ from django.db import models
     #user= models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='User', null=True, blank=True)
 """
 class User(AbstractUser):
-    imgPerfil=models.ImageField(default='user.png', upload_to='img/', null=True, blank=True)
+    imgPerfil=models.ImageField(upload_to='img/', null=True, blank=True)
     alias=models.TextField(primary_key=True, max_length=30)
     #alias= models.OneToOneField(TablaUsuario,primary_key=True, on_delete=models.CASCADE)
 

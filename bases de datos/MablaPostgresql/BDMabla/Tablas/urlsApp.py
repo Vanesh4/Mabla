@@ -2,6 +2,8 @@ from django.urls import path
 from .viewLogin import *
 from .views import *
 from . import views
+from django.conf import settings
+from django.conf.urls.static import static 
 
 urlpatterns = [
     #path('insertUser',insertTablaUser.as_view(), name='insertUser'),
@@ -30,7 +32,7 @@ urlpatterns = [
     path('menu',views.menuTodo, name="menu"),
     path('mostrar/',views.vercategorias, name="mostrar"),
     path('mostrarsubcate/',views.versubcategorias, name="mostrarsubcate"),
-    path('perfil/',views.verperfil, name="perfil"),
+    path('perfil/',views.getProfile, name="perfil"),
     path('diccio/', views.palabradiccionario, name='diccio'),
 
 
@@ -48,18 +50,12 @@ urlpatterns = [
     path('postpalabra',postpalabra.as_view(),name='postpalabra'),
     path('deletepalabra/<pk>',deletepalabra.as_view(),name='deletepalabra'),
     path('getpalabrita/<pk>',getPalabraT.as_view(),name='getpalabrita'),
-
-<<<<<<< HEAD
-=======
     path('getSubcategorias/<cat>', views.subCategoriasDeCate, name='SucategoriasFiltradas'),
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
     path('getpalabrassub/<subcate>', views.palabrasdesubcate, name='palabrasFiltradas'),
-    path('getpalabrasdiccio/<inicial>', views.buscar_por_inicial, name='getpalabrasdiccio')
-=======
->>>>>>> c2d2257dc17516b07894d046b868a349a3e6c841
->>>>>>> b802aa634e4a3b0bf86522defe9bc6d0f2bfb882
+    path('getpalabrasdiccio/<inicial>', views.buscar_por_inicial, name='getpalabrasdiccio'),
     path('preguntas/<ti>/<cat>', views.pregTipoCat, name='PreguntasFiltradas'),
     path('listaCatSub', ListaCategoriaSub.as_view(), name='listaCatSub'),
-]
+
+]+ static(settings.MEDIA_URL, document_root= settings.MEDIA_ROOT)
+
+

@@ -8,8 +8,11 @@ User = get_user_model()
 
 class registro(UserCreationForm):
     class Meta:        
+        
+        imgPerfil= forms.CharField()
+
         model= User
-        fields= ['username','first_name', 'last_name', 'email', 'password1', 'password2']
+        fields= ['username','first_name', 'last_name', 'email', 'password1', 'password2', 'imgPerfil']
     
     def save(self, commit=True):
         user = super().save(commit=False)

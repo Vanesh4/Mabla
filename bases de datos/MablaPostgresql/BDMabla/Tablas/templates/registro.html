@@ -26,6 +26,7 @@
                 <label for="{{ form.first_name.id_for_label }}" id="lNombre"  >Nombre </label>
               <!-- <input type="text" class="form-control" id="validationNombre" required> -->
                 {{ form.first_name }}
+              
             </div>
 
             <div class="inputs">
@@ -38,12 +39,18 @@
                 <label for="{{ form.email.id_for_label }}" id="lEmail" >Correo electrónico </label>
               <!-- <input type="email" class="form-control" id="validationCorreo" required> -->
                {{ form.email }} 
+               {% if form.errors.email %}
+                  {{form.errors.email}}
+                {% endif %}
             </div>
 
             <div class="inputs">
                   <label for="{{ form.username.id_for_label }}" id="lAlias" >Usuario (Alias) </label>
                 <!-- <input type="text" class="form-control" id="validationUsername" required> -->
                   {{ form.username }}
+                  {% if form.errors.username %}
+                  {{form.errors.username}}
+                {% endif %}
                   <!-- {% if form.username.errors %}
                     <p class="warning-message1">Por favor, corrige los siguientes errores:</p>
                   {% endif %} -->
@@ -53,6 +60,9 @@
                 <label for="{{ form.password1.id_for_label }}" id="lClave1" >Clave </label>
               <!-- <input type="password" class="form-control" id="validationPassword" required> -->
               {{ form.password1}}
+                  {% if form.errors.password1 %}
+                  {{form.errors.password1}}
+                {% endif %}
                   <!-- {% if form.errors %}
                     <p class="warning-message">La clave tiene que contener más de 8 caracteres, incluyendo al menor un número y al menos una mayúscula</p>
                   {% endif %} -->
@@ -61,7 +71,10 @@
             <div class="inputs">
                 <label for="{{ form.password2.id_for_label }}" id="lClave2" >Confirma tu clave </label>
               <!-- <input type="password" class="form-control" id="validationPassword" required> -->
-                {{ form.password2 }}
+                {{ form.password2 }}                
+                  {% if form.errors.password2 %}
+                  {{form.errors.password2}}
+                {% endif %}
             </div>
           </section>
           
