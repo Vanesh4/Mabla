@@ -333,18 +333,6 @@ def buscar_por_inicial(request, inicial):
         
     return JsonResponse({'palabras': palabras_list})
 
-def palabrasanimales(request):
-    listap=TablaPalabra.objects.filter(subcategoria='Animales')
-    return render(request, "consultando.html", {"animales":listap})
-
-def subverbos(request):
-    listav=TablaSubcategoria.objects.filter(categoria='Verbos') 
-    return render(request, "consultando.html", {"subverbos":listav})
-
-
-def subsustantivos(request):
-    sustan=TablaSubcategoria.objects.filter(categoria='Sustantivos')
-    return render(request, "consultando.html", {"sustantivos": sustan})
 
 
 #metodo para traer las subcategorias de cada categoria
@@ -366,10 +354,22 @@ def palabrasdesubcate(subcate):
     palabradeSubcate=[
         {
             'Palabra':TablaPalabra.Palabra,
+            'Senia':TablaPalabra.Senia
         }
         for TablaPalabra in palabras
     ]
     return palabradeSubcate
+
+def palabrasdesubcate(request, subcate):
+    palabras=TablaPalabra.objects.filter(subcategoria=subcate)
+    palabradeSubcate=[
+        {
+            'Palabra':TablaPalabra.Palabra,
+            'Senia':TablaPalabra.Senia
+        }
+        for TablaPalabra in palabras
+    ]
+    return JsonResponse({'palabras':palabradeSubcate})
 
 
 
@@ -474,6 +474,7 @@ class getPalabrassubcate(View):
             datos_Subcate.append({
                 'subcategoria':i.subcategoria,
                 'Palabras': palabrasdesubcate(i.subcategoria)
+                
             })
         return JsonResponse(datos_Subcate, safe=False)
 
