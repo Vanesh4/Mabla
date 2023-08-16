@@ -15,11 +15,9 @@ public class TablaUsuario {
     @Column(nullable = false, length = 30)
      String apellido;
     @Column(nullable = false, length = 30)
-     int telefono;
-    @Column(nullable = false, length = 30)
      String correo;
     @Column(nullable = false, length = 30)
-     String contrasenia;
+     String clave;
     @Column(nullable = false, length = 30)
      String imgPerfil= "img por defecto";
 
@@ -28,19 +26,18 @@ public class TablaUsuario {
     @OneToMany(mappedBy = "tablaUsuario", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Set<TablaPruebas> tablaPruebas;
 
-    public TablaUsuario(String alias, String nombre, String apellido, int telefono, String correo, String contrasenia, String imgPerfil) {
+    public TablaUsuario(String alias, String nombre, String apellido, String correo, String clave, String imgPerfil) {
         this.alias = alias;
         this.nombre = nombre;
         this.apellido = apellido;
-        this.telefono = telefono;
         this.correo = correo;
-        this.contrasenia = contrasenia;
+        this.clave = clave;
         this.imgPerfil = imgPerfil;
     }
 
-    public TablaUsuario(String alias, String contrasenia) {
+    public TablaUsuario(String alias, String clave) {
         this.alias = alias;
-        this.contrasenia = contrasenia;
+        this.clave = clave;
     }
     public TablaUsuario() {
     }
@@ -69,14 +66,6 @@ public class TablaUsuario {
         this.apellido = apellido;
     }
 
-    public int getTelefono() {
-        return telefono;
-    }
-
-    public void setTelefono(int telefono) {
-        this.telefono = telefono;
-    }
-
     public String getCorreo() {
         return correo;
     }
@@ -85,12 +74,9 @@ public class TablaUsuario {
         this.correo = correo;
     }
 
-    public String getContrasenia() {
-        return contrasenia;
-    }
-
-    public void setContrasenia(String contrasenia) {
-        this.contrasenia = contrasenia;
+    public String getClave() {return clave;}
+    public void setClave(String clave) {
+        this.clave = clave;
     }
 
     public String getImgPerfil() {

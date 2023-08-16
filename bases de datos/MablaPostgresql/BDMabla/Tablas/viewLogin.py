@@ -47,13 +47,22 @@ class registerUser(View):
                 print("no json")
                 form= registro(request.POST)
                 if form.is_valid():
-                    form.save()
-                    print("se valido el formulario")
-                    messages.success(request, 'Usuario registrado correctamente desde formulario HTML.')
-                    return redirect('iniciosesion')
-                else:
-                    messages.error(request, 'Error al registrar el usuario desde formulario HTML.')
-                    print("no ingreso")
+                    if form.cleaned_data['imgPerfil'] or form.cleaned_data['imgPerfil'] is None:
+                        print('se guardo la imagen')
+
+                        form.save()
+                        imagen_file = request.FILES['imgPerfil']
+
+                        user_instance=form.save(commit=False)
+                        user_instance.imgPerfil = imagen_file
+                        user_instance.save()
+
+                        print("se valido el formulario")
+                        messages.success(request, 'Usuario registrado correctamente desde formulario HTML.')
+                        return redirect('iniciosesion')
+                    else:
+                        messages.error(request, 'Error al registrar el usuario desde formulario HTML.')
+                        print("no ingreso")
         
         else:
             print("no metodo")
@@ -137,3 +146,19 @@ class IniciarSesionView(View):
                 form.add_error(None, 'Credenciales inválidas. Por favor, intenta nuevamente.')
         
         return render(request, 'login.html', {'form': form})
+
+class profile(View):
+
+    template_name = 'perfil.html'
+
+    def get(self, request):
+        
+        try:
+            user= User.objects.get(alias = request.User.alias) 
+
+        except User.DoesNotExist:
+            messages.error(request,'no se encontraron los datos del cliente')
+            return redirect('perfil/')
+        
+
+

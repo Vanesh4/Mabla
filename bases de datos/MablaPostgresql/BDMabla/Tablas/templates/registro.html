@@ -18,54 +18,67 @@
   <header>
     <form method="POST" action="/register" id="formInsert" class="row g-3" enctype="multipart/form-data">
       <div class="textRegister">
-        REGISTRARME
+        REGISTRATE
       </div>
       {% csrf_token %}
       <section id="sectionform">
-            <div id="ph" class="inputs">
+            <div class="inputs">
                 <label for="{{ form.first_name.id_for_label }}" id="lNombre"  >Nombre </label>
               <!-- <input type="text" class="form-control" id="validationNombre" required> -->
                 {{ form.first_name }}
+              
             </div>
 
-            <div id="apellido" class="inputs">
+            <div class="inputs">
                 <label for="{{ form.last_name.id_for_label }}" id="lApellido" >Apellido </label>
               <!-- <input type="text" class="form-control" id="validationApellido" required> -->
               {{ form.last_name }}
             </div>
 
-            <div id="correo" class="inputs">
+            <div class="inputs">
                 <label for="{{ form.email.id_for_label }}" id="lEmail" >Correo electrónico </label>
               <!-- <input type="email" class="form-control" id="validationCorreo" required> -->
                {{ form.email }} 
+               {% if form.errors.email %}
+                  {{form.errors.email}}
+                {% endif %}
             </div>
 
-            <div id="alias" class="inputs">
+            <div class="inputs">
                   <label for="{{ form.username.id_for_label }}" id="lAlias" >Usuario (Alias) </label>
                 <!-- <input type="text" class="form-control" id="validationUsername" required> -->
                   {{ form.username }}
+                  {% if form.errors.username %}
+                  {{form.errors.username}}
+                {% endif %}
                   <!-- {% if form.username.errors %}
                     <p class="warning-message1">Por favor, corrige los siguientes errores:</p>
                   {% endif %} -->
               </div>
               
-            <div id="clave" class="inputs">
+            <div class="inputs">
                 <label for="{{ form.password1.id_for_label }}" id="lClave1" >Clave </label>
               <!-- <input type="password" class="form-control" id="validationPassword" required> -->
-              {{ form.password1 }}
+              {{ form.password1}}
+                  {% if form.errors.password1 %}
+                  {{form.errors.password1}}
+                {% endif %}
                   <!-- {% if form.errors %}
                     <p class="warning-message">La clave tiene que contener más de 8 caracteres, incluyendo al menor un número y al menos una mayúscula</p>
                   {% endif %} -->
             </div>
             
-            <div id="clave1" class="inputs">
+            <div class="inputs">
                 <label for="{{ form.password2.id_for_label }}" id="lClave2" >Confirma tu clave </label>
               <!-- <input type="password" class="form-control" id="validationPassword" required> -->
-                {{ form.password2 }}
+                {{ form.password2 }}                
+                  {% if form.errors.password2 %}
+                  {{form.errors.password2}}
+                {% endif %}
             </div>
           </section>
           
-          <div class="col-16" id="boton">
+          <div id="boton">
             <button class="btn" type="submit" id="colorbtn">Registrarme</button>
         </div>
             <!-- <p id="mensaje-error"></p>        -->

@@ -8,10 +8,10 @@ from django.db import models
     #telefono=models.PositiveBigIntegerField(verbose_name="Teléfono", null=True)
     #correo=models.TextField(max_length=30)
     #clave=models.TextField(max_length=30)
-    #user= models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='User', null=True, blank=True) """
-
+    #user= models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='User', null=True, blank=True)
+"""
 class User(AbstractUser):
-    imgPerfil=models.ImageField(default='user.png', upload_to='img/', null=True, blank=True)
+    imgPerfil=models.ImageField(upload_to='img/', null=True, blank=True)
     alias=models.TextField(primary_key=True, max_length=30)
     #alias= models.OneToOneField(TablaUsuario,primary_key=True, on_delete=models.CASCADE)
 
@@ -38,8 +38,8 @@ class TablaPreguntas(models.Model):
     #numeroPregunta = models.AutoField(primary_key=True)
     tipo = models.PositiveIntegerField(verbose_name="Tipo")
     idCategoria = models.ForeignKey(TablaCategoria, null=False, on_delete=models.CASCADE)
-    senia = models.TextField()
-    respuesta = models.TextField(max_length=50)
+    pregunta = models.TextField()
+    respuesta = models.TextField()
 
 class TablaPrueba(models.Model):
     tipoPrueba= models.PositiveSmallIntegerField(null=False)

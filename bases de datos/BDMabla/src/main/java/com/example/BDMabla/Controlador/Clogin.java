@@ -1,3 +1,4 @@
+/*
 package com.example.BDMabla.Controlador;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.oauth2.core.oidc.user.OidcUser;
@@ -18,4 +19,5 @@ public class Clogin {
     }
 }
 
+*/
 

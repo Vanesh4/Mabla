@@ -13,7 +13,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
-    
     <!--
         colores:
         azul oscuro: #0a4d68
@@ -26,20 +25,15 @@
 
     <!-- Si el usuario no esta logeado -->
     <!-- <header class="header" id="h">
-=======
     <header class="header" sec:authorize="!isAuthenticated()">
->>>>>>> 40e61e4ec204ff87ee2bd822343fa1a4f15781e3
         <div class="closeBtn">
             <img src="/img/cancelar.png" alt="" id="imgBotonCerrarMenu">
         </div>
         <div class="parteizq">
             <div class="logo">
                 <a href="index.html">
-<<<<<<< HEAD
                     <img src="/img/mablaLOGO-removebg.png" alt="logoImg" class="logoImg">
-=======
                     <img src="/img/mablaLOGO-removebg.png" alt="logoImg" id="logoImg">
->>>>>>> 40e61e4ec204ff87ee2bd822343fa1a4f15781e3
                 </a>                
             </div>
             <div class="linkContenido">
@@ -61,10 +55,13 @@
                     <a href="registro.html">Registrarme</a>
                 </p>
                 <p id="BotonIngresar">
-<<<<<<< HEAD
                     <a href="login.html">Iniciar Sesión alv</a>
+<<<<<<< HEAD
 =======
                     <a href="login.html">Iniciar Sesión</a>
+=======
+                 <a href="login.html">Iniciar Sesión</a>-->
+>>>>>>> f2985a09db07ceca70ed34247af58c01706187d4
                     <a th:href="@{/oauth2/authorization/auth0}">Log In</a>
                 </p>
             </div>
@@ -74,6 +71,7 @@
             </div>
             
         </div>    
+<<<<<<< HEAD
     </header> -->
 
 
@@ -83,6 +81,13 @@
 
      <header class="header" sec:authorize="isAuthenticated()">
 
+=======
+    </header>
+
+    <!-- Si el usuario esta logeado -->
+    <header class="header" id="h">
+     <header class="header" sec:authorize="isAuthenticated()">
+>>>>>>> f2985a09db07ceca70ed34247af58c01706187d4
         <div class="closeBtn">
             <img src="/img/cancelar.png" alt="" id="imgBotonCerrarMenu">
         </div>
@@ -110,6 +115,7 @@
                 <input type="text" name="buscador" class="buscadorMenu" maxlength="20">
                 <img src="/img/lupa.png" alt="lupa" style="width: 10%;">                
             </div>
+<<<<<<< HEAD
 
 
             <a href="perfil.html">
@@ -121,6 +127,12 @@
             <img class="foto" src="/img/user.png" alt="">
             
 
+=======
+            <a href="perfil.html">
+                <img id="fotoUser" src="/img/user.png" alt="">
+            </a>
+            <img class="foto" src="/img/user.png" alt="">
+>>>>>>> f2985a09db07ceca70ed34247af58c01706187d4
         </div>    
     </header>
 

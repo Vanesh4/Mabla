@@ -11,6 +11,7 @@ header{
     background-repeat: no-repeat;
     height: 92vh;
     padding: 20px 20px 0px 10px;
+
 }
 
 form{
@@ -20,7 +21,7 @@ form{
     font-family: 'Raleway', sans-serif;
     color: white;
     font-size: 35px;
-    width: 50%;
+    width: 55%;
 }
 
 .textRegister{
@@ -42,7 +43,7 @@ input{
     flex-direction: column;
     border-radius: 8px;
     height:35px;
-    width: 85%;
+    width: 75%;
     margin-top: 12px;
     padding-left: 10px;
     border: none;
