@@ -122,6 +122,7 @@ function obtenerContenidoDeBaseDeDatos(valor) {
             var resultsDiv = $('#results');
             resultsDiv.empty();
             var palabras = data.palabras;
+            console.log("queria mirar lo que se guarda aqui",palabras)
             palabras.forEach(function(palabra) {
 
                 grupopalabra=document.createElement('div')
@@ -129,7 +130,7 @@ function obtenerContenidoDeBaseDeDatos(valor) {
 
                 img=document.createElement('img')
                 img.setAttribute('class','imgpal')
-                img.src=palabra.seni
+                img.src=palabra.senia
 
                 p=document.createElement('p')
                 p.setAttribute('class','p')

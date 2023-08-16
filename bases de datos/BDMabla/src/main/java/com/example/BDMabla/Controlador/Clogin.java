@@ -14,7 +14,7 @@ public class Clogin {
         else {
             System.out.println("usuario no encontrado");
         }
-        return "inicio";
+        return "index";
     }
 }
 
