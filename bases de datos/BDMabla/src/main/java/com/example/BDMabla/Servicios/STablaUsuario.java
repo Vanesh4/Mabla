@@ -5,6 +5,7 @@ import com.example.BDMabla.Repositorio.RTablaUsuario;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
 
@@ -18,15 +19,20 @@ public class STablaUsuario {
     public List<TablaUsuario> users(){
         return repositorioUser.findAll();
     }
-    public Optional<TablaUsuario> myuser(String alias){
-        return repositorioUser.findById(alias);
+
+    public TablaUsuario myUser(String correo){
+        if(repositorioUser.findById(correo).isPresent()){
+            return this.repositorioUser.findById(correo).get();
+        }
+        else return null;
     }
-    public boolean iniciarSesion(String alias, String clave){
-        if (repositorioUser.findById(alias).isPresent()) return Objects.equals(repositorioUser.findById(alias).get().getContrasenia(), clave);
+    /*public boolean iniciarSesion(String alias, String clave){
+        if (repositorioUser.findById(alias).isPresent()) return Objects.equals(repositorioU+ser.findById(alias).get().getContrasenia(), clave);
         else return false;
-    }
+    }*/
+/*
     public boolean insertUser(TablaUsuario user){
-        if(repositorioUser.findById(user.getAlias()).isPresent())
+        if(repositorioUser.findById(user.getCorreo()).isPresent())
             return false;
         else{
             repositorioUser.save(user);
@@ -34,9 +40,26 @@ public class STablaUsuario {
         }
     }
     public boolean editUser(TablaUsuario user){
-        repositorioUser.findById(user.getAlias()).get();
+        repositorioUser.findById(user.getCorreo()).get();
         repositorioUser.save(user);
         return true;
     }
+*/
+    public TablaUsuario postUser(Map<String, Object> dataUser){
 
+        TablaUsuario user = myUser((String) dataUser.get("email"));
+
+        if(user==null){
+            String alias = (String) dataUser.get("alias");
+            String correo = (String) dataUser.get("correo");
+            String nombre = (String) dataUser.get("nombre");
+            String apellido = (String) dataUser.get("apellido");
+            String imgPerfil = (String) dataUser.get("imgPerfil");
+
+            TablaUsuario User = new TablaUsuario(alias, nombre, apellido, correo, imgPerfil);
+
+            return repositorioUser.save(User);
+        }
+        else return user;
+    }
 }

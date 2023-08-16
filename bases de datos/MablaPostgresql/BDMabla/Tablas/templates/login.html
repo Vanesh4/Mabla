@@ -20,17 +20,17 @@
       </div>
       {% csrf_token %}
       <section class="sectionForm">
-      <div class="col-md-8" id="ph">
+      <div id="ph">
           <label for="{{ username }}" class="form-label"> Alias</label>
           {{ form.username }}
         </div>
-        <div class="col-md-8" id="ph">
+        <div id="ph">
           <label for="{{ password }}" class="form-label">Clave</label>
           {{ form.password }}
         </div>
         <div class="links">
           <a href="" class="as">Olvidaste tu contraseña?</a>
-          <a href="http://127.0.0.1:8000/registroForm" class="as">Registrarme</a>
+          <a href="http://127.0.0.1:8000/registroForm" class="as" id="registroLink">Registrarme</a>
         </div>
         <div id="boton">
           <button class="btn" type="submit" id="colorbtn">Ingresar</button>

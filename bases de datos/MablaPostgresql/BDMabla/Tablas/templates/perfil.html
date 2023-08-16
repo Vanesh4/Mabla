@@ -68,6 +68,11 @@
     
 <h1 class="titulo">MI PERFIL</h1>
 
+    <form class="frm" action="/register/" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+            {{form_as.div}}
+    </form>
+
     <section id="todo">
         <section id="imagen">
             <div id="img">
