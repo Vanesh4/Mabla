@@ -86,6 +86,7 @@ $.ajax({
                     //console.log("que hay en el contenedor ",ContenidoDeBaseDeDatos)
                 });
             });
+            
 
             
             
@@ -116,18 +117,21 @@ $.ajax({
                 })
                 
             });                       
-        
+           
                    
         }
 
+       
          
         
     }  
+
+    
     
 })
 
 
- 
+
 
 function ContenidoDeBaseDeDatos(valor) {
     $.ajax({

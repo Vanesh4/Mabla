@@ -28,6 +28,7 @@ button{
     border: none;
 }
 
+
 #buscador{
     width: 40%;
     display: flex;
@@ -36,6 +37,15 @@ button{
     padding: 3px;
     margin-left: 10px;
 }
+#container{
+    display: flex;
+    float: right;
+    padding: 2px;
+    margin-top: -28px;
+    text-align: center; 
+   
+    
+} 
 #buscadorMenu{
     border: none;
     margin-left: 10px;
@@ -76,6 +86,7 @@ button{
 .btn:hover{
     background: rgb(126, 5, 5);
     background-color: #ff731c;
+    
 }
 
 
@@ -110,9 +121,10 @@ button{
 }
 
 .grouppal{
+
     display: flex;
     justify-content: center;
-    margin-top: 40px;
+    margin-top: 100px;
 }
 
 .imgpal{

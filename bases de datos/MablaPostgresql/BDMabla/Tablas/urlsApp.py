@@ -50,21 +50,11 @@ urlpatterns = [
     path('postpalabra',postpalabra.as_view(),name='postpalabra'),
     path('deletepalabra/<pk>',deletepalabra.as_view(),name='deletepalabra'),
     path('getpalabrita/<pk>',getPalabraT.as_view(),name='getpalabrita'),
-<<<<<<< HEAD
 
     #path('getSubcategorias/<cat>', views.subCategoriasDeCate, name='SucategoriasFiltradas'),
-=======
     path('getSubcategorias/<cat>', views.subCategoriasDeCate, name='SucategoriasFiltradas'),
->>>>>>> f2985a09db07ceca70ed34247af58c01706187d4
     path('getpalabrassub/<subcate>', views.palabrasdesubcate, name='palabrasFiltradas'),
     path('getpalabrasdiccio/<inicial>', views.buscar_por_inicial, name='getpalabrasdiccio'),
     path('preguntas/<ti>/<cat>', views.pregTipoCat, name='PreguntasFiltradas'),
     path('listaCatSub', ListaCategoriaSub.as_view(), name='listaCatSub'),
-
-<<<<<<< HEAD
 ]
-=======
-]+ static(settings.MEDIA_URL, document_root= settings.MEDIA_ROOT)
-
-
->>>>>>> f2985a09db07ceca70ed34247af58c01706187d4
