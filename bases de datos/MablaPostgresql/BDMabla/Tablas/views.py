@@ -289,9 +289,13 @@ def formInsertUser(request):
 def formIniciarSesion(request):
     return render(request, "login.html")
 
+""" @login_required
+def getProfile(request):
+    return render(request, "perfil.html") """
+
 @login_required
 def getProfile(request):
-    return render(request, "perfil.html")
+    return render(request, "perfilP.html")
 
 def iniciohtml(request):
     return render(request,"inicio.html")

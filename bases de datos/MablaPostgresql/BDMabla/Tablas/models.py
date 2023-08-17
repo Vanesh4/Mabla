@@ -1,6 +1,7 @@
 from django.contrib.auth.models import AbstractUser
 from django.db import models
 
+
 """ class TablaUsuario(models.Model):
     alias=models.TextField(primary_key=True, max_length=30)
     nombre=models.TextField(null= False)
@@ -13,7 +14,7 @@ from django.db import models
 class User(AbstractUser):
     imgPerfil=models.ImageField(upload_to='img/', null=True, blank=True)
     alias=models.TextField(primary_key=True, max_length=30)
-    #alias= models.OneToOneField(TablaUsuario,primary_key=True, on_delete=models.CASCADE)
+    #alias= models.OneToOneField(TablaUsuario,primary_key=True, on_delete=models.CASCADE) 
 
 class TablaComentarios(models.Model):
     alias=models.ForeignKey(User, null=True, on_delete=models.CASCADE)

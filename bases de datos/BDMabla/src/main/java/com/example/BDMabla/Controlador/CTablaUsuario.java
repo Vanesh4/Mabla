@@ -15,15 +15,15 @@ public class CTablaUsuario {
     public CTablaUsuario(STablaUsuario metodosUser) {
         this.metodosUser = metodosUser;
     }
-    @GetMapping("/users")
+/*    @GetMapping("/users")
     public List<TablaUsuario> user(){return metodosUser.users();}
     @GetMapping("/user/{alias}")
     public Optional<TablaUsuario> myuser(@PathVariable("alias") String alias){return metodosUser.myuser(alias);}
-    /*@GetMapping("/IniciarSesion")
+    *//*@GetMapping("/IniciarSesion")
    public String login(@PathVariable("alias") String alias, @PathVariable("clave") String clave){
         if(metodosUser.iniciarSesion(alias,clave)) return "alias";
         else return "El usuario no ha sido registrado";
-   }*/
+   }*//*
     @GetMapping("/IniciarSesion")
     public String login(){
         return "registro.html";
@@ -36,6 +36,6 @@ public class CTablaUsuario {
     @PutMapping("/editarUser")
     public boolean editar(@RequestBody TablaUsuario user){
         return metodosUser.editUser(user);
-    }
+    }*/
 
 }

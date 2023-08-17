@@ -8,14 +8,16 @@ import java.util.Set;
 @Table(name="tablaUsuario")
 public class TablaUsuario {
     @Id
-    @Column(nullable = false, length = 30)
+    @Column(nullable = false, unique = true, length = 30)
+    String correo;
+    @Column(nullable = false, length = 30, unique = true)
     private String alias;
+    @Column(name="authId", unique = true)
+    private String authId;
     @Column(nullable = false, length = 30)
      String nombre;
     @Column(nullable = false, length = 30)
      String apellido;
-    @Column(nullable = false, length = 30)
-     String correo;
     @Column(nullable = false, length = 30)
      String clave;
     @Column(nullable = false, length = 30)
@@ -26,8 +28,9 @@ public class TablaUsuario {
     @OneToMany(mappedBy = "tablaUsuario", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Set<TablaPruebas> tablaPruebas;
 
-    public TablaUsuario(String alias, String nombre, String apellido, String correo, String clave, String imgPerfil) {
+    public TablaUsuario(String alias, String authId, String nombre, String apellido, String correo, String clave, String imgPerfil) {
         this.alias = alias;
+        this.authId = authId;
         this.nombre = nombre;
         this.apellido = apellido;
         this.correo = correo;
@@ -39,6 +42,15 @@ public class TablaUsuario {
         this.alias = alias;
         this.clave = clave;
     }
+
+    public TablaUsuario(String alias, String nombre, String apellido, String correo, String imgPerfil) {
+        this.alias = alias;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.correo = correo;
+        this.imgPerfil = imgPerfil;
+    }
+
     public TablaUsuario() {
     }
 
@@ -48,6 +60,14 @@ public class TablaUsuario {
 
     public void setAlias(String alias) {
         this.alias = alias;
+    }
+
+    public String getAuthId() {
+        return authId;
+    }
+
+    public void setAuthId(String authId) {
+        this.authId = authId;
     }
 
     public String getNombre() {
