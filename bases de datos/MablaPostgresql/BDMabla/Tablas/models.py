@@ -2,20 +2,15 @@ from django.contrib.auth.models import AbstractUser
 from django.db import models
 
 
-"""class TablaUsuario(models.Model):
+""" class TablaUsuario(models.Model):
     alias=models.TextField(primary_key=True, max_length=30)
     nombre=models.TextField(null= False)
     apellido=models.TextField(null= False)
     #telefono=models.PositiveBigIntegerField(verbose_name="Teléfono", null=True)
     #correo=models.TextField(max_length=30)
     #clave=models.TextField(max_length=30)
-<<<<<<< HEAD
-    #user= models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='User', null=True, blank=True)""" 
-
-=======
     #user= models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='User', null=True, blank=True)
 """
->>>>>>> 9db00768073fa8d8d75fbff931d21134986c435a
 class User(AbstractUser):
     imgPerfil=models.ImageField(upload_to='img/', null=True, blank=True)
     alias=models.TextField(primary_key=True, max_length=30)

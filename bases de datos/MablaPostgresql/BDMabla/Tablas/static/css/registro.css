@@ -103,11 +103,13 @@ input{
     width: 44%;
     height: 55%;    
 }
-/* .warning-message {
-    color: red;
-    font-weight: bold;
+
+.error{
     font-size: 16px;
-} */
+    color:  #ff731c;   
+    margin-top: 10px;
+}
+
 @media screen and (min-width:320px) and (max-width:700px){
     *{
         padding: 0px;
@@ -176,7 +178,7 @@ input{
         margin: 0px;
         text-align: end;
         font-size: 32px;
-        margin: 40px 30px 15px 0px;
+        margin: 25px 30px 30px 0px;
     }
     #capi{
         margin: 0px;

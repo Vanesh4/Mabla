@@ -22,76 +22,83 @@
       </div>
       {% csrf_token %}
       <section id="sectionform">
-            <div class="inputs">
-                <label for="{{ form.first_name.id_for_label }}" id="lNombre"  >Nombre </label>
+        <div class="inputs">
+          <label for="{{ form.first_name.id_for_label }}" id="lNombre"  >Nombre </label>
               <!-- <input type="text" class="form-control" id="validationNombre" required> -->
-                {{ form.first_name }}
-              
+            {{ form.first_name }}  
             </div>
 
-            <div class="inputs">
-                <label for="{{ form.last_name.id_for_label }}" id="lApellido" >Apellido </label>
+        <div class="inputs">
+          <label for="{{ form.last_name.id_for_label }}" id="lApellido" >Apellido </label>
               <!-- <input type="text" class="form-control" id="validationApellido" required> -->
-              {{ form.last_name }}
-            </div>
+            {{ form.last_name }}
+        </div>
 
-            <div class="inputs">
-                <label for="{{ form.email.id_for_label }}" id="lEmail" >Correo electrónico </label>
+        <div class="inputs">
+          <label for="{{ form.email.id_for_label }}" id="lEmail" >Correo electrónico </label>
               <!-- <input type="email" class="form-control" id="validationCorreo" required> -->
-               {{ form.email }} 
-               {% if form.errors.email %}
-                  {{form.errors.email}}
+              {{ form.email }} 
+              <div class="error">
+                {% if form.errors.email %}
+                  <p>Ingresa una dirección de correo válida</p>
                 {% endif %}
-            </div>
+              </div>
+        </div>
 
-            <div class="inputs">
-                  <label for="{{ form.username.id_for_label }}" id="lAlias" >Usuario (Alias) </label>
+        <div class="inputs">
+          <label for="{{ form.username.id_for_label }}" id="lAlias" >Usuario (Alias) </label>
                 <!-- <input type="text" class="form-control" id="validationUsername" required> -->
-                  {{ form.username }}
+                {{ form.username }}
+                <div class="error">
                   {% if form.errors.username %}
-                  {{form.errors.username}}
-                {% endif %}
+                    <p>Este alias no está disponible</p>
+                  {% endif %}
+                </div>
                   <!-- {% if form.username.errors %}
                     <p class="warning-message1">Por favor, corrige los siguientes errores:</p>
                   {% endif %} -->
-              </div>
+        </div>
               
-            <div class="inputs">
-                <label for="{{ form.password1.id_for_label }}" id="lClave1" >Clave </label>
+        <div class="inputs">
+          <label for="{{ form.password1.id_for_label }}" id="lClave1" >Clave </label>
               <!-- <input type="password" class="form-control" id="validationPassword" required> -->
               {{ form.password1}}
-                  {% if form.errors.password1 %}
-                  {{form.errors.password1}}
+              <div class="error">
+                {% if form.errors.password1 %}
+                  <p>La clave debe contener +8 caracteres(una mayúscula, minúscula, un número y caracter especial)</p>
                 {% endif %}
+              </div>
                   <!-- {% if form.errors %}
                     <p class="warning-message">La clave tiene que contener más de 8 caracteres, incluyendo al menor un número y al menos una mayúscula</p>
                   {% endif %} -->
-            </div>
+        </div>
             
-            <div class="inputs">
-                <label for="{{ form.password2.id_for_label }}" id="lClave2" >Confirma tu clave </label>
-              <!-- <input type="password" class="form-control" id="validationPassword" required> -->
-                {{ form.password2 }}                
-                  {% if form.errors.password2 %}
-                  {{form.errors.password2}}
+        <div class="inputs">
+          <label for="{{ form.password2.id_for_label }}" id="lClave2" >Confirma tu clave </label>
+              <!-- <input type="password" class="form-control" id="validationPassword" required> --> 
+              {{ form.password2 }} 
+              <div class="error">
+                {% if form.errors.password2 %}
+                  <p>Las claves no coinciden</p>
                 {% endif %}
-            </div>
-          </section>
-          
-          <div id="boton">
-            <button class="btn" type="submit" id="colorbtn">Registrarme</button>
+              </div>
+                    
+        </div>
+      </section>    
+        <div id="boton">
+          <button class="btn" type="submit" id="colorbtn">Registrarme</button>
         </div>
             <!-- <p id="mensaje-error"></p>        -->
-          </form>
-            <h1>{{mensaje}}</h1>
-          <div class="imgyText">
-            <img id="mablaNaranja" src="/static/img/letrasMABLAnaranja.png" alt="" srcset="">
-          <div class="slogan">
-            HABLA CON LAS MANOS
-          </div>
-          <img id="capi" src="/static/img/capiLogin.png" alt="" srcset="">
-        </div>
-    </header>
+    </form>
+    <h1>{{mensaje}}</h1>
+    <div class="imgyText">
+      <img id="mablaNaranja" src="/static/img/letrasMABLAnaranja.png" alt="" srcset="">
+      <div class="slogan">
+        HABLA CON LAS MANOS
+      </div>
+      <img id="capi" src="/static/img/capiLogin.png" alt="" srcset="">
+    </div>
+  </header>
     <!--<script src="{% static 'js/registro.js' %}"></script> -->
 </body>
 </html>

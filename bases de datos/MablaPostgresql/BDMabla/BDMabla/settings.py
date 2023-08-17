@@ -31,13 +31,14 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
-    #'django.contrib.admin',
+    'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'Tablas'
+    'Tablas',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
@@ -61,7 +62,7 @@ AUTHENTICATION_BACKENDS = (
 )
 
 LOGIN_URL = 'ingresar'
-SESSION_COOKIE_AGE = 60
+SESSION_COOKIE_AGE = 0
 
 ROOT_URLCONF = 'BDMabla.urls'
 
@@ -94,11 +95,7 @@ DATABASES = {
         'HOST':'127.0.0.1',
         'DATABASE_PORT':'5432',
         'USER':'postgres',
-<<<<<<< HEAD
-        'PASSWORD':'2004',
-=======
         'PASSWORD':'0000',
->>>>>>> f2985a09db07ceca70ed34247af58c01706187d4
     }
 }
 
@@ -138,9 +135,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 STATIC_URL = 'static/'
+
 STATICFILES_DIRS=(os.path.join(BASE_DIR,'Tablas/static'),)
-MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
