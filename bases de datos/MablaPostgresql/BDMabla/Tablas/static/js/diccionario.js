@@ -129,7 +129,7 @@ function obtenerContenidoDeBaseDeDatos(valor) {
                 grupopalabra.setAttribute('class','grouppal')
 
                 img=document.createElement('img')
-                img.setAttribute('class','imgpal')
+                img.getAttribute('class','imgpal')
                 img.src=palabra.senia
 
                 p=document.createElement('p')
@@ -144,3 +144,48 @@ function obtenerContenidoDeBaseDeDatos(valor) {
         }
     });
   }
+
+
+  $(document).ready(function() {
+    var word = document.getElementById('container');
+    console.log("hola mi gente")
+    $('#inicial').on('input', function() {
+      var inicial = $(this).val().toLowerCase(); // Obtenemos la inicial ingresada y la convertimos a minúsculas
+      var wordList = $('#wordList'); // Elemento donde mostraremos la lista de palabras
+      $.ajax({
+        url: 'http://127.0.0.1:8000/getpalabrasdiccio/'+inicial, 
+        method: 'GET',
+        data: { inicial: inicial }, // Enviamos la inicial como parámetro
+        success: function(data) {
+          wordList.empty(); // Vaciamos la lista actual de palabras
+          var palabras = data.palabras;
+  
+          // se va agregando cada palabra recibida a la lista
+          palabras.forEach(function(Palabra) {
+            console.log("vinedo las palbras recorridads en el foreach",palabras)
+            var listItem = $('<p>').text(Palabra.palabra);
+            listItem.css({
+                color: 'white',
+                fontSize: '15px',
+                padding: '10px'
+              });
+            wordList.append(listItem);
+            word.style.backgroundColor='#00000092';
+            word.style.width='21%';
+            word.style.padding='15px';
+            word.style.borderRadius='10px'
+                  
+          });
+        },
+        error: function(err) {
+          console.error('Error al obtener las palabras:', err);
+        }
+      });
+    });
+  });
+  
+  
+  
+  
+  
+  

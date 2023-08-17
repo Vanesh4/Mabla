@@ -23,6 +23,9 @@ public class Clogin {
         return "index";
     }
 }
+<<<<<<< HEAD
+
+=======
 */
 @Controller
 public class Clogin {
@@ -42,4 +45,5 @@ public class Clogin {
         else  return "index";
     }
 }
+>>>>>>> 8d374d71c9d4c5e271d223017982580b53c3a995
 
