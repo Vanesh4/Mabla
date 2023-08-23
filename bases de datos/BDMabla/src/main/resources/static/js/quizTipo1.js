@@ -14,7 +14,7 @@ console.log(valorRecibido);
 
 */
 
-categoria = "sustanivos"
+categoria = "sustantivos"
 
 function generarNumeroAleatorio(num) {
     /* return Math.floor(Math.random() * num) + 1; */
@@ -78,7 +78,7 @@ $(document).ready (()=>{
     totalRespuestasAcertadas = 0
 
     opcionResCorrecta = "opcion"+generarNumeroAleatorio(4)
-    //console.log(opcionResCorrecta)
+    console.log(opcionResCorrecta)
     resCorrecta = document.getElementById(opcionResCorrecta)
     //console.log("res",resCorrecta.id)
 
@@ -99,7 +99,7 @@ $(document).ready (()=>{
                     
                     p = generarNumeroAleatorio(res.length) // validar 5 veces diferentes preguntas
                     //¿no hay una manera de ocultar algun dato traido de la bd?
-                    document.getElementById('linkSenia').src = res[p][1]
+                    document.getElementById('linkSenia').src = res[p][2]
         
                     for (let i = 0; i < 4; i++) {
                         pos=generarNumeroAleatorio(respuestasIncorrectas.length)
@@ -107,32 +107,46 @@ $(document).ready (()=>{
                         //validar que dos veces no me genere el mismo aleatorio. Eliminar de la lista
                         respuestasIncorrectas.splice(pos, 1);
                     }
-                    resCorrecta.innerHTML = res[p][2]
+                    resCorrecta.innerHTML = res[p][1]
                     
                     
                 }
             })
         }
     }
-
+    
+    $(".opcion").click(function() {
+        botonID = $(this).attr("id");
+        validarRespuesta(botonID)
+    });
     function validarRespuesta(opcionElegida) {
+        console.log("holaaaaaaaaa?")
         if (opcionElegida==resCorrecta.id) {
-            r=document.getElementById(resCorrecta)
-            r.style.boxShadow = "0px 0px 20px green";
+            console.log("corectaaaaaaaaaa")
+            r=document.getElementById(opcionElegida)
+            //r.style.boxShadow = "0px 0px 20px green";
+            r.style.background = "green";
             totalRespuestasAcertadas++
+            
         }
         else{
             r=document.getElementById(opcionElegida)
             r.style.boxShadow = "0px 0px 20px red";
+            //r.style.background = "red"
+            
+            c=document.getElementById(opcionResCorrecta)
+            console.log(c)
+            c.style.background = "green"
         }
-        posicionActual++
-        setTimeout(cargarPregunta,1000);
+        /* posicionActual++
+        setTimeout(cargarPregunta,1000); */
     }
 
     function terminarQuiz() {
         $("#espacioQuiz").style.display = "none";
         console.log("Cantidad de respuestas acertadas c:")
         console.log(totalRespuestasAcertadas)
+        $("#resultado").style.display = "block";
     }
 })
 

@@ -25,9 +25,7 @@ public class Clogin {
         return "index";
     }
 }
-<<<<<<< HEAD
 
-=======
 */
 @Controller
 @CrossOrigin(origins = "*")
