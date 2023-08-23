@@ -33,35 +33,40 @@ $(document).ready(function(){
     $('#colorbtn').on('click', function(){
         Event.preventDefault(); 
         formulario = document.querySelector('#formInsert');
+
+        clave= $('#validationPassword').val()
+        claveConfirm= $('#validationPasswordConfirm').val()
+
         if (validarCamposVacios(formulario)) {
             object={
                 alias:$('#validationUsername').val(),                    
                 nombre:$('#validationNombre').val(),
                 apellido:$('#validationApellido').val(),
-                telefono: parseInt($('#validationTelefono').val()),
-                correo:$('#validationCorreo').val(),
-                contrasenia:$('#validationPassword').val(),  
+                correo: $('#validationCorreo').val(),
+                clave: clave
             }
-            send=JSON.stringify(object)
-            $.ajax({
-                url: "http://localhost:8080/Insertaruser",
-                type:"POST",
-                data: send,
-                contentType: "application/JSON",
-                datatype: JSON,
-                success: function(answer){
-                    if(answer=="/inicio"){
-                        window.location.href='index.html'
-                    }
-                    else{
-                        msjHtml("El alias ingresado ya existe")
-                    }
-                },
-                error:function(){
-                    console.error()
+            if(clave==claveConfirm){
+                    send=JSON.stringify(object)
+                    $.ajax({
+                        url: "http://localhost:8080/Insertaruser",
+                        type:"POST",
+                        data: send,
+                        contentType: "application/JSON",
+                        datatype: JSON,
+                        success: function(answer){
+                            if(answer=="login"){
+                                window.location.href='login.html'
+                            }
+                            else{
+                                msjHtml("El alias ingresado ya existe")
+                            }
+                        },
+                        error:function(){
+                            console.error()
+                        }
+                    })
                 }
-            })
-        }
+            }
         /* else {
 
             console.log('Hay campos vacíos');

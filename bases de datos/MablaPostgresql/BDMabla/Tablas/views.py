@@ -289,6 +289,13 @@ def formInsertUser(request):
 def formIniciarSesion(request):
     return render(request, "login.html")
 
+""" @login_required
+def getProfile(request):
+    return render(request, "perfil.html") """
+
+@login_required
+def getProfile(request):
+    return render(request, "perfilP.html")
 
 def iniciohtml(request):
     return render(request,"inicio.html")
@@ -330,18 +337,6 @@ def buscar_por_inicial(request, inicial):
         
     return JsonResponse({'palabras': palabras_list})
 
-def palabrasanimales(request):
-    listap=TablaPalabra.objects.filter(subcategoria='Animales')
-    return render(request, "consultando.html", {"animales":listap})
-
-def subverbos(request):
-    listav=TablaSubcategoria.objects.filter(categoria='Verbos') 
-    return render(request, "consultando.html", {"subverbos":listav})
-
-
-def subsustantivos(request):
-    sustan=TablaSubcategoria.objects.filter(categoria='Sustantivos')
-    return render(request, "consultando.html", {"sustantivos": sustan})
 
 
 #metodo para traer las subcategorias de cada categoria
@@ -363,10 +358,27 @@ def palabrasdesubcate(subcate):
     palabradeSubcate=[
         {
             'Palabra':TablaPalabra.Palabra,
+            'Senia':TablaPalabra.Senia
         }
         for TablaPalabra in palabras
     ]
     return palabradeSubcate
+
+def palabrasdesubcate(request, subcate):
+    palabras=TablaPalabra.objects.filter(subcategoria=subcate)
+    palabradeSubcate=[
+        {
+            'Palabra':TablaPalabra.Palabra,
+            'Senia':TablaPalabra.Senia
+        }
+        for TablaPalabra in palabras
+    ]
+    return JsonResponse({'palabras':palabradeSubcate})
+
+def getpalabras(self, request):
+        datos=TablaPalabra.objects.all().values
+        insertpalabrita=list(datos)
+        return JsonResponse(insertpalabrita, safe=False)
 
 
 
@@ -374,12 +386,18 @@ def palabrasdesubcate(subcate):
 class getCategoria(View):
     def get(self, request):
         datos=TablaCategoria.objects.all()
+        palabras=TablaSubcategoria.objects.all()
         datos_Categoria=[]
-        for i in datos:
-            datos_Categoria.append({
-                'Categoria':i.Categoria,
-                'Subcategorias': subcategosiasdeCate(i.Categoria)
-            })
+        for i in datos:         
+                
+                datos_Categoria.append({
+                    'Categoria':i.Categoria,
+                    'Subcategorias': subcategosiasdeCate(i.Categoria),
+                    'palabras':subcategosiasdeCate(TablaPalabra.Palabra)
+
+                })
+                    
+                
         return JsonResponse(datos_Categoria, safe=False)
 
 
@@ -471,6 +489,7 @@ class getPalabrassubcate(View):
             datos_Subcate.append({
                 'subcategoria':i.subcategoria,
                 'Palabras': palabrasdesubcate(i.subcategoria)
+                
             })
         return JsonResponse(datos_Subcate, safe=False)
 

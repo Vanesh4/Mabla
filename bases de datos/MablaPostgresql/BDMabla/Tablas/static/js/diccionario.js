@@ -107,7 +107,7 @@ enlaces.forEach(enlace => {
     console.log("palabra quicleadad",enlace)
     event.preventDefault(); 
     const valor = enlace.getAttribute('data-valor');
-
+ 
     inputMostrarContenido.value = valor;
     contenidoMostrado.textContent = obtenerContenidoDeBaseDeDatos(valor);
   });
@@ -122,14 +122,15 @@ function obtenerContenidoDeBaseDeDatos(valor) {
             var resultsDiv = $('#results');
             resultsDiv.empty();
             var palabras = data.palabras;
+            console.log("queria mirar lo que se guarda aqui",palabras)
             palabras.forEach(function(palabra) {
 
                 grupopalabra=document.createElement('div')
                 grupopalabra.setAttribute('class','grouppal')
 
                 img=document.createElement('img')
-                img.setAttribute('class','imgpal')
-                img.src=palabra.seni
+                img.getAttribute('class','imgpal')
+                img.src=palabra.senia
 
                 p=document.createElement('p')
                 p.setAttribute('class','p')
@@ -143,3 +144,83 @@ function obtenerContenidoDeBaseDeDatos(valor) {
         }
     });
   }
+
+
+  $(document).ready(function() {
+    var word = document.getElementById('container');
+    console.log("hola mi gente")
+   
+    $('#inicial').on('input', function() {
+      var inicial = $(this).val().toLowerCase(); // Obtenemos la inicial ingresada y la convertimos a minúsculas
+      var wordList = $('#wordList'); // Elemento donde mostraremos la lista de palabras
+      $.ajax({
+        url: 'http://127.0.0.1:8000/getpalabrasdiccio/'+inicial, 
+        method: 'GET',
+        data: { inicial: inicial }, // Enviamos la inicial como parámetro
+        success: function(data) {
+          var resultsDiv = $('#results');
+          resultsDiv.empty();
+          wordList.empty(); // Vaciamos la lista actual de palabras
+          var palabras = data.palabras;
+  
+          // se va agregando cada palabra recibida a la lista
+          palabras.forEach(function(Palabra) {
+            console.log("vinedo las palbras recorridads en el foreach",palabras)
+            var listItem = $('<p>').text(Palabra.palabra).addClass('miClase');
+            console.log("lo que hay en listem ",listItem)
+
+            listItem.click(function() {
+              $('.miClase').val(Palabra);
+              // Aquí podrías hacer algo con el contenido de la palabra seleccionada
+                grupopalabra=document.createElement('div')
+                grupopalabra.setAttribute('class','grouppal')
+
+                img=document.createElement('img')
+                img.getAttribute('class','imgpal')
+                img.src=Palabra.senia
+
+                p=document.createElement('p')
+                p.setAttribute('class','p')
+                p.innerHTML=Palabra.palabra
+
+                grupopalabra.append(img)
+                grupopalabra.append(p)
+                resultsDiv.append(grupopalabra)
+          });
+         
+           
+            listItem.css({
+              'font-family':'raleway',             
+              'color': 'white',
+              'fontSize': '18px',
+              'padding': '12px',
+              
+            
+                
+              });
+            wordList.append(listItem);
+            word.style.backgroundColor='#00000092';
+            word.style.width='21%';
+            word.style.padding='15px';
+            word.style.borderRadius='10px',
+            
+
+            console.log("como me trae las palabras",listItem)
+
+
+
+                  
+          });
+        },
+        error: function(err) {
+          console.error('Error al obtener las palabras:', err);
+        }
+      });
+    });
+  });
+  
+  
+  
+  
+  
+  
