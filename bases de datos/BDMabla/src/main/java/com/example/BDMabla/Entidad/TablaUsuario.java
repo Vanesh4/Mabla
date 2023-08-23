@@ -20,8 +20,8 @@ public class TablaUsuario {
      String apellido;
     @Column( length = 30)
      String clave;
-    @Column( length = 30)
-     String imgPerfil= "img por defecto";
+    @Column
+     String imgPerfil;
 
     @OneToMany(mappedBy = "tablaUsuario", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Set<TablaComentarios> tablaComentarios;
