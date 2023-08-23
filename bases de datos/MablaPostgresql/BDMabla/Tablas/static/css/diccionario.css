@@ -6,10 +6,20 @@
     margin: 0;
     padding: 0;
 }
+
+.miClase:hover{
+    background-color: #06bfdb;
+    
+
+}
+
+#wordList{
+    width: 100%;
+}
 .caja1{
     display: flex;
     flex-direction: row;
-    background-color: #ffffff;
+    background-color: #18171763;
     padding: 30px 0 30px 0;
 }
 
@@ -18,6 +28,7 @@ input{
     font-size: 18px;
     font-family: "raleway"; 
     outline: none;
+    background-color: transparent;
     
     
 }
@@ -107,8 +118,9 @@ button{
 
 
 .caja2{
-    width: 100%;
-    margin: auto;
+    
+    width: 77%;
+    
     
 }
 
@@ -128,21 +140,23 @@ button{
 }
 
 .imgpal{
-    height: 200px;
+    height: 300px;
     width: 300px;
     justify-content: end;
     background-color: blue;
 }
 
 .p{
-    font-size: 30px;
-    color: red;
+    font-size: 40px;
+    color: rgb(6, 6, 6);
     font-family: "raleway";
     height: auto;
-    width: 20%;
-    background-color: rebeccapurple;
+    width: 25%;
+    background-color: transparent;
     text-align: center;
     padding-top: 70px;
+    margin-left: 30px;
+    
     
 }
 .letras{
@@ -171,7 +185,8 @@ button{
     display: flex;
     display: block;
     text-decoration: none;
-    font-size: 25px;    
+    font-size: 25px;   
+    color: #035f8a; 
 }
 
 .nav_link:hover{

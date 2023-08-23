@@ -1,6 +1,10 @@
 package com.example.BDMabla.Controlador;
+<<<<<<< HEAD
+
+=======
 import com.example.BDMabla.Entidad.TablaUsuario;
 import com.example.BDMabla.Servicios.STablaUsuario;
+>>>>>>> eb53164028f9611394e59c909a24234328bb57ba
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.oauth2.core.oidc.user.OidcUser;
 import org.springframework.stereotype.Controller;

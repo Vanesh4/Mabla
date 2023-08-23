@@ -19,21 +19,24 @@ body{
 .todoo{
     display: flex;
 }
-#caja{
-    height: auto;
+.caja{
+    /* height: auto;
     display: flex;
     flex-direction: row;
     width: 50%;
     height: 400px;
-    background-color: #06bfdb;
+    background-color: #06bfdb; */
+    box-shadow: 10px 5px 10px rgba(7, 104, 137, 0.356);
+    fl
 
 }
 
 h1{
     text-decoration: none;
     font-family: "ralewayExtraBold";
-    font-size: 18px;
-    color: white;   
+    font-size: 20px;
+    color: white;  
+    text-shadow: 2px 1px 2px rgb(7, 7, 7); 
      
 }
 
@@ -83,10 +86,13 @@ nav{
     width: 100%;
     text-align: center;
     overflow: hidden;
+    padding-top: 50px;
+    
 
 }
 .list__item--click{
     cursor: pointer;
+
     
 
 }
@@ -251,7 +257,7 @@ input{
     /* background-color: #06bfdb; */
     /* text-align: center; */
     margin: auto 0 auto 10px;
-    font-family: "ralewayExtraBold";
+    font-family: "raleway";
 }
 
 #resultado{

@@ -49,6 +49,12 @@ urlpatterns = [
     path('postpalabra',postpalabra.as_view(),name='postpalabra'),
     path('deletepalabra/<pk>',deletepalabra.as_view(),name='deletepalabra'),
     path('getpalabrita/<pk>',getPalabraT.as_view(),name='getpalabrita'),
+<<<<<<< HEAD
+=======
+
+    #path('getSubcategorias/<cat>', views.subCategoriasDeCate, name='SucategoriasFiltradas'),
+
+>>>>>>> 746598498dc6f7f44ec67f0d23a3614feb657c20
     path('getSubcategorias/<cat>', views.subCategoriasDeCate, name='SucategoriasFiltradas'),
     path('getpalabrassub/<subcate>', views.palabrasdesubcate, name='palabrasFiltradas'),
     path('getpalabrasdiccio/<inicial>', views.buscar_por_inicial, name='getpalabrasdiccio'),
@@ -57,7 +63,12 @@ urlpatterns = [
     
     path('preguntas/<ti>/<cat>', views.pregTipoCat, name='PreguntasFiltradas'),
     path('listaCatSub', ListaCategoriaSub.as_view(), name='listaCatSub'),
+<<<<<<< HEAD
+=======
 
-]+ static(settings.MEDIA_URL, document_root= settings.MEDIA_ROOT)
+]
+>>>>>>> 746598498dc6f7f44ec67f0d23a3614feb657c20
+
+static(settings.MEDIA_URL, document_root= settings.MEDIA_ROOT)
 
 

@@ -127,49 +127,45 @@
             
     </section> -->
 
-    <header>
-        <header id="header">
-            <div class="closeBtn">
-                <img src="/img/cancelar.png" alt="" id="imgBotonCerrarMenu">
+    <header class="header">
+        <div class="closeBtn">
+            <img src="/img/cancelar.png" alt="" id="imgBotonCerrarMenu">
+        </div>
+        <div class="parteizq">
+            <div class="logo">
+                <a href="http://127.0.0.1:8000/inicio">
+                    <img src="/img/mablaLOGO-removebg.png" alt="logo" class="logoImg">
+                </a>
             </div>
-            <div id="parteizq">
-                <div class="logo">
-                    <a href="index.html">
-                        <img src="" alt="cabipara" id="logoImg">
-                    </a>                
-                </div>
-                <div class="linkContenido">
-                    <a href="menu.html"><p class="textomenu">Contenido</p></a>
-                    <a href="menu.html">
-                        <img src="/img/flecha-hacia-abajo-para-navegar.png" alt="flecha" style="width: 15px;height: 15px;" class="imgflecha">
-                    </a>
-                </div>
-                <div class="linkContenido">
-                    <a href="#"><p class="textomenu">Sobre nosotros</p></a>
-                    <a href="#">
-                        <img src="/img/flecha-hacia-abajo-para-navegar.png" alt="flecha" style="width: 15px;height: 15px;" class="imgflecha">
-                    </a>
-                </div>
+            <div class="linkContenido">
+                <a href="http://127.0.0.1:8000/menu"><p class="textomenu">Contenido</p></a>
+                <a href="http://127.0.0.1:8000/menu">
+                    <img src="/img/flecha-hacia-abajo-para-navegar.png" alt="flecha" style="width: 15px;height: 15px;" class="imgflecha">
+                </a>
             </div>
-            <div id="partederecha">
-                <div id="login">
-                    <p id="BotonRegisto">
-                        <a href="registro.html">Registrarme</a>
-                    </p>
-                    <p id="BotonIngresar">
-                        <a href="login.html">Iniciar Sesión</a>
-                    </p>
-                </div>                
-                <div id="buscador">
-                    <input type="text" name="buscador" id="buscadorMenu" maxlength="20">
-                    <img src="/img/lupa.png" alt="lupa" style="width: 10%;">                
-                </div>
-                <!-- <img src="/img/flecha-hacia-abajo-para-navegar.png" alt="flecha" id="hider_btn"> -->
-                <button id="hider_btn" onclick="mostrarTeclado()">
-                    <img src="/img/flecha-hacia-abajo-para-navegar.png" alt="flecha" style="width: 40px;">
-                </button>
-            </div>    
-        </header>
+            <div class="linkContenido">
+                <a href="#"><p class="textomenu">Sobre nosotros</p></a>
+                <a href="#">
+                    <img src="/img/flecha-hacia-abajo-para-navegar.png" alt="flecha" style="width: 15px;height: 15px;" class="imgflecha">
+                </a>
+            </div>
+        </div>
+        <div class="partederecha">
+            <div id="login">
+                <p id="BotonRegisto">
+                    <a href="http://127.0.0.1:8000/register">Registrarme</a>
+                </p>
+                <p id="BotonIngresar">
+                    <!-- <a href="http://127.0.0.1:8000/ingresar">Iniciar Sesión</a> -->
+                    <a th:href="@{/oauth2/authorization/auth0}">Iniciar Sesión</a>
+                </p>
+            </div>
+            <div class="buscador">
+                <input  type="text" name="buscador" class="buscadorMenu" maxlength="20">
+                <img src="/img/lupa.png" alt="lupa" style="width: 10%;">
+            </div>
+
+        </div>
     </header>
 
     <div class="menuResponsive">

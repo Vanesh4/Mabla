@@ -137,7 +137,7 @@ input{
     header{
         padding: 0px;
         margin: 0px;
-        height: 98vh;
+        height: 95vh;
     }
     form{
        margin: 0px; 
@@ -169,21 +169,21 @@ input{
         padding: 0px;
         margin: 0px;
         align-self: flex-end;
-        width: 45%;
-        height: 80%;
-        padding-right: 20px;
+        width: 40%;
+        height: 75%;
+        margin: 50px 20px 0px 50px;
     }
     .slogan{
         padding: 0px;
         margin: 0px;
         text-align: end;
         font-size: 32px;
-        margin: 25px 30px 30px 0px;
+        margin: 25px 30px 50px 0px;
     }
     #capi{
         margin: 0px;
         padding: 0px;
-        width: 48%;
-        height: 63%;
+        width: 45%;
+        height: 55%;
     }
 }
