@@ -9,8 +9,8 @@ from django.db import models
     #telefono=models.PositiveBigIntegerField(verbose_name="Teléfono", null=True)
     #correo=models.TextField(max_length=30)
     #clave=models.TextField(max_length=30)
-    #user= models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='User', null=True, blank=True)
-"""
+    #user= models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='User', null=True, blank=True) """
+
 class User(AbstractUser):
     imgPerfil=models.ImageField(upload_to='img/', null=True, blank=True)
     alias=models.TextField(primary_key=True, max_length=30)

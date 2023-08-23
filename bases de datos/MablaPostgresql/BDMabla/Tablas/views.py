@@ -375,18 +375,29 @@ def palabrasdesubcate(request, subcate):
     ]
     return JsonResponse({'palabras':palabradeSubcate})
 
+def getpalabras(self, request):
+        datos=TablaPalabra.objects.all().values
+        insertpalabrita=list(datos)
+        return JsonResponse(insertpalabrita, safe=False)
+
 
 
 #CRUD TABLA CATEGORIAS
 class getCategoria(View):
     def get(self, request):
         datos=TablaCategoria.objects.all()
+        palabras=TablaSubcategoria.objects.all()
         datos_Categoria=[]
-        for i in datos:
-            datos_Categoria.append({
-                'Categoria':i.Categoria,
-                'Subcategorias': subcategosiasdeCate(i.Categoria)
-            })
+        for i in datos:         
+                
+                datos_Categoria.append({
+                    'Categoria':i.Categoria,
+                    'Subcategorias': subcategosiasdeCate(i.Categoria),
+                    'palabras':subcategosiasdeCate(TablaPalabra.Palabra)
+
+                })
+                    
+                
         return JsonResponse(datos_Categoria, safe=False)
 
 

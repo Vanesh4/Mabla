@@ -70,7 +70,7 @@ class registerUser(View):
                         user_instance.save() """
                     print("se valido el formulario")
                     messages.success(request, 'Usuario registrado correctamente desde formulario HTML.')
-                    return redirect('iniciosesion')
+                    return redirect('ingresar')
                 else:
                     messages.error(request, 'Error al registrar el usuario desde formulario HTML.')
                     print("no ingreso")
