@@ -51,12 +51,13 @@ public class STablaUsuario {
 
         if(user==null){
             String alias = (String) dataUser.get("alias");
-            String correo = (String) dataUser.get("correo");
+            String correo = (String) dataUser.get("email");
             String nombre = (String) dataUser.get("nombre");
             String apellido = (String) dataUser.get("apellido");
             String imgPerfil = (String) dataUser.get("imgPerfil");
+            String id = (String) dataUser.get("authId");
 
-            TablaUsuario User = new TablaUsuario(alias, nombre, apellido, correo, imgPerfil);
+            TablaUsuario User = new TablaUsuario(alias, id, nombre, apellido, correo, imgPerfil);
 
             return repositorioUser.save(User);
         }

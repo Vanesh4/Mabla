@@ -8,19 +8,19 @@ import java.util.Set;
 @Table(name="tablaUsuario")
 public class TablaUsuario {
     @Id
-    @Column(nullable = false, unique = true, length = 30)
-    String correo;
-    @Column(nullable = false, length = 30, unique = true)
+    @Column( unique = true, length = 30)
+    String email;
+    @Column(length = 30, unique = true)
     private String alias;
     @Column(name="authId", unique = true)
     private String authId;
-    @Column(nullable = false, length = 30)
+    @Column( length = 30)
      String nombre;
-    @Column(nullable = false, length = 30)
+    @Column( length = 30)
      String apellido;
-    @Column(nullable = false, length = 30)
+    @Column( length = 30)
      String clave;
-    @Column(nullable = false, length = 30)
+    @Column( length = 30)
      String imgPerfil= "img por defecto";
 
     @OneToMany(mappedBy = "tablaUsuario", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
@@ -28,29 +28,28 @@ public class TablaUsuario {
     @OneToMany(mappedBy = "tablaUsuario", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Set<TablaPruebas> tablaPruebas;
 
-    public TablaUsuario(String alias, String authId, String nombre, String apellido, String correo, String clave, String imgPerfil) {
+    public TablaUsuario(String alias, String authId, String nombre, String apellido, String email, String clave, String imgPerfil) {
         this.alias = alias;
         this.authId = authId;
         this.nombre = nombre;
         this.apellido = apellido;
-        this.correo = correo;
+        this.email = email;
         this.clave = clave;
         this.imgPerfil = imgPerfil;
     }
-
-    public TablaUsuario(String alias, String clave) {
+    public TablaUsuario(String alias, String authId, String nombre, String apellido, String email, String imgPerfil) {
         this.alias = alias;
-        this.clave = clave;
-    }
-
-    public TablaUsuario(String alias, String nombre, String apellido, String correo, String imgPerfil) {
-        this.alias = alias;
+        this.authId = authId;
         this.nombre = nombre;
         this.apellido = apellido;
-        this.correo = correo;
+        this.email = email;
         this.imgPerfil = imgPerfil;
     }
 
+    /*    public TablaUsuario(String alias, String clave) {
+        this.alias = alias;
+        this.clave = clave;
+    }*/
     public TablaUsuario() {
     }
 
@@ -86,12 +85,12 @@ public class TablaUsuario {
         this.apellido = apellido;
     }
 
-    public String getCorreo() {
-        return correo;
+    public String getEmail() {
+        return email;
     }
 
-    public void setCorreo(String correo) {
-        this.correo = correo;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getClave() {return clave;}

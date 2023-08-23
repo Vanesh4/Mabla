@@ -40,10 +40,9 @@ public class Clogin {
         if(principal!=null){
             TablaUsuario user = this.servicio.postUser(principal.getClaims());
             model.addAttribute("user", user);
-            return "redirect : /index.html";
         }
-        else  return "index";
+        return "index";
     }
 }
->>>>>>> 8d374d71c9d4c5e271d223017982580b53c3a995
+
 
