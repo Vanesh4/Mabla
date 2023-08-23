@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 @RestController
+@CrossOrigin(origins = "*")
 public class CTablaPalabras {
     private STablaPalabras serviciopalabra;
 

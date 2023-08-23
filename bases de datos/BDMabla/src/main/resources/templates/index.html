@@ -12,9 +12,9 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
+
 <div sec:authorize = "isAuthenticated()">
     <body>
-        <form method="post">
             <header class="header">
                 <div class="closeBtn">
                     <img src="/img/cancelar.png" alt="" id="imgBotonCerrarMenu">
@@ -75,7 +75,6 @@
                     
                 </div>
             </section>
-        </form>    
     </body>
 </div>
 
@@ -162,7 +161,7 @@
 
 <<<<<<< HEAD
 
-    <!-- Si el usuario no esta logeado -->
+    Si el usuario no esta logeado
 
     <header class="header" sec:authorize="!isAuthenticated()">
 
@@ -251,7 +250,7 @@
 <<<<<<< HEAD
 Si el usuario esta logeado
 =======
-    <!-- Si el usuario esta logeado -->
+ Si el usuario esta logeado
 <<<<<<< HEAD
 
      <header class="header" sec:authorize="isAuthenticated()">
