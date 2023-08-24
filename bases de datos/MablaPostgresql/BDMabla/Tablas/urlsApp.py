@@ -32,7 +32,7 @@ urlpatterns = [
     path('menu',views.menuTodo, name="menu"),
     path('mostrar/',views.vercategorias, name="mostrar"),
     path('mostrarsubcate/',views.versubcategorias, name="mostrarsubcate"),
-    path('perfil',profile.as_view(), name="perfil"),
+    path('perfil/',profile.as_view(), name="perfil"),
     path('diccio/', views.palabradiccionario, name='diccio'),
 
     path('getcate',getCategoria.as_view(),name='getcate'),

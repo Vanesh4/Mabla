@@ -81,11 +81,11 @@ class userData(forms.ModelForm):
         model = User
         fields= ['username','first_name', 'last_name', 'email', 'password', 'imgPerfil']
 
-        widgets = {
+        """ widgets = {
             'username': forms.TextInput(attrs={'id':'username',}),
             'first_name': forms.TextInput(attrs={'id':'first_name',}),
             'last_name': forms.EmailInput(attrs={'id':'last_name',}),
             'email': forms.TextInput(attrs={'id':'email',}),
             'password': forms.TextInput(attrs={'id':'password',}),
             'imgPerfil': forms.TextInput(attrs={'id':'imgPerfil',}),
-        }
+        } """

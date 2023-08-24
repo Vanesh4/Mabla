@@ -74,7 +74,6 @@ class registerUser(View):
                 else:
                     messages.error(request, 'Error al registrar el usuario desde formulario HTML.')
                     print("no ingreso")
-        
         else:
             print("no metodo")
             form = registro()
@@ -148,7 +147,8 @@ class IniciarSesionView(View):
             username = form.cleaned_data.get('username')
             password = form.cleaned_data.get('password')
             user = authenticate(username=username, password=password)
-            
+            print(user.username)
+            print(user.password)
             if user is not None:
                 login(request, user)
                 print("ya se tuvo que redirigir")
@@ -163,23 +163,26 @@ class IniciarSesionView(View):
         
         return render(request, 'login.html', {'form': form})
 
-@method_decorator(login_required(login_url='ingresar'), name='dispatch')
+#@method_decorator(login_required(login_url='ingresar'), name='dispatch')
 class profile(View):
     template_name = 'perfilP.html'
 
     def get(self, request):
+        print(request.user.alias)
         user= User.objects.get(alias = request.user.alias) 
-        print(user)
+        print(user.username)
         form = userData(instance= user)
         
         return render(request, self.template_name, {'form': form})
     
     def post(self, request):
         user= User.objects.get(alias = request.user.alias) 
+        print(user.alias)
+        print(user.correo)
         form = userData(request.POST, instance= user)
-        
+        print("entro al post")
         if form.is_valid():
-
+            print("el formulario se valido")
             form.save()
             
             imagen_file = request.FILES['imgPerfil']
