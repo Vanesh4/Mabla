@@ -8,7 +8,7 @@ import java.util.Set;
 @Table(name="tablaUsuario")
 public class TablaUsuario {
     @Id
-    @Column( unique = true, length = 30)
+    @Column( unique = true)
     String email;
     @Column(length = 30, unique = true)
     private String alias;

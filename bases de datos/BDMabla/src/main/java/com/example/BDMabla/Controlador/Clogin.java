@@ -20,7 +20,7 @@ public class Clogin {
         }
         return "index";
     }
-}
+}x
 
 */
 @Controller
