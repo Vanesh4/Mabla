@@ -217,13 +217,13 @@ input{
     header{
         padding: 0px;
         margin: 0px;
-        height: 95vh;
+        height: 97vh;
     }
     form{
         padding: 30px 0px 30px 0px; 
     }
     .textSesion{
-        font-size: 40px;
+        font-size: 45px;
         margin-bottom: 0px;
     }
     input{
@@ -240,27 +240,27 @@ input{
         margin: 40px 10px 0px 0px;
     }
     #colorbtn{
-        font-size: 25px;
+        font-size: 32px;
     }
     .imgyText{
         padding: 0px;
         margin: 0px;
         align-self: flex-end;
-        width: 40%;
-        height: 75%;
-        margin: 50px 20px 0px 50px;
+        width: 45%;
+        height: 80%;
+        margin: 50px 25px 0px 0px;
     }
     .slogan{
         padding: 0px;
         margin: 0px;
         text-align: end;
         font-size: 32px;
-        margin: 25px 30px 50px 0px;
+        margin: 25px 30px 20px 0px;
     }
     #capi{
         margin: 0px;
         padding: 0px;
-        width: 45%;
-        height: 55%;
+        width: 53%;
+        height: 65%;
     }
 }
