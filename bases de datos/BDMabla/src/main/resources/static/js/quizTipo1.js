@@ -22,7 +22,7 @@ function generarNumeroAleatorio(num) {
 }
 
 respuestasIncorrectas = ["vaca","tren","pajaro","hospital","foca","moto","colegio","bus","gato","camiseta","falda","medias","pera","banano","chaqueta","nutria","vestido","fresas"]
-console.log(respuestasIncorrectas.length)
+//console.log(respuestasIncorrectas.length)
 /* 
 $(document).ready (()=>{
     divsenia = document.getElementById("senia")
@@ -78,10 +78,11 @@ $(document).ready (()=>{
     totalRespuestasAcertadas = 0
 
     opcionResCorrecta = "opcion"+generarNumeroAleatorio(4)
-    console.log(opcionResCorrecta)
+    //console.log(opcionResCorrecta)
     resCorrecta = document.getElementById(opcionResCorrecta)
     //console.log("res",resCorrecta.id)
 
+    
     cargarPregunta()
 
     function cargarPregunta() {
@@ -89,6 +90,7 @@ $(document).ready (()=>{
             terminarQuiz()
         }
         else{
+            limpiarOpciones()
             //establecer datos
             $.ajax({
                 url: "http://localhost:8080/preguntas/"+categoria+"/"+1,
@@ -111,8 +113,34 @@ $(document).ready (()=>{
                     
                     
                 }
-            })
+            }) //ajax correcto
+            
         }
+    }
+
+    function limpiarOpciones(){
+        /* $("#opcion0").addClass("opcion0")
+        $("#opcion1").addClass("opcion1")
+        $("#opcion2").addClass("opcion2")
+        $("#opcion3").addClass("opcion3") */
+
+        for (let i = 0; i < 4; i++) {
+            d = document.getElementById("opcion"+i)
+            if (d.classList.contains("opcionCorrecta")) {
+                d.classList.remove("opcionCorrecta");
+                $("#opcion"+i).addClass("opcion"+i)
+            }
+            else if(d.classList.contains("opcionIncorrecta")){
+                d.classList.remove("opcionIncorrecta");
+                $("#opcion"+i).addClass("opcion"+i)
+            }
+        }
+
+        console.log("clases de las opciones c:")
+        console.log($("#opcion0").attr("class"))
+        console.log($("#opcion1").attr("class"))
+        console.log($("#opcion2").attr("class"))
+        console.log($("#opcion3").attr("class"))
     }
     
     $(".opcion").click(function() {
@@ -120,33 +148,55 @@ $(document).ready (()=>{
         validarRespuesta(botonID)
     });
     function validarRespuesta(opcionElegida) {
-        console.log("holaaaaaaaaa?")
+        //console.log("holaaaaaaaaa?")
         if (opcionElegida==resCorrecta.id) {
-            console.log("corectaaaaaaaaaa")
-            r=document.getElementById(opcionElegida)
-            //r.style.boxShadow = "0px 0px 20px green";
-            r.style.background = "green";
+            for (let i = 0; i < 4; i++) {
+                ress =  "opcion"+i
+                if (ress==resCorrecta.id) {
+                    //r=document.getElementById(ress).setAttribute("class","opcionCorrecta")
+                    r=document.getElementById(ress).className = "opcion opcionCorrecta"
+                    //r.style.background = "green"
+                }else{
+                    //p=document.getElementById(ress).setAttribute("class","opcionIncorrecta")
+                    p=document.getElementById(ress).className = "opcion opcionIncorrecta"
+                    /* p.style.color = "red"
+                    p.style.background = "red" */
+                }
+            }
             totalRespuestasAcertadas++
-            
         }
         else{
-            r=document.getElementById(opcionElegida)
-            r.style.boxShadow = "0px 0px 20px red";
-            //r.style.background = "red"
+            
+            //r.style.boxShadow = "0px 0px 20px red";
+            /* for (let i = 0; i < 4; i++) {
+                p=document.getElementById("opcion"+i)
+                p.style.color = "red"
+                p.style.background = "red"
+            }
+            document.getElementById(opcionElegida).style.color = "black" 
             
             c=document.getElementById(opcionResCorrecta)
-            console.log(c)
+            //console.log(c)
             c.style.background = "green"
+            c.style.color = "black" */
+            for (let i = 0; i < 4; i++) {
+                ress =  "opcion"+i
+                document.getElementById(ress).className = "opcion opcionIncorrecta"
+            }
+            document.getElementById(opcionResCorrecta).className = "opcion opcionCorrecta"
         }
-        /* posicionActual++
-        setTimeout(cargarPregunta,1000); */
+        posicionActual++
+
+        
+
+        setTimeout(cargarPregunta,1500);
     }
 
     function terminarQuiz() {
-        $("#espacioQuiz").style.display = "none";
+        $("#sectionPregunta").css("display", "none")
         console.log("Cantidad de respuestas acertadas c:")
         console.log(totalRespuestasAcertadas)
-        $("#resultado").style.display = "block";
+        $("#resultado").css("display", "block")
     }
 })
 
