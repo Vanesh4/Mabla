@@ -34,7 +34,7 @@
         <div class="parteizq">
             <div class="logo">
                 <a href="http://127.0.0.1:8000/inicio">
-                    <img src="http://127.0.0.1:8000/perfil/" alt="logo" class="logoImg">
+                    <img src="perfil" alt="logo" class="logoImg">
                 </a>                
             </div>
             <div class="linkContenido">
@@ -55,8 +55,8 @@
                 <input  type="text" name="buscador" class="buscadorMenu" maxlength="20">
                 <img src="{% static 'img/lupa.png'%}" alt="lupa" style="width: 10%;">                
             </div>
-            
-            <a href="http://127.0.0.1:8000/perfil/">
+            {{user.username}}
+            <a href="perfil">
                 <img id="fotoUser" src="{% static 'img/user.png'%}" alt="">
             </a>
 

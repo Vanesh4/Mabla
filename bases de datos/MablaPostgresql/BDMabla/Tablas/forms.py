@@ -80,7 +80,7 @@ class userData(forms.ModelForm):
     
     class Meta:
         model = User
-        fields= ['username','first_name', 'last_name', 'email', 'password', 'imgPerfil']
+        fields= ['first_name', 'last_name', 'email', 'password', 'imgPerfil']
 
         """ widgets = {
             'username': forms.TextInput(attrs={'id':'username',}),
