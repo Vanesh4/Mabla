@@ -61,8 +61,8 @@ AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
 )
 
-""" LOGIN_URL = 'ingresar' """
-#SESSION_COOKIE_AGE = 0
+""" LOGIN_URL = 'ingresar'
+SESSION_COOKIE_AGE = 0 """
 
 ROOT_URLCONF = 'BDMabla.urls'
 
