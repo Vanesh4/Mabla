@@ -32,7 +32,6 @@ public class STablaCategorias {
         }
     }
 
-
     public boolean deleteCategoria(String cate){
         repCategorias.deleteById(cate);
         return true;

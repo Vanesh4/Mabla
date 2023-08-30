@@ -50,12 +50,12 @@ public class STablaUsuario {
         TablaUsuario user = myUser((String) dataUser.get("email"));
 
         if(user==null){
-            String alias = (String) dataUser.get("alias");
+            String alias = (String) dataUser.get("nickname");
             String correo = (String) dataUser.get("email");
             String nombre = (String) dataUser.get("nombre");
             String apellido = (String) dataUser.get("apellido");
-            String imgPerfil = (String) dataUser.get("imgPerfil");
-            String id = (String) dataUser.get("authId");
+            String imgPerfil = (String) dataUser.get("picture");
+            String id = (String) dataUser.get("sub");
 
             TablaUsuario User = new TablaUsuario(alias, id, nombre, apellido, correo, imgPerfil);
 

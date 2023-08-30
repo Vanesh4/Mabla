@@ -8,7 +8,7 @@ import java.util.Set;
 @Table(name="tablaUsuario")
 public class TablaUsuario {
     @Id
-    @Column( unique = true, length = 30)
+    @Column( unique = true)
     String email;
     @Column(length = 30, unique = true)
     private String alias;
@@ -20,8 +20,8 @@ public class TablaUsuario {
      String apellido;
     @Column( length = 30)
      String clave;
-    @Column( length = 30)
-     String imgPerfil= "img por defecto";
+    @Column
+     String imgPerfil;
 
     @OneToMany(mappedBy = "tablaUsuario", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Set<TablaComentarios> tablaComentarios;

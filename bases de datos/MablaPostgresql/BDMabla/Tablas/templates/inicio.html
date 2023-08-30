@@ -15,6 +15,126 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
+    {% if user.is_authenticated %}
+    <header class="header">
+        <div class="closeBtn">
+            <img src="{% static 'img/cancelar.png'%}" alt="" id="imgBotonCerrarMenu">
+        </div>
+        <div class="parteizq">
+            <div class="logo">
+                <a href="http://127.0.0.1:8000/inicio">
+                    <img src="perfil" alt="logo" class="logoImg">
+                </a>                
+            </div>
+            <div class="linkContenido">
+                <a href="http://127.0.0.1:8000/menu"><p class="textomenu">Contenido</p></a>
+                <a href="http://127.0.0.1:8000/menu">
+                    <img src="{% static 'img/flecha-hacia-abajo-para-navegar.png'%}" alt="flecha" style="width: 15px;height: 15px;" class="imgflecha">
+                </a>
+            </div>
+            <div class="linkContenido">
+                <a href="#"><p class="textomenu">Sobre nosotros</p></a>
+                <a href="#">
+                    <img src="{% static 'img/flecha-hacia-abajo-para-navegar.png'%}" alt="flecha" style="width: 15px;height: 15px;" class="imgflecha">
+                </a>
+            </div>
+        </div>
+        <div class="partederecha">
+            <div class="buscador">
+                <input  type="text" name="buscador" class="buscadorMenu" maxlength="20">
+                <img src="{% static 'img/lupa.png'%}" alt="lupa" style="width: 10%;">                
+            </div>
+                <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                <!-- <img id="fotoUser" src="{% static 'img/user.png'%}" alt=""> -->
+                    <img src="{{ form.instance.imgPerfil.url }}">
+                </form>
+    </div>    
+</header>
+
+    <!-- sin iniciar sesion  --> 
+
+    <!-- <header class="header">
+    <div class="closeBtn">
+        <img src="{% static 'img/cancelar.png'%}" alt="" id="imgBotonCerrarMenu">
+    </div>
+    <div class="parteizq">
+        <div class="logo">
+            <a href="http://127.0.0.1:8000/inicio">
+                <img src="{% static 'img/mablaLOGO-removebg.png'%}" alt="logo" class="logoImg">
+            </a>                
+        </div>
+        <div class="linkContenido">
+            <a href="http://127.0.0.1:8000/menu"><p class="textomenu">Contenido</p></a>
+            <a href="http://127.0.0.1:8000/menu">
+                <img src="{% static 'img/flecha-hacia-abajo-para-navegar.png'%}" alt="flecha" style="width: 15px;height: 15px;" class="imgflecha">
+            </a>
+        </div>
+        <div class="linkContenido">
+            <a href="#"><p class="textomenu">Sobre nosotros</p></a>
+            <a href="#">
+                <img src="{% static 'img/flecha-hacia-abajo-para-navegar.png'%}" alt="flecha" style="width: 15px;height: 15px;" class="imgflecha">
+            </a>
+        </div>
+    </div>
+    <div class="partederecha">
+        <div id="login">
+            <p id="BotonRegisto">
+                <a href="http://127.0.0.1:8000/register">Registrarme</a>
+            </p>
+            <p id="BotonIngresar">
+                <a href="http://127.0.0.1:8000/ingresar">Iniciar Sesión</a>
+            </p>
+        </div>
+        <div class="buscador">
+            <input  type="text" name="buscador" class="buscadorMenu" maxlength="20">
+            <img src="{% static 'img/lupa.png'%}" alt="lupa" style="width: 10%;">                
+        </div>
+        
+    </div>    
+</header> -->    
+
+<section id="contenido">
+    <div class="menuResponsive">
+        <img src="{% static 'img/lista.png'%}" alt="" style="width: 40px;" id="imgBotonAbrirMenu">
+    </div>
+
+    <div id="tituloMabla">
+        <img src="{% static 'img/letrasMABLA.png'%}" alt="mabla" id="letraMabla">
+    </div>
+    <p class="subLema">Habla con las manos</p>
+    <p class="subLema2">Aprende lengua de señas colombiana</p>
+    <div class="link" id="linkConte"><a href="http://127.0.0.1:8000/menu">Contenido</a></div>
+    <div class="link" id="linkQuiz">Quizes</div>
+    <div class="link" id="linkDicc">Diccionario</div>
+    
+</section>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" id="forma">
+    <path fill="#ff731c" fill-opacity="1" d="M0,192L80,208C160,224,320,256,480,229.3C640,203,800,117,960,106.7C1120,96,1280,160,1360,192L1440,224L1440,0L1360,0C1280,0,1120,0,960,0C800,0,640,0,480,0C320,0,160,0,80,0L0,0Z"></path>
+</svg>
+
+
+<section id="comentariosSection">
+    <div class="paraComentar">
+        <textarea id="comentar" placeholder="Escribe tu comentario..."></textarea>
+
+        
+        <input name="btncomentar" type="submit" value="Comentar" class="inputEnviarComentario" id="btnComentar">
+        
+
+    </div>
+
+    <div class="listComent">
+        
+        <!-- <div id="comentario">
+            <p id="user"></p>
+            <p id="coment"></p>
+        </div> -->
+         
+    </div>
+</section>
+
+{% else %}
     <!-- 
         colores:
         azul oscuro:  
@@ -147,7 +267,7 @@
              
         </div>
     </section>
-    
+    {% endif %}
     <script src="{% static 'js/inicio.js'%}"></script>
 </body>
 </html>

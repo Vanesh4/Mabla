@@ -61,8 +61,8 @@ AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
 )
 
-LOGIN_URL = 'ingresar'
-SESSION_COOKIE_AGE = 0
+""" LOGIN_URL = 'ingresar'
+SESSION_COOKIE_AGE = 0 """
 
 ROOT_URLCONF = 'BDMabla.urls'
 
@@ -95,7 +95,11 @@ DATABASES = {
         'HOST':'127.0.0.1',
         'DATABASE_PORT':'5432',
         'USER':'postgres',
+<<<<<<< HEAD
         'PASSWORD':'2004',
+=======
+        'PASSWORD':'0000',
+>>>>>>> c9e0fe11ca1b4a634152c5e4f870d671c58d202b
 
     }
 }

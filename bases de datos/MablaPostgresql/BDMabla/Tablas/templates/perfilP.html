@@ -7,16 +7,14 @@
     <title>datos usuario</title>
 </head>
 <body>
-    <form method="post">
+    <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
-
-        <div><label for="">Alias</label>{{form.username}}</div>
         <div><label for="">Nombre</label>{{form.first_name}}</div>
         <div><label for="">Apellido</label>{{form.last_name}}</div>
         <div><label for="">Correo</label>{{form.email}}</div>
         <div><label for="">Clave</label>{{form.password}}</div>
-        <div><label for="">Foto</label>{{form.imgPerfil}}</div>
-        
+        <div><label for="" type="file">Foto</label>{{form.imgPerfil}}</div>
+        <img src="{{ form.instance.imgPerfil.url }}">
         <button type="submit" name="editar" value="editar">Guardar cambios</button>
 
     </form>
