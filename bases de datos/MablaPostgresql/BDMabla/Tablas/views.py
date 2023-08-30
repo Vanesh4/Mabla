@@ -251,12 +251,45 @@ def subCategoriasDeCate(cat):
     #return JsonResponse(subCatedeCate, safe=False)
     return subCatedeCate
 
+
+
+    #return JsonResponse(subCatedeCate, safe=False)
+
+
+def subCategoriasparaPal(cat):
+    def palabrasfiltro(p):
+        listaapalabras = TablaPalabra.objects.filter(subcategoria_id=p)
+        pals = [
+        {
+            'palabra': TablaPalabra.Palabra,
+            'senia': TablaPalabra.Senia,
+        }     
+        for TablaPalabra in listaapalabras   
+        ]
+        return pals
+    print("holaaaaaaaaaaaaaaaaa?")
+
+    subCategorias = TablaSubcategoria.objects.filter(categoria=cat)    
+    subCatedeCate = [
+        {
+            'subcategoria': TablaSubcategoria.subcategoria,
+            'palabraas': palabrasfiltro(TablaSubcategoria.subcategoria)
+        }     
+        for TablaSubcategoria in subCategorias   
+    ]
+
+    
+    print("SUB DE CATE",subCatedeCate)
+    return subCatedeCate
+
+  
+
 class ListaCategoriaSub(View):
     def get(self, request):
         categorias=TablaCategoria.objects.all()
         datos_Categoria=[]
         
-        print("siuuuuuuuuuuuuuu?")
+        #print("siuuuuuuuuuuuuuu?")
         for i in categorias:
             #print(subCategoriasDeCate(i.Categoria))            
             datos_Categoria.append({
@@ -264,6 +297,34 @@ class ListaCategoriaSub(View):
                 'Subcategorias': subCategoriasDeCate(i.Categoria),
             })
         return JsonResponse(datos_Categoria, safe=False)
+    
+class ListaConsultando(View):
+    def get(self, request):
+        categorias=TablaCategoria.objects.all()
+        datos_Categoria=[]
+        
+        #print("siuuuuuuuuuuuuuu?")
+
+        for i in categorias:
+            #print(subCategoriasDeCate(i.Categoria))  
+                      
+            datos_Categoria.append({
+                'Categoria':i.Categoria,
+                'Subcategorias': subCategoriasparaPal(i.Categoria)
+            })
+        
+        return JsonResponse(datos_Categoria, safe=False)
+
+def palabrasdesubcate(subcate):
+    palabras=TablaPalabra.objects.filter(subcategoria=subcate)
+    palabradeSubcate=[
+        {
+            'Palabra':TablaPalabra.Palabra,
+            'Senia':TablaPalabra.Senia
+        }
+        for TablaPalabra in palabras
+    ]
+    return palabradeSubcate
 
 def pregTipoCat(request, ti, cat):
     preguntas = TablaPreguntas.objects.filter(idCategoria_id=cat).filter(tipo=ti)
@@ -353,16 +414,7 @@ def subcategosiasdeCate(cat):
 
 
 
-def palabrasdesubcate(subcate):
-    palabras=TablaPalabra.objects.filter(subcategoria=subcate)
-    palabradeSubcate=[
-        {
-            'Palabra':TablaPalabra.Palabra,
-            'Senia':TablaPalabra.Senia
-        }
-        for TablaPalabra in palabras
-    ]
-    return palabradeSubcate
+
 
 def palabrasdesubcate(request, subcate):
     palabras=TablaPalabra.objects.filter(subcategoria=subcate)
@@ -375,10 +427,16 @@ def palabrasdesubcate(request, subcate):
     ]
     return JsonResponse({'palabras':palabradeSubcate})
 
-def getpalabras(self, request):
-        datos=TablaPalabra.objects.all().values
-        insertpalabrita=list(datos)
-        return JsonResponse(insertpalabrita, safe=False)
+""" class verpalabra (View):
+    def get(self, request):
+        register= TablaPalabra.objects.all().values()
+        registerPregs=list(register)
+        return JsonResponse(registerPregs, safe=False) """
+class verpalabra (View):
+    def get(self, request):
+        register= TablaPalabra.objects.all().values()
+        registerPregs=list(register)
+        return JsonResponse(registerPregs, safe=False)
 
 
 
@@ -386,15 +444,11 @@ def getpalabras(self, request):
 class getCategoria(View):
     def get(self, request):
         datos=TablaCategoria.objects.all()
-        palabras=TablaSubcategoria.objects.all()
         datos_Categoria=[]
         for i in datos:         
-                
                 datos_Categoria.append({
                     'Categoria':i.Categoria,
                     'Subcategorias': subcategosiasdeCate(i.Categoria),
-                    'palabras':subcategosiasdeCate(TablaPalabra.Palabra)
-
                 })
                     
                 
@@ -480,18 +534,6 @@ class deletesubcategoria(View):
     
 
 #CRUD TABLA PALABRA
-
-class getPalabrassubcate(View):
-    def get(self, request):
-        datos=TablaSubcategoria.objects.all()
-        datos_Subcate=[]
-        for i in datos:
-            datos_Subcate.append({
-                'subcategoria':i.subcategoria,
-                'Palabras': palabrasdesubcate(i.subcategoria)
-                
-            })
-        return JsonResponse(datos_Subcate, safe=False)
 
 
 class getpalabra(View):

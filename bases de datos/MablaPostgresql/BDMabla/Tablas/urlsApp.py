@@ -36,6 +36,7 @@ urlpatterns = [
     path('diccio/', views.palabradiccionario, name='diccio'),
 
     path('getcate',getCategoria.as_view(),name='getcate'),
+    path('getcategoria',ListaConsultando.as_view(),name='getcate'),
     path('postcate',postcategoria.as_view(),name='postcate'),
     path('deletecate/<pk>',deletecategoria.as_view(),name='deletecate'),
 
@@ -44,17 +45,14 @@ urlpatterns = [
     path('postsubcate',postsubcategoria.as_view(),name='postsubcate'),
     path('deletesubcate/<pk>',deletesubcategoria.as_view(),name='deletesubcate'),
 
-    path('getpalabra',getpalabra.as_view(),name='getpalabra'),
-    path('getpalsubcate',getPalabrassubcate.as_view(),name='getpalsubcate'),
+    path('getpalabra',verpalabra.as_view(),name='getpalabra'),
+    #path('getpalsubcate',getPalabrassubcate.as_view(),name='getpalsubcate'),
     path('postpalabra',postpalabra.as_view(),name='postpalabra'),
     path('deletepalabra/<pk>',deletepalabra.as_view(),name='deletepalabra'),
     path('getpalabrita/<pk>',getPalabraT.as_view(),name='getpalabrita'),
-<<<<<<< HEAD
-=======
+
 
     #path('getSubcategorias/<cat>', views.subCategoriasDeCate, name='SucategoriasFiltradas'),
-
->>>>>>> 746598498dc6f7f44ec67f0d23a3614feb657c20
     path('getSubcategorias/<cat>', views.subCategoriasDeCate, name='SucategoriasFiltradas'),
     path('getpalabrassub/<subcate>', views.palabrasdesubcate, name='palabrasFiltradas'),
     path('getpalabrasdiccio/<inicial>', views.buscar_por_inicial, name='getpalabrasdiccio'),
@@ -63,11 +61,9 @@ urlpatterns = [
     
     path('preguntas/<ti>/<cat>', views.pregTipoCat, name='PreguntasFiltradas'),
     path('listaCatSub', ListaCategoriaSub.as_view(), name='listaCatSub'),
-<<<<<<< HEAD
-=======
+
 
 ]
->>>>>>> 746598498dc6f7f44ec67f0d23a3614feb657c20
 
 static(settings.MEDIA_URL, document_root= settings.MEDIA_ROOT)
 

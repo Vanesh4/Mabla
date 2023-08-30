@@ -2,16 +2,20 @@ $(document).ready(function () {
 
 contenedor = document.querySelector("#list")
 const contenidoMostrado = document.getElementById('resultado');
+
     
 $.ajax({
-    url: "http://127.0.0.1:8000/getcate",
+    url: "http://127.0.0.1:8000/getcategoria",
     type: "GET",
     dataType: "JSON",      
     success: function (res) { 
-        console.log("categorias",res)   
+        console.log("categorias",res) 
+        
+        
         
         
         for(let x = 0; x<=res.length; x++) {
+            console.log("el res for primero",res)
  
             //console.log("hollaaaaaa",res[x])
             contenedorli=document.createElement("li")
@@ -34,6 +38,8 @@ $.ajax({
             contenedorli.appendChild(divcategoria)
             contenedor.appendChild(contenedorli)
           
+           
+           
 
             //console.log("los datos",contenedorli)
 
@@ -41,8 +47,9 @@ $.ajax({
             contenedorsub=document.createElement("ul")
             contenedorsub.setAttribute("class", "list_show")
             subdecategorias=res[x].Subcategorias
-            //console.log("subcategorias ijuemadre",subdecategorias)
+            console.log("hola quiero observer",subdecategorias)
             for(let s=0; s<subdecategorias.length; s++){       
+                console.log("subcategorias ijuemadre en s",subdecategorias)
                 
                 li = document.createElement("li")
                 li.setAttribute("class","list_inside")    
@@ -50,50 +57,115 @@ $.ajax({
                 a=document.createElement("a")
                 a.setAttribute("class","nav_link nav_link--inside")
                 a.innerHTML=subdecategorias[s].subcategoria
+                //console.log(subdecategorias[s].subcategoria)
 
-                //console.log("que hay en a",a)
+                console.log("que hay en a",a)
                 
                 li.appendChild(a)
                 contenedorsub.appendChild(li)
                 contenedorli.appendChild(contenedorsub)
 
-                //console.log("viendo mi html",contenedorli)
-
-
-                     
-            /* donde estabaaan
-            const enlaces = document.querySelectorAll('.nav_link--inside');
-            console.log("capturando etiquetas a ")
-            console.log(enlaces) */
+                paldesubcate=subdecategorias[s].palabraas
+                console.log("palabras en subcate",paldesubcate)
                 
-            //console.log("que hay en el contenido resultado",contenidoMostrado)
 
-            
-            console.log("siiiiiiiiiiiiiiiiiiiiiiiii?")
-            const enlaces = document.querySelectorAll('.nav_link--inside');
-            console.log("capturando etiquetas a ")           
-            console.log(enlaces)
-            console.log("enlaces",enlaces)
-            enlaces.forEach(enlace => {
-                //console.log("entra al foreach con enlace",enlace.textContent)    
-                enlace.addEventListener('click', function(event) {
-                    //console.log("palabra quicleadad",enlace)
-                    event.preventDefault(); 
-                    /* const valor = enlace.getAttribute('data-valor'); */
-                    valor = enlace.textContent;
-                    console.log("mirando valor",valor)
-                    contenidoMostrado.textContent = ContenidoDeBaseDeDatos(valor);
-                    //console.log("que hay en el contenedor ",ContenidoDeBaseDeDatos)
+                    console.log("siiiiiiiiiiiiiiiiiiiiiiiii?")
+                    enlaces = document.querySelectorAll('.nav_link--inside');
+                    console.log("capturando etiquetas a ")           
+                    console.log("enlaces",enlaces)
+                    enlaces.forEach(enlace => {
+                    console.log("entra al foreach con enlace",enlaces)    
+                    enlace.addEventListener('click', function(event) {
+                        
+                        //console.log("palabra quicleadad",enlace)
+                        event.preventDefault();
+                        //const valor = enlace.getAttribute('data-valor'); 
+                        valor = enlace.textContent;
+                        console.log("mirando valor",valor)
+                        contenidoMostrado.textContent = ContenidoDeBaseDeDatos(valor);
+                        console.log("que hay en el contenedor ",ContenidoDeBaseDeDatos)
+                
+                    function ContenidoDeBaseDeDatos(valor) {
+                        $.ajax({
+                            url: 'http://127.0.0.1:8000/getpalabrassub/'+valor,
+                            data: {valor: valor},
+                            dataType: 'json',
+                            success: function(data) {
+                                console.log("valoooooooooor"+valor)
+                                console.log("ver lo que hay en data palabras",data)
+                                var resultsDiv = $('#resultado');
+                                
+                                
+                                resultsDiv.empty();                      
+                                var palabras = data.palabras; 
+                                console.log("queria mirar lo que se guarda aqui",palabras)
+                                palabras.forEach(function(palabra) {
+                    
+                                    grupopalabra=document.createElement('div')
+                                    grupopalabra.setAttribute('class','grouppal')
+                    
+                                    img=document.createElement('img')
+                                    img.setAttribute('class','imgpal')
+                                    img.src=palabra.Senia
+                    
+                                    p=document.createElement('p')
+                                    p.setAttribute('class','ppal')
+                                    p.innerHTML=palabra.Palabra
+
+                                    
+                                                     
+                                    grupopalabra.append(img)
+                                    grupopalabra.append(p)
+                                    contenidoMostrado.append(grupopalabra)
+                                    resultsDiv.append(grupopalabra)
+
+                                    console.log("muaaaaaaaaaaaaaaaaaaaaaaaaaa")
+
+                                    document.addEventListener("DOMContentLoaded",function(){
+                                        var btn=document.getElementById("botonQuiz");
+                                        var h1categoria=document.getElementsByClassName("categorias");
+                                        btn.addEventListener("click",function(){
+                                            
+                                            var contenido=h1categoria.textContent
+                                            btn.textContent=contenido
+
+                                            console.log("eiiiiiiiiiiiiiiiiiiii",btn)
+                                            $('.boton').css("display","block")
+                                        })
+                                    })
+
+                                   /*  $("#botonQuiz").val(res[x].Categoria)
+                                    console.log("boooooooooooo",$("#botonQuiz").val(res[x].Categoria))
+                                     */
+                                    
+
+
+                                  
+                                    
+                                });
+
+                                
+                                
+                            }
+                            
+                         
+                    
+                            });
+                            
+                    }
+                   
+                    
+
+                   
                 });
             });
-            
-
-            
+           
             
             } 
+          
+          
 
-         
-
+            
             contenedor.appendChild(contenedorli)
 
             let listElements=document.querySelectorAll('.list_button--click');
@@ -104,6 +176,7 @@ $.ajax({
             listElements.forEach(listElement=>{
                 console.log("holaaa si entra a foreach")
                 listElement.addEventListener('click',()=>{
+                   
                     console.log("dando click en la fecha")
                     listElement.classList.toggle('.arrow');
                     let height=0;
@@ -111,64 +184,32 @@ $.ajax({
                     if(menu.clientHeight=="0"){
                         height=menu.scrollHeight
                         
+                                                          
                     }
                     menu.style.height =`${height}px`;
 
+                   
+
                 })
                 
-            });                       
+            });
+            
+        
            
                    
         }
 
        
-         
+       
+
         
-    }  
 
-    
+        
+    }
+
     
 })
 
-
-
-
-function ContenidoDeBaseDeDatos(valor) {
-    $.ajax({
-        url: 'http://127.0.0.1:8000/getpalabrassub/'+valor,
-        data: {valor: valor},
-        dataType: 'json',
-        success: function(data) {
-            console.log("valoooooooooor"+valor)
-            console.log("ver lo que hay en data palabras",data)
-            /* var resultsDiv = $('#resultado');
-            resultsDiv.empty();*/
-            
-            var palabras = data.palabras; 
-            //console.log("queria mirar lo que se guarda aqui",palabras)
-            palabras.forEach(function(palabra) {
-
-                grupopalabra=document.createElement('div')
-                grupopalabra.setAttribute('class','grouppal')
-
-                img=document.createElement('img')
-                img.setAttribute('class','imgpal')
-                img.src=palabra.Senia
-
-                p=document.createElement('p')
-                p.setAttribute('class','ppal')
-                p.innerHTML=palabra.Palabra
-
-                grupopalabra.append(img)
-                grupopalabra.append(p)
-                contenidoMostrado.append(grupopalabra)
-                //resultsDiv.append(grupopalabra)
-            });
-            
-        }
-
-        });
-}
 
 })
 
@@ -177,6 +218,41 @@ function ContenidoDeBaseDeDatos(valor) {
 
 
 
+                    
+
+                  /*   enlaces = document.querySelectorAll('.nav_link--inside');
+                    console.log("capturando etiquetas a ")           
+                    console.log("enlaces",enlaces)
+                    enlaces.forEach(enlace => {
+                    console.log("entra al foreach con enlace",enlaces)    
+                    enlace.addEventListener('click', function(event) {
+                    event.preventDefault(); 
+                    valor = enlace.textContent;
+                    console.log("mirando valor",valor)
+
+
+                    grupopalabra=document.createElement('div')
+                    grupopalabra.setAttribute('class','grouppal')
+    
+                    img=document.createElement('img')
+                    img.setAttribute('class','imgpal')
+                    //img.src=paldesubcate[p].senia
+                    console.log("la senia",paldesubcate[pa].senia)
+                    img.src=paldesubcate[pa].senia
+    
+                    p=document.createElement('p')
+                    p.setAttribute('class','ppal')
+                    //p.innerHTML=paldesubcate[p].palabra
+                    console.log("la palabrita",paldesubcate[pa].palabra)
+                    p.innerHTML=paldesubcate[pa].palabra
+    
+                    grupopalabra.append(img)
+                    grupopalabra.append(p)
+                    contenidoMostrado.append(grupopalabra)
+                    
+                           
+                    });
+                }); */ 
 
 
 

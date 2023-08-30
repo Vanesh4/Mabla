@@ -28,6 +28,12 @@ public class STablaPalabras {
     }
 
 
+/*
+    public List<TablaPalabras> filtrarpalabraInicial(String pal){
+        return repositoriopalab.findByPalabraStartingWith(pal);
+    }*/
+
+
 /*public String insertarpalabra(TablaPalabras t){
         for (TablaCategorias: Mostrartodo());{
             if (c.getCategoria() == repositorio.findByCategoria(t.getCategoria())){
@@ -62,8 +68,14 @@ public class STablaPalabras {
         else return "ESta Subcategoria no existe";
     }
 
-    public List<Object[]> getpalabrasforsubcate(String sub){
+   /*public List<Object[]> getpalabrasforsubcate(String sub){
+
         return repositoriopalab.findForSubcategoria(sub);
+    }*/
+
+
+    public List<Object[]> buscarPorInicial(String inicial) {
+        return repositoriopalab.findByInicial(inicial);
     }
 }
 

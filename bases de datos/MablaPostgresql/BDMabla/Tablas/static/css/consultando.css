@@ -27,7 +27,7 @@ body{
     height: 400px;
     background-color: #06bfdb; */
     box-shadow: 10px 5px 10px rgba(7, 104, 137, 0.356);
-    fl
+    
 
 }
 
@@ -264,4 +264,8 @@ input{
     /* background-color: red; */
     display: grid;
     grid-template-columns: auto auto;
+}
+
+.boton{
+    display: none;
 }

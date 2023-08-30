@@ -1,20 +1,240 @@
 @font-face {
     font-family: "raleway";
-    src: url(/fonts/Raleway/Raleway-Regular.ttf);
+    src: url("/static/fonts/Raleway/Raleway-Regular.ttf");
 }
 *{
     margin: 0;
     padding: 0;
 }
+
+.miClase:hover{
+    background-color: #06bfdb;
+
+
+}
+
+#wordList{
+    width: 100%;
+}
 .caja1{
     display: flex;
     flex-direction: row;
-    background-color: #ffffff;
+    background-color: #18171763;
     padding: 30px 0 30px 0;
+}
+
+input{
+    border: none;
+    font-size: 18px;
+    font-family: "raleway";
+    outline: none;
+    background-color: transparent;
+
+
+}
+
+button{
+    margin-right: 30px;
+    background-color: transparent;
+    border: none;
+}
+
+
+#buscador{
+    width: 40%;
+    display: flex;
+    border: 2px solid black;
+    border-radius: 100px;
+    padding: 3px;
+    margin-left: 10px;
+}
+#container{
+    display: flex;
+    float: right;
+    padding: 2px;
+    margin-top: -28px;
+    text-align: center;
+
+
+}
+#buscadorMenu{
+    border: none;
+    margin-left: 10px;
+    width: 90%;
+}
+
+::placeholder{
+    color: grey;
 }
 
 
 
+.btn{
+    position: absolute;
+    top: 25px;
+    right: 8%;
+    width: 50px;
+    height: 50px;
+    background: #0a4d68;
+    line-height: 80px;
+    border-radius: 50%;
+    text-align: center;
+
+}
+
+
+.btn i{
+    font-size: 25px;
+    color: rgb(16, 10, 182);
+    line-height: 80px;
+
+}
+
+
+
+
+
+.btn:hover{
+    background: rgb(126, 5, 5);
+    background-color: #ff731c;
+
+}
+
+
+
+.cajaboton{
+    margin-right: 40px;
+    width: 10%;
+    display: flex;
+    justify-content: center;
+}
+
+.home{
+    display: flex;
+    border-radius: 0;
+    justify-content: center;
+
+}
+
+
+.caja2{
+
+    width: 77%;
+
+
+}
+
+#results{
+    width: 100%;
+    height: auto;
+    margin-top: 30px;
+
+
+}
+
+.grouppal{
+
+    display: flex;
+    justify-content: center;
+    margin-top: 100px;
+}
+
+.imgpal{
+    height: 300px;
+    width: 300px;
+    justify-content: end;
+    background-color: blue;
+}
+
+.p{
+    font-size: 40px;
+    color: rgb(6, 6, 6);
+    font-family: "raleway";
+    height: auto;
+    width: 25%;
+    background-color: transparent;
+    text-align: center;
+    padding-top: 70px;
+    margin-left: 30px;
+
+
+}
+.letras{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.list_show{
+    list-style: none;
+    /* transition: height .4s; */
+    display: flex;
+    justify-content: center;
+}
+
+/* .nav_link--inside:hover{
+    background-color: #ff731c;
+   padding: 10;
+
+} */
+
+
+
+.nav_link{
+    display: flex;
+    display: block;
+    text-decoration: none;
+    font-size: 25px;
+    color: #035f8a;
+}
+
+.nav_link:hover{
+    background-color: #06bfdb;
+    padding: 0 10px 0 10px;
+
+}
+.list_inside{
+    border-radius: 6px;
+    padding: 6px;
+    text-align: center;
+
+}
+
+
+.hider{
+    display: none;
+    height: auto;
+    width: 60%;
+
+
+}
+
+.show{
+   display: block;
+}
+
+
+#login{
+    background-color: #0a4d68;
+    display: flex;
+    justify-content: center;
+    color: white;
+    /* padding: 10px 20px; */
+    font-size: 20px;
+    font-family: "raleway";
+    border-radius: 100px;
+}
+#BotonIngresar{
+    background-color: #06bfdb;
+    padding: 7px 18px;
+    border-radius: 100px;
+
+}
+
+#BotonRegisto{
+    padding: 7px 13px 0 20px;
+}
 #buscador{
     width: 40%;
     display: flex;
@@ -28,105 +248,6 @@
     margin-left: 10px;
     width: 90%;
 }
-
-::placeholder{
-    color: grey;
-}
-
-.btn{
-    position: absolute;
-    top: 25px;
-    right: 8%;
-    width: 50px;
-    height: 50px;
-    background: #0a4d68;
-    line-height: 80px;
-    border-radius: 50%;
-    text-align: center;
-}
-
-.btn i{
-    font-size: 25px;
-    color: rgb(16, 10, 182);
-    line-height: 80px;
-    
-}
-
-.btn:hover{
-    background: rgb(126, 5, 5);
-    background-color: #ff731c;
-}
-
-.cajaboton{
-    margin-right: 40px;
-    width: 10%;
-    display: flex;
-    justify-content: center;
-}
-
-.home{
-    display: flex;
-    border-radius: 0;
-    justify-content: center;
-    
-}
-
-
-.caja2{
-    background-color: #0a4d68;
-    width: 100%;
-    margin: auto;
-    /* height: 800px; */
-    display: flex;
-    flex-direction: row;
-}
-
-.resul{
-    height: 200px;
-}
-
-.letras{
-    width: 100%; 
-    display: flex;
-    justify-content: center;
-    align-items: center;    
-}
-
-.list_show{
-    list-style: none;
-    /* transition: height .4s; */
-    display: flex;
-    justify-content: center;
-}
-
-
-.nav_link{
-    display: flex;
-    display: block;
-    text-decoration: none;
-    font-size: 25px;    
-}
-
-.nav_link:hover{
-    background-color: #06bfdb;
-    padding: 0 10px 0 10px;
-
-}
-.list_inside{
-    border-radius: 6px;
-    padding: 6px;
-    text-align: center;
-      
-}
-
-
-
-
-.show{
-   display: block;
-}
-
-
 .let{
     text-decoration: none;
     color: white;
@@ -137,103 +258,3 @@
 }
 
 
-header{
-    background-color: #D9D9D9;
-}
-.contenido{
-    display: flex;
-}
-#contenidoRespuestaPalabras{
-    width: 80%;
-    display: flex;
-    flex-direction: column;
-    padding: 30px;
-}
-#hide_abc{
-    
-    background-color: #76037a;
-    width: 20%;
-    
-    transition: height .10s;
-}
-.abecedario{
-    padding: 5px 0 5px 0;
-    display: grid;
-    grid-template-columns: auto auto auto;
-    justify-content: space-evenly;
-}
-
-.letra{
-    margin: 5px 0 5px 0;
-    width: 50px;
-    height: 50px;
-    font-family: 'raleway';
-    font-size: 27px;
-    background-color: transparent;
-    color: white;
-    border: none;
-    border-radius: 10px;
-}
-.letra:hover{
-    background-color: #06bfdb;
-}
-.letra:active{
-    background-color: #ff731c;
-}
-.seccionPalabra{
-    width: 70%;
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
-    align-items: center;
-}
-.senia{
-    width: 200px;
-    height: 200px;
-    background-color: #D9D9D9;
-}
-.especificaciones{
-    margin-left: 20px;
-}
-p{
-    font-family: 'raleway';
-}
-.palabra{
-    font-size: 28px;
-}
-.subcategoria, .categoria{
-    padding-left: 20px;
-}
-#hider_btn{
-    margin-left: 10px;
-    border: none;
-    background-color: transparent;
-}
-@media screen and (min-width:320px) and (max-width:700px){
-    .contenido{
-        flex-direction: column-reverse;
-    }
-    #hide_abc{
-        width: 100%;
-        grid-template-columns: repeat(8, 1fr);
-        justify-content: center;
-    }
-    #contenidoRespuestaPalabras{
-        width: 100%;
-        padding: 0;
-        margin-top: 10px;
-    }
-    .seccionPalabra{
-        width: 100%;
-        flex-direction: column;
-    }
-    .especificaciones{
-        margin-left: 0;
-    }
-    .subcategoria, .categoria{
-        padding-left: 0;
-    }
-    p{
-        text-align: center;
-    }
-}

@@ -149,6 +149,7 @@ function obtenerContenidoDeBaseDeDatos(valor) {
 
   $(document).ready(function() {
     var word = document.getElementById('container');
+    const inputMostrarContenido = document.getElementById('inicial');
     console.log("hola mi gente")
    
     $('#inicial').on('input', function() {
@@ -166,14 +167,22 @@ function obtenerContenidoDeBaseDeDatos(valor) {
   
           // se va agregando cada palabra recibida a la lista
           palabras.forEach(function(Palabra) {
+            console.log("lo que hay en el forech palabra",Palabra)
+            
             console.log("vinedo las palbras recorridads en el foreach",palabras)
             var listItem = $('<p>').text(Palabra.palabra).addClass('miClase');
             console.log("lo que hay en listem ",listItem)
 
             listItem.click(function() {
-              $('.miClase').val(Palabra);
+              mivalor=Palabra.palabra
+              $('.miClase').val(mivalor);
+              console.log("que hay rn esa palabra", mivalor)
+              inputMostrarContenido.value = mivalor;
+              console.log("esta es la palabras quicleada",mivalor)
+              resultsDiv.textContent = obtenerContenidoDeBaseDeDatos(mivalor);
+
               // Aquí podrías hacer algo con el contenido de la palabra seleccionada
-                grupopalabra=document.createElement('div')
+                /* grupopalabra=document.createElement('div')
                 grupopalabra.setAttribute('class','grouppal')
 
                 img=document.createElement('img')
@@ -186,7 +195,40 @@ function obtenerContenidoDeBaseDeDatos(valor) {
 
                 grupopalabra.append(img)
                 grupopalabra.append(p)
-                resultsDiv.append(grupopalabra)
+                resultsDiv.append(grupopalabra) */
+
+                function obtenerContenidoDeBaseDeDatos(valor) {
+                  $.ajax({
+                      url: 'http://127.0.0.1:8000/getpalabrasdiccio/'+valor,
+                      data: {valor: valor},
+                      dataType: 'json',
+                      success: function(data) {
+                          console.log("ver lo que hay en data",data)
+                          var resultsDiv = $('#results');
+                          resultsDiv.empty();
+                          var palabras = data.palabras;
+                          console.log("queria mirar lo que se guarda aqui",palabras)
+                          palabras.forEach(function(palabra) {
+              
+                              grupopalabra=document.createElement('div')
+                              grupopalabra.setAttribute('class','grouppal')
+              
+                              img=document.createElement('img')
+                              img.getAttribute('class','imgpal')
+                              img.src=palabra.senia
+              
+                              p=document.createElement('p')
+                              p.setAttribute('class','p')
+                              p.innerHTML=palabra.palabra
+              
+                              grupopalabra.append(img)
+                              grupopalabra.append(p)
+                              resultsDiv.append(grupopalabra)
+                          });
+                          
+                      }
+                  });
+                }
           });
          
            
