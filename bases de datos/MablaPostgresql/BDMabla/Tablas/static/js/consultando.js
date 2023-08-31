@@ -2,6 +2,7 @@ $(document).ready(function () {
 
 contenedor = document.querySelector("#list")
 const contenidoMostrado = document.getElementById('resultado');
+boton=document.getElementById('botonQuiz')
 
     
 $.ajax({
@@ -119,28 +120,12 @@ $.ajax({
                                     contenidoMostrado.append(grupopalabra)
                                     resultsDiv.append(grupopalabra)
 
-                                    console.log("muaaaaaaaaaaaaaaaaaaaaaaaaaa")
+                                   
 
-                                    document.addEventListener("DOMContentLoaded",function(){
-                                        var btn=document.getElementById("botonQuiz");
-                                        var h1categoria=document.getElementsByClassName("categorias");
-                                        btn.addEventListener("click",function(){
-                                            
-                                            var contenido=h1categoria.textContent
-                                            btn.textContent=contenido
-
-                                            console.log("eiiiiiiiiiiiiiiiiiiii",btn)
-                                            $('.boton').css("display","block")
-                                        })
-                                    })
-
-                                   /*  $("#botonQuiz").val(res[x].Categoria)
+                                   
                                     console.log("boooooooooooo",$("#botonQuiz").val(res[x].Categoria))
-                                     */
+                                    $('.boton').css("display","block")
                                     
-
-
-                                  
                                     
                                 });
 
@@ -153,10 +138,7 @@ $.ajax({
                             });
                             
                     }
-                   
-                    
-
-                   
+                                     
                 });
             });
            
@@ -183,7 +165,13 @@ $.ajax({
                     let menu=listElement.nextElementSibling;
                     if(menu.clientHeight=="0"){
                         height=menu.scrollHeight
+                        listElement.getElementsByClassName('categorias')
+                        valo=listElement.innerText
+                        console.log("veeeeeeeeeer",valo)
+                        boton.setAttribute("value", valo)
                         
+
+                            
                                                           
                     }
                     menu.style.height =`${height}px`;

@@ -68,10 +68,10 @@ public class STablaPalabras {
         else return "ESta Subcategoria no existe";
     }
 
-   /*public List<Object[]> getpalabrasforsubcate(String sub){
+   public List<Object[]> getpalabrasforsubcate(String sub){
 
         return repositoriopalab.findForSubcategoria(sub);
-    }*/
+    }
 
 
     public List<Object[]> buscarPorInicial(String inicial) {
