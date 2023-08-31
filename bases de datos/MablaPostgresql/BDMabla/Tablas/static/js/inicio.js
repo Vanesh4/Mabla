@@ -16,8 +16,8 @@ $(document).ready (()=>{
     commentsList = document.querySelector(".listComent")
     
     $.ajax({
-        url: "http://192.168.1.10/tablaComment",
-        //url: "http://127.0.0.1:8000/tablaComment",
+        //url: "http://192.168.1.10/tablaComment",
+        url: "http://127.0.0.1:8000/tablaComment",
         //url: "http://localhost:8080/users",
         type: "GET",
         dataType: "JSON",
@@ -46,28 +46,41 @@ $(document).ready (()=>{
 
     //enviar comentarios
 
-    contenedorComentar = document.getElementsByClassName('paraComentar')
-    console.log(contenedorComentar)
-    $(".inputEnviarComentario").on("click", ()=>{
-
-        console.log("entroofuncionn")
+    $("#miDiv").on("click", ()=>{
         
-        /* msj = document.createElement("p")
+        msj = document.createElement("p")
         msj.setAttribute("id","msj")
         msj.textContent = "Debe iniciar sesión para poder comentar";
-        contenedorComentar.appendChild(msj) */
 
-        // Crear un nuevo elemento <p>
-        var nuevoParrafo = document.createElement("p");
-        nuevoParrafo.textContent = "Este es un nuevo párrafo.";
-
-        // Obtener el elemento <div> al que deseas agregar el párrafo
-        var contenedorDiv = document.getElementById("miDiv");
-
-        // Agregar el nuevo párrafo al <div>
-        contenedorDiv.appendChild(nuevoParrafo);
+        var contenedorDiv = document.getElementById("divParaComentar");
+        contenedorDiv.appendChild(msj)
     })
-       
+    
+    $("#btnComentario").on("click", ()=>{
+        texto = document.getElementById("comentar").value
+        console.log(texto)
+        alias = document.getElementById("alias").textContent
+        console.log(alias)
+        comentario = {
+            "alias_id": alias,
+            "texto": texto
+        }
+        jsonData = JSON.stringify(comentario)
+        $.ajax({
+            url: 'http://127.0.0.1:8000/postComment',
+            type: 'POST',
+            dataType: 'json', 
+            data: jsonData,
+            success: function(response) {
+                console.log(response);
+            },
+            error: function(error) {
+                console.error(error);
+            }
+        });
+        
+        
+    })
     
     
 })

@@ -24,7 +24,6 @@ class postComment(View):
     def dispatch(self, request, *args: Any, **kwargs):
         return super().dispatch(request, *args, **kwargs)
     
-    @method_decorator(login_required)
     def post(self, request):
         registerInsertComment=json.loads(request.body)
         request.POST.get('alias_id')
