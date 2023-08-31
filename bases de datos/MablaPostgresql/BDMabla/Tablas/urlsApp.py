@@ -28,7 +28,8 @@ urlpatterns = [
 
     path('',views.iniciohtml, name="inicio"),
     path('iniciosesion',views.inicioConSesion, name="iniciosesion"),
-    path('quiz',views.viewQuiz, name="quiz"),
+    path('quizTipo1',views.viewQuiz1, name="quiz1"),
+    path('quizTipo2',views.viewQuiz2, name="quiz2"),
     path('menu',views.menuTodo, name="menu"),
     path('mostrar/',views.vercategorias, name="mostrar"),
     path('mostrarsubcate/',views.versubcategorias, name="mostrarsubcate"),
@@ -50,16 +51,9 @@ urlpatterns = [
     path('postpalabra',postpalabra.as_view(),name='postpalabra'),
     path('deletepalabra/<pk>',deletepalabra.as_view(),name='deletepalabra'),
     path('getpalabrita/<pk>',getPalabraT.as_view(),name='getpalabrita'),
-<<<<<<< HEAD
-=======
-
-
 
     #path('getSubcategorias/<cat>', views.subCategoriasDeCate, name='SucategoriasFiltradas'),
 
->>>>>>> 00dba79a2fbeed05d15b448cc92e689c8f946fdf
-
-    #path('getSubcategorias/<cat>', views.subCategoriasDeCate, name='SucategoriasFiltradas'),
 
     path('getSubcategorias/<cat>', views.subCategoriasDeCate, name='SucategoriasFiltradas'),
     path('getpalabrassub/<subcate>', views.palabrasdesubcate, name='palabrasFiltradas'),
@@ -70,15 +64,11 @@ urlpatterns = [
     path('preguntas/<ti>/<cat>', views.pregTipoCat, name='PreguntasFiltradas'),
     path('listaCatSub', ListaCategoriaSub.as_view(), name='listaCatSub'),
 
-<<<<<<< HEAD
-] + static(settings.MEDIA_URL, document_root= settings.MEDIA_ROOT)
-=======
 
 ]
 
 static(settings.MEDIA_URL, document_root= settings.MEDIA_ROOT)
 
 
->>>>>>> 00dba79a2fbeed05d15b448cc92e689c8f946fdf
 
 

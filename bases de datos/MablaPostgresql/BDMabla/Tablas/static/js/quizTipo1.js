@@ -15,6 +15,7 @@ console.log(valorRecibido);
 */
 
 categoria = "sustantivos"
+console.log("hola?")
 
 function generarNumeroAleatorio(num) {
     return Math.floor(Math.random() * num)
@@ -47,8 +48,8 @@ $(document).ready (()=>{
                     p = generarNumeroAleatorio(res.length) // validar 5 veces diferentes preguntas
                     //¿no hay una manera de ocultar algun dato traido de la bd?
                     
-                    //document.getElementById('linkSenia').src = res[p].respuesta
-                    document.getElementById('linkSenia').setAttribute("src", res[p].respuesta)    
+                    document.getElementById('linkSenia').src=res[p].respuesta
+                    //document.getElementById('linkSenia').setAttribute("src", res[p].respuesta)    
                     for (let i = 0; i < 4; i++) {
                         pos=generarNumeroAleatorio(respuestasIncorrectas.length)
                         document.getElementById("opcion"+i).innerHTML= respuestasIncorrectas[pos]

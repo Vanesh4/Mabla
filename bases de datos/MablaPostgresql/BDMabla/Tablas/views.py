@@ -277,8 +277,10 @@ def iniciohtml(request):
 def inicioConSesion(request):
     return render(request,"inicioConSesion.html")
 
-def viewQuiz(request):
+def viewQuiz1(request):
     return render(request,"quizTipo1.html")
+def viewQuiz2(request):
+    return render(request,"quizTipo2.html")
 
 def menuTodo(request):
     return render(request,"menu.html")
