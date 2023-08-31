@@ -115,11 +115,11 @@ class PostPreguntas(View):
         #preparar la manera de enviar los datos
         request.POST.get('tipo')
         request.POST.get('idCategoria_id')
-        request.POST.get('senia')
+        request.POST.get('pregunta')
         request.POST.get('respuesta')
         pregunta = TablaPreguntas.objects.create(tipo=registerpreg['tipo'],
                                     idCategoria_id=registerpreg['idCategoria_id'],
-                                    senia=registerpreg['senia'],
+                                    pregunta=registerpreg['pregunta'],
                                     respuesta=registerpreg['respuesta'],)
         pregunta.save()
         #no es necesario pero es para que genere el aviso:
@@ -140,7 +140,7 @@ class editPregunta(View):
         data = json.loads(request.body)
     
         preg.tipo=data.get('tipo')
-        preg.senia=data.get('senia')
+        preg.pregunta=data.get('pregunta')
         #preg.idCategoria=data.get('idCategoria_id')
         preg.respuesta=data.get('respuesta')
         preg.save() 
@@ -190,7 +190,7 @@ def subCategoriasparaPal(cat):
         for TablaPalabra in listaapalabras   
         ]
         return pals
-    print("holaaaaaaaaaaaaaaaaa?")
+    #print("holaaaaaaaaaaaaaaaaa?")
 
     subCategorias = TablaSubcategoria.objects.filter(categoria=cat)    
     subCatedeCate = [
@@ -225,8 +225,6 @@ class ListaConsultando(View):
     def get(self, request):
         categorias=TablaCategoria.objects.all()
         datos_Categoria=[]
-        
-        #print("siuuuuuuuuuuuuuu?")
 
         for i in categorias:
             #print(subCategoriasDeCate(i.Categoria))  
@@ -255,7 +253,7 @@ def pregTipoCat(request, ti, cat):
     resPreguntas = [
         {
             'id': TablaPreguntas.id,
-            'senia': TablaPreguntas.senia,
+            'pregunta': TablaPreguntas.pregunta,
             'respuesta': TablaPreguntas.respuesta,            
         }     
         for TablaPreguntas in preguntas 
@@ -325,8 +323,6 @@ def subcategosiasdeCate(cat):
         for TablaSubcategoria in subCategorias
     ]
     return subcatedeCate
-
-
 
 
 

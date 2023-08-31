@@ -21,7 +21,7 @@ function generarNumeroAleatorio(num) {
     return Math.floor(Math.random() * num)
 }
 
-respuestasIncorrectas = ["vaca","tren","pajaro","hospital","foca","moto","colegio","bus","gato","camiseta","falda","medias","pera","banano","chaqueta","nutria","vestido","fresas"]
+respuestasIncorrectas = ["vaca","tren","pajaro","hospital","foca","moto","colegio","bus","gato","camiseta","falda","medias","pera","banano","chaqueta","nutria","vestido","fresas","papaya"]
 //console.log(respuestasIncorrectas.length)
 /* 
 $(document).ready (()=>{
@@ -194,9 +194,10 @@ $(document).ready (()=>{
 
     function terminarQuiz() {
         $("#sectionPregunta").css("display", "none")
-        console.log("Cantidad de respuestas acertadas c:")
-        console.log(totalRespuestasAcertadas)
-        $("#resultado").css("display", "block")
+        /* console.log("Cantidad de respuestas acertadas c:")
+        console.log(totalRespuestasAcertadas) */
+        $("#resultado").css("visibility", "inherit")
+        $("#calificacion").text(totalRespuestasAcertadas+"/5")
     }
 })
 
