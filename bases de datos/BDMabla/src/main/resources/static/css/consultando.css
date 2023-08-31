@@ -1,11 +1,11 @@
 @font-face {
     font-family: "raleway";
-    src: url("/static/fonts/Raleway/Raleway-Regular.ttf");
+    src: url("/fonts/Raleway/Raleway-Regular.ttf");
 }
 
 @font-face {
     font-family: "ralewayExtraBold";
-    src: url("/static/fonts/Raleway/Raleway-ExtraBold.ttf");
+    src: url("/fonts/Raleway/Raleway-ExtraBold.ttf");
 }
 *{
     margin: 0;
@@ -25,10 +25,16 @@ body{
     flex-direction: row;
     width: 50%;
     height: 400px;
-    background-color: #06bfdb; */
-    box-shadow: 10px 5px 10px rgba(7, 104, 137, 0.356);
+    background-color: #06bfdb;
+    box-shadow: 10px 5px 10px rgba(7, 104, 137, 0.356);*/
 
 
+}
+
+.logo{
+    height: 80px;
+    float: right;
+    margin-right: 20px;
 }
 
 h1{
@@ -141,14 +147,13 @@ input{
     box-sizing: border-box;
     margin-top: 15px;
     height: 40px;
-    width: 0;
+    width: 350px;
     padding: 0 20px;
     color: rgb(0, 0, 0);
     border-radius: 50px;
     font-size: 20px;
     border-radius: 1px solid rgb(0, 4, 255);
-    transition: all .7s ease;
-    margin-left: 70%;
+    margin-left: 72%;
 
 
 
@@ -185,9 +190,9 @@ input{
     transition: all .7s;
 }
 
-.buscar:hover input{
+/*.buscar:hover input{
     width: 350px;
-}
+}*/
 
 .buscar:hover i{
     transform: rotate(-360deg);

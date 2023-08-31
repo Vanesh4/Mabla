@@ -25,8 +25,8 @@ body{
     flex-direction: row;
     width: 50%;
     height: 400px;
-    background-color: #06bfdb; */
-    box-shadow: 10px 5px 10px rgba(7, 104, 137, 0.356);
+    background-color: #06bfdb; 
+    box-shadow: 10px 5px 10px rgba(7, 104, 137, 0.356);*/
     
 
 }
@@ -131,24 +131,30 @@ nav{
     
     width: 100%;
     height: 100px;
-    background-color: #393a3c;
+    background-color: #fbfcfd;
     padding: 10px;
     
 
 }
+
+.logo{
+    height: 80px;
+    float: right;
+    margin-right: 20px;
+}
 input{
-    outline: none;
-    box-sizing: border-box;
+    outline: none; 
+    box-sizing: border-box; 
     margin-top: 15px;
     height: 40px;
-    width: 0;
+    width: 370px;
     padding: 0 20px;
     color: rgb(0, 0, 0);
     border-radius: 50px;
     font-size: 20px;
     border-radius: 1px solid rgb(0, 4, 255);
-    transition: all .7s ease;
-    margin-left: 70%;
+    /* transition: all .7s ease; */
+     margin-left: 72%;
 
 
 
@@ -185,12 +191,10 @@ input{
     transition: all .7s;
 }
 
-.buscar:hover input{
-    width: 350px;
-}
+
 
 .buscar:hover i{
-    transform: rotate(-360deg);
+    transform: rotate(-360deg); 
     
 
 }
