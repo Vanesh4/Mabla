@@ -1,8 +1,6 @@
 import 'dart:convert';
-import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:image_picker/image_picker.dart';
 import 'package:http/http.dart' as http;
 
 const Color darkBlue = Color(0xFF0a4d68);
@@ -24,12 +22,9 @@ class _registroState extends State<registro> {
   final TextEditingController _alias = TextEditingController();
   final TextEditingController _nombre = TextEditingController();
   final TextEditingController _apellido = TextEditingController();
-  final TextEditingController _telefono = TextEditingController();
   final TextEditingController _email = TextEditingController();
   final TextEditingController _clave = TextEditingController();
   final TextEditingController _confirmClave = TextEditingController();
-
-  bool _obscureText = true;
 /*File? _image;
 
   Future<void> _pickImage() async {
@@ -43,24 +38,13 @@ class _registroState extends State<registro> {
     });
   }*/
 
-  void dispose() {
-    _alias.dispose();
-    _nombre.dispose();
-    _apellido.dispose();
-    _telefono.dispose();
-    _email.dispose();
-    _clave.dispose();
-    _confirmClave.dispose();
-    super.dispose();
-  }
-
   void _postForm() async {
     if (_formKey.currentState!.validate()) {
+
       if (_clave.text == _confirmClave.text) {
         print(_alias.text);
         print(_nombre.text);
         print( _apellido.text);
-        print( _telefono.text);
         print( _email.text);
         print(_clave.text);
         print(_confirmClave.text);
@@ -71,7 +55,6 @@ class _registroState extends State<registro> {
           'username': _alias.text,
           'first_name': _nombre.text,
           'last_name': _apellido.text,
-          'telefono': _telefono.text,
           'email': _email.text,
           'password1': _clave.text,
           'password2':_confirmClave.text
@@ -110,8 +93,30 @@ class _registroState extends State<registro> {
       }
     }
   }
-  List<String> label = ['Nombre', 'Apellido', 'Teléfono', 'Correo electrónico', 'Nombre de usuario (Alias)', 'Clave', 'Confirma tu clave'];
-  List<TextEditingController> _controllers = [];
+  List<String> label = ['Nombre', 'Apellido', 'Correo electrónico', 'Usuario (Alias)', 'Clave', 'Confirma tu clave'];
+
+  late final List<TextEditingController> controladores;
+
+  @override
+  void initState() {
+    super.initState();
+    controladores = [
+      _nombre,
+      _apellido,
+      _email,
+      _alias,
+      _clave,
+      _confirmClave,
+    ];
+  }
+
+  @override
+  void dispose() {
+    for (var controller in controladores) {
+      controller.dispose();
+    }
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -123,25 +128,31 @@ class _registroState extends State<registro> {
               'assets/img/pico.svg',
               colorFilter: ColorFilter.mode(purple, BlendMode.srcIn),
               width: double.infinity,
-              height: 840,
+              height: 839,
               // Cambia "Colors.red" por el color deseado
             ),
             Column(
               children: [
                 Container(
-                  padding: const EdgeInsets.only(top: 50, left: 20, right: 15),
+                  padding: const EdgeInsets.only(left: 10, top: 50),
                   child: Column(
                     children: [
                       Container(
                         alignment: Alignment.center,
-                        margin: EdgeInsets.only(bottom: 30, left: 15),
-                        child: Text("REGISTRATE", style: TextStyle(fontSize: 30, fontFamily: "MartianMono", color: Colors.white),),
+                        margin: EdgeInsets.only(bottom: 35, top: 15, left: 15),
+                        child: Text("REGISTRATE", style: TextStyle(fontSize: 32, fontFamily: "MartianMono", color: Colors.white),),
                       ),
                       Wrap(
                         alignment: WrapAlignment.spaceBetween,
                         spacing: 10, // Espacio horizontal entre elementos
                         runSpacing: 20, // Espacio vertical entre filas de elementos
-                        children: label.map((item) => buildItem(item)).toList(),
+                        children: //label.map((item) => buildItem(item,controladores)).toList(),
+                        label.asMap().entries.map((entry) {
+                          int index = entry.key;
+                          String item = entry.value;
+                          TextEditingController controller = controladores[index];
+                          return buildItem(item, controller);
+                        }).toList(),
                       ),
                       Container(
                         alignment: Alignment.bottomRight,
@@ -151,6 +162,9 @@ class _registroState extends State<registro> {
                           child: ElevatedButton(
                             onPressed: () {
                               onPressed: _postForm;
+                              print(_alias.text);
+                              print(_clave.text);
+                              print(_confirmClave.text);
                             },
                             style: ElevatedButton.styleFrom(
                                 padding: EdgeInsets.all(15),
@@ -164,15 +178,20 @@ class _registroState extends State<registro> {
                         ),
                       ),
                       Container(
-                          margin: EdgeInsets.only(top: 40, right: 50),
-                          padding: EdgeInsets.only(right: 50),
+                          margin: EdgeInsets.only(top: 23, right: 50),
+                          padding: EdgeInsets.only(left: 15, right: 50),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Image.asset("assets/img/letrasMABLAnaranja.png", width: 225),
+                              Image.asset("assets/img/letrasMABLAnaranja.png", width: 220),
                               Container(
-                                padding: EdgeInsets.only(top: 20, right: 30),
-                                child: Text("HABLA CON LAS MANOS", style: TextStyle(fontFamily: "MartianMono", fontSize: 22, color: orange), textAlign: TextAlign.center,),
+                                padding: EdgeInsets.only(top: 20, right: 45),
+                                child: Text("HABLA CON LAS MANOS", style: TextStyle(fontFamily: "MartianMono", fontSize: 20, color: orange), textAlign: TextAlign.center,),
+                              ),
+                              Container(
+                                  margin: EdgeInsets.only(left: 30),
+                                  width: 172,
+                                  child: Image.asset("assets/img/capiLogin.png")
                               )
                             ],
                           )
@@ -188,7 +207,12 @@ class _registroState extends State<registro> {
     );
   }
 
-  Widget buildItem(String item) {
+  Widget buildItem(String item, TextEditingController control) {
+
+    bool hasSuffixIcon = control == _clave || control == _confirmClave;
+    bool _obscureTextClave = true;
+    bool _obscureTextClaveConfirm = true;
+
     return Container(
       width: 169,
       child: Column(
@@ -201,41 +225,54 @@ class _registroState extends State<registro> {
               style: TextStyle(
                   color: Colors.white,
                   fontFamily: "Raleway",
-                  fontSize: 19
+                  fontSize: 22
               ),
             ),
           ),
-          Container(
-              height: 30,
-              margin: EdgeInsets.only(top: 15),
-              padding: EdgeInsets.only(left: 15),
-              decoration: BoxDecoration(
-                  color: beige,
-                  borderRadius: BorderRadius.circular(100)
-              ),
-              child: TextFormField(
-                cursorColor: Colors.black,
-                obscureText: _obscureText,
-                controller: _apellido,
-                validator: (value) {
-                  if (value!.isEmpty) {
 
-                  }
-                  return null;
-                },
-                style: TextStyle(
-                  color: Colors.black, // Cambia este valor al color deseado
-                ),
-                decoration: InputDecoration(
-                  enabledBorder: UnderlineInputBorder(
-                    borderSide: BorderSide.none,
+            Container(
+                  height: 30,
+                  margin: EdgeInsets.only(top: 15),
+                  padding: EdgeInsets.only(left: 15),
+                  decoration: BoxDecoration(
+                      color: beige,
+                      borderRadius: BorderRadius.circular(100)
                   ),
-                  focusedBorder: UnderlineInputBorder(
-                    borderSide: BorderSide.none,
-                  ),
-                ),
+
+                  child: TextFormField(
+                    cursorColor: Colors.black,
+                    obscureText: control == _confirmClave || control == _clave,
+                    controller: control,
+                    validator: (value) {
+                      if (value!.isEmpty) {
+
+                      }
+                      return null;
+                    },
+                    style: TextStyle(
+                      color: Colors.black, // Cambia este valor al color deseado
+                    ),
+                    decoration: InputDecoration(
+                      enabledBorder: UnderlineInputBorder(
+                        borderSide: BorderSide.none,
+                      ),
+                      focusedBorder: UnderlineInputBorder(
+                        borderSide: BorderSide.none,
+                      ),
+                      suffixIcon: hasSuffixIcon ?  IconButton(
+                        onPressed: () {
+                          setState(() {
+                            _obscureTextClave = !_obscureTextClave;
+                          });
+                        },
+                        icon: Icon(
+                          _obscureTextClave ? Icons.visibility : Icons.visibility_off, color: Colors.black,
+
+                        ),
+                      ):null,
+                    ),
+                  )
               )
-          )
         ],
       )
     );

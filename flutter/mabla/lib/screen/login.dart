@@ -45,25 +45,25 @@ class _loginState extends State<login> {
               child: Stack(
                     children: [
                       SvgPicture.asset(
-                        'assets/img/picoLogin-01.svg',
+                        'assets/img/pico.svg',
                         colorFilter: ColorFilter.mode(purple, BlendMode.srcIn),
                         width: double.infinity,
-                        height: 658,
-                            // Cambia "Colors.red" por el color deseado
-                          ),
+                        height: 839,
+                        // Cambia "Colors.red" por el color deseado
+                      ),
                       Column(
                         children: [
                           Container(
-                            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 25),
+                            padding: const EdgeInsets.only(left: 10, right: 10, top: 50),
                             //padding: const EdgeInsets.only(top: 30, left: 30, right: 5),
                             child: Column(
                                 children:[
                                   Container(
                                     margin: EdgeInsets.only(bottom: 15, top: 15, left: 15),
-                                    child: Text("INICIA SESIÓN", style: TextStyle(fontSize: 30, fontFamily: "MartianMono", color: Colors.white),),
+                                    child: Text("INICIA SESIÓN", style: TextStyle(fontSize: 32, fontFamily: "MartianMono", color: Colors.white),),
                                   ),
                                   Container(
-                                    margin: EdgeInsets.symmetric(vertical: 20),
+                                    margin: EdgeInsets.symmetric(vertical: 20, horizontal: 10),
                                     padding: EdgeInsets.only(left: 20),
                                     child: Form(
                                       key: _formKey,
@@ -74,86 +74,120 @@ class _loginState extends State<login> {
                                             child: Column(
                                               children: [
                                                 Container(
-                                                  margin: EdgeInsets.only(left: 15),
-                                                  alignment: Alignment.centerLeft,
-                                                  child: Text(
-                                                    "Alias",
-                                                    style: TextStyle(
-                                                        color: Colors.white,
-                                                        fontFamily: "Raleway",
-                                                        fontSize: 20
-                                                    ),
-                                                  ),
-                                                ),
-                                                Padding(
-                                                  padding: const EdgeInsets.only(bottom: 20),
-                                                  child: TextFormField(
-                                                    cursorColor: Colors.white,
-                                                    validator: (value) {
-                                                      if (value!.isEmpty) {
-                                                      }
-                                                      return null;
-                                                    },
-                                                    style: TextStyle(
-                                                      color: Colors.white, // Cambia este valor al color deseado
-                                                    ),
-                                                    decoration: InputDecoration(
-                                                      enabledBorder: UnderlineInputBorder(
-                                                        borderSide: BorderSide.none,
-                                                      ),
-                                                      focusedBorder: UnderlineInputBorder(
-                                                        borderSide: BorderSide.none,
+                                                width: double.infinity,
+                                                child: Column(
+                                                  children: [
+                                                    Container(
+                                                      alignment: Alignment.centerLeft,
+                                                      margin: EdgeInsets.only(left: 10),
+                                                      child: Text(
+                                                        "Alias",
+                                                        style: TextStyle(
+                                                            color: Colors.white,
+                                                            fontFamily: "Raleway",
+                                                            fontSize: 25
+                                                        ),
                                                       ),
                                                     ),
-                                                  ),
-                                                ),
+                                                    Container(
+                                                        height: 37,
+                                                        margin: EdgeInsets.only(top: 15),
+                                                        padding: EdgeInsets.only(left: 15, bottom: 5),
+                                                        decoration: BoxDecoration(
+                                                            color: beige,
+                                                            borderRadius: BorderRadius.circular(100)
+                                                        ),
+                                                        child: TextFormField(
+                                                          cursorColor: Colors.black,
+                                                          //controller: _apellido,
+                                                          validator: (value) {
+                                                            if (value!.isEmpty) {
+
+                                                            }
+                                                            return null;
+                                                          },
+                                                          style: TextStyle(
+                                                            color: Colors.black, // Cambia este valor al color deseado
+                                                          ),
+                                                          decoration: InputDecoration(
+                                                            enabledBorder: UnderlineInputBorder(
+                                                              borderSide: BorderSide.none,
+                                                            ),
+                                                            focusedBorder: UnderlineInputBorder(
+                                                              borderSide: BorderSide.none,
+                                                            ),
+                                                          ),
+                                                        )
+                                                    )
+                                                  ],
+                                                )
+                                            ),
                                                 Container(
-                                                  margin: EdgeInsets.only(left: 15),
-                                                  alignment: Alignment.centerLeft,
-                                                  child: const Text(
-                                                    "Clave",
-                                                    style: TextStyle(
-                                                        color: Colors.white,
-                                                        fontFamily: "Raleway",
-                                                        fontSize: 20
-                                                    ),
-                                                  ),
-                                                ),
-                                                TextFormField(
-                                                  cursorColor: Colors.white,
-                                                  obscureText: _obscureText,
-                                                  validator: (value) {
-                                                    if (value!.isEmpty) {
-                                                    }
-                                                    return null;
-                                                  },
-                                                  style: TextStyle(
-                                                    color: Colors.white, // Cambia este valor al color deseado
-                                                  ),
-                                                  decoration: InputDecoration(
-                                                    enabledBorder: UnderlineInputBorder(
-                                                      borderSide: BorderSide.none,
-                                                    ),
-                                                    focusedBorder: UnderlineInputBorder(
-                                                      borderSide: BorderSide.none,
-                                                    ),
-                                                    suffixIcon: IconButton(
-                                                      onPressed: () {
-                                                        setState(() {
-                                                          _obscureText = !_obscureText;
-                                                        });
-                                                      },
-                                                      icon: Icon(
-                                                        _obscureText ? Icons.visibility : Icons.visibility_off, color: Colors.white,
-                                                      ),
-                                                    ),
-                                                  ),
+                                                    margin: EdgeInsets.only(top: 20),
+                                                    width: double.infinity,
+                                                    child: Column(
+                                                      children: [
+                                                        Container(
+                                                          alignment: Alignment.centerLeft,
+                                                          margin: EdgeInsets.only(left: 10),
+                                                          child: Text(
+                                                            "Clave",
+                                                            style: TextStyle(
+                                                                color: Colors.white,
+                                                                fontFamily: "Raleway",
+                                                                fontSize: 25
+                                                            ),
+                                                          ),
+                                                        ),
+                                                        Container(
+                                                            height: 37,
+                                                            margin: EdgeInsets.only(top: 15),
+                                                            padding: EdgeInsets.only(left: 15, bottom: 5),
+                                                            decoration: BoxDecoration(
+                                                                color: beige,
+                                                                borderRadius: BorderRadius.circular(100)
+                                                            ),
+                                                            child: TextFormField(
+                                                              cursorColor: Colors.black,
+                                                              obscureText: _obscureText,
+                                                              //controller: _apellido,
+                                                              validator: (value) {
+                                                                if (value!.isEmpty) {
+
+                                                                }
+                                                                return null;
+                                                              },
+                                                              style: TextStyle(
+                                                                color: Colors.black, // Cambia este valor al color deseado
+                                                              ),
+                                                              decoration: InputDecoration(
+                                                                enabledBorder: UnderlineInputBorder(
+                                                                  borderSide: BorderSide.none,
+                                                                ),
+                                                                focusedBorder: UnderlineInputBorder(
+                                                                  borderSide: BorderSide.none,
+                                                                ),
+                                                                suffixIcon: IconButton(
+                                                                  onPressed: () {
+                                                                    setState(() {
+                                                                      _obscureText = !_obscureText;
+                                                                    });
+                                                                  },
+                                                                  icon: Icon(
+                                                                    _obscureText ? Icons.visibility : Icons.visibility_off, color: Colors.black,
+                                                                  ),
+                                                                ),
+                                                              )
+                                                            )
+                                                        )
+                                                      ],
+                                                    )
                                                 ),
                                               ],
                                             ),
                                           ),
                                           Container(
-                                              margin: EdgeInsets.symmetric(vertical: 24, horizontal: 30),
+                                              margin: EdgeInsets.symmetric(vertical: 45, horizontal: 28),
                                               child: Column(
                                                   children:[
                                                     GestureDetector(
@@ -167,7 +201,7 @@ class _loginState extends State<login> {
                                                             style: TextStyle(
                                                                 color: Colors.white,
                                                                 fontFamily: "Raleway",
-                                                                fontSize: 16
+                                                                fontSize: 19
                                                             ),
                                                           ),
                                                         )
@@ -191,7 +225,7 @@ class _loginState extends State<login> {
                                                             style: TextStyle(
                                                                 color: Colors.white,
                                                                 fontFamily: "Raleway",
-                                                                fontSize: 16
+                                                                fontSize: 19
                                                             ),
                                                           ),
                                                         )
@@ -201,27 +235,19 @@ class _loginState extends State<login> {
                                           ),
                                           Container(
                                             alignment: Alignment.bottomRight,
-                                            child: ElevatedButton.icon(
+                                            margin: EdgeInsets.only(top: 5, bottom: 20),
+                                            child: ElevatedButton(
                                               onPressed: () {
-                                                singIn(context);
+                                                onPressed: singIn;
                                               },
                                               style: ElevatedButton.styleFrom(
-                                                backgroundColor: const Color.fromRGBO(255, 115, 28, 9),
-                                                minimumSize: const Size(200, 50),
-                                                shape: const RoundedRectangleBorder(
-                                                  borderRadius: BorderRadius.only(
-                                                    topLeft: Radius.circular(10),
-                                                    topRight: Radius.circular(25),
-                                                    bottomRight: Radius.circular(25),
-                                                    bottomLeft: Radius.circular(25),
-                                                  ),
-                                                ),
+                                                  padding: EdgeInsets.symmetric(horizontal: 30, vertical: 15),
+                                                  backgroundColor: orange,
+                                                  shape: RoundedRectangleBorder(
+                                                      borderRadius: BorderRadius.circular(20)
+                                                  )
                                               ),
-                                              icon: const Icon(
-                                                CupertinoIcons.arrow_right,
-                                                color: Color.fromRGBO(255, 205, 163, 9),
-                                              ),
-                                              label: const Text("INGRESAR", style: TextStyle(fontFamily: "Raleway", fontSize: 25)),
+                                              child: const Text("INGRESAR", style: TextStyle(fontFamily: "Raleway", fontSize: 25)),
                                             ),
                                           )
                                         ],
@@ -232,15 +258,20 @@ class _loginState extends State<login> {
                             ),
                           ),
                           Container(
-                              margin: EdgeInsets.only(top: 15, right: 50),
-                              padding: EdgeInsets.only(left: 10, right: 50),
+                              margin: EdgeInsets.only(top: 23, right: 50),
+                              padding: EdgeInsets.only(left: 15, right: 50),
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Image.asset("assets/img/letrasMABLAnaranja.png", width: 230),
+                                  Image.asset("assets/img/letrasMABLAnaranja.png", width: 220),
                                   Container(
                                     padding: EdgeInsets.only(top: 20, right: 45),
-                                    child: Text("HABLA CON LAS MANOS", style: TextStyle(fontFamily: "MartianMono", fontSize: 23, color: orange), textAlign: TextAlign.center,),
+                                    child: Text("HABLA CON LAS MANOS", style: TextStyle(fontFamily: "MartianMono", fontSize: 20, color: orange), textAlign: TextAlign.center,),
+                                  ),
+                                  Container(
+                                    margin: EdgeInsets.only(left: 30),
+                                    width: 172,
+                                      child: Image.asset("assets/img/capiLogin.png")
                                   )
                                 ],
                               )
