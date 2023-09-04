@@ -107,7 +107,6 @@ $(document).ready (()=>{
                     p=document.getElementById(ress).className = "opcion opcionIncorrecta"
                 }
             }
-            //console.log("acerto xd")
             totalRespuestasAcertadas++
         }
         else{
@@ -116,7 +115,7 @@ $(document).ready (()=>{
                 ress =  "conte"+i
                 document.getElementById(ress).className = "opcion opcionIncorrecta"
             }
-            //document.getElementById(opcionResCorrecta).className = "opcion opcionCorrecta"
+            
             document.getElementById("conte"+gna).className = "opcion opcionCorrecta"
 
         }
@@ -129,8 +128,6 @@ $(document).ready (()=>{
 
     function terminarQuiz() {
         $("#sectionPregunta").css("display", "none")
-        /* console.log("Cantidad de respuestas acertadas c:")
-        console.log(totalRespuestasAcertadas) */
         $("#resultado").css("visibility", "inherit")
         $("#calificacion").text(totalRespuestasAcertadas+"/5")
     }

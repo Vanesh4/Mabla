@@ -58,6 +58,7 @@
                 <!-- <img id="fotoUser" src="{% static 'img/user.png'%}" alt=""> -->
                     <p id="alias">{{ user.username }}</p>
                     {{ user.instance.imgPerfil.url }}
+                    <img id="fotoUser" src="{{ user.instance.imgPerfil.url }}" alt="user">
                 </form>
     </div>    
 </header>
