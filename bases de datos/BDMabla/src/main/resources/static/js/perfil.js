@@ -1,18 +1,18 @@
-
-let btn=document.getElementById('btn');
+let clicks=document.getElementById('clicks');
 
 let spant=document.getElementById('spant');
 
-btn.addEventListener('click', toggleText);
+clicks.addEventListener('click', toggleText);
 
 function toggleText(){
     spant.classList.toggle('show');
+    console.log("entra a la funcion toggletext",spant)
+    if(hideText.classList.contains('show')){
+        hideText_btn.innerHTML='revisando';
 
-    if(spant.classList.contains('show')){
-        btn.innerHTML='Revisando';
-        
     }else{
-        btn.innerHTML='Mi progreso';
+        hideText_btn.innerHTML='mi progreso';
     }
-}
 
+
+}

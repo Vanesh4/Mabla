@@ -34,6 +34,7 @@ urlpatterns = [
     path('mostrarsubcate/',views.versubcategorias, name="mostrarsubcate"),
     path('perfil',profile.as_view(), name="perfil"),
     path('diccio/', views.palabradiccionario, name='diccio'),
+    path('miperfil',views.verperfil, name='miperfil'),
 
     path('getcate',getCategoria.as_view(),name='getcate'),
     path('getcategoria',ListaConsultando.as_view(),name='getcate'),

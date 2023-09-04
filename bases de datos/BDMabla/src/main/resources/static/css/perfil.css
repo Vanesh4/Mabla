@@ -12,15 +12,15 @@ body{
 }
 
 .titulo{
-    font-family: "raleway", Arial, Helvetica, sans-serif;
-    margin-top: -280px;
+    font-family: "raleway";
+    margin-top: -260px;
     font-size: 70px;
     padding: 20px;
-    width: 75%;
+    width: 78%;
     text-align: right;
-    
-    
-    
+
+
+
 }
 
 
@@ -28,18 +28,18 @@ body{
     display: flex;
     height: auto;
     margin: auto;
-    
-    
+
+
 
 }
 #imagen{
-    width: 45%;
+    width: 50%;
     height: auto;
-    
+
 }
 #img{
     display: flex;
-    
+
 }
 .foto{
     height: 250px;
@@ -48,8 +48,8 @@ body{
 #contenido{
     height: 330px;
     width: 40%;
-   
-    
+
+
 }
 
 .dat{
@@ -72,7 +72,7 @@ body{
     text-align: center;
 }
 #im{
-    
+
     display: flex;
     align-items: center;
     background-color: #76037a;
@@ -87,10 +87,10 @@ body{
 
 .progreso{
     height: auto;
-    
+
 }
 
-#click{
+#clicks{
     float: right;
     padding: 20px;
     background-color:  #06bfdb;
@@ -99,6 +99,18 @@ body{
 #btn{
     display: flex;
 }
+
+.hider{
+    display: none;
+    height: auto;
+
+}
+
+.show{
+   display: block;
+}
+
+
 
 
 

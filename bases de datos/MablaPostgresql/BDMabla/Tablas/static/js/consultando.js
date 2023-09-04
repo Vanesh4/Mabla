@@ -10,21 +10,13 @@ $.ajax({
     type: "GET",
     dataType: "JSON",      
     success: function (res) { 
-        console.log("categorias",res) 
-        
-        
-        
-        
+      
         for(let x = 0; x<=res.length; x++) {
-            console.log("el res for primero",res)
- 
-            //console.log("hollaaaaaa",res[x])
             contenedorli=document.createElement("li")
             contenedorli.setAttribute("class","list_item list_item--click")
 
             divcategoria=document.createElement("div")
             divcategoria.setAttribute("class","list_button list_button--click")
-            //console.log("creacion del div",divcategoria)
 
             imgdesplegar=document.createElement("img")  
             imgdesplegar.setAttribute("class","list_arrow")
@@ -33,24 +25,17 @@ $.ajax({
             h1categoria = document.createElement("h1")    
             h1categoria.setAttribute("class","categorias")
             h1categoria.innerHTML = res[x].Categoria
-            //console.log("si se esta escribiendo la categoria", h1categoria)          
+    
             divcategoria.appendChild(h1categoria)
             divcategoria.appendChild(imgdesplegar)
             contenedorli.appendChild(divcategoria)
             contenedor.appendChild(contenedorli)
-          
-           
-           
-
-            //console.log("los datos",contenedorli)
-
-            
+                   
             contenedorsub=document.createElement("ul")
             contenedorsub.setAttribute("class", "list_show")
             subdecategorias=res[x].Subcategorias
             console.log("hola quiero observer",subdecategorias)
             for(let s=0; s<subdecategorias.length; s++){       
-                console.log("subcategorias ijuemadre en s",subdecategorias)
                 
                 li = document.createElement("li")
                 li.setAttribute("class","list_inside")    
@@ -58,10 +43,7 @@ $.ajax({
                 a=document.createElement("a")
                 a.setAttribute("class","nav_link nav_link--inside")
                 a.innerHTML=subdecategorias[s].subcategoria
-                //console.log(subdecategorias[s].subcategoria)
-
-                console.log("que hay en a",a)
-                
+               
                 li.appendChild(a)
                 contenedorsub.appendChild(li)
                 contenedorli.appendChild(contenedorsub)
@@ -69,7 +51,6 @@ $.ajax({
                 paldesubcate=subdecategorias[s].palabraas
                 console.log("palabras en subcate",paldesubcate)
                 
-
                     console.log("siiiiiiiiiiiiiiiiiiiiiiiii?")
                     enlaces = document.querySelectorAll('.nav_link--inside');
                     console.log("capturando etiquetas a ")           
@@ -77,14 +58,12 @@ $.ajax({
                     enlaces.forEach(enlace => {
                     console.log("entra al foreach con enlace",enlaces)    
                     enlace.addEventListener('click', function(event) {
-                        
-                        //console.log("palabra quicleadad",enlace)
+
                         event.preventDefault();
                         //const valor = enlace.getAttribute('data-valor'); 
                         valor = enlace.textContent;
                         console.log("mirando valor",valor)
                         contenidoMostrado.textContent = ContenidoDeBaseDeDatos(valor);
-                        console.log("que hay en el contenedor ",ContenidoDeBaseDeDatos)
                 
                     function ContenidoDeBaseDeDatos(valor) {
                         $.ajax({
@@ -92,14 +71,10 @@ $.ajax({
                             data: {valor: valor},
                             dataType: 'json',
                             success: function(data) {
-                                console.log("valoooooooooor"+valor)
-                                console.log("ver lo que hay en data palabras",data)
                                 var resultsDiv = $('#resultado');
-                                
-                                
-                                resultsDiv.empty();                      
+                                                          
+                               resultsDiv.empty();                      
                                 var palabras = data.palabras; 
-                                console.log("queria mirar lo que se guarda aqui",palabras)
                                 palabras.forEach(function(palabra) {
                     
                                     grupopalabra=document.createElement('div')
@@ -112,48 +87,32 @@ $.ajax({
                                     p=document.createElement('p')
                                     p.setAttribute('class','ppal')
                                     p.innerHTML=palabra.Palabra
-
-                                    
-                                                     
+                                                    
                                     grupopalabra.append(img)
                                     grupopalabra.append(p)
                                     contenidoMostrado.append(grupopalabra)
                                     resultsDiv.append(grupopalabra)
 
-                                   
-
-                                   
-                                    console.log("boooooooooooo",$("#botonQuiz").val(res[x].Categoria))
+                                    //llamar el boton y mostrarlo
                                     $('.boton').css("display","block")
                                     
                                     
                                 });
-
-                                
-                                
+                               
                             }
-                            
-                         
-                    
+                   
                             });
                             
                     }
                                      
                 });
             });
-           
-            
+                      
             } 
           
-          
-
-            
-            contenedor.appendChild(contenedorli)
+           contenedor.appendChild(contenedorli)
 
             let listElements=document.querySelectorAll('.list_button--click');
-
-            //console.log("viendo js desplegable")
-            //console.log(listElements)
 
             listElements.forEach(listElement=>{
                 console.log("holaaa si entra a foreach")
@@ -169,79 +128,20 @@ $.ajax({
                         valo=listElement.innerText
                         console.log("veeeeeeeeeer",valo)
                         boton.setAttribute("value", valo)
-                        
-
-                            
-                                                          
+                                                         
                     }
                     menu.style.height =`${height}px`;
 
-                   
-
-                })
-                
+                })             
             });
-            
-        
-           
-                   
+                              
         }
-
-       
-       
-
         
-
-        
-    }
-
-    
+    }   
 })
 
 
 })
-
-
-
-
-
-
-                    
-
-                  /*   enlaces = document.querySelectorAll('.nav_link--inside');
-                    console.log("capturando etiquetas a ")           
-                    console.log("enlaces",enlaces)
-                    enlaces.forEach(enlace => {
-                    console.log("entra al foreach con enlace",enlaces)    
-                    enlace.addEventListener('click', function(event) {
-                    event.preventDefault(); 
-                    valor = enlace.textContent;
-                    console.log("mirando valor",valor)
-
-
-                    grupopalabra=document.createElement('div')
-                    grupopalabra.setAttribute('class','grouppal')
-    
-                    img=document.createElement('img')
-                    img.setAttribute('class','imgpal')
-                    //img.src=paldesubcate[p].senia
-                    console.log("la senia",paldesubcate[pa].senia)
-                    img.src=paldesubcate[pa].senia
-    
-                    p=document.createElement('p')
-                    p.setAttribute('class','ppal')
-                    //p.innerHTML=paldesubcate[p].palabra
-                    console.log("la palabrita",paldesubcate[pa].palabra)
-                    p.innerHTML=paldesubcate[pa].palabra
-    
-                    grupopalabra.append(img)
-                    grupopalabra.append(p)
-                    contenidoMostrado.append(grupopalabra)
-                    
-                           
-                    });
-                }); */ 
-
 
 
 
