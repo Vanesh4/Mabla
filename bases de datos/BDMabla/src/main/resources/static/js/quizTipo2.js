@@ -30,7 +30,8 @@ $(document).ready (()=>{
     posicionActual = 0
     totalRespuestasAcertadas = 0
 
-    opcionResCorrecta = "opcion"+generarNumeroAleatorio(4)
+    gna = generarNumeroAleatorio(4)
+    opcionResCorrecta = "opcion"+gna
     resCorrecta = document.getElementById(opcionResCorrecta)
 
 
@@ -42,6 +43,7 @@ $(document).ready (()=>{
             terminarQuiz()
         }
         else{
+            console.log(totalRespuestasAcertadas)
             limpiarOpciones()
             //establecer datos
             $.ajax({
@@ -86,12 +88,6 @@ $(document).ready (()=>{
             }
         }
 
-        console.log("clases de las opciones c:")
-        console.log($("#conte0").attr("class"))
-        console.log($("#conte1").attr("class"))
-        console.log($("#conte2").attr("class"))
-        console.log($("#conte3").attr("class"))
-
     }
     
     $(".opcion").click(function() {
@@ -99,29 +95,30 @@ $(document).ready (()=>{
         validarRespuesta(botonID)
     });
     function validarRespuesta(opcionElegida) {
-    
-        if (opcionElegida==resCorrecta.id) {
+        console.log(opcionElegida)
+        console.log(resCorrecta.id)
+        
+        if (opcionElegida=="conte"+gna) {
             for (let i = 0; i < 4; i++) {
                 ress =  "conte"+i
-                if (ress==resCorrecta.id) {
-                    
+                if (ress=="conte"+gna) {                    
                     r=document.getElementById(ress).className = "opcion opcionCorrecta"
-                    
-                }else{
-                    
+                }else{                    
                     p=document.getElementById(ress).className = "opcion opcionIncorrecta"
-                    
                 }
             }
+            //console.log("acerto xd")
             totalRespuestasAcertadas++
         }
         else{
-            
+            console.log("contexto")
             for (let i = 0; i < 4; i++) {
                 ress =  "conte"+i
                 document.getElementById(ress).className = "opcion opcionIncorrecta"
             }
-            document.getElementById(opcionResCorrecta).className = "opcion opcionCorrecta"
+            //document.getElementById(opcionResCorrecta).className = "opcion opcionCorrecta"
+            document.getElementById("conte"+gna).className = "opcion opcionCorrecta"
+
         }
         posicionActual++
 
@@ -132,8 +129,9 @@ $(document).ready (()=>{
 
     function terminarQuiz() {
         $("#sectionPregunta").css("display", "none")
-        console.log("Cantidad de respuestas acertadas c:")
-        console.log(totalRespuestasAcertadas)
-        $("#resultado").css("display", "block")
+        /* console.log("Cantidad de respuestas acertadas c:")
+        console.log(totalRespuestasAcertadas) */
+        $("#resultado").css("visibility", "inherit")
+        $("#calificacion").text(totalRespuestasAcertadas+"/5")
     }
 })

@@ -28,7 +28,8 @@ urlpatterns = [
 
     path('',views.iniciohtml, name="inicio"),
     path('iniciosesion',views.inicioConSesion, name="iniciosesion"),
-    path('quiz',views.viewQuiz, name="quiz"),
+    path('quizTipo1',views.viewQuiz1, name="quiz1"),
+    path('quizTipo2',views.viewQuiz2, name="quiz2"),
     path('menu',views.menuTodo, name="menu"),
     path('mostrar/',views.vercategorias, name="mostrar"),
     path('mostrarsubcate/',views.versubcategorias, name="mostrarsubcate"),
@@ -52,12 +53,8 @@ urlpatterns = [
     path('deletepalabra/<pk>',deletepalabra.as_view(),name='deletepalabra'),
     path('getpalabrita/<pk>',getPalabraT.as_view(),name='getpalabrita'),
 
-
-
     #path('getSubcategorias/<cat>', views.subCategoriasDeCate, name='SucategoriasFiltradas'),
 
-
-    #path('getSubcategorias/<cat>', views.subCategoriasDeCate, name='SucategoriasFiltradas'),
 
     path('getSubcategorias/<cat>', views.subCategoriasDeCate, name='SucategoriasFiltradas'),
     path('getpalabrassub/<subcate>', views.palabrasdesubcate, name='palabrasFiltradas'),

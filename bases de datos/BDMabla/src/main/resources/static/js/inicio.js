@@ -42,6 +42,44 @@ $(document).ready (()=>{
         }
     })
 
+    //enviar comentarios
+    console.log("pofis? sb")
+    $("#miDiv").on("click", ()=>{
+        console.log("!isAuthenticated()")
+        msj = document.createElement("p")
+        msj.setAttribute("id","msj")
+        msj.textContent = "Debe iniciar sesión para poder comentar";
+
+        var contenedorDiv = document.getElementById("divParaComentar");
+        contenedorDiv.appendChild(msj)
+    })
+    
+    $("#btnComentario").on("click", ()=>{
+        texto = document.getElementById("comentar").value
+        console.log(texto)
+        alias = document.getElementById("alias").textContent
+        console.log(alias)
+        /* comentario = {
+            "alias_id": alias,
+            "texto": texto
+        }
+        jsonData = JSON.stringify(comentario)
+        $.ajax({
+            url: 'http://127.0.0.1:8000/postComment',
+            type: 'POST',
+            dataType: 'json', 
+            data: jsonData,
+            success: function(response) {
+                console.log(response);
+            },
+            error: function(error) {
+                console.error(error);
+            }
+        }); */
+        
+        
+    })
+
 })
 
 
