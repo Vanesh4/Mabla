@@ -25,8 +25,9 @@ form{
 }
 
 .textRegister{
-    margin-bottom: 10px;
-    font-size: 60px;
+    margin-bottom: 15px;
+    font-size: 70px;
+    margin-right: 35px;
     text-align: center;
     font-family: 'Martian Mono', monospace;
 }
@@ -34,17 +35,17 @@ form{
 #sectionform{
     display: grid;
     grid-template-columns: auto auto;
-    font-size: 30px;
-    margin: 40px 0px 40px 50px;    
+    font-size: 35px;
+    margin: 40px 0px 40px 6%;    
 }
 
 input{
     display: flex;
     flex-direction: column;
     border-radius: 8px;
-    height:35px;
+    height: 40px;
     width: 75%;
-    margin-top: 12px;
+    margin-top: 20px;
     padding-left: 10px;
     border: none;
     font-family: 'Raleway', sans-serif;
@@ -64,21 +65,20 @@ input{
 #colorbtn{
     background:  #ff731c;
     color: white;
-    font-size: 25px;
+    font-size: 40px;
     font-family: 'Raleway', sans-serif;
     border-radius: 10px;
-    padding: 15px;
+    padding: 18px;
     border: none;
 }
 
 .imgyText{
     display: flex;
     flex-wrap: wrap;
-    width: 40%;  
+    width: 44%;  
     height: 75%;
     justify-content: end;
     align-self: flex-end;
-    margin-top: 50px;
     padding-top: 50px;
     margin-left: 50px;
     /* padding: 0px 35px 15px 50px; */
@@ -92,7 +92,6 @@ input{
     font-family: 'Martian Mono', monospace;                                                                                                                                                                                                                                                                                                                                                
     color:  #ff731c;   
     margin-top: 30px; 
-    margin-bottom: 50px;
     margin-right: 40px;    
     font-size: 40px;       
 }
@@ -100,8 +99,8 @@ input{
 #capi{
     margin-top: 50px;
     padding-top: 50px;
-    width: 39%;
-    height: 48%;    
+    width: 47%;
+    height: 60%;    
 }
 
 .error{
@@ -209,5 +208,12 @@ input{
         padding: 0px;
         width: 55%;
         height: 65%;
+    }
+}
+
+@-moz-document url-prefix() {
+    /* Agrega estilos específicos para Firefox aquí */
+    body {
+        background-color: #ff4500; /* Cambiar el fondo a naranja en Firefox */
     }
 }
