@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Registrate</title>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <link rel="stylesheet" type="text/css" href="{% static 'css/registro.css' %}">
@@ -16,9 +16,9 @@
 </head>
 <body>
   <header>
-    <form method="POST" id="formInsert" class="row g-3" enctype="multipart/form-data">
+    <form method="POST" id="formInsert" action="register" class="row g-3" enctype="multipart/form-data">
       <div class="textRegister">
-        REGISTRATE
+        REGÍSTRATE
       </div>
       {% csrf_token %}
       <section id="sectionform">

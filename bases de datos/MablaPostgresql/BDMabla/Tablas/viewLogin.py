@@ -1,3 +1,4 @@
+import json
 from django.contrib.auth import authenticate, login
 from django.shortcuts import redirect, render
 from django.views import View
@@ -24,6 +25,7 @@ class registerUser(View):
                 print(request.POST)
                 print("Contenido de request.FILES:")
                 print(request.FILES)
+                self.handle_flutter_data(request)
 
             else:   
                 print("no json")
@@ -50,7 +52,26 @@ class registerUser(View):
         form= registro()
         return render(request, self.template_name, {'form': form})
 
-
+    def handle_flutter_data(self, request):
+        try:
+            data = json.loads(request.body)
+            print("Datos recibidos desde Flutter:")
+            print(data)  # Imprime los datos recibidos desde Flutter
+            form = registro(data)
+            
+            if form.is_valid():
+                print("Datos válidos:")
+                print(form.cleaned_data)  # Imprime los datos validados por el formulario
+                form.save()
+                messages.success(request, 'Usuario registrado correctamente desde Flutter.')
+            
+            else:
+                print("Errores en el formulario:")
+                print(form.errors)  
+        
+        except json.JSONDecodeError:
+            messages.error(request, 'Error en los datos enviados desde Flutter.')
+            
 class IniciarSesionView(View):
     
     def get(self, request):
@@ -96,7 +117,7 @@ class profile(View):
 
         form = userData(instance= user)
         
-        return render(request, self.template_name, {'form': form})
+        return render(request, self.template_name, {'form': form}, 'inicio.html', {'username': user.username, 'imgPerfil': user.imgPerfil})
     
     def post(self, request):
         

@@ -28,12 +28,14 @@ urlpatterns = [
 
     path('',views.iniciohtml, name="inicio"),
     path('iniciosesion',views.inicioConSesion, name="iniciosesion"),
-    path('quiz',views.viewQuiz, name="quiz"),
+    path('quizTipo1',views.viewQuiz1, name="quiz1"),
+    path('quizTipo2',views.viewQuiz2, name="quiz2"),
     path('menu',views.menuTodo, name="menu"),
     path('mostrar/',views.vercategorias, name="mostrar"),
     path('mostrarsubcate/',views.versubcategorias, name="mostrarsubcate"),
     path('perfil',profile.as_view(), name="perfil"),
     path('diccio/', views.palabradiccionario, name='diccio'),
+    path('miperfil',views.verperfil, name='miperfil'),
 
     path('getcate',getCategoria.as_view(),name='getcate'),
     path('getcategoria',ListaConsultando.as_view(),name='getcate'),
@@ -50,15 +52,13 @@ urlpatterns = [
     path('postpalabra',postpalabra.as_view(),name='postpalabra'),
     path('deletepalabra/<pk>',deletepalabra.as_view(),name='deletepalabra'),
     path('getpalabrita/<pk>',getPalabraT.as_view(),name='getpalabrita'),
-<<<<<<< HEAD
-
 
     #path('getSubcategorias/<cat>', views.subCategoriasDeCate, name='SucategoriasFiltradas'),
+
+<<<<<<< HEAD
 =======
 
-    #path('getSubcategorias/<cat>', views.subCategoriasDeCate, name='SucategoriasFiltradas'),
-
->>>>>>> c9e0fe11ca1b4a634152c5e4f870d671c58d202b
+>>>>>>> 497c836bcf240278ccecffcca01de829c9a2a3b9
     path('getSubcategorias/<cat>', views.subCategoriasDeCate, name='SucategoriasFiltradas'),
     path('getpalabrassub/<subcate>', views.palabrasdesubcate, name='palabrasFiltradas'),
     path('getpalabrasdiccio/<inicial>', views.buscar_por_inicial, name='getpalabrasdiccio'),
@@ -67,15 +67,16 @@ urlpatterns = [
     
     path('preguntas/<ti>/<cat>', views.pregTipoCat, name='PreguntasFiltradas'),
     path('listaCatSub', ListaCategoriaSub.as_view(), name='listaCatSub'),
-<<<<<<< HEAD
 
+<<<<<<< HEAD
+] + static(settings.MEDIA_URL, document_root= settings.MEDIA_ROOT)
+=======
 
 ]
 
 static(settings.MEDIA_URL, document_root= settings.MEDIA_ROOT)
-=======
 
-] + static(settings.MEDIA_URL, document_root= settings.MEDIA_ROOT)
->>>>>>> c9e0fe11ca1b4a634152c5e4f870d671c58d202b
+
+>>>>>>> 497c836bcf240278ccecffcca01de829c9a2a3b9
 
 

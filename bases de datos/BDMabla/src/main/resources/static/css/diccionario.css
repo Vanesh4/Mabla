@@ -33,6 +33,10 @@ input{
 
 }
 
+#inicial{
+    background-color: transparent;
+}
+
 button{
     margin-right: 30px;
     background-color: transparent;
@@ -256,5 +260,9 @@ button{
     position: absolute;
     margin-left: 40px;
 }
-
+.logo{
+    height: 50px;
+    float: right;
+    margin-right: 20px;
+}
 

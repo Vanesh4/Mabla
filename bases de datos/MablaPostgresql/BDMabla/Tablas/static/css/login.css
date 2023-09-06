@@ -24,7 +24,7 @@ form{
     padding-right: 50px;
 }
 .textSesion{
-    font-size: 60px;
+    font-size: 70px;
     text-align: center;
     font-family: 'Martian Mono', monospace;
     margin-bottom: 25px;
@@ -41,8 +41,8 @@ input{
     flex-direction: column;
     align-content: center;
     border-radius: 8px;
-    height:35px;
-    width: 130%;
+    height: 40px;
+    width: 75%;
     margin-top: 12px;
     padding-left: 10px;
     border: none;
@@ -66,7 +66,7 @@ input{
 #colorbtn{
     background:  #ff731c;
     color: white;
-    font-size: 30px;
+    font-size: 40px;
     padding: 0px 15px 0px 15px;
 }
 
@@ -94,40 +94,39 @@ input{
     color: white;
     font-size: 33px;
     font-family: 'Raleway', sans-serif;
-    border-radius: 10px;
+    border-radius: 100px;
     padding: 10px 25px 10px 25px;
     border: none;
 }
 .imgyText{
     display: flex;
     flex-wrap: wrap;
-    width: 40%;  
+    width: 44%;  
     height: 75%;
     justify-content: end;
     align-self: flex-end;
-    margin-top: 50px;
     padding-top: 50px;
-    margin-right: 25px;
-    margin-left: 50px;
+    margin-right: 20px;
     /* padding: 0px 35px 15px 50px; */
 }
+
 #mablaNaranja{
     width: 100%; 
 }
+
 .slogan{
     font-family: 'Martian Mono', monospace;                                                                                                                                                                                                                                                                                                                                                
     color:  #ff731c;   
     margin-top: 30px; 
-    margin-bottom: 50px;
-    margin-right: 30px;
+    margin-right: 40px;    
     font-size: 40px;       
 }
 
 #capi{
     margin-top: 50px;
     padding-top: 50px;
-    width: 39%;
-    height: 47%;   
+    width: 47%;
+    height: 60%;    
 }
 
 .error{

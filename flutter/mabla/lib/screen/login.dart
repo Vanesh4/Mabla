@@ -301,6 +301,7 @@ class _registro1State extends State<registro1> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   bool _obscureText = true;
   List<dynamic> datos=[];
+
   Future<void> consultaDatos(body) async{
     final url=Uri.parse('http://192.168.0.9/insertUser');
     final response = await http.post((url),
