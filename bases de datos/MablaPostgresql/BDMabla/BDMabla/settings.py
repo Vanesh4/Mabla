@@ -54,7 +54,7 @@ MIDDLEWARE = [
 ]
 
 CORS_ALLOWED_ORIGINS = [
-    'http://192.168.137.1',
+    'http://10.190.82.231',
 ]
 
 AUTHENTICATION_BACKENDS = (
@@ -96,6 +96,10 @@ DATABASES = {
         'DATABASE_PORT':'5432',
         'USER':'postgres',
         'PASSWORD':'0000',
+<<<<<<< HEAD
+
+=======
+>>>>>>> 497c836bcf240278ccecffcca01de829c9a2a3b9
     }
 }
 

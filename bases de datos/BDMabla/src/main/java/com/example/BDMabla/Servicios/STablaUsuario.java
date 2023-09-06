@@ -50,7 +50,7 @@ public class STablaUsuario {
         TablaUsuario user = myUser((String) dataUser.get("email"));
 
         if(user==null){
-            String alias = (String) dataUser.get("username");
+            String alias = (String) dataUser.get("usernamez");
             String correo = (String) dataUser.get("email");
             String nombre = (String) dataUser.get("nombre");
             String apellido = (String) dataUser.get("apellido");
