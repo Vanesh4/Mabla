@@ -117,7 +117,7 @@ class profile(View):
 
         form = userData(instance= user)
         
-        return render(request, self.template_name, {'form': form})
+        return render(request, self.template_name, {'form': form}, 'inicio.html', {'username': user.username, 'imgPerfil': user.imgPerfil})
     
     def post(self, request):
         

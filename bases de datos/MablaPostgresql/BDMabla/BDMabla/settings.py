@@ -96,7 +96,10 @@ DATABASES = {
         'DATABASE_PORT':'5432',
         'USER':'postgres',
         'PASSWORD':'0000',
+<<<<<<< HEAD
 
+=======
+>>>>>>> 497c836bcf240278ccecffcca01de829c9a2a3b9
     }
 }
 

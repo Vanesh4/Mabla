@@ -243,7 +243,7 @@ function obtenerContenidoDeBaseDeDatos(valor) {
               });
             wordList.append(listItem);
             word.style.backgroundColor='#00000092';
-            word.style.width='21%';
+            word.style.width='24%';
             word.style.padding='15px';
             word.style.borderRadius='10px',
             

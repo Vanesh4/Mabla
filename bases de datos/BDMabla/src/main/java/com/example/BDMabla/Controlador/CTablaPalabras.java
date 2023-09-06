@@ -30,10 +30,10 @@ public class CTablaPalabras {
     public String insertarpalabra(@PathVariable("subcate") String subcate, @RequestBody TablaPalabras t){
         return serviciopalabra.addpalabra(subcate, t);
     }
-  /* @GetMapping("/listandopalabras/{sub}")
+  @GetMapping("/listandopalabras/{sub}")
     public List<Object[]> Palabras(@PathVariable("sub") String sub){
         return serviciopalabra.getpalabrasforsubcate(sub);
-    }*/
+    }
 /*
     @GetMapping("/filtrar/{inicial}")
     public ResponseEntity<List<TablaPalabras>> filtrarPalabrasPorInicial(@RequestParam String inicial) {

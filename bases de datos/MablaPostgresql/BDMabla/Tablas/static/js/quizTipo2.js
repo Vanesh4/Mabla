@@ -14,20 +14,27 @@ console.log(valorRecibido);
 
 */
 
-categoria = "sustantivos"
-console.log("hola?")
+categoria = "verbos"
 
 function generarNumeroAleatorio(num) {
+    /* return Math.floor(Math.random() * num) + 1; */
     return Math.floor(Math.random() * num)
 }
 
-respuestasIncorrectas = ["vaca","tren","pajaro","hospital","foca","moto","colegio","bus","gato","camiseta","falda","medias","pera","banano","chaqueta","nutria","vestido","fresas","papaya"]
+respuestasIncorrectas = ["https://cdn.pixabay.com/photo/2023/08/08/18/01/butterfly-8177925_1280.jpg","https://cdn.pixabay.com/photo/2023/07/17/17/05/lizard-8133108_1280.jpg","https://cdn.pixabay.com/photo/2023/08/25/18/40/scales-8213484_1280.jpg","https://cdn.pixabay.com/photo/2023/07/20/05/32/grass-8138399_1280.jpg","https://cdn.pixabay.com/photo/2023/08/08/22/11/moon-8178208_1280.jpg",
+"https://cdn.pixabay.com/photo/2023/06/01/08/18/money-8033100_1280.jpg","https://cdn.pixabay.com/photo/2015/04/23/22/01/tree-736888_1280.jpg","https://cdn.pixabay.com/photo/2014/09/14/18/04/dandelion-445228_1280.jpg","https://cdn.pixabay.com/photo/2017/11/29/09/15/paint-2985569_1280.jpg","https://cdn.pixabay.com/photo/2016/04/18/22/05/seashells-1337565_1280.jpg",
+"https://cdn.pixabay.com/photo/2015/02/02/11/09/office-620822_1280.jpg","https://cdn.pixabay.com/photo/2016/11/29/04/19/ocean-1867285_1280.jpg","https://cdn.pixabay.com/photo/2014/07/30/02/00/iceberg-404966_1280.jpg","https://cdn.pixabay.com/photo/2016/11/06/23/31/breakfast-1804457_1280.jpg","https://cdn.pixabay.com/photo/2017/03/01/05/12/tea-cup-2107599_1280.jpg",
+"https://cdn.pixabay.com/photo/2022/12/16/18/06/ice-7660302_1280.jpg","https://cdn.pixabay.com/photo/2023/08/19/15/39/breakfast-8200753_1280.jpg","https://cdn.pixabay.com/photo/2023/08/15/06/31/bird-8191339_1280.jpg","https://cdn.pixabay.com/photo/2020/11/04/07/52/pumpkin-5711688_1280.jpg","",]
+
 $(document).ready (()=>{
     posicionActual = 0
     totalRespuestasAcertadas = 0
 
-    opcionResCorrecta = "opcion"+generarNumeroAleatorio(4)
+    gna = generarNumeroAleatorio(4)
+    opcionResCorrecta = "opcion"+gna
     resCorrecta = document.getElementById(opcionResCorrecta)
+
+
     
     cargarPregunta()
 
@@ -36,10 +43,11 @@ $(document).ready (()=>{
             terminarQuiz()
         }
         else{
+            console.log(totalRespuestasAcertadas)
             limpiarOpciones()
             //establecer datos
             $.ajax({
-                url: "http://127.0.0.1:8000/preguntas/"+1+"/"+categoria,
+                url: "http://localhost:8080/preguntas/"+categoria+"/"+2,
                 type: "GET",
                 dataType: "JSON",
                 success: function (res) {
@@ -48,15 +56,16 @@ $(document).ready (()=>{
                     p = generarNumeroAleatorio(res.length) // validar 5 veces diferentes preguntas
                     //¿no hay una manera de ocultar algun dato traido de la bd?
                     
-                    document.getElementById('linkSenia').src=res[p].respuesta
-                    //document.getElementById('linkSenia').setAttribute("src", res[p].respuesta)    
+                    document.getElementById("palabra").innerHTML= res[p][1]
+        
                     for (let i = 0; i < 4; i++) {
                         pos=generarNumeroAleatorio(respuestasIncorrectas.length)
-                        document.getElementById("opcion"+i).innerHTML= respuestasIncorrectas[pos]
+                        document.getElementById("opcion"+i).src = respuestasIncorrectas[pos]
+                        //console.log(document.getElementById("opcion"+i))
                         //validar que dos veces no me genere el mismo aleatorio. Eliminar de la lista
                         respuestasIncorrectas.splice(pos, 1);
                     }
-                    resCorrecta.innerHTML = res[p].pregunta
+                    resCorrecta.src = res[p][2]
                     
                     
                 }
@@ -66,15 +75,16 @@ $(document).ready (()=>{
     }
 
     function limpiarOpciones(){
+
         for (let i = 0; i < 4; i++) {
-            d = document.getElementById("opcion"+i)
+            d = document.getElementById("conte"+i)
             if (d.classList.contains("opcionCorrecta")) {
                 d.classList.remove("opcionCorrecta");
-                $("#opcion"+i).addClass("opcion"+i)
+                $("#conte"+i).addClass("opcion"+i)
             }
             else if(d.classList.contains("opcionIncorrecta")){
                 d.classList.remove("opcionIncorrecta");
-                $("#opcion"+i).addClass("opcion"+i)
+                $("#conte"+i).addClass("opcion"+i)
             }
         }
 
@@ -85,42 +95,29 @@ $(document).ready (()=>{
         validarRespuesta(botonID)
     });
     function validarRespuesta(opcionElegida) {
-        //console.log("holaaaaaaaaa?")
-        if (opcionElegida==resCorrecta.id) {
+        console.log(opcionElegida)
+        console.log(resCorrecta.id)
+        
+        if (opcionElegida=="conte"+gna) {
             for (let i = 0; i < 4; i++) {
-                ress =  "opcion"+i
-                if (ress==resCorrecta.id) {
-                    //r=document.getElementById(ress).setAttribute("class","opcionCorrecta")
+                ress =  "conte"+i
+                if (ress=="conte"+gna) {                    
                     r=document.getElementById(ress).className = "opcion opcionCorrecta"
-                    //r.style.background = "green"
-                }else{
-                    //p=document.getElementById(ress).setAttribute("class","opcionIncorrecta")
+                }else{                    
                     p=document.getElementById(ress).className = "opcion opcionIncorrecta"
-                    /* p.style.color = "red"
-                    p.style.background = "red" */
                 }
             }
             totalRespuestasAcertadas++
         }
         else{
-            
-            //r.style.boxShadow = "0px 0px 20px red";
-            /* for (let i = 0; i < 4; i++) {
-                p=document.getElementById("opcion"+i)
-                p.style.color = "red"
-                p.style.background = "red"
-            }
-            document.getElementById(opcionElegida).style.color = "black" 
-            
-            c=document.getElementById(opcionResCorrecta)
-            //console.log(c)
-            c.style.background = "green"
-            c.style.color = "black" */
+            console.log("contexto")
             for (let i = 0; i < 4; i++) {
-                ress =  "opcion"+i
+                ress =  "conte"+i
                 document.getElementById(ress).className = "opcion opcionIncorrecta"
             }
-            document.getElementById(opcionResCorrecta).className = "opcion opcionCorrecta"
+            
+            document.getElementById("conte"+gna).className = "opcion opcionCorrecta"
+
         }
         posicionActual++
 
@@ -131,8 +128,6 @@ $(document).ready (()=>{
 
     function terminarQuiz() {
         $("#sectionPregunta").css("display", "none")
-        /* console.log("Cantidad de respuestas acertadas c:")
-        console.log(totalRespuestasAcertadas) */
         $("#resultado").css("visibility", "inherit")
         $("#calificacion").text(totalRespuestasAcertadas+"/5")
     }

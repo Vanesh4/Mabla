@@ -3,6 +3,11 @@
     src: url(/fonts/Raleway/Raleway-Regular.ttf);
 }
 
+@font-face {
+    font-family: "ralewayExtraBold";
+    src: url(/fonts/Raleway/Raleway-ExtraBold.ttf);
+}
+
 *{
     margin: 0;
     padding: 0;
@@ -94,8 +99,44 @@ header{
     width: 98%;
 }
 #resultado{
-    /* display: none; */
+    display: none;
+    visibility: hidden;
     background-color: #fff7ea;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+}
+#calificacion{
+    font-family: 'Martian Mono', monospace;
+    font-weight: 800;
+    font-size: 80px;
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+.boton{
+    font-size: 20px;
+    font-family: "raleway";    
+    padding: 10px 0 10px 0;
+    text-align: center;
+    width: 17%;
+    margin-top: 10px;
+    border-radius: 100px;
+}
+#btnInicio{
+    background-color: #76037a;
+}
+#btnAprender{
+    background-color: #06bfdb;
+}
+p{
+    font-family: "raleway";
+    font-size: 30px;
+}
+a{
+    text-decoration: none;
+    color: black;
 }
 @media screen and (min-width: 320px) and (max-width: 700px) {
     header{

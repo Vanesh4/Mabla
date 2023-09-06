@@ -28,12 +28,14 @@ urlpatterns = [
 
     path('',views.iniciohtml, name="inicio"),
     path('iniciosesion',views.inicioConSesion, name="iniciosesion"),
-    path('quiz',views.viewQuiz, name="quiz"),
+    path('quizTipo1',views.viewQuiz1, name="quiz1"),
+    path('quizTipo2',views.viewQuiz2, name="quiz2"),
     path('menu',views.menuTodo, name="menu"),
     path('mostrar/',views.vercategorias, name="mostrar"),
     path('mostrarsubcate/',views.versubcategorias, name="mostrarsubcate"),
     path('perfil',profile.as_view(), name="perfil"),
     path('diccio/', views.palabradiccionario, name='diccio'),
+    path('miperfil',views.verperfil, name='miperfil'),
 
     path('getcate',getCategoria.as_view(),name='getcate'),
     path('getcategoria',ListaConsultando.as_view(),name='getcate'),
@@ -53,6 +55,10 @@ urlpatterns = [
 
     #path('getSubcategorias/<cat>', views.subCategoriasDeCate, name='SucategoriasFiltradas'),
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 497c836bcf240278ccecffcca01de829c9a2a3b9
     path('getSubcategorias/<cat>', views.subCategoriasDeCate, name='SucategoriasFiltradas'),
     path('getpalabrassub/<subcate>', views.palabrasdesubcate, name='palabrasFiltradas'),
     path('getpalabrasdiccio/<inicial>', views.buscar_por_inicial, name='getpalabrasdiccio'),
@@ -62,6 +68,15 @@ urlpatterns = [
     path('preguntas/<ti>/<cat>', views.pregTipoCat, name='PreguntasFiltradas'),
     path('listaCatSub', ListaCategoriaSub.as_view(), name='listaCatSub'),
 
+<<<<<<< HEAD
 ] + static(settings.MEDIA_URL, document_root= settings.MEDIA_ROOT)
+=======
+
+]
+
+static(settings.MEDIA_URL, document_root= settings.MEDIA_ROOT)
+
+
+>>>>>>> 497c836bcf240278ccecffcca01de829c9a2a3b9
 
 
