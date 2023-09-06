@@ -101,11 +101,11 @@ class IniciarSesionView(View):
                 print("no funciono")
                 form.add_error(None, 'Credenciales inválidas. Por favor, intenta nuevamente.')
         
-        return render(request, 'login.html', {'form': form})
-
+        return render(request, 'login.html', {'form':form})
 
 @method_decorator(login_required(login_url='ingresar'), name='dispatch')
 class profile(View):
+    
     template_name = 'perfilP.html'
 
     def get(self, request):
@@ -117,7 +117,7 @@ class profile(View):
 
         form = userData(instance= user)
         
-        return render(request, self.template_name, {'form': form}, 'inicio.html', {'username': user.username, 'imgPerfil': user.imgPerfil})
+        return render(request, self.template_name, {'form': form})
     
     def post(self, request):
         
@@ -136,10 +136,7 @@ class profile(View):
             print(user_instance)
             user_instance.imgPerfil = imagen_file  # Asignar la imagen al campo correspondiente en el modelo
             user_instance.save()
-            return redirect('perfil')
 
         messages.success(request, 'Cambios guardados correctamente.')
 
         return render(request, self.template_name, {'form': form})
-
-
