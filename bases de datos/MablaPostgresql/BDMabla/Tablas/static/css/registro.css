@@ -34,7 +34,7 @@ form{
 
 #sectionform{
     display: grid;
-    grid-template-columns: auto auto;
+    grid-template-columns: 1fr 1fr;
     font-size: 35px;
     margin: 40px 0px 40px 6%;    
 }
@@ -104,17 +104,18 @@ input{
 }
 
 .error{
-    font-size: 18px;
+    font-size: 19px;
     color:  #ff731c;   
     margin-top: 10px;
     margin-left: 10px;
 }
 
 .errorr{
-    font-size: 15px;
+    font-size: 17px;
     color:  #ff731c;   
     margin-top: 10px;
-    margin-left: 10px;
+    margin-left: 5px;
+    width: 75%;
 }
 
 @media screen and (min-width:320px) and (max-width:700px){
