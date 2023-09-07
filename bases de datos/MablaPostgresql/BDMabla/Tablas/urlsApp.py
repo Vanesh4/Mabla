@@ -55,10 +55,6 @@ urlpatterns = [
 
     #path('getSubcategorias/<cat>', views.subCategoriasDeCate, name='SucategoriasFiltradas'),
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 497c836bcf240278ccecffcca01de829c9a2a3b9
     path('getSubcategorias/<cat>', views.subCategoriasDeCate, name='SucategoriasFiltradas'),
     path('getpalabrassub/<subcate>', views.palabrasdesubcate, name='palabrasFiltradas'),
     path('getpalabrasdiccio/<inicial>', views.buscar_por_inicial, name='getpalabrasdiccio'),
@@ -68,15 +64,8 @@ urlpatterns = [
     path('preguntas/<ti>/<cat>', views.pregTipoCat, name='PreguntasFiltradas'),
     path('listaCatSub', ListaCategoriaSub.as_view(), name='listaCatSub'),
 
-<<<<<<< HEAD
-] + static(settings.MEDIA_URL, document_root= settings.MEDIA_ROOT)
-=======
 
 ]
 
 static(settings.MEDIA_URL, document_root= settings.MEDIA_ROOT)
-
-
->>>>>>> 497c836bcf240278ccecffcca01de829c9a2a3b9
-
 
