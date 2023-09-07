@@ -68,14 +68,17 @@
     
 <h1 class="titulo">MI PERFIL</h1>
 
-    <form method="post" action="/perfil" enctype="multipart/form-data">
+    <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
-        <div><label for="">Nombre</label>{{form.first_name}}</div>
-        <div><label for="">Apellido</label>{{form.last_name}}</div>
-        <div><label for="">Correo</label>{{form.email}}</div>
-        <div><label for="">Clave</label>{{form.password}}</div>
-        <div><label for="" type="file">Foto</label>{{form.imgPerfil}}</div>
-        <img src="{{ form.instance.imgPerfil.url }}">
+        {{form.first_name}}
+        {{form.last_name}}
+        {{form.email}}
+        <input type="text" src="{{form.password}}">
+        <!-- {{form.imgPerfil}}
+        <img src="{{ form.instance.imgPerfil.url }}"> -->
+        <input type="file" name="imgPerfil" id="id_imgPerfil" accept="image/*" onchange="previewImage(this);">
+        <img id="imgPreview" src="{{ form.instance.imgPerfil.url }}"/>
+    
         <button type="submit" name="editar" value="editar">Guardar cambios</button>
     <!-- <section id="todo">
         <section id="imagen">    

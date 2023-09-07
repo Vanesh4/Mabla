@@ -48,7 +48,6 @@ class _menuState extends State<menu> {
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       key: _scaffoldKey,
       backgroundColor: darkBlue,
@@ -68,8 +67,7 @@ class _menuState extends State<menu> {
                     text: TextSpan(
                       style: DefaultTextStyle.of(context).style.copyWith(
                         fontSize: 24,
-                        fontWeight: FontWeight.bold,
-                        textTransform: TextTransform.uppercase, // Convierte el texto a mayúsculas
+                        fontWeight: FontWeight.bold
                       ),
                       children: <TextSpan>[
                         TextSpan(
@@ -110,10 +108,6 @@ class _menuState extends State<menu> {
               ),
             ),
           ),*/
-
-
-
-
 
     );
   }

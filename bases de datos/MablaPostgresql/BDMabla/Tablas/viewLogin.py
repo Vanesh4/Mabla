@@ -131,11 +131,12 @@ class profile(View):
             print("el formulario se valido")
             form.save()
             
-            imagen_file = request.FILES['imgPerfil']
-            user_instance = form.save(commit=False)
-            print(user_instance)
-            user_instance.imgPerfil = imagen_file  # Asignar la imagen al campo correspondiente en el modelo
-            user_instance.save()
+            if 'imgPerfil' in request.FILES:
+                imagen_file = request.FILES['imgPerfil']
+                user_instance = form.save(commit=False)
+                print(user_instance)
+                user_instance.imgPerfil = imagen_file  # Asignar la imagen al campo correspondiente en el modelo
+                user_instance.save()
 
         messages.success(request, 'Cambios guardados correctamente.')
 

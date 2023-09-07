@@ -65,13 +65,6 @@ urlpatterns = [
     path('preguntas/<ti>/<cat>', views.pregTipoCat, name='PreguntasFiltradas'),
     path('listaCatSub', ListaCategoriaSub.as_view(), name='listaCatSub'),
 
-<<<<<<< HEAD
-
-]
-
-static(settings.MEDIA_URL, document_root= settings.MEDIA_ROOT)
-=======
 ] + static(settings.MEDIA_URL, document_root= settings.MEDIA_ROOT)
 
->>>>>>> 51f9fee22c62dbc59717d5ea3584df1f67c4d7b6
 
