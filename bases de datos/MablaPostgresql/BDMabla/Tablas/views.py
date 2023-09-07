@@ -1,6 +1,6 @@
 from typing import Any
 from django.http import HttpResponseRedirect, JsonResponse
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.generic import View, ListView
 from django.http import HttpRequest, JsonResponse
 from django.utils.decorators import method_decorator
@@ -9,7 +9,7 @@ import json
 from Tablas.models import *
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
-
+from django.contrib.auth import logout
 
 #tabla comentarios
 class getTablaComment(View):
@@ -297,6 +297,10 @@ def palabradiccionario(request):
     listarpalabras=TablaPalabra.objects.filter(Palabra__startswith='P')
     return render(request, "diccionario.html", {"palabrita": listarpalabras })
    #return render(request, "diccionario.html")
+
+def cerrarSesion(request):
+    logout(request)  # Cierra la sesión del usuario
+    return redirect('inicio')  # Redirige a la página de inicio o a donde desees después de cerrar la sesión
 
    
 def buscar_por_inicial(request, inicial):

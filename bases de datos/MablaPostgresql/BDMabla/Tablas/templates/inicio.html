@@ -48,6 +48,9 @@
                 </a>
             </div>
         </div>
+        <p id="BotonIngresar">
+            <a href="/logOut">Cerrar Sesión</a>
+        </p>
         <div class="partederecha">
             <div class="buscador">
                 <input  type="text" name="buscador" class="buscadorMenu" maxlength="20">
@@ -55,10 +58,8 @@
             </div>
                 <form method="get" enctype="multipart/form-data">
                     {% csrf_token %}
-                <!-- <img id="fotoUser" src="{% static 'img/user.png'%}" alt=""> -->
-                    <p id="alias">{{ user.username }}</p>
-                    {{ user.instance.imgPerfil.url }}
-                    <img id="fotoUser" src="{{ user.instance.imgPerfil.url }}" alt="user">
+                
+                <a href="perfil"><img id="fotoUser" src="{{ user.imgPerfil.url }}"></a>
                 </form>
     </div>    
 </header>
@@ -91,10 +92,10 @@
     <div class="partederecha">
         <div id="login">
             <p id="BotonRegisto">
-                <a href="http://127.0.0.1:8000/register">Registrarme</a>
+                <a href="/register">Registrarme</a>
             </p>
             <p id="BotonIngresar">
-                <a href="http://127.0.0.1:8000/ingresar">Iniciar Sesión</a>
+                <a href="/ingresar">Iniciar Sesión</a>
             </p>
         </div>
         <div class="buscador">
