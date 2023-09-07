@@ -29,7 +29,7 @@
         </div>
         <div class="parteizq">
             <div class="logo">
-                <a href="http://127.0.0.1:8000/inicio">
+                <a href="/127.0.0.1:8000/">
                     <img src="{% static 'img/mablaLOGO-removebg.png'%}" alt="logo" class="logoImg">
                 </a>                
             </div>
@@ -52,8 +52,8 @@
                 <img src="{% static 'img/lupa.png'%}" alt="lupa" style="width: 10%;">                
             </div>
             
-            <a href="http://127.0.0.1:8000/perfil/">
-                <img id="fotoUser" src="{% static 'img/user.png'%}" alt="">
+            <a href="/perfil">
+                <img id="fotoUser" src="{{ form.instance.imgPerfil.url }}" alt="">
             </a>
 
         </div>    
@@ -68,66 +68,65 @@
     
 <h1 class="titulo">MI PERFIL</h1>
 
-    <form class="frm" action="/register/" method="post" enctype="multipart/form-data">
+    <form method="post" action="/perfil" enctype="multipart/form-data">
         {% csrf_token %}
-            {{form_as.div}}
-    </form>
-
-    <section id="todo">
-        <section id="imagen">
+        <div><label for="">Nombre</label>{{form.first_name}}</div>
+        <div><label for="">Apellido</label>{{form.last_name}}</div>
+        <div><label for="">Correo</label>{{form.email}}</div>
+        <div><label for="">Clave</label>{{form.password}}</div>
+        <div><label for="" type="file">Foto</label>{{form.imgPerfil}}</div>
+        <img src="{{ form.instance.imgPerfil.url }}">
+        <button type="submit" name="editar" value="editar">Guardar cambios</button>
+    <!-- <section id="todo">
+        <section id="imagen">    
             <div id="img">
-                <img class="foto" src="{% static 'img/carpincho.png'%}" alt="" style="height: 200px;">
-               </div>
-
+                <img src="{{ form.instance.imgPerfil.url }}">
+            </div>
         </section>
-
-        <section id="contenido">
         
+        <section id="contenido">
             <div class="dat">
-                
+
                 <div id="inp">
-                    <input type="text" name="cantidad" id="dato" readonly="readonly" value="nombre" />
-                    
+                    {{form.first_name}}
                     <div id="im" >
                         <img id="lap" src="{% static 'img/editando.png'%}" alt="">
-
                     </div>
-                    
                 </div>
                
                 <div id="inp">
-                    <input type="text" name="cantidad" id="dato" readonly="readonly" value="apellido"/>
+                    {{form.last_name}}
                     <div id="im">
                         <img id="lap" src="{% static 'img/editando.png'%}" alt="">
-
                     </div>      
                 </div>
                
                 <div id="inp">
-                    <input type="text" name="cantidad" id="dato" readonly="readonly" value="celular" />
+                    {{form.email}}
                     <div id="im">
                         <img id="lap" src="{% static 'img/editando.png'%}" alt="">
-
                     </div>
                 </div>
                 
                 <div id="inp">
-                    <input type="text" name="cantidad" id="dato" readonly="readonly" value="correo"/>
+                    <input type="text">
                     <div id="im">
                         <img id="lap" src="{% static 'img/editando.png'%}" alt="">
-
                     </div>
                 </div>
-    
+                <div id="inp">
+                   <label for="" type="file">{{form.imgPerfil}}</label>
+                    <div id="im">
+                        <img id="lap" src="{% static 'img/editando.png'%}" alt="">
+                    </div>
+                </div>
             </div>
-             
+            <button type="submit" name="editar" value="editar">Guardar</button>
          </section>
-
-
-    </section>
+    </section> -->
+</form>
 
     <section class="progreso">
-
 
         <div id="clicks">
             <a href="" id="btn">

@@ -106,7 +106,7 @@ class IniciarSesionView(View):
 @method_decorator(login_required(login_url='ingresar'), name='dispatch')
 class profile(View):
     
-    template_name = 'perfilP.html'
+    template_name = 'perfil.html'
 
     def get(self, request):
         
