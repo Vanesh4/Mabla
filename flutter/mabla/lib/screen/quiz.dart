@@ -21,12 +21,12 @@ class _quizState extends State<quiz> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: _scaffoldKey,
-      drawer: headerPrincipal(),
+      /*drawer: headerPrincipal(),*/
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
 
-          Align(
+          /*Align(
             alignment: Alignment.centerLeft,
             child: Padding(
               padding: const EdgeInsets.only(left: 10),
@@ -39,10 +39,10 @@ class _quizState extends State<quiz> {
                 ),
               ),
             ),
-          ),
+          ),*/
 
           Text("A que palabra corresponde esta seña", textAlign: TextAlign.center,
-          style: TextStyle(fontSize: 30, fontFamily: "Raleway"),),
+          style: TextStyle(fontSize: 27, fontFamily: "Raleway"),),
           SizedBox(height: 10,),
           Container(
             width: 250,
@@ -58,7 +58,7 @@ class _quizState extends State<quiz> {
                   children: [
                     Container(
                       color: purple,
-                      height: 80,
+                      height: 78,
                       width: double.infinity,
                       child: Center(
                         child: Text("opcion uno",
@@ -72,7 +72,7 @@ class _quizState extends State<quiz> {
                     SizedBox(height: 20,),
                     Container(
                       color: darkBlue,
-                      height: 80,
+                      height: 78,
                       width: double.infinity,
                       child: Center(
                         child: Text("opcion dos",
@@ -86,7 +86,7 @@ class _quizState extends State<quiz> {
                     SizedBox(height: 20,),
                     Container(
                       color: lightBlue,
-                      height: 80,
+                      height: 78,
                       width: double.infinity,
                       child: Center(
                         child: Text("opcion tres",
@@ -100,7 +100,7 @@ class _quizState extends State<quiz> {
                     SizedBox(height: 20,),
                     Container(
                       color: orange,
-                      height: 80,
+                      height: 78,
                       width: double.infinity,
                       child: Center(
                         child: Text("opcion cuatro",
