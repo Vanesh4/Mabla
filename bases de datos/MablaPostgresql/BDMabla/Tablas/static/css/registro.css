@@ -67,13 +67,8 @@ input{
     color: white;
     font-size: 40px;
     font-family: 'Raleway', sans-serif;
-<<<<<<< HEAD
-    border-radius: 100px;
-    padding: 15px;
-=======
     border-radius: 10px;
     padding: 18px;
->>>>>>> 497c836bcf240278ccecffcca01de829c9a2a3b9
     border: none;
 }
 
@@ -110,6 +105,13 @@ input{
 
 .error{
     font-size: 18px;
+    color:  #ff731c;   
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+.errorr{
+    font-size: 15px;
     color:  #ff731c;   
     margin-top: 10px;
     margin-left: 10px;

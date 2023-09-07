@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mabla/home.dart';
+import 'package:mabla/screen/diccionario.dart';
 import 'package:mabla/screen/login.dart';
 import 'package:mabla/screen/perfil.dart';
 import 'package:mabla/screen/quiz.dart';
@@ -13,7 +14,7 @@ void main() {
 }
 
 //sara
-/*class MyApp extends StatelessWidget {
+class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   // This widget is the root of your application.
@@ -26,7 +27,7 @@ void main() {
         ),
     );
   }
-}*/
+}
 
 //karen
 /*
@@ -44,6 +45,7 @@ class MyApp extends StatelessWidget {
 */
 
 //vanessa
+/*
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
@@ -57,6 +59,7 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+*/
 
 
 /*
