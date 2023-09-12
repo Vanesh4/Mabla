@@ -1,4 +1,3 @@
-
 /* let btn=document.getElementById('btn');
 
 let spant=document.getElementById('spant');
@@ -16,6 +15,25 @@ function toggleText(){
     }
 } */
 
+function previewImage(input) {
+    var imgPreview = document.getElementById('imgPreview');
+    
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        
+        reader.onload = function(e) {
+            imgPreview.src = e.target.result;
+        };
+        
+        reader.readAsDataURL(input.files[0]);
+    } else {
+        imgPreview.src = "{{ form.instance.imgPerfil.url }}";  // Mostrar la imagen actual si no se selecciona un archivo
+    }
+}
+
+$("#imgPreview").on('click', ()=> {
+    previewImage()
+})
 
 let clicks=document.getElementById('clicks');
 
@@ -32,6 +50,5 @@ function toggleText(){
     }else{
         hideText_btn.innerHTML='mi progreso';
     }
-
-
 } 
+

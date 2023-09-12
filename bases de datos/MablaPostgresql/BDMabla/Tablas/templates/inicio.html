@@ -31,13 +31,13 @@
         </div>
         <div class="parteizq">
             <div class="logo">
-                <a href="http://127.0.0.1:8000/inicio">
-                    <img src="perfil" alt="logo" class="logoImg">
+                <a href="/">
+                    <img src="{% static 'img/mablaLOGO-removebg.png' %}" alt="logo" class="logoImg">
                 </a>                
             </div>
             <div class="linkContenido">
-                <a href="http://127.0.0.1:8000/menu"><p class="textomenu">Contenido</p></a>
-                <a href="http://127.0.0.1:8000/menu">
+                <a href="/menu"><p class="textomenu">Contenido</p></a>
+                <a href="/menu">
                     <img src="{% static 'img/flecha-hacia-abajo-para-navegar.png'%}" alt="flecha" style="width: 15px;height: 15px;" class="imgflecha">
                 </a>
             </div>
@@ -48,19 +48,27 @@
                 </a>
             </div>
         </div>
+
         <div class="partederecha">
+            <p class="BotonPrimario">
+                <a href="/logOut">Cerrar Sesión</a>
+            </p>
             <div class="buscador">
                 <input  type="text" name="buscador" class="buscadorMenu" maxlength="20">
                 <img src="{% static 'img/lupa.png'%}" alt="lupa" style="width: 10%;">                
             </div>
-                <form method="get" enctype="multipart/form-data">
-                    {% csrf_token %}
-                <!-- <img id="fotoUser" src="{% static 'img/user.png'%}" alt=""> -->
-                    <p id="alias">{{ user.username }}</p>
-                    {{ user.instance.imgPerfil.url }}
-                    <img id="fotoUser" src="{{ user.instance.imgPerfil.url }}" alt="user">
-                </form>
-    </div>    
+            <form method="get" enctype="multipart/form-data">
+                {% csrf_token %}
+                
+                <a href="perfil">
+                    <div class="imgdeperfil">
+                        <img id="fotoUser" src="{{ user.imgPerfil.url }}">
+                    </div>                    
+                </a>
+
+                <p id="alias">{{ user.username }}</p>
+            </form>
+        </div>    
 </header>
 
 {% else %}
@@ -91,10 +99,10 @@
     <div class="partederecha">
         <div id="login">
             <p id="BotonRegisto">
-                <a href="http://127.0.0.1:8000/register">Registrarme</a>
+                <a href="/register">Registrarme</a>
             </p>
-            <p id="BotonIngresar">
-                <a href="http://127.0.0.1:8000/ingresar">Iniciar Sesión</a>
+            <p class="BotonPrimario">
+                <a href="/ingresar">Iniciar Sesión</a>
             </p>
         </div>
         <div class="buscador">
@@ -117,9 +125,9 @@
         </div>
         <p class="subLema">Habla con las manos</p>
         <p class="subLema2">Aprende lengua de señas colombiana</p>
-        <div class="link" id="linkConte"><a href="http://127.0.0.1:8000/menu">Contenido</a></div>
-        <div class="link" id="linkQuiz">Quizes</div>
-        <div class="link" id="linkDicc">Diccionario</div>
+        <div class="link" id="linkConte"><a href="/menu">Contenido</a></div>
+        <div class="link" id="linkQuiz"><a href="#">Quizes</a></div>
+        <div class="link" id="linkDicc"><a href="/diccio/">Diccionario</a></div>
         
     </section>
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" id="forma">
@@ -136,7 +144,9 @@
             {% else %}
                 <button type="button" id="miDiv" class="inputEnviarComentario">Comentar</button>
             {% endif %}
-
+            <div id="divmsj">
+                
+            </div>
         </div>
 
         <div class="listComent">

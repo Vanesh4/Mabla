@@ -54,7 +54,7 @@ MIDDLEWARE = [
 ]
 
 CORS_ALLOWED_ORIGINS = [
-    'http://192.168.137.1',
+    'http://10.190.82.231',
 ]
 
 AUTHENTICATION_BACKENDS = (

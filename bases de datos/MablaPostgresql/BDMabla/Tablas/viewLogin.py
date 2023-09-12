@@ -1,3 +1,4 @@
+import json
 from django.contrib.auth import authenticate, login
 from django.shortcuts import redirect, render
 from django.views import View
@@ -24,6 +25,7 @@ class registerUser(View):
                 print(request.POST)
                 print("Contenido de request.FILES:")
                 print(request.FILES)
+                self.handle_flutter_data(request)
 
             else:   
                 print("no json")
@@ -50,7 +52,26 @@ class registerUser(View):
         form= registro()
         return render(request, self.template_name, {'form': form})
 
-
+    def handle_flutter_data(self, request):
+        try:
+            data = json.loads(request.body)
+            print("Datos recibidos desde Flutter:")
+            print(data)  # Imprime los datos recibidos desde Flutter
+            form = registro(data)
+            
+            if form.is_valid():
+                print("Datos válidos:")
+                print(form.cleaned_data)  # Imprime los datos validados por el formulario
+                form.save()
+                messages.success(request, 'Usuario registrado correctamente desde Flutter.')
+            
+            else:
+                print("Errores en el formulario:")
+                print(form.errors)  
+        
+        except json.JSONDecodeError:
+            messages.error(request, 'Error en los datos enviados desde Flutter.')
+            
 class IniciarSesionView(View):
     
     def get(self, request):
@@ -80,12 +101,12 @@ class IniciarSesionView(View):
                 print("no funciono")
                 form.add_error(None, 'Credenciales inválidas. Por favor, intenta nuevamente.')
         
-        return render(request, 'login.html', {'form': form})
-
+        return render(request, 'login.html', {'form':form})
 
 @method_decorator(login_required(login_url='ingresar'), name='dispatch')
 class profile(View):
-    template_name = 'perfilP.html'
+    
+    template_name = 'perfil.html'
 
     def get(self, request):
         
@@ -96,7 +117,7 @@ class profile(View):
 
         form = userData(instance= user)
         
-        return render(request, self.template_name, {'form': form}, 'inicio.html', {'username': user.username, 'imgPerfil': user.imgPerfil})
+        return render(request, self.template_name, {'form': form})
     
     def post(self, request):
         
@@ -110,15 +131,13 @@ class profile(View):
             print("el formulario se valido")
             form.save()
             
-            imagen_file = request.FILES['imgPerfil']
-            user_instance = form.save(commit=False)
-            print(user_instance)
-            user_instance.imgPerfil = imagen_file  # Asignar la imagen al campo correspondiente en el modelo
-            user_instance.save()
-            return redirect('perfil')
+            if 'imgPerfil' in request.FILES:
+                imagen_file = request.FILES['imgPerfil']
+                user_instance = form.save(commit=False)
+                print(user_instance)
+                user_instance.imgPerfil = imagen_file  # Asignar la imagen al campo correspondiente en el modelo
+                user_instance.save()
 
         messages.success(request, 'Cambios guardados correctamente.')
 
         return render(request, self.template_name, {'form': form})
-
-

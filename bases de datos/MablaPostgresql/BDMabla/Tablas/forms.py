@@ -1,8 +1,10 @@
+from django.core.exceptions import ValidationError
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import get_user_model
 from .models import *
 from django.contrib.auth.forms import AuthenticationForm
 from django import forms
+from django.contrib.auth.password_validation import validate_password
 
 User = get_user_model()
 
@@ -38,16 +40,15 @@ class registro(UserCreationForm):
         self.fields['password1'].widget.attrs.update({
             'required':'',
             'type':'password',
+            'minlength':'4',
             'maxlength':'128',
-            'minlength':'4'
+            'help_text':"La contraseña debe contener al menos 8 caracteres."
 
         })
 
         self.fields['password2'].widget.attrs.update({
             'required':'',
-            'type':'password',
-            'maxlength':'128',
-            'minlength':'4'
+            'type':'password'
         })
     
     class Meta:            
@@ -60,7 +61,32 @@ class registro(UserCreationForm):
         if commit:
             user.save()
         return user 
+    
+    def clean_password2(self):
+        password1 = self.cleaned_data.get("password1")
+        password2 = self.cleaned_data.get("password2")
 
+        # Validación de contraseñas diferentes
+        if password1 and password2 and password1 != password2:
+            raise ValidationError("Las contraseñas no coinciden.")
+
+        return password2
+    
+    def clean_password1(self):
+        password1 = self.cleaned_data.get("password1")
+
+        # Validación de la longitud de la contraseña
+        if password1 and len(password1) < 8:
+            raise ValidationError("La contraseña debe tener al menos 8 caracteres.")
+
+        # Otras validaciones personalizadas, como caracteres especiales, números, etc.
+        try:
+            validate_password(password1)
+        except ValidationError as error:
+            raise ValidationError("Contraseña no válida: " + str(error))
+
+        return password1
+    
 class LoginForm(AuthenticationForm):
     class Meta:
         model = User
