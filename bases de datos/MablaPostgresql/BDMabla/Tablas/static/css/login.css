@@ -63,12 +63,6 @@ input{
     justify-content: center;
     margin-left: 50px;
 }
-#colorbtn{
-    background:  #ff731c;
-    color: white;
-    font-size: 40px;
-    padding: 0px 15px 0px 15px;
-}
 
 .links{
     display: flex;
@@ -90,7 +84,7 @@ input{
     margin-top: 20px;
 }
 #colorbtn{
-    background:  #ff731c;
+    background-color:  #ff731c;
     color: white;
     font-size: 33px;
     font-family: 'Raleway', sans-serif;
@@ -98,6 +92,7 @@ input{
     padding: 10px 25px 10px 25px;
     border: none;
 }
+
 .imgyText{
     display: flex;
     flex-wrap: wrap;
