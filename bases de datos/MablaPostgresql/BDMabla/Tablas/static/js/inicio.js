@@ -103,7 +103,12 @@ function agregarComentario() {
                 
             },
             error: function(error) {
-                console.error(error);
+                contenedorDiv = document.getElementById("divmsj")
+                contenedorDiv.innerHTML=""
+                msj = document.createElement("p")
+                msj.setAttribute("id","msj")
+                msj.textContent = "No se pudo enviar el comentario "+error;
+                contenedorDiv.appendChild(msj)
             }
         }); 
     }   
