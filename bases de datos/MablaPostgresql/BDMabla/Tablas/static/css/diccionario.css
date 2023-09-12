@@ -159,6 +159,8 @@ button{
     background-color: blue;
 }
 
+
+
 .p{
     font-size: 40px;
     color: rgb(6, 6, 6);
@@ -272,6 +274,11 @@ button{
     width: 50%;
 }
 
+#palcaja{
+    margin-top: -30px;
+    float: right;
+}
+
 
 
 
@@ -286,11 +293,11 @@ button{
         padding: 0;
     }
    
-    /* #palcaja{
+    #palcaja{
         margin-top: -28px;
         float: right;
         width: 67%;
-    } */
+    }
 
 
     
