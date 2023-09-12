@@ -56,6 +56,10 @@ function toggleText(){
 
 
 $(document).ready(function() {
+  cajapalab=document.getElementById('container')
+  console.log("sisiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii",cajapalab)
+  
+  console.log("noooooooooooooooooooooooooooooooooooooooooo",cajapalab)
     $('#buscador').on('submit', function(event) {
         event.preventDefault();
         var inicial = $('#inicial').val();
@@ -149,12 +153,17 @@ function obtenerContenidoDeBaseDeDatos(valor) {
 
   $(document).ready(function() {
     var word = document.getElementById('container');
+    word.id='palcaja'
+    wordpal=document.getElementById('palcaja')
+
     const inputMostrarContenido = document.getElementById('inicial');
     console.log("hola mi gente")
    
     $('#inicial').on('input', function() {
       var inicial = $(this).val().toLowerCase(); // Obtenemos la inicial ingresada y la convertimos a minúsculas
       var wordList = $('#wordList'); // Elemento donde mostraremos la lista de palabras
+      
+      
       $.ajax({
         url: 'http://127.0.0.1:8000/getpalabrasdiccio/'+inicial, 
         method: 'GET',
@@ -170,10 +179,11 @@ function obtenerContenidoDeBaseDeDatos(valor) {
             console.log("lo que hay en el forech palabra",Palabra)
             
             console.log("vinedo las palbras recorridads en el foreach",palabras)
-            var listItem = $('<p>').text(Palabra.palabra).addClass('miClase');
+
+            var listItem = $('<p>').text(Palabra.palabra).addClass('miClase')
             console.log("lo que hay en listem ",listItem)
 
-            listItem.click(function() {
+            listItem.click(function() {            
               mivalor=Palabra.palabra
               $('.miClase').val(mivalor);
               console.log("que hay rn esa palabra", mivalor)
@@ -208,6 +218,7 @@ function obtenerContenidoDeBaseDeDatos(valor) {
                           resultsDiv.empty();
                           var palabras = data.palabras;
                           console.log("queria mirar lo que se guarda aqui",palabras)
+                          
                           palabras.forEach(function(palabra) {
               
                               grupopalabra=document.createElement('div')
@@ -224,35 +235,37 @@ function obtenerContenidoDeBaseDeDatos(valor) {
                               grupopalabra.append(img)
                               grupopalabra.append(p)
                               resultsDiv.append(grupopalabra)
+                              
                           });
                           
                       }
                   });
                 }
           });
+
          
            
             listItem.css({
+              
               'font-family':'raleway',             
               'color': 'white',
               'fontSize': '18px',
               'padding': '12px',
               
+              
             
                 
               });
+
             wordList.append(listItem);
             word.style.backgroundColor='#00000092';
             word.style.width='24%';
             word.style.padding='15px';
-            word.style.borderRadius='10px',
+            word.style.borderRadius='10px';
+           /*  wordpal.style.width='60%'; */
+           /* $('#palcaja') */
             
-
-            console.log("como me trae las palabras",listItem)
-
-
-
-                  
+                          
           });
         },
         error: function(err) {
