@@ -29,13 +29,13 @@
         </div>
         <div class="parteizq">
             <div class="logo">
-                <a href="/127.0.0.1:8000/">
-                    <img src="{% static 'img/mablaLOGO-removebg.png'%}" alt="logo" class="logoImg">
+                <a href="/">
+                    <img src="{% static 'img/mablaLOGO-removebg.png' %}" alt="logo" class="logoImg">
                 </a>                
             </div>
             <div class="linkContenido">
-                <a href="http://127.0.0.1:8000/menu"><p class="textomenu">Contenido</p></a>
-                <a href="http://127.0.0.1:8000/menu">
+                <a href="/menu"><p class="textomenu">Contenido</p></a>
+                <a href="/menu">
                     <img src="{% static 'img/flecha-hacia-abajo-para-navegar.png'%}" alt="flecha" style="width: 15px;height: 15px;" class="imgflecha">
                 </a>
             </div>
@@ -46,17 +46,27 @@
                 </a>
             </div>
         </div>
+
         <div class="partederecha">
+            <p class="BotonPrimario">
+                <a href="/logOut">Cerrar Sesión</a>
+            </p>
             <div class="buscador">
                 <input  type="text" name="buscador" class="buscadorMenu" maxlength="20">
                 <img src="{% static 'img/lupa.png'%}" alt="lupa" style="width: 10%;">                
             </div>
-            
-            <a href="/perfil">
-                <img id="fotoUser" src="{{ form.instance.imgPerfil.url }}" alt="">
-            </a>
+            <form method="get" enctype="multipart/form-data">
+                {% csrf_token %}
+                
+                <a href="perfil">
+                    <div class="imgdeperfil">
+                        <img id="fotoUser" src="{{ user.imgPerfil.url }}">
+                    </div>                    
+                </a>
 
-        </div>    
+                <p id="alias">{{ user.username }}</p>
+            </form>
+        </div>   
     </header>
 
 

@@ -94,7 +94,7 @@ DATABASES = {
         'HOST':'127.0.0.1',
         'DATABASE_PORT':'5432',
         'USER':'postgres',
-        'PASSWORD':'0000',
+        'PASSWORD':'1986',
     }
 }
 
@@ -143,4 +143,4 @@ MEDIA_URL = '/media/'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-AUTH_USER_MODEL='Tablas.User'
+#AUTH_USER_MODEL='Tablas.User'
