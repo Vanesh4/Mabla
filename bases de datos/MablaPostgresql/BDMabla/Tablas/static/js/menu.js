@@ -31,7 +31,6 @@ $(document).ready(function () {
                     subcate.setAttribute("class","subcategoria")
                     subcate.innerHTML = subcategorias[s].subcategoria
                     divCategoria.appendChild(subcate)
-                    
                 }
                 
                 contenedor.appendChild(divCategoria)

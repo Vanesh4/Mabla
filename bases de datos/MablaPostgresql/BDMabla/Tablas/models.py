@@ -2,7 +2,7 @@ from django.contrib.auth.models import AbstractUser
 from django.db import models
 
 
-class TablaUsuario(models.Model):
+""" class TablaUsuario(models.Model):
     alias=models.TextField(primary_key=True, max_length=30)
     nombre=models.TextField(null= False)
     apellido=models.TextField(null= False)
@@ -10,14 +10,14 @@ class TablaUsuario(models.Model):
     #correo=models.TextField(max_length=30)
     #clave=models.TextField(max_length=30)
     #user= models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='User', null=True, blank=True)
-
+ """
 class User(AbstractUser):
     imgPerfil=models.ImageField(upload_to='img/', default='user.png', null=True, blank=True)
     alias=models.TextField(primary_key=True, max_length=30)
     #alias= models.OneToOneField(TablaUsuario,primary_key=True, on_delete=models.CASCADE) 
 
 class TablaComentarios(models.Model):
-    #alias=models.ForeignKey(User, null=True, on_delete=models.CASCADE)
+    alias=models.ForeignKey(User, null=True, on_delete=models.CASCADE)
     texto=models.TextField(max_length=150)
     fecha=models.DateField(auto_now_add=True)
 
@@ -46,7 +46,7 @@ class TablaPrueba(models.Model):
     tipoPrueba= models.PositiveSmallIntegerField(null=False)
     puntaje=models.PositiveSmallIntegerField(verbose_name="Puntaje")
     fecha=models.DateField(auto_now_add=True)
-    #alias=models.ForeignKey(User, null=True, on_delete=models.CASCADE)
+    alias=models.ForeignKey(User, null=True, on_delete=models.CASCADE)
     idCategoria = models.ForeignKey(TablaCategoria, null=False, on_delete=models.CASCADE)
     
 class TablaPrueba_Pregunta(models.Model):
