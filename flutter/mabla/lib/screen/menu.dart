@@ -21,47 +21,27 @@ class _menuState extends State<menu> {
 
   GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
-  List<dynamic> categorias = [];
-  Future<void> getCategorias() async{
-    print("on the funtion");
-    //vanessa: 192.168.1.6
-    final url = Uri.parse('http://10.190.88.159/getcate');
-    final response = await http.get(url);
+  List<dynamic> CateSubcate = [];
+  //Map<String, dynamic> jsonData = {};
+  Future<void> fetchData() async {
+    final response = await http.get(Uri.parse('http://192.168.43.184/getcate'));
 
-    if(response.statusCode == 200){
-      print("data categorias connected successfull");
-      final jsonResponse = json.decode(response.body);
-
+    if (response.statusCode == 200) {
+      print("All is OK in cate and subcate");
       setState(() {
-        categorias = jsonResponse;
-        print(categorias);
+        CateSubcate = json.decode(response.body);
+        //jsonData = json.decode(response.body);
+
       });
-    }
-    else{
-      print("data categorias didn't connect");
-    }
-  }
-  
-  Future<List<dynamic>> SubCategorias(String cat) async{
-    print("on the funtion 2");
-    final url = 'http://10.190.88.159/getSubcategorias/$cat';
-    print(url);
-    final response = await http.get(Uri.parse(url));
-
-    if(response.statusCode == 200){
-      print("Status code 200");
-      final data = json.decode(response.body);
-      return List.from(data);
-    }
-    else{
-      print('Failed to load subcategorias');
-      throw Exception('Failed to load data');
+    } else {
+      print('Error en la solicitud: ${response.statusCode}');
     }
   }
 
-  void initState(){
+  @override
+  void initState() {
     super.initState();
-    getCategorias();
+    fetchData();
   }
 
 
@@ -72,7 +52,48 @@ class _menuState extends State<menu> {
       key: _scaffoldKey,
       backgroundColor: darkBlue,
       drawer: headerPrincipal(),
-      body:
+      body: ListView.builder(
+        itemCount: CateSubcate.length,
+        itemBuilder: (context, index) {
+          final cat = CateSubcate[index];
+          final subcat = cat['Subcategorias'] ?? [];
+
+          return Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              ListTile(
+                title: Center(
+                  child: RichText(
+                    text: TextSpan(
+                      style: DefaultTextStyle.of(context).style.copyWith(
+                        fontSize: 24,
+                        fontWeight: FontWeight.bold
+                      ),
+                      children: <TextSpan>[
+                        TextSpan(
+                          text: 'Este es un ejemplo de texto en mayúsculas.',
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+              if (subcat.isNotEmpty)
+                Column(
+                  children: subcat.map<Widget>((subelemento) {
+                    return ListTile(
+                      title: Text(subelemento['subcategoria'], style: TextStyle(
+                          fontFamily: 'Raleway',
+                          fontSize: 28,
+                          color: Colors.white
+                      ),),
+                    );
+                  }).toList(),
+                ),
+            ],
+          );
+        },
+      ),
           /*Align(
             alignment: Alignment.centerLeft,
             child: Padding(
@@ -87,38 +108,6 @@ class _menuState extends State<menu> {
               ),
             ),
           ),*/
-
-          ListView.builder(
-            itemCount: categorias.length,
-            itemBuilder: (context, index){
-              final item = categorias[index];
-              return
-              Container(
-                child: Column(
-                  children: [
-                    Text(item['Categoria']),
-                    FutureBuilder<List<dynamic>>(
-                      future: SubCategorias(item['Categoria']),
-                      builder: (context, snapshot){
-                        final subcates = snapshot.data;
-
-                        if(subcates == null || subcates.isEmpty){
-                          return Text('');
-                        }
-                        final firstItem = subcates.first;
-                        final itemName = firstItem['name'] ?? '';
-
-                        return Text(itemName);
-                      },
-                    ),
-                  ],
-                ),
-              );
-            },
-
-          )
-
-
 
     );
   }

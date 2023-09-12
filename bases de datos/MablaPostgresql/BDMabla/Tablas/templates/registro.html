@@ -16,7 +16,7 @@
 </head>
 <body>
   <header>
-    <form method="POST" id="formInsert" class="row g-3" enctype="multipart/form-data">
+    <form method="POST" id="formInsert" action="register" class="row g-3" enctype="multipart/form-data">
       <div class="textRegister">
         REGÍSTRATE
       </div>
@@ -63,9 +63,9 @@
           <label for="{{ form.password1.id_for_label }}" id="lClave1" >Clave </label>
               <!-- <input type="password" class="form-control" id="validationPassword" required> -->
               {{ form.password1}}
-              <div class="error">
+              <div>
                 {% if form.errors.password1 %}
-                  <p>La clave debe contener +8 caracteres(una mayúscula, minúscula, un número y caracter especial)</p>
+                  <p class="errorr">La clave debe contener +8 caracteres (una mayúscula, minúscula, un número y caracter especial)</p>
                 {% endif %}
               </div>
                   <!-- {% if form.errors %}

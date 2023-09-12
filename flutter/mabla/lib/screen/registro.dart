@@ -25,22 +25,11 @@ class _registroState extends State<registro> {
   final TextEditingController _email = TextEditingController();
   final TextEditingController _clave = TextEditingController();
   final TextEditingController _confirmClave = TextEditingController();
-/*File? _image;
 
-  Future<void> _pickImage() async {
-    final pickedImage =
-    await ImagePicker.getImage(source: ImageSource.gallery)
+  bool _obscureText = true;
+  bool _obscureText1 = true;
 
-    setState(() {
-      if (pickedImage != null) {
-        _image = File(pickedImage.path);
-      }
-    });
-  }*/
-
-  void _postForm() async {
-    if (_formKey.currentState!.validate()) {
-
+  Future<void> _postForm() async {
       if (_clave.text == _confirmClave.text) {
         print(_alias.text);
         print(_nombre.text);
@@ -49,7 +38,7 @@ class _registroState extends State<registro> {
         print(_clave.text);
         print(_confirmClave.text);
 
-        final String apiUrl = 'http://192.168.0.13/registroForm';
+        final String apiUrl = 'http://10.190.82.231/register';
 
         final Map<String, dynamic> requestBody = {
           'username': _alias.text,
@@ -59,6 +48,7 @@ class _registroState extends State<registro> {
           'password1': _clave.text,
           'password2':_confirmClave.text
         };
+
         print("Datos enviados desde Flutter:");
         print(requestBody); // Imprime el contenido de requestBody
         final respuesta = await http.post(
@@ -91,7 +81,6 @@ class _registroState extends State<registro> {
           },
         );
       }
-    }
   }
   List<String> label = ['Nombre', 'Apellido', 'Correo electrónico', 'Usuario (Alias)', 'Clave', 'Confirma tu clave'];
 
@@ -134,12 +123,12 @@ class _registroState extends State<registro> {
             Column(
               children: [
                 Container(
-                  padding: const EdgeInsets.only(left: 10, top: 50),
+                  padding: const EdgeInsets.only(left: 10, top: 40),
                   child: Column(
                     children: [
                       Container(
                         alignment: Alignment.center,
-                        margin: EdgeInsets.only(bottom: 35, top: 15, left: 15),
+                        margin: EdgeInsets.only(bottom: 30, top: 25, left: 15),
                         child: Text("REGISTRATE", style: TextStyle(fontSize: 32, fontFamily: "MartianMono", color: Colors.white),),
                       ),
                       Wrap(
@@ -156,12 +145,12 @@ class _registroState extends State<registro> {
                       ),
                       Container(
                         alignment: Alignment.bottomRight,
-                        margin: EdgeInsets.only(top: 50, bottom: 50),
+                        margin: EdgeInsets.only(top: 50, bottom: 50, right: 20),
                         child: Padding(
                           padding: const EdgeInsets.only(top: 5),
                           child: ElevatedButton(
                             onPressed: () {
-                              onPressed: _postForm;
+                              _postForm();
                               print(_alias.text);
                               print(_clave.text);
                               print(_confirmClave.text);
@@ -170,7 +159,7 @@ class _registroState extends State<registro> {
                                 padding: EdgeInsets.all(15),
                                 backgroundColor: orange,
                                 shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(20)
+                                    borderRadius: BorderRadius.circular(100)
                                 )
                             ),
                             child: const Text("REGISTRARME", style: TextStyle(fontFamily: "Raleway", fontSize: 21)),
@@ -178,7 +167,7 @@ class _registroState extends State<registro> {
                         ),
                       ),
                       Container(
-                          margin: EdgeInsets.only(top: 23, right: 50),
+                          margin: EdgeInsets.only(top: 30),
                           padding: EdgeInsets.only(left: 15, right: 50),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
@@ -209,31 +198,35 @@ class _registroState extends State<registro> {
 
   Widget buildItem(String item, TextEditingController control) {
 
-    bool hasSuffixIcon = control == _clave || control == _confirmClave;
-    bool _obscureTextClave = true;
-    bool _obscureTextClaveConfirm = true;
+    bool isClave = control == _clave;
+    bool isConfirmClave = control == _confirmClave;
+    bool hasSuffixIcon = isClave || isConfirmClave;
+    bool obscureText = isClave ? _obscureText : isConfirmClave ? _obscureText1 : false;
+    double fontSize = control == _email ? 18.2 : isConfirmClave ? 19.4: 22.0 ;
+    double padding = control == _email ? 3 : isConfirmClave ? 5: 10 ;
+    double margin = control == _email ? 6 : isConfirmClave ? 3: 0 ;
 
     return Container(
-      width: 169,
+      margin: EdgeInsets.only(left: 10, right: 3),
+      width: 165,
       child: Column(
         children: [
           Container(
             alignment: Alignment.centerLeft,
-            margin: EdgeInsets.only(left: 10),
+            margin: EdgeInsets.only(left: padding, top: margin),
             child: Text(
               item,
               style: TextStyle(
                   color: Colors.white,
                   fontFamily: "Raleway",
-                  fontSize: 22
+                  fontSize: fontSize
               ),
             ),
           ),
-
             Container(
                   height: 30,
-                  margin: EdgeInsets.only(top: 15),
                   padding: EdgeInsets.only(left: 15),
+                  margin: EdgeInsets.only(top: 15),
                   decoration: BoxDecoration(
                       color: beige,
                       borderRadius: BorderRadius.circular(100)
@@ -241,7 +234,7 @@ class _registroState extends State<registro> {
 
                   child: TextFormField(
                     cursorColor: Colors.black,
-                    obscureText: control == _confirmClave || control == _clave,
+                    obscureText: obscureText,
                     controller: control,
                     validator: (value) {
                       if (value!.isEmpty) {
@@ -262,12 +255,15 @@ class _registroState extends State<registro> {
                       suffixIcon: hasSuffixIcon ?  IconButton(
                         onPressed: () {
                           setState(() {
-                            _obscureTextClave = !_obscureTextClave;
+                            if (isClave) {
+                              _obscureText = !_obscureText;
+                            } else if (isConfirmClave) {
+                              _obscureText1 = !_obscureText1;
+                            }
                           });
                         },
                         icon: Icon(
-                          _obscureTextClave ? Icons.visibility : Icons.visibility_off, color: Colors.black,
-
+                          _obscureText ? Icons.visibility :  _obscureText1 ? Icons.visibility : Icons.visibility_off, color: Colors.black,
                         ),
                       ):null,
                     ),

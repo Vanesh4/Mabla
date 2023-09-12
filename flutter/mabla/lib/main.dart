@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mabla/home.dart';
+import 'package:mabla/screen/diccionario.dart';
 import 'package:mabla/screen/login.dart';
 import 'package:mabla/screen/perfil.dart';
 import 'package:mabla/screen/quiz.dart';
@@ -54,12 +55,12 @@ class MyApp extends StatelessWidget {
 
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home:
+      home: home()
     );
   }
 }
-
 */
+
 
 /*
 colores:

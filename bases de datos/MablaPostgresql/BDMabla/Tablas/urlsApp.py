@@ -12,6 +12,7 @@ urlpatterns = [
     #path('login',views.formIniciarSesion, name='login'),
     #path('registroForm',registerUser.as_view(), name='registroForm'),
     path('ingresar',IniciarSesionView.as_view(), name='ingresar'),
+    path('logOut', views.cerrarSesion, name='logOut'),
     #path('users',getUser.as_view(), name='users'),
     path('tablaComment',getTablaComment.as_view(), name='tablaComment'),
     #path('editUser/<pk>',editTablaUser.as_view(),name='editUser'),
@@ -35,7 +36,7 @@ urlpatterns = [
     path('mostrarsubcate/',views.versubcategorias, name="mostrarsubcate"),
     path('perfil',profile.as_view(), name="perfil"),
     path('diccio/', views.palabradiccionario, name='diccio'),
-    path('miperfil',views.verperfil, name='miperfil'),
+    #path('miperfil',views.verperfil, name='miperfil'),
 
     path('getcate',getCategoria.as_view(),name='getcate'),
     path('getcategoria',ListaConsultando.as_view(),name='getcate'),
@@ -55,7 +56,6 @@ urlpatterns = [
 
     #path('getSubcategorias/<cat>', views.subCategoriasDeCate, name='SucategoriasFiltradas'),
 
-
     path('getSubcategorias/<cat>', views.subCategoriasDeCate, name='SucategoriasFiltradas'),
     path('getpalabrassub/<subcate>', views.palabrasdesubcate, name='palabrasFiltradas'),
     path('getpalabrasdiccio/<inicial>', views.buscar_por_inicial, name='getpalabrasdiccio'),
@@ -65,11 +65,6 @@ urlpatterns = [
     path('preguntas/<ti>/<cat>', views.pregTipoCat, name='PreguntasFiltradas'),
     path('listaCatSub', ListaCategoriaSub.as_view(), name='listaCatSub'),
 
-
-]
-
-static(settings.MEDIA_URL, document_root= settings.MEDIA_ROOT)
-
-
+] + static(settings.MEDIA_URL, document_root= settings.MEDIA_ROOT)
 
 

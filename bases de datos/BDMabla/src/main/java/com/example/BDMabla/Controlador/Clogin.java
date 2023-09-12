@@ -23,6 +23,7 @@ public class Clogin {
 }x
 
 */
+/*
 @Controller
 @CrossOrigin(origins = "*")
 public class Clogin {
@@ -39,5 +40,21 @@ public class Clogin {
         return "index";
     }
 }
-
+*/
+@Controller
+@CrossOrigin(origins = "*")
+public class Clogin {
+    STablaUsuario servicio;
+    public Clogin(STablaUsuario servicio) {
+        this.servicio = servicio;
+    }
+    @GetMapping("/getUser")
+    public String index(Model model, @AuthenticationPrincipal OidcUser principal){
+        if(principal!=null){
+            TablaUsuario user = this.servicio.postUser(principal.getClaims());
+            model.addAttribute("user", user);
+        }
+        return "redirect:/";
+    }
+}
 
