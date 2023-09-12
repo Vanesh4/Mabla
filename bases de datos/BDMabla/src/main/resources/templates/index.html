@@ -64,13 +64,13 @@
             </div>
             <div class="parteizq">
                 <div class="logo">
-                    <a href="http://127.0.0.1:8000/inicio">
+                    <a href="http://localhost:8080/">
                         <img src="/img/mablaLOGO-removebg.png" alt="logo" class="logoImg">
                     </a>                
                 </div>
                 <div class="linkContenido">
-                    <a href="http://127.0.0.1:8000/menu"><p class="textomenu">Contenido</p></a>
-                    <a href="http://127.0.0.1:8000/menu">
+                    <a href="http://localhost:8080/menu.html"><p class="textomenu">Contenido</p></a>
+                    <a href="http://localhost:8080/menu.html">
                         <img src="/img/flecha-hacia-abajo-para-navegar.png" alt="flecha" style="width: 15px;height: 15px;" class="imgflecha">
                     </a>
                 </div>
@@ -83,9 +83,6 @@
             </div>
             <div class="partederecha">
                 <div id="login">
-                    <p id="BotonRegisto">
-                        <a href="http://127.0.0.1:8000/register">Registrarme</a>
-                    </p>
                     <p id="BotonIngresar">
                         <!-- <a href="http://127.0.0.1:8000/ingresar">Iniciar Sesión</a> -->
                         <a th:href="@{/oauth2/authorization/auth0}">Iniciar Sesión</a>
