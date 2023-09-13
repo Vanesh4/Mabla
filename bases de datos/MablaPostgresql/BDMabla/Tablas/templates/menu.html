@@ -14,19 +14,20 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>   
+    {% if user.is_authenticated %}
     <header class="header">
         <div class="closeBtn">
             <img src="{% static 'img/cancelar.png'%}" alt="" id="imgBotonCerrarMenu">
         </div>
         <div class="parteizq">
             <div class="logo">
-                <a href="http://127.0.0.1:8000/">
-                    <img src="{% static 'img/mablaLOGO-removebg.png'%}" alt="logo" class="logoImg">
+                <a href="/">
+                    <img src="{% static 'img/mablaLOGO-removebg.png' %}" alt="logo" class="logoImg">
                 </a>                
             </div>
             <div class="linkContenido">
-                <a href="http://127.0.0.1:8000/menu"><p class="textomenu">Contenido</p></a>
-                <a href="http://127.0.0.1:8000/menu">
+                <a href="/menu"><p class="textomenu">Contenido</p></a>
+                <a href="/menu">
                     <img src="{% static 'img/flecha-hacia-abajo-para-navegar.png'%}" alt="flecha" style="width: 15px;height: 15px;" class="imgflecha">
                 </a>
             </div>
@@ -37,22 +38,72 @@
                 </a>
             </div>
         </div>
+
         <div class="partederecha">
-            <div id="login">
-                <p id="BotonRegisto">
-                    <a href="http://127.0.0.1:8000/registroForm">Registrarme</a>
-                </p>
-                <p id="BotonIngresar">
-                    <a href="http://127.0.0.1:8000/ingresar">Iniciar Sesión</a>
-                </p>
-            </div>
+            <p class="BotonPrimario">
+                <a href="/logOut">Cerrar Sesión</a>
+            </p>
             <div class="buscador">
                 <input  type="text" name="buscador" class="buscadorMenu" maxlength="20">
                 <img src="{% static 'img/lupa.png'%}" alt="lupa" style="width: 10%;">                
             </div>
-            
+            <form method="get" enctype="multipart/form-data">
+                {% csrf_token %}
+                
+                <a href="perfil">
+                    <div class="imgdeperfil">
+                        <img id="fotoUser" src="{{ user.imgPerfil.url }}">
+                    </div>                    
+                </a>
+
+                
+            </form>
         </div>    
-    </header>
+</header>
+
+{% else %}
+    <!-- sin iniciar sesion  --> 
+    <header class="header">
+    <div class="closeBtn">
+        <img src="{% static 'img/cancelar.png'%}" alt="" id="imgBotonCerrarMenu">
+    </div>
+    <div class="parteizq">
+        <div class="logo">
+            <a href="/">
+                <img src="{% static 'img/mablaLOGO-removebg.png'%}" alt="logo" class="logoImg">
+            </a>                
+        </div>
+        <div class="linkContenido">
+            <a href="/menu"><p class="textomenu">Contenido</p></a>
+            <a href="menu">
+                <img src="{% static 'img/flecha-hacia-abajo-para-navegar.png'%}" alt="flecha" style="width: 15px;height: 15px;" class="imgflecha">
+            </a>
+        </div>
+        <div class="linkContenido">
+            <a href="#"><p class="textomenu">Sobre nosotros</p></a>
+            <a href="#">
+                <img src="{% static 'img/flecha-hacia-abajo-para-navegar.png'%}" alt="flecha" style="width: 15px;height: 15px;" class="imgflecha">
+            </a>
+        </div>
+    </div>
+    <div class="partederecha">
+        <div id="login">
+            <p id="BotonRegisto">
+                <a href="/register">Registrarme</a>
+            </p>
+            <p class="BotonPrimario">
+                <a href="/ingresar">Iniciar Sesión</a>
+            </p>
+        </div>
+        <div class="buscador">
+            <input  type="text" name="buscador" class="buscadorMenu" maxlength="20">
+            <img src="{% static 'img/lupa.png'%}" alt="lupa" style="width: 10%;">                
+        </div>
+        
+    </div>    
+</header>    
+
+{% endif %}
 
     <section id="menuContenido">
         <!-- <div class="categoria">

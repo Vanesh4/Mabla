@@ -29,13 +29,13 @@
         </div>
         <div class="parteizq">
             <div class="logo">
-                <a href="/127.0.0.1:8000/">
+                <a href="/">
                     <img src="{% static 'img/mablaLOGO-removebg.png'%}" alt="logo" class="logoImg">
                 </a>                
             </div>
             <div class="linkContenido">
-                <a href="http://127.0.0.1:8000/menu"><p class="textomenu">Contenido</p></a>
-                <a href="http://127.0.0.1:8000/menu">
+                <a href="/menu"><p class="textomenu">Contenido</p></a>
+                <a href="/menu">
                     <img src="{% static 'img/flecha-hacia-abajo-para-navegar.png'%}" alt="flecha" style="width: 15px;height: 15px;" class="imgflecha">
                 </a>
             </div>
@@ -46,17 +46,27 @@
                 </a>
             </div>
         </div>
+
         <div class="partederecha">
+            <p class="BotonPrimario">
+                <a href="/logOut">Cerrar Sesión</a>
+            </p>
             <div class="buscador">
                 <input  type="text" name="buscador" class="buscadorMenu" maxlength="20">
                 <img src="{% static 'img/lupa.png'%}" alt="lupa" style="width: 10%;">                
             </div>
-            
-            <a href="/perfil">
-                <img id="fotoUser" src="{{ form.instance.imgPerfil.url }}" alt="">
-            </a>
+            <form method="get" enctype="multipart/form-data">
+                {% csrf_token %}
+                
+                <a href="perfil">
+                    <div class="imgdeperfil">
+                        <img id="fotoUser" src="{{ user.imgPerfil.url }}">
+                    </div>               
+                </a>
 
-        </div>    
+                
+            </form>
+        </div>   
     </header>
 
 
@@ -68,74 +78,44 @@
     
 <h1 class="titulo">MI PERFIL</h1>
 
-    <form method="post" enctype="multipart/form-data">
-        {% csrf_token %}
-        {{form.first_name}}
-        {{form.last_name}}
-        {{form.email}}
-        <input type="text" src="{{form.password}}">
-        <!-- {{form.imgPerfil}}
-        <img src="{{ form.instance.imgPerfil.url }}"> -->
-        <input type="file" name="imgPerfil" id="id_imgPerfil" accept="image/*" onchange="previewImage(this);">
-        <img id="imgPreview" src="{{ form.instance.imgPerfil.url }}"/>
-    
-        <button type="submit" name="editar" value="editar">Guardar cambios</button>
-    <!-- <section id="todo">
-        <section id="imagen">    
-            <div id="img">
-                <img src="{{ form.instance.imgPerfil.url }}">
-            </div>
-        </section>
-        
-        <section id="contenido">
-            <div class="dat">
+    <form id="formdatos" method="post" enctype="multipart/form-data">
 
-                <div id="inp">
-                    {{form.first_name}}
-                    <div id="im" >
-                        <img id="lap" src="{% static 'img/editando.png'%}" alt="">
-                    </div>
-                </div>
-               
-                <div id="inp">
-                    {{form.last_name}}
-                    <div id="im">
-                        <img id="lap" src="{% static 'img/editando.png'%}" alt="">
-                    </div>      
-                </div>
-               
-                <div id="inp">
-                    {{form.email}}
-                    <div id="im">
-                        <img id="lap" src="{% static 'img/editando.png'%}" alt="">
-                    </div>
-                </div>
-                
-                <div id="inp">
-                    <input type="text">
-                    <div id="im">
-                        <img id="lap" src="{% static 'img/editando.png'%}" alt="">
-                    </div>
-                </div>
-                <div id="inp">
-                   <label for="" type="file">{{form.imgPerfil}}</label>
-                    <div id="im">
-                        <img id="lap" src="{% static 'img/editando.png'%}" alt="">
-                    </div>
-                </div>
+        <div class="fotperfil">
+            <div>
+                <img id="fotouser" src="{{ form.instance.imgPerfil.url }}"/>
             </div>
-            <button type="submit" name="editar" value="editar">Guardar</button>
-         </section>
-    </section> -->
+            
+            <input type="file" name="imgPerfil" id="id_imgPerfil" accept="image/*" onchange="previewImage(this);">
+            <div class="custom-file-upload">
+                <label for="id_imgPerfil" class="subt">Seleccionar Imagen</label>
+              </div>
+        </div>
+
+        <div class="datosusua">
+            {% csrf_token %}
+            {{form.first_name}}
+            {{form.last_name}}
+            {{form.email}}
+            {{form.password}}
+            <!-- {{form.imgPerfil}}
+            <img src="{{ form.instance.imgPerfil.url }}"> -->
+            <div>
+                <button id="editar" type="submit" name="editar" value="editar">Guardar cambios</button>
+            </div>
+            
+        </div>
+
 </form>
+
+
 
     <section class="progreso">
 
         <div id="clicks">
-            <a href="" id="btn">
+            
                 <img id="flecha" src="{% static 'img/flecha-apunta-a-la-izquierda.png'%} " alt="" style="height: 30px;">
                 <h2 class="sbo" id="sub">Mi progreso</h2>
-            </a>
+            
         </div>
 
     </section>
