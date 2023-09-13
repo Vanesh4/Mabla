@@ -4,7 +4,7 @@ import 'package:mabla/formas/ondaHome.dart';
 import 'package:mabla/header.dart';
 import 'package:mabla/screen/diccionario.dart';
 import 'package:mabla/screen/menu.dart';
-import 'package:mabla/screen/quiz.dart';
+import 'package:mabla/quiz/quizUI.dart';
 
 import 'package:http/http.dart' as http;
 

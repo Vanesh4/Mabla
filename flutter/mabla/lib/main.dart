@@ -3,7 +3,7 @@ import 'package:mabla/home.dart';
 import 'package:mabla/screen/diccionario.dart';
 import 'package:mabla/screen/login.dart';
 import 'package:mabla/screen/perfil.dart';
-import 'package:mabla/screen/quiz.dart';
+import 'package:mabla/quiz/quizUI.dart';
 import 'package:mabla/screen/registro.dart';
 import 'package:mabla/screen/menu.dart';
 import 'package:mabla/screen/consultar.dart';
@@ -14,7 +14,7 @@ void main() {
 }
 
 //sara
-class MyApp extends StatelessWidget {
+/*class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   // This widget is the root of your application.
@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
         ),
     );
   }
-}
+}*/
 
 //karen
 /*
@@ -45,7 +45,6 @@ class MyApp extends StatelessWidget {
 */
 
 //vanessa
-/*
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
@@ -59,7 +58,6 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-*/
 
 
 /*
