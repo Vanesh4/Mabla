@@ -7,6 +7,13 @@ class Quiz {
 
   //Quiz({required this.name, required this.questions});
   Quiz({required this.questions});
+
+  @override
+  String toString() {
+    return 'Quiz{questions: $questions}';
+  }
 //para devolver el porcetanje de las que estan correctas
 //double get percent => (right / questions.length) * 100;
+
+
 }

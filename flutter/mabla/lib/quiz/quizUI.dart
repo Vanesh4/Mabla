@@ -40,19 +40,21 @@ class _quizState extends State<quiz> {
         //optionList tiene el indixes de las preguntas
         optionList.shuffle();
         int answer = optionList[0];
+
         if (questionsAdded.contains(answer)) continue;
         questionsAdded.add((answer));
 
         List<String> otherOptions = ["vaca","tren","pajaro","hospital","foca","moto","colegio","bus","gato","camiseta","falda","medias","pera","banano","chaqueta","nutria","vestido","fresas","papaya"];
 
         Question question = Question.fromJson(data[answer]);
+        otherOptions.shuffle();
         question.addOptions(otherOptions);
         quiz.questions.add(question);
 
         if (quiz.questions.length >= totalQuestions) break;
       }
       setState(() {});
-      print(data);
+
     } else {
       print('Error en la solicitud: ${response.statusCode}');
     }
@@ -65,6 +67,21 @@ class _quizState extends State<quiz> {
     readData();
   }
 
+  void _opcionSelected(String sel){
+    quiz.questions[questionIndex].selected = sel;
+    if (sel == quiz.questions[questionIndex].answer){
+      quiz.questions[questionIndex].correct = true;
+    }
+    else{
+      print("InCORRECTO");
+    }
+    progressIndex++;
+    if(questionIndex < totalQuestions-1){
+      questionIndex++;
+    }
+    setState(() {});
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -75,8 +92,7 @@ class _quizState extends State<quiz> {
               borderRadius: BorderRadius.circular(15),
               child: LinearProgressIndicator(
                 color: Colors.amber.shade900,
-                //value: progressIndex / totalQuestions,
-                value: .5,
+                value: progressIndex / totalQuestions,
                 minHeight: 20,
               ),
             ),
@@ -111,7 +127,9 @@ class _quizState extends State<quiz> {
                                 //el listado del index
                                 //title: Text('Respuesta ${index+1}'),
                                 title: Text(quiz.questions[questionIndex].options[index]),
-                                onTap: (){},
+                                onTap: (){
+                                  _opcionSelected(quiz.questions[questionIndex].options[index]);
+                                },
                                 // Estilizar el efecto de pulsación. no sirve
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(8), // Ajusta el radio según tu preferencia

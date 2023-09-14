@@ -14,7 +14,18 @@ class Question {
     //question += country;
     country;
     options.add(answer);
-    options.addAll(newOptions);
+    for (int i = 0; i < newOptions.length; i++) {
+      if (i == 3) break;
+      options.add(newOptions[i]);
+    }
+
+    //options.addAll(newOptions);
     options.shuffle(); //para que se mezclen y lleguen al tile aleatoreamente
+    //print(options);
+  }
+
+  @override
+  String toString() {
+    return 'Question{country: $country, answer: $answer, options: $options}';
   }
 }
