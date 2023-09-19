@@ -5,19 +5,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link rel="stylesheet" href="{% static 'css/login.css' %}" type="text/css"> 
+    
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,300;0,400;0,700;1,100&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Martian+Mono:wght@100;500&display=swap" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="{% static 'img/mablaLOGO-removebg.png' %}">
+    <link rel="stylesheet" href="{% static 'css/login.css' %}"> 
   </head>
 <body>
   <header>
     <form method="post" id="formLogin" class="row g-3">
-      <div class="textSesion">
-        INICIAR SESIÓN
-      </div>
+        <p class="textS">
+          INICIAR SESIÓN
+        </p>
       {% csrf_token %}
       <section class="sectionForm">
 
@@ -47,7 +48,7 @@
         </div>
 
         <div id="boton">
-          <button class="btn" type="submit" id="colorbtn">Ingresar</button>
+          <button class="btn" type="submit" id="colorbtn"><p>Ingresar</p></button>
         </div>
 
       </section>
@@ -58,7 +59,7 @@
     <div class="imgyText">
       <img id="mablaNaranja" src="/static/img/letrasMABLAnaranja.png" alt="" srcset="">
       <div class="slogan">
-        HABLA CON LAS MANOS
+        <p>HABLA CON LAS MANOS</p>
       </div>
       <img id="capi" src="/static/img/capiLogin.png" alt="" srcset="" width="60%">
     </div>

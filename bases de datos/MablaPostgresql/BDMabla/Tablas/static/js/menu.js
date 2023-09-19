@@ -15,16 +15,18 @@ $(document).ready(function () {
         dataType: "JSON",
         success: function (res) {
             console.log(res)
-            for(let i=0; i<=res.length; i++){                
+            for(let i=0; i<=res.length; i++){
+                          
                 divCategoria = document.createElement("div")
                 divCategoria.setAttribute("class","categoria")
 
                 h2Categoria = document.createElement("h2")
-                h2Categoria.innerHTML = res[i].categoria
+                h2Categoria.innerHTML = res[i].Categoria
                 divCategoria.appendChild(h2Categoria)
 
                 
-                subcategorias = res[i].tablaSubcategorias
+                subcategorias = res[i].Subcategorias
+                //console.log(subcategorias)
                 for (let s = 0; s < subcategorias.length; s++) {
                     //console.log(subcategorias[s].subcategoria)
                     subcate = document.createElement("div")
