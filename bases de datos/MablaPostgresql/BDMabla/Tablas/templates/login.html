@@ -14,14 +14,12 @@
     <link rel="stylesheet" href="{% static 'css/login.css' %}"> 
   </head>
 <body>
-  <header>
     <form method="post" id="formLogin" class="row g-3">
         <p class="textS">
           INICIAR SESIÓN
         </p>
       {% csrf_token %}
       <section class="sectionForm">
-
         <div id="ph">
           <label for="{{ username }}" class="form-label"> Alias</label>
             {{ form.username }}
@@ -48,22 +46,18 @@
         </div>
 
         <div id="boton">
-          <button class="btn" type="submit" id="colorbtn"><p>Ingresar</p></button>
+          <button type="submit" id="colorbtn"><p>Ingresar</p></button>
         </div>
-
       </section>
     </form>
-
     <h1>{{ mensaje }}</h1>
-    
     <div class="imgyText">
       <img id="mablaNaranja" src="/static/img/letrasMABLAnaranja.png" alt="" srcset="">
       <div class="slogan">
         <p>HABLA CON LAS MANOS</p>
       </div>
-      <img id="capi" src="/static/img/capiLogin.png" alt="" srcset="" width="60%">
-    </div>
-  </header>  
+      <img id="capi" src="/static/img/capiLogin.png" alt="" srcset="">
+    </div> 
   <!-- <script src="{% static 'js/gestionUser.js' %}"></script>   -->
 </body>
 </html>
