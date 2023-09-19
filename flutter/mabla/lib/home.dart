@@ -148,7 +148,7 @@ class _homeState extends State<home> {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => const diccionario(),
+                                builder: (context) =>diccionario(),
                               ),
                             );
                           },

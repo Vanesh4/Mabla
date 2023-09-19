@@ -30,7 +30,11 @@
         <div class="parteizq">
             <div class="logo">
                 <a href="/">
+<<<<<<< HEAD
+                    <img src="{% static 'img/mablaLOGO-removebg.png' %}" alt="logo" class="logoImg">
+=======
                     <img src="{% static 'img/mablaLOGO-removebg.png'%}" alt="logo" class="logoImg">
+>>>>>>> a3cbb06bb529ce3d5e5a85f96d12926bbe6537c9
                 </a>                
             </div>
             <div class="linkContenido">
@@ -52,7 +56,7 @@
                 <a href="/logOut">Cerrar Sesión</a>
             </p>
             <div class="buscador">
-                <input  type="text" name="buscador" class="buscadorMenu" maxlength="20">
+                <input  type="text" name="bus"  class="buscadorMenu" maxlength="20">
                 <img src="{% static 'img/lupa.png'%}" alt="lupa" style="width: 10%;">                
             </div>
             <form method="get" enctype="multipart/form-data">
@@ -63,11 +67,14 @@
                         <img id="fotoUser" src="{{ user.imgPerfil.url }}">
                     </div>               
                 </a>
+<<<<<<< HEAD
+=======
 
                 
+>>>>>>> a3cbb06bb529ce3d5e5a85f96d12926bbe6537c9
             </form>
-        </div>   
-    </header>
+        </div>    
+</header>
 
 
  
@@ -96,7 +103,7 @@
             {{form.first_name}}
             {{form.last_name}}
             {{form.email}}
-            {{form.password}}
+            
             <!-- {{form.imgPerfil}}
             <img src="{{ form.instance.imgPerfil.url }}"> -->
             <div>
@@ -113,7 +120,7 @@
 
         <div id="clicks">
             
-                <img id="flecha" src="{% static 'img/flecha-apunta-a-la-izquierda.png'%} " alt="" style="height: 30px;">
+                <img id="flecha" src="{% static 'img/flecha-apunta-a-la-izquierda.png'%} " alt="" >
                 <h2 class="sbo" id="sub">Mi progreso</h2>
             
         </div>
@@ -123,9 +130,7 @@
         <span class="hider" id="spant">
             <div id="result">
 
-                <div id="cuno">
-                    <img src="{%static 'img/carpincho.png'%}" alt="" style="height: 250px;">
-                </div>
+    
 
                 <div id="vertodo" style="flex-direction: column;">
 
