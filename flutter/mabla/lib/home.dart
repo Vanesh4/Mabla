@@ -26,8 +26,8 @@ class _homeState extends State<home> {
 
   List<dynamic> comments = [];
   Future<void> getComments() async{
-    // ipv4 vanessa: http://192.168.1.6/
-    final url = Uri.parse('http://192.168.1.6/tablaComment');
+    // ipv4 vanessa: http://192.168.1.10/
+    final url = Uri.parse('http://192.168.1.10/tablaComment');
     final response = await http.get(url);
     
     if(response.statusCode == 200){

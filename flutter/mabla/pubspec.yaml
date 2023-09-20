@@ -86,6 +86,10 @@ flutter:
      - family: MartianMono
        fonts:
          - asset: assets/fonts/Martian/static/MartianMono-ExtraLight.ttf
+
+     - family: MartianMonoBold
+       fonts:
+         - asset: assets/fonts/Martian/static/MartianMono-ExtraBold.ttf
   #       - asset: fonts/TrajanPro_Bold.ttf
   #         weight: 700
   #
