@@ -25,8 +25,10 @@ $(document).ready (()=>{
         
     })
 
+    textarea = document.getElementById("comentar");
     $("#btnComentario").on("click", ()=>{
         agregarComentario()
+        textarea.value = "";
     })
 })
 
@@ -37,42 +39,32 @@ function traerComentarios() {
     $.ajax({
         //url: "http://192.168.1.10/tablaComment",
         url: "http://127.0.0.1:8000/tablaComment",
-        //url: "http://localhost:8080/users",
         type: "GET",
         dataType: "JSON",
         success: function (res) {
             console.log(res)
 
             commentsList.innerHTML = ""
-            
-            i = res.length-1
-            h = i-5
-            while (i > h) {
-                if (i == 0) {
-                    break;
-                }
-                else{
-                    comentario = document.createElement("div")
-                    comentario.setAttribute("id","comentario")
-                    usuario = document.createElement("p")
-                    usuario.setAttribute("id","user")
-                    usuario.innerHTML = res[i].alias_id
-                    texto = document.createElement("p")
-                    texto.setAttribute("id","coment")
-                    texto.innerHTML = res[i].texto
-                    comentario.appendChild(usuario)
-                    comentario.appendChild(texto)
-                    commentsList.appendChild(comentario)
-                }
-                i--
+            for (let i = 0; i <=5 ; i++) {
+                comentario = document.createElement("div")
+                comentario.setAttribute("id","comentario")
+                usuario = document.createElement("p")
+                usuario.setAttribute("id","user")
+                usuario.innerHTML = res[i].alias_id
+                texto = document.createElement("p")
+                texto.setAttribute("id","coment")
+                texto.innerHTML = res[i].texto
+                comentario.appendChild(usuario)
+                comentario.appendChild(texto)
+                commentsList.appendChild(comentario) 
             }
+            
             
         }
     })
 }
 
 function agregarComentario() {
-    //si el texto esta vacio no poder comentar. Mostar mensaje de error. Solo mostar 5 comentarios del ultimo al primero
     texto = document.getElementById("comentar").value
     console.log(texto)
     alias = document.getElementById("alias").textContent
