@@ -31,7 +31,6 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
-    
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -95,7 +94,11 @@ DATABASES = {
         'HOST':'127.0.0.1',
         'DATABASE_PORT':'5432',
         'USER':'postgres',
+<<<<<<< HEAD
+        'PASSWORD':'2004',
+=======
         'PASSWORD':'0000',
+>>>>>>> a3cbb06bb529ce3d5e5a85f96d12926bbe6537c9
     }
 }
 

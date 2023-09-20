@@ -74,9 +74,10 @@ a{
 }
 
 .buscadorMenu{
-    border: none;
     margin-left: 10px;
     width: 90%;
+    border: transparent;
+    background-color: transparent;
 }
 .menuResponsive{
     display: none;

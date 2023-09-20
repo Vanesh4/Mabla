@@ -23,7 +23,7 @@ void main() {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
         home: Center(
-          child: registro()
+          child: consultar()
         ),
     );
   }
