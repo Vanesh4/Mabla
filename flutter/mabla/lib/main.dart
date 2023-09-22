@@ -3,6 +3,7 @@ import 'package:mabla/home.dart';
 import 'package:mabla/screen/diccionario.dart';
 import 'package:mabla/screen/login.dart';
 import 'package:mabla/screen/perfil.dart';
+import 'package:mabla/screen/perfil1.dart';
 import 'package:mabla/screen/quiz.dart';
 import 'package:mabla/screen/registro.dart';
 import 'package:mabla/screen/menu.dart';
@@ -22,9 +23,13 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
-        home: Center(
-          child: registro()
-        ),
+      routes: {
+        '/': (context) => home(), // Página de inicio de sesión
+        '/perfil': (context) => perfil1(), // Página de perfil del cliente
+        '/ingresar': (context) => login(), // Página de perfil del cliente
+        // Define otras rutas aquí
+      },
+      initialRoute: '/',
     );
   }
 }

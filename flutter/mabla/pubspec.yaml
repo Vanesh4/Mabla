@@ -35,6 +35,12 @@ dependencies:
   flutter_svg:
   http:
   image_picker:
+  url_launcher:
+  shared_preferences:
+  cookie_jar:
+  dio:
+  dio_cookie_manager:
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:http/http.dart' as http;
+import 'package:mabla/screen/login.dart';
 
 const Color darkBlue = Color(0xFF0a4d68);
 const Color lightBlue = Color(0xFF06bfdb);
@@ -25,20 +26,19 @@ class _registroState extends State<registro> {
   final TextEditingController _email = TextEditingController();
   final TextEditingController _clave = TextEditingController();
   final TextEditingController _confirmClave = TextEditingController();
+  String errorMessage = '';
 
-  bool _obscureText = true;
-  bool _obscureText1 = true;
-
-  Future<void> _postForm() async {
+  void _postForm() async {
+    if (_formKey.currentState!.validate()) {
       if (_clave.text == _confirmClave.text) {
         print(_alias.text);
         print(_nombre.text);
-        print( _apellido.text);
-        print( _email.text);
+        print(_apellido.text);
+        print(_email.text);
         print(_clave.text);
         print(_confirmClave.text);
 
-        final String apiUrl = 'http://10.190.82.231/register';
+        final String apiUrl = 'http://10.190.82.208/register';
 
         final Map<String, dynamic> requestBody = {
           'username': _alias.text,
@@ -46,7 +46,7 @@ class _registroState extends State<registro> {
           'last_name': _apellido.text,
           'email': _email.text,
           'password1': _clave.text,
-          'password2':_confirmClave.text
+          'password2': _confirmClave.text
         };
 
         print("Datos enviados desde Flutter:");
@@ -58,29 +58,26 @@ class _registroState extends State<registro> {
         );
 
         if (respuesta.statusCode == 200) {
-          print("Usuario registrado correctamente");
-          // Puedes redirigir a otra página o mostrar un mensaje de éxito
-        } else {
+          final jsonResponse = json.decode(respuesta.body);
+          final success = jsonResponse['success'];
+          // Navigator.pushReplacementNamed(context, '/ingresar');
+          print(success);
+          if (success) {
+            // Los datos se procesaron correctamente
+            print('Datos procesados correctamente');
+            Navigator.pushReplacementNamed(context, '/ingresar');
+          } else {
+            // Hubo errores de validación, obtén y muestra los errores
+
+            print('Errores de validación:');
+
+          }
+        }
+        else{
           print("Error al registrar el usuario");
         }
-      } else {
-        // Las contraseñas no coinciden, muestra un mensaje de error
-        showDialog(
-          context: context,
-          builder: (context) {
-            return AlertDialog(
-              title: Text('Error'),
-              content: Text('Las contraseñas no coinciden.'),
-              actions: [
-                TextButton(
-                  onPressed: () => Navigator.pop(context),
-                  child: Text('Aceptar'),
-                ),
-              ],
-            );
-          },
-        );
       }
+    }
   }
   List<String> label = ['Nombre', 'Apellido', 'Correo electrónico', 'Usuario (Alias)', 'Clave', 'Confirma tu clave'];
 
@@ -131,40 +128,47 @@ class _registroState extends State<registro> {
                         margin: EdgeInsets.only(bottom: 30, top: 25, left: 15),
                         child: Text("REGISTRATE", style: TextStyle(fontSize: 32, fontFamily: "MartianMono", color: Colors.white),),
                       ),
-                      Wrap(
-                        alignment: WrapAlignment.spaceBetween,
-                        spacing: 10, // Espacio horizontal entre elementos
-                        runSpacing: 20, // Espacio vertical entre filas de elementos
-                        children: //label.map((item) => buildItem(item,controladores)).toList(),
-                        label.asMap().entries.map((entry) {
-                          int index = entry.key;
-                          String item = entry.value;
-                          TextEditingController controller = controladores[index];
-                          return buildItem(item, controller);
-                        }).toList(),
-                      ),
-                      Container(
-                        alignment: Alignment.bottomRight,
-                        margin: EdgeInsets.only(top: 50, bottom: 50, right: 20),
-                        child: Padding(
-                          padding: const EdgeInsets.only(top: 5),
-                          child: ElevatedButton(
-                            onPressed: () {
-                              _postForm();
-                              print(_alias.text);
-                              print(_clave.text);
-                              print(_confirmClave.text);
-                            },
-                            style: ElevatedButton.styleFrom(
-                                padding: EdgeInsets.all(15),
-                                backgroundColor: orange,
-                                shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(100)
-                                )
-                            ),
-                            child: const Text("REGISTRARME", style: TextStyle(fontFamily: "Raleway", fontSize: 21)),
-                          ),
-                        ),
+                      Form(
+                          key: _formKey,
+                          child: Column(
+                            children: [
+                              Wrap(
+                                alignment: WrapAlignment.spaceBetween,
+                                spacing: 10, // Espacio horizontal entre elementos
+                                runSpacing: 20, // Espacio vertical entre filas de elementos
+                                children: //label.map((item) => buildItem(item,controladores)).toList(),
+                                label.asMap().entries.map((entry) {
+                                  int index = entry.key;
+                                  String item = entry.value;
+                                  TextEditingController controller = controladores[index];
+                                  return buildItem(item, controller);
+                                }).toList(),
+                              ),
+                              Container(
+                                alignment: Alignment.bottomRight,
+                                margin: EdgeInsets.only(top: 50, bottom: 50, right: 20),
+                                child: Padding(
+                                  padding: const EdgeInsets.only(top: 5),
+                                  child: ElevatedButton(
+                                    onPressed: () {
+                                      _postForm();
+                                      print(_alias.text);
+                                      print(_clave.text);
+                                      print(_confirmClave.text);
+                                    },
+                                    style: ElevatedButton.styleFrom(
+                                        padding: EdgeInsets.all(15),
+                                        backgroundColor: orange,
+                                        shape: RoundedRectangleBorder(
+                                            borderRadius: BorderRadius.circular(100)
+                                        )
+                                    ),
+                                    child: const Text("REGISTRARME", style: TextStyle(fontFamily: "Raleway", fontSize: 21)),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          )
                       ),
                       Container(
                           margin: EdgeInsets.only(top: 30),
@@ -198,6 +202,8 @@ class _registroState extends State<registro> {
 
   Widget buildItem(String item, TextEditingController control) {
 
+    bool _obscureText = true;
+    bool _obscureText1 = true;
     bool isClave = control == _clave;
     bool isConfirmClave = control == _confirmClave;
     bool hasSuffixIcon = isClave || isConfirmClave;

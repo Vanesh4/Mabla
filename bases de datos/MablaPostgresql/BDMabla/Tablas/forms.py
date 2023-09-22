@@ -41,8 +41,7 @@ class registro(UserCreationForm):
             'required':'',
             'type':'password',
             'minlength':'4',
-            'maxlength':'128',
-            'help_text':"La contraseña debe contener al menos 8 caracteres."
+            'maxlength':'128'
 
         })
 
@@ -62,7 +61,7 @@ class registro(UserCreationForm):
             user.save()
         return user 
     
-    def clean_password2(self):
+    """ def clean_password2(self):
         password1 = self.cleaned_data.get("password1")
         password2 = self.cleaned_data.get("password2")
 
@@ -85,7 +84,7 @@ class registro(UserCreationForm):
         except ValidationError as error:
             raise ValidationError("Contraseña no válida: " + str(error))
 
-        return password1
+        return password1 """
     
 class LoginForm(AuthenticationForm):
     class Meta:
