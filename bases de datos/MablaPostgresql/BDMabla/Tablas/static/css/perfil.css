@@ -3,6 +3,11 @@
     src: url("{% static 'fonts/Raleway/Raleway-Medium.ttf' %}");
 }
 
+@font-face {
+    font-family: "martian";
+    src: url("{% static 'fonts/Martian_Mono/MartianMono_SemiCondensed-Regular.ttf' %}");
+}
+
 *{
     margin: 0;
 }
@@ -11,16 +16,73 @@ body{
     background-color: #fbfbfb;
 }
 
-.titulo{
+
+
+#formdatos{
+    display: flex;
+    flex-direction: row;
+}
+#id_imgPerfil{
+    width: 20%;
+    color: transparent;
+    background-color: transparent;
+    border-radius: 1px;
+    display: flex;
+    margin: auto;
+}
+
+#id_imgPerfil[type="file"] {
+    display: none;
     font-family: "raleway";
+
+
+  }
+.subt{
+    font-family: "raleway";
+}
+
+/* .custom-file-upload {
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+    background-color: #337ab7;
+    color: #fff;
+    border-radius: 4px;
+  } */
+#editar{
+    background-color: #06bfdb;
+    display: flex;
+    margin: auto;
+    font-family: "raleway";
+    padding: 10px;
+    border-radius: 80px;
+    margin-top: 30px;
+    border: none;
+}
+.fotperfil{
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.datosusua{
+    width: 50%;
+}
+
+.titulo{
+    font-family: "martian", "monospace";
     margin-top: -260px;
     font-size: 70px;
     padding: 20px;
-    width: 78%;
+    width: 80%;
     text-align: right;
     
     
     
+}
+.buscadorMenu{
+    background-color: transparent;
 }
 
 
@@ -36,6 +98,15 @@ body{
     width: 50%;
     height: auto;
     
+}
+
+#fotoUser{
+   height: 100px;
+   
+}
+
+#fotouser{
+    height: 200px;
 }
 #img{
     display: flex;
@@ -65,11 +136,17 @@ body{
     margin-top: 20px;
 }
 input{
-   width: 80%;
+    width: 40%;
     height: 30px;
     background-color:  #D9D9D9;
     border-radius: 100px;
     text-align: center;
+    /* margin-left: 100px; */
+    display: flex;
+    margin: auto;
+    margin-top: 10px;
+    font-family: "raleway";
+    border: none;
 }
 #im{
     
@@ -87,16 +164,21 @@ input{
 
 .progreso{
     height: auto;
+    margin-top: 50px;
     
 }
 
 #clicks{
     float: right;
+    display: flex;
     padding: 20px;
     background-color:  #06bfdb;
     color: white;
+    border-radius: 50px;
+    
 }
 #btn{
+   
     display: flex;
 }
 
@@ -110,13 +192,11 @@ input{
    display: block;
 }
 
-
-
-
-
 .sbo{
+    cursor: pointer;
     color: white;
-     font-family: "raleway";
+    font-family: "raleway";
+
 }
 
 #result{
@@ -164,4 +244,271 @@ input{
 }
 #nota{
     text-align: center;
+}
+
+#flecha{
+    height: 30px;
+}
+
+
+
+
+@media screen and (min-width:320px) and (max-width:700px){
+
+    @font-face {
+        font-family: "raleway";
+        src: url("{% static 'fonts/Raleway/Raleway-Medium.ttf' %}");
+    }
+    
+    @font-face {
+        font-family: "martian";
+        src: url("{% static 'fonts/Martian_Mono/MartianMono_SemiCondensed-Regular.ttf' %}");
+    }
+    
+    *{
+        margin: 0;
+    }
+    
+    body{
+        background-color: #fbfbfb;
+    }
+    .header{
+    
+    }
+    
+    
+    #formdatos{
+        flex-direction: column;
+        margin-top: 20px;
+    }
+    #id_imgPerfil{
+        width: 20%;
+        
+        color: transparent;
+        background-color: transparent;
+        border-radius: 1px;
+        display: flex;
+        margin: auto;
+    }
+    
+    #id_imgPerfil[type="file"] {
+        display: none;
+        font-family: "raleway";
+    
+    
+      }
+    .subt{
+        font-family: "raleway";
+        font-size: 10px;
+    }
+    
+    /* .custom-file-upload {
+        display: inline-block;
+        padding: 6px 12px;
+        cursor: pointer;
+        background-color: #337ab7;
+        color: #fff;
+        border-radius: 4px;
+      } */
+    #editar{
+        background-color: #06bfdb;
+        display: flex;
+        margin: auto;
+        font-family: "raleway";
+        padding: 10px;
+        border-radius: 80px;
+        margin-top: 30px;
+        border: none;
+    }
+    .fotperfil{
+        display: flex;
+        margin: auto;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .datosusua{
+        width: 100%;
+        margin-top: 20px;
+        
+    }
+    
+    .titulo{
+        font-family: "martian", "monospace";
+        font-size: 40px;
+        padding: 20px;
+        color: black;
+        margin-top: 5px;
+      
+        
+    }
+    .buscadorMenu{
+        background-color: transparent;
+    }
+    
+    
+    #todo{
+        display: flex;
+        height: auto;
+        margin: auto;
+        
+        
+    
+    }
+    #imagen{
+        width: 50%;
+        height: auto;
+        
+    }
+    
+    #fotoUser{
+       height: 100px;
+       
+    }
+    
+    #fotouser{
+        height: 140px;
+    }
+    #img{
+        display: flex;
+        
+    }
+    .foto{
+        height: 250px;
+        margin: auto;
+    }
+    #contenido{
+        height: 330px;
+        width: 40%;
+       
+        
+    }
+    
+    .dat{
+        height: auto;
+        margin: auto;
+    }
+    
+    #inp{
+        height: auto;
+        width: 50%;
+        display: flex;
+        margin: auto;
+        margin-top: 20px;
+    }
+    input{
+        width: 70%;
+        height: 30px;
+        background-color:  #D9D9D9;
+        border-radius: 100px;
+        text-align: center;
+        /* margin-left: 100px; */
+        display: flex;
+        margin: auto;
+        margin-top: 10px;
+        font-family: "raleway";
+        border: none;
+    }
+    #im{
+        
+        display: flex;
+        align-items: center;
+        background-color: #76037a;
+        width: 15%;
+        border-radius: 100px;
+    }
+    
+    #lap{
+        margin: auto;
+        height: 25px;
+    }
+    
+    .progreso{
+        height: auto;
+        margin-top: 50px;
+        
+    }
+    
+    #clicks{
+        float: right;
+        display: flex;
+        padding: 10px;
+        background-color:  #06bfdb;
+        color: white;
+        border-radius: 50px;
+        
+    }
+    #btn{
+       
+        display: flex;
+    }
+    
+    .hider{
+        display: none;
+        height: auto;
+       
+    }
+    
+    .show{
+       display: block;
+    }
+    
+    .sbo{
+        font-size: 15px;
+        cursor: pointer;
+        color: white;
+        font-family: "raleway";
+    
+    }
+    #flecha{
+        height: 18px;
+    }
+    
+    #result{
+        background-color: #0a4d68;
+        display: flex;
+        width: 90%;
+        height: auto;
+        padding: 20px;
+    }
+    #vertodo{
+        width: 90%;
+    }
+    
+    #cuno{
+        width: 30%;
+        
+    
+    }
+    #cdos{
+        height: auto;
+        width: 50%;
+        display: flex;
+        margin: auto;
+        margin-top: 20px;
+    }
+    #cajon{
+        width: 60%;
+        height: auto;
+    }
+    #place{
+       width: 100%;
+        height: 30px;
+        background-color: rgb(230, 230, 243);
+    }
+    #cajita{
+        height: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #76037a;
+        width: 8%;
+    }
+    #mas{
+        float: right;
+    }
+    #nota{
+        text-align: center;
+    }
+
 }

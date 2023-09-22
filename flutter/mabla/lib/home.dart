@@ -4,7 +4,7 @@ import 'package:mabla/formas/ondaHome.dart';
 import 'package:mabla/header.dart';
 import 'package:mabla/screen/diccionario.dart';
 import 'package:mabla/screen/menu.dart';
-import 'package:mabla/screen/quiz.dart';
+import 'package:mabla/quiz/quizUI.dart';
 
 import 'package:http/http.dart' as http;
 
@@ -26,8 +26,8 @@ class _homeState extends State<home> {
 
   List<dynamic> comments = [];
   Future<void> getComments() async{
-    // ipv4 vanessa: http://192.168.1.6/
-    final url = Uri.parse('http://192.168.1.6/tablaComment');
+    // ipv4 vanessa: http://192.168.1.10/
+    final url = Uri.parse('http://192.168.1.10/tablaComment');
     final response = await http.get(url);
     
     if(response.statusCode == 200){
@@ -148,7 +148,7 @@ class _homeState extends State<home> {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => const diccionario(),
+                                builder: (context) =>diccionario(),
                               ),
                             );
                           },

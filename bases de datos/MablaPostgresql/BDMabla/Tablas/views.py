@@ -15,8 +15,10 @@ from django.contrib.auth import logout
 #tabla comentarios
 class getTablaComment(View):
     def get(self,request):
-        register= TablaComentarios.objects.all().values()
+        #register= TablaComentarios.objects.all().values()
+        register= TablaComentarios.objects.values().order_by('-id')
         registerComment=list(register)
+        print(registerComment)
         return JsonResponse(registerComment, safe=False)
 
 class postComment(View):
