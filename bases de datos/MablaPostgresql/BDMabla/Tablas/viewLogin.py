@@ -51,8 +51,8 @@ class registerUser(View):
                     return redirect('ingresar')
                 else:
                     messages.error(request, 'Error al registrar el usuario desde formulario HTML.')
-                    errors = dict(form.errors.items())
-                    return JsonResponse({"success": False, "errors": errors})
+                    #errors = dict(form.errors.items())
+                    #return JsonResponse({"success": False, "errors": errors})
         else:
             print("no metodo")
             form = registro()
@@ -64,7 +64,6 @@ class registerUser(View):
         return render(request, self.template_name, {'form': form})
 
     def handle_flutter_data(self, request):
-        
         try:
             data = json.loads(request.body)
             print("Datos recibidos desde Flutter:")
@@ -189,16 +188,15 @@ class IniciarSesionView(View):
                     #print("Contenido de request.FILES:")
                     #print(user.FILES)
                     return redirect('inicio') 
+                
                 # Redirigir a la página de clientes
             # Redirigir a otra página para otros roles
                 else:
-                    print("no funciono")
-                    return JsonResponse({'error': 'Credenciales inválidas. Por favor, intenta nuevamente.'}, status=400)
-                    
+                    print("no funciono")                    
             else:
-                print("entro a la vista de iniciar sesion5")
-                return JsonResponse({'error': 'Datos de formulario no válidos'}, status=400)
-
+                print("noiniciosesion")
+                return render(request, 'login.html', {'form': form}) 
+        
 #@method_decorator(login_required(login_url='ingresar'), name='dispatch')
 class profile(View):
     

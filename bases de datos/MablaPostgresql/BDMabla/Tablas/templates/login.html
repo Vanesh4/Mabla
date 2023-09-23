@@ -12,6 +12,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Martian+Mono:wght@100;500&display=swap" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="{% static 'img/mablaLOGO-removebg.png' %}">
     <link rel="stylesheet" href="{% static 'css/login.css' %}"> 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
   </head>
 <body>
     <form method="post" id="formLogin" class="row g-3">
@@ -21,21 +23,22 @@
       {% csrf_token %}
       <section class="sectionForm">
         <div id="ph">
-          <label for="{{ username }}" class="form-label"> Alias</label>
+          <label class="form-label"> Alias</label>
             {{ form.username }}
             <div class="error">
-              {% if form.errors.username %}
+              {% if form.errors %}
                 <p>Alias incorrecto</p>
               {% endif %}
             </div>
         </div>
   
         <div id="ph">
-          <label for="{{ password }}" class="form-label">Clave</label>
+          <label class="form-label">Clave</label>
             {{ form.password }}
+            <i class="fa fa-eye" id="toggle-password" onclick="ver()"></i>
             <div class="error">
-              {% if form.errors.password %}
-                <p>CLave incorrecta</p>
+              {% if form.errors %}
+                <p>Clave incorrecta</p>
               {% endif %}
             </div>
         </div>    
@@ -58,6 +61,6 @@
       </div>
       <img id="capi" src="/static/img/capiLogin.png" alt="" srcset="">
     </div> 
-  <!-- <script src="{% static 'js/gestionUser.js' %}"></script>   -->
 </body>
+<script src="{% static 'js/gestionUser.js' %}"></script>  
 </html>

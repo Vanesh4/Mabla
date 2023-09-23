@@ -57,7 +57,15 @@ input{
     margin-right: 50px;
     margin-bottom: 25px;
 }
-
+#ph i{
+    color: #222222;
+    font-size: 22px;
+    position: absolute;
+    width: 10%;
+    top: 56.5%;
+    transform: translateX(157%);
+    cursor: pointer;
+}
 #boton{
     display: flex;
     justify-content: center;

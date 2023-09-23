@@ -40,6 +40,7 @@ class registro(UserCreationForm):
         self.fields['password1'].widget.attrs.update({
             'required':'',
             'type':'password',
+            'id':'password',
             'minlength':'4',
             'maxlength':'128'
 
@@ -47,9 +48,9 @@ class registro(UserCreationForm):
 
         self.fields['password2'].widget.attrs.update({
             'required':'',
-            'type':'password'
+            'type':'password',
+            'id':'password1',
         })
-    
     class Meta:            
         model= User
         fields= ['username','first_name', 'last_name', 'email', 'password1', 'password2']
@@ -70,7 +71,7 @@ class registro(UserCreationForm):
             raise ValidationError("Las contraseñas no coinciden.")
 
         return password2
-    
+    """
     def clean_password1(self):
         password1 = self.cleaned_data.get("password1")
 
@@ -83,14 +84,20 @@ class registro(UserCreationForm):
             validate_password(password1)
         except ValidationError as error:
             raise ValidationError("Contraseña no válida: " + str(error))
-
-        return password1 """
+        return password1
     
-class LoginForm(AuthenticationForm):
+class LoginForm(AuthenticationForm):  
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)        
+        
+        self.fields['password'].widget.attrs.update({
+            'id':'password',
+        })
+
     class Meta:
         model = User
         fields = ['username', 'password']
-
+        
 
 class userData(forms.ModelForm):
     def __init__(self, *args, **kwargs):
@@ -106,12 +113,3 @@ class userData(forms.ModelForm):
     class Meta:
         model = User
         fields= ['first_name', 'last_name', 'email', 'password', 'imgPerfil']
-
-        """ widgets = {
-            'username': forms.TextInput(attrs={'id':'username',}),
-            'first_name': forms.TextInput(attrs={'id':'first_name',}),
-            'last_name': forms.EmailInput(attrs={'id':'last_name',}),
-            'email': forms.TextInput(attrs={'id':'email',}),
-            'password': forms.TextInput(attrs={'id':'password',}),
-            'imgPerfil': forms.TextInput(attrs={'id':'imgPerfil',}),
-        } """

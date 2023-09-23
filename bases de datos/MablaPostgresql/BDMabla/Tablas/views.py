@@ -296,6 +296,9 @@ def versubcategorias(request):
 def verperfil(request):
     return render(request, "perfil.html")
 
+def prueba(request):
+    return render(request, "perfilP.html")
+
 def palabradiccionario(request):
     listarpalabras=TablaPalabra.objects.filter(Palabra__startswith='P')
     return render(request, "diccionario.html", {"palabrita": listarpalabras })
