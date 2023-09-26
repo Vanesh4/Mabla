@@ -7,6 +7,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import java.util.HashMap;
+import java.util.Map;
+
 /*
 @Controller
 public class Clogin {
@@ -48,13 +53,15 @@ public class Clogin {
     public Clogin(STablaUsuario servicio) {
         this.servicio = servicio;
     }
-    @GetMapping("/getUser")
+    @GetMapping("/inicio")
     public String index(Model model, @AuthenticationPrincipal OidcUser principal){
         if(principal!=null){
             TablaUsuario user = this.servicio.postUser(principal.getClaims());
             model.addAttribute("user", user);
+            System.out.println(user);
         }
         return "redirect:/";
     }
+
 }
 

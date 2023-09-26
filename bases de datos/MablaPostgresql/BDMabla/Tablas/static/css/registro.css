@@ -57,6 +57,20 @@ input{
     margin-bottom: 25px;
     padding: 0px 40px 0px 40px;
 }
+
+#clave{
+    position: relative;
+}
+#clave i{
+    color: #222222;
+    font-size: 22px;
+    position: absolute;
+    width: 10%;
+    top: 60%;
+    transform: translateX(520%);
+    cursor: pointer;
+}
+
 #boton{
     display: flex;
     justify-content: center;

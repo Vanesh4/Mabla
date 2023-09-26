@@ -11,6 +11,7 @@ from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from django.contrib.auth import logout
 
+
 #tabla comentarios
 class getTablaComment(View):
     def get(self,request):
@@ -294,6 +295,9 @@ def versubcategorias(request):
 
 def verperfil(request):
     return render(request, "perfil.html")
+
+def prueba(request):
+    return render(request, "perfilP.html")
 
 def palabradiccionario(request):
     listarpalabras=TablaPalabra.objects.filter(Palabra__startswith='P')

@@ -2,6 +2,8 @@ package com.example.BDMabla.Controlador;
 
 import com.example.BDMabla.Entidad.TablaUsuario;
 import com.example.BDMabla.Servicios.STablaUsuario;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.oauth2.core.oidc.user.OidcUser;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -16,7 +18,14 @@ public class CTablaUsuario {
         this.metodosUser = metodosUser;
     }
     @GetMapping("/users")
-    public List<TablaUsuario> user(){return metodosUser.users();}
+    public List<TablaUsuario> users(){return metodosUser.users();}
+    @GetMapping("/user")
+    public TablaUsuario myUser(@AuthenticationPrincipal OidcUser principal) {
+        System.out.println(principal.getClaims());
+        String email = (String) principal.getClaims().get("email");
+        TablaUsuario user = this.metodosUser.myUser(email);
+        return user;
+    }
 
     /*@GetMapping("/IniciarSesion")
    public String login(@PathVariable("alias") String alias, @PathVariable("clave") String clave){

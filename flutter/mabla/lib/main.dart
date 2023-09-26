@@ -3,7 +3,12 @@ import 'package:mabla/home.dart';
 import 'package:mabla/screen/diccionario.dart';
 import 'package:mabla/screen/login.dart';
 import 'package:mabla/screen/perfil.dart';
+<<<<<<< HEAD
+import 'package:mabla/screen/perfil1.dart';
+import 'package:mabla/screen/quiz.dart';
+=======
 import 'package:mabla/quiz/quizUI.dart';
+>>>>>>> a7a1341b1d8c354aa5205ded66fc8ca12ee9474e
 import 'package:mabla/screen/registro.dart';
 import 'package:mabla/screen/menu.dart';
 import 'package:mabla/screen/consultar.dart';
@@ -22,9 +27,19 @@ void main() {
   Widget build(BuildContext context) {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
+<<<<<<< HEAD
+      routes: {
+        '/': (context) => home(), // Página de inicio de sesión
+        '/perfil': (context) => perfil1(), // Página de perfil del cliente
+        '/ingresar': (context) => login(), // Página de perfil del cliente
+        // Define otras rutas aquí
+      },
+      initialRoute: '/',
+=======
         home: Center(
           child: consultar()
         ),
+>>>>>>> a7a1341b1d8c354aa5205ded66fc8ca12ee9474e
     );
   }
 }*/
