@@ -66,7 +66,7 @@ function traerComentarios() {
 
 function agregarComentario() {
     texto = document.getElementById("comentar").value
-    console.log(texto)
+    //console.log(texto)
     alias = document.getElementById("alias").textContent
     //console.log(alias)
     if (texto === "" || texto === " ") {
