@@ -9,8 +9,13 @@
 
 .miClase:hover{
     background-color: #06bfdb;
+    
+    
 
+}
 
+form{
+    width: 20%;
 }
 
 #wordList{
@@ -19,48 +24,47 @@
 .caja1{
     display: flex;
     flex-direction: row;
-    background-color: #18171763;
+    background-color: #D9D9D9;
     padding: 30px 0 30px 0;
 }
 
 input{
     border: none;
     font-size: 18px;
-    font-family: "raleway";
+    font-family: "raleway"; 
     outline: none;
+    width: 100%;
     background-color: transparent;
-
-
+    border: none;
+    
+    
 }
-
 #inicial{
     background-color: transparent;
+    margin-left: 30px;
 }
 
 button{
-    margin-right: 30px;
+    
     background-color: transparent;
     border: none;
 }
 
 
 #buscador{
-    width: 40%;
-    display: flex;
     border: 2px solid black;
     border-radius: 100px;
-    padding: 3px;
-    margin-left: 10px;
+        
 }
 #container{
     display: flex;
     float: right;
     padding: 2px;
     margin-top: -28px;
-    text-align: center;
-
-
-}
+    text-align: center; 
+   
+    
+} 
 #buscadorMenu{
     border: none;
     margin-left: 10px;
@@ -91,7 +95,7 @@ button{
     font-size: 25px;
     color: rgb(16, 10, 182);
     line-height: 80px;
-
+    
 }
 
 
@@ -101,13 +105,13 @@ button{
 .btn:hover{
     background: rgb(126, 5, 5);
     background-color: #ff731c;
-
+    
 }
 
 
 
 .cajaboton{
-    margin-right: 40px;
+    
     width: 10%;
     display: flex;
     justify-content: center;
@@ -117,23 +121,28 @@ button{
     display: flex;
     border-radius: 0;
     justify-content: center;
-
+    
 }
 
 
 .caja2{
-
+    
     width: 77%;
-
-
+    
+    
 }
 
 #results{
     width: 100%;
     height: auto;
     margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
-
+    
+    
 }
 
 .grouppal{
@@ -150,6 +159,8 @@ button{
     background-color: blue;
 }
 
+
+
 .p{
     font-size: 40px;
     color: rgb(6, 6, 6);
@@ -160,14 +171,14 @@ button{
     text-align: center;
     padding-top: 70px;
     margin-left: 30px;
-
-
+    
+    
 }
 .letras{
-    width: 100%;
+    width: 100%; 
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: center;    
 }
 
 .list_show{
@@ -189,29 +200,26 @@ button{
     display: flex;
     display: block;
     text-decoration: none;
-    font-size: 25px;
-    color: #035f8a;
+    font-size: 25px;   
+    color: #035f8a; 
+    padding: 3px 5px 3px 5px;
+    margin: 6px;
 }
 
-.nav_link:hover{
+.list_inside:hover{
     background-color: #06bfdb;
-    padding: 0 10px 0 10px;
-
 }
 .list_inside{
     border-radius: 6px;
-    padding: 6px;
     text-align: center;
-
+    font-family: "raleway";
+    
 }
 
 
 .hider{
     display: none;
-    height: auto;
-    width: 60%;
-
-
+   
 }
 
 .show{
@@ -220,14 +228,10 @@ button{
 
 
 #login{
-    background-color: #0a4d68;
     display: flex;
     justify-content: center;
-    color: white;
-    /* padding: 10px 20px; */
-    font-size: 20px;
-    font-family: "raleway";
-    border-radius: 100px;
+
+
 }
 #BotonIngresar{
     background-color: #06bfdb;
@@ -260,9 +264,17 @@ button{
     position: absolute;
     margin-left: 40px;
 }
+
 .logo{
     height: 50px;
     float: right;
     margin-right: 20px;
 }
+#flecha{
+    width: 50%;
+}
 
+#palcaja{
+    margin-top: -30px;
+    float: right;
+}

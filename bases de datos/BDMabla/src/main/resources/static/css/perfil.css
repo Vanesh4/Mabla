@@ -3,6 +3,11 @@
     src: url("{% static 'fonts/Raleway/Raleway-Medium.ttf' %}");
 }
 
+@font-face {
+    font-family: "martian";
+    src: url("{% static 'fonts/Martian_Mono/MartianMono_SemiCondensed-Regular.ttf' %}");
+}
+
 *{
     margin: 0;
 }
@@ -11,16 +16,73 @@ body{
     background-color: #fbfbfb;
 }
 
-.titulo{
+
+
+#formdatos{
+    display: flex;
+    flex-direction: row;
+}
+#id_imgPerfil{
+    width: 20%;
+    color: transparent;
+    background-color: transparent;
+    border-radius: 1px;
+    display: flex;
+    margin: auto;
+}
+
+#id_imgPerfil[type="file"] {
+    display: none;
     font-family: "raleway";
-    margin-top: -260px;
+
+
+  }
+.subt{
+    font-family: "raleway";
+}
+
+/* .custom-file-upload {
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+    background-color: #337ab7;
+    color: #fff;
+    border-radius: 4px;
+  } */
+#editar{
+    background-color: #06bfdb;
+    display: flex;
+    margin: auto;
+    font-family: "raleway";
+    padding: 10px;
+    border-radius: 80px;
+    margin-top: 30px;
+    border: none;
+}
+.fotperfil{
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.datosusua{
+    width: 50%;
+}
+
+.titulo{
+    font-family: "martian", "monospace";
+    margin-top: -230px;
     font-size: 70px;
     padding: 20px;
-    width: 78%;
+    width: 80%;
     text-align: right;
-
-
-
+    
+    
+    
+}
+.buscadorMenu{
+    background-color: transparent;
 }
 
 
@@ -28,18 +90,27 @@ body{
     display: flex;
     height: auto;
     margin: auto;
-
-
+    
+    
 
 }
 #imagen{
     width: 50%;
     height: auto;
+    
+}
 
+#fotoUser{
+   height: 100px;
+   
+}
+
+#fotouser{
+    height: 200px;
 }
 #img{
     display: flex;
-
+    
 }
 .foto{
     height: 250px;
@@ -48,8 +119,8 @@ body{
 #contenido{
     height: 330px;
     width: 40%;
-
-
+   
+    
 }
 
 .dat{
@@ -64,15 +135,21 @@ body{
     margin: auto;
     margin-top: 20px;
 }
-#dato{
-   width: 80%;
+input{
+    width: 40%;
     height: 30px;
     background-color:  #D9D9D9;
     border-radius: 100px;
     text-align: center;
+    /* margin-left: 100px; */
+    display: flex;
+    margin: auto;
+    margin-top: 10px;
+    font-family: "raleway";
+    border: none;
 }
 #im{
-
+    
     display: flex;
     align-items: center;
     background-color: #76037a;
@@ -87,47 +164,55 @@ body{
 
 .progreso{
     height: auto;
-
+    margin-top: 50px;
+    
 }
 
 #clicks{
     float: right;
+    display: flex;
     padding: 20px;
     background-color:  #06bfdb;
     color: white;
+    border-radius: 50px;
+    
 }
 #btn{
+   
     display: flex;
 }
 
 .hider{
+
+    margin-top: 100px;
     display: none;
     height: auto;
-
+   
 }
 
 .show{
    display: block;
 }
 
-
-
-
-
 .sbo{
+    cursor: pointer;
     color: white;
-     font-family: "raleway";
+    font-family: "raleway";
+
+}
+.respuesta{
+    margin-top: 150px;
 }
 
 #result{
     background-color: #0a4d68;
     display: flex;
-    width: 90%;
     height: auto;
     padding: 20px;
+    align-items: center;
 }
 #vertodo{
-    width: 90%;
+    width: 100%;
 }
 
 #cuno{
@@ -138,18 +223,23 @@ body{
 #cdos{
     height: auto;
     width: 50%;
-    display: flex;
     margin: auto;
     margin-top: 20px;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
 }
 #cajon{
+    display: flex;
+    flex-direction: column;
     width: 60%;
     height: auto;
 }
 #place{
-   width: 100%;
+    width: 60%;
     height: 30px;
     background-color: rgb(230, 230, 243);
+    float: left;
 }
 #cajita{
     height: 30px;
@@ -157,7 +247,22 @@ body{
     align-items: center;
     justify-content: center;
     background-color: #76037a;
-    width: 8%;
+    border-radius: 20px;
+    margin-top: 18px;
+    width: 100%;
+    margin-left: 5px;
+    margin-top: 10px;
+
+    
+}
+.incat{
+    width: 100%;
+}
+
+#spannot{
+    margin-top: 8px;
+    display: flex;
+    flex-direction: row;
 }
 #mas{
     float: right;
@@ -165,3 +270,8 @@ body{
 #nota{
     text-align: center;
 }
+
+#flecha{
+    height: 30px;
+}
+
