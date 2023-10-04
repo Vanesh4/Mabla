@@ -11,11 +11,14 @@ from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from django.contrib.auth import logout
 
+
 #tabla comentarios
 class getTablaComment(View):
     def get(self,request):
-        register= TablaComentarios.objects.all().values()
+        #register= TablaComentarios.objects.all().values()
+        register= TablaComentarios.objects.values().order_by('-id')
         registerComment=list(register)
+        print(registerComment)
         return JsonResponse(registerComment, safe=False)
 
 class postComment(View):
@@ -292,6 +295,9 @@ def versubcategorias(request):
 
 def verperfil(request):
     return render(request, "perfil.html")
+
+def prueba(request):
+    return render(request, "perfilP.html")
 
 def palabradiccionario(request):
     listarpalabras=TablaPalabra.objects.filter(Palabra__startswith='P')

@@ -1,22 +1,51 @@
-{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>datos usuario</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        .input-group {
+            position: relative;
+        }
+    
+        .input-group input[type="password"] {
+            padding-right: 40px; /* Espacio para el icono */
+        }
+        .input-group i {
+            position: absolute;
+            top: 50%;
+            right: 10px;
+            transform: translateY(-50%);
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
-    <form method="post" enctype="multipart/form-data">
-        {% csrf_token %}
-        <div><label for="">Nombre</label>{{form.first_name}}</div>
-        <div><label for="">Apellido</label>{{form.last_name}}</div>
-        <div><label for="">Correo</label>{{form.email}}</div>
-        <div><label for="">Clave</label>{{form.password}}</div>
-        <div><label for="" type="file">Foto</label>{{form.imgPerfil}}</div>
-        <img src="{{ form.instance.imgPerfil.url }}">
-        <button type="submit" name="editar" value="editar">Guardar cambios</button>
-
+<script>
+    $(document).ready(function() {
+        $("#toggle-password").click(function() {
+            var passwordInput = $("#password");
+            var type = passwordInput.attr("type");
+            if (type === "password") {
+                passwordInput.attr("type", "text");
+                $("#toggle-password").removeClass("fa-eye").addClass("fa-eye-slash");
+            } else {
+                passwordInput.attr("type", "password");
+                $("#toggle-password").removeClass("fa-eye-slash").addClass("fa-eye");
+            }
+        });
+    });
+</script>
+    <form>
+        <div class="input-group">
+            <input type="password" class="form-control" id="password" placeholder="Contraseña" name="password">
+            <i class="fa fa-eye" id="toggle-password"></i>
+        </div>
+        <button type="submit" class="btn btn-primary">Enviar</button>
     </form>
 </body>
 </html>

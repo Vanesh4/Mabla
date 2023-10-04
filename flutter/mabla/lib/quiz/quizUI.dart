@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:mabla/quiz/data/quizclass.dart';
+import 'package:mabla/quiz/resultadosQuiz.dart';
 
 
 import 'data/questions.dart';
@@ -67,10 +68,12 @@ class _quizState extends State<quiz> {
     readData();
   }
 
+  String message = 'Hola desde SenderWidget';
   void _opcionSelected(String sel){
     quiz.questions[questionIndex].selected = sel;
     if (sel == quiz.questions[questionIndex].answer){
       quiz.questions[questionIndex].correct = true;
+      quiz.right +=1;
     }
     else{
       print("InCORRECTO");
@@ -78,9 +81,18 @@ class _quizState extends State<quiz> {
     progressIndex++;
     if(questionIndex < totalQuestions-1){
       questionIndex++;
+    }else{
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => resultadosQuiz(message: message),
+        ),
+      );
     }
     setState(() {});
   }
+
+
 
   @override
   Widget build(BuildContext context) {

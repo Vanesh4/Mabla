@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mabla/screen/menu.dart';
+import 'package:mabla/screen/registro.dart';
 
 import 'home.dart';
 import 'screen/login.dart';
@@ -68,7 +69,7 @@ class _headerPrincipalState extends State<headerPrincipal> {
                   width: 200,
                   height: 48,
                   child: ElevatedButton(onPressed: (){
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=>registro1()));
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>registro()));
                   },
                     child: Text('Registrarme',
                       style: TextStyle(fontSize: 28, fontFamily: "Raleway",color: Colors.white),),

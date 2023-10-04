@@ -39,7 +39,8 @@ $(document).ready (()=>{
             limpiarOpciones()
             //establecer datos
             $.ajax({
-                url: "http://127.0.0.1:8000/preguntas/"+1+"/"+categoria,
+                //url: "http://127.0.0.1:8000/preguntas/"+1+"/"+categoria,
+                url: "http://192.168.1.10/preguntas/"+1+"/"+categoria,
                 type: "GET",
                 dataType: "JSON",
                 success: function (res) {
