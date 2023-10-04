@@ -19,6 +19,7 @@ body{
 
 
 #formdatos{
+    
     display: flex;
     flex-direction: row;
 }
@@ -136,7 +137,7 @@ body{
     margin-top: 20px;
 }
 input{
-    width: 40%;
+    width: 60%;
     height: 30px;
     background-color:  #D9D9D9;
     border-radius: 100px;
@@ -322,10 +323,12 @@ input{
     }
     .fotperfil{
         display: flex;
+        margin-top: -260px;
         margin: auto;
         flex-direction: column;
         align-items: center;
         justify-content: center;
+        
     }
     .datosusua{
         width: 100%;
