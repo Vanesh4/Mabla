@@ -3,10 +3,10 @@ from .viewLogin import *
 from .views import *
 from . import views
 from django.conf import settings
-from django.conf.urls.static import static 
-from rest_framework_simplejwt.views import TokenRefreshView
+from django.conf.urls.static import static
+""" from rest_framework_simplejwt.views import TokenRefreshView
 from rest_framework_simplejwt.views import TokenObtainPairView
-
+ """
 
 urlpatterns = [
     #path('insertUser',insertTablaUser.as_view(), name='insertUser'),
@@ -15,8 +15,8 @@ urlpatterns = [
     #path('login',views.formIniciarSesion, name='login'),
     #path('registroForm',registerUser.as_view(), name='registroForm'),
     path('ingresar',IniciarSesionView.as_view(), name='ingresar'),
-    path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),  # Ruta para obtener el token JWT
-    path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),  # Ruta para refrescar el token JWT
+   """  path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),  # Ruta para obtener el token JWT
+    path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),  # Ruta para refrescar el token JWT"""  ,
     path('logOut', views.cerrarSesion, name='logOut'),
     #path('users',getUser.as_view(), name='users'),
     path('tablaComment',getTablaComment.as_view(), name='tablaComment'),
@@ -70,6 +70,8 @@ urlpatterns = [
     path('preguntas/<ti>/<cat>', views.pregTipoCat, name='PreguntasFiltradas'),
     path('listaCatSub', ListaCategoriaSub.as_view(), name='listaCatSub'),
 
-] + static(settings.MEDIA_URL, document_root= settings.MEDIA_ROOT)
+] 
+
+static(settings.MEDIA_URL, document_root= settings.MEDIA_ROOT)
 
 
