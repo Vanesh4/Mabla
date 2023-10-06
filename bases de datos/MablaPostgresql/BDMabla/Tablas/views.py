@@ -86,13 +86,12 @@ class insertPrueba(View):
         #preparar la manera de enviar los datos
         request.POST.get('alias_id')
         request.POST.get('tipoPrueba')
-        request.POST.get('categoria_id')
+        request.POST.get('idCategoria_id')
         request.POST.get('puntaje')
         registerInsertPrueba1 = TablaPrueba.objects.create(
-                                    alias=registerInsertPrueba['alias_id'],
+                                    alias_id=registerInsertPrueba['alias_id'],
                                     tipoPrueba=registerInsertPrueba['tipoPrueba'],
-                                    categoria_id=registerInsertPrueba['categoria_id'],
-
+                                    idCategoria_id=registerInsertPrueba['idCategoria_id'],
                                     puntaje=registerInsertPrueba['puntaje'])
         registerInsertPrueba1.save()
         #no es necesario pero es para que genere el aviso:

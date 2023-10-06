@@ -39,8 +39,8 @@ $(document).ready (()=>{
             limpiarOpciones()
             //establecer datos
             $.ajax({
-                //url: "http://127.0.0.1:8000/preguntas/"+1+"/"+categoria,
-                url: "http://192.168.1.10/preguntas/"+1+"/"+categoria,
+                url: "http://127.0.0.1:8000/preguntas/"+1+"/"+categoria,
+                //url: "http://192.168.1.10/preguntas/"+1+"/"+categoria,
                 type: "GET",
                 dataType: "JSON",
                 success: function (res) {
@@ -136,5 +136,49 @@ $(document).ready (()=>{
         console.log(totalRespuestasAcertadas) */
         $("#resultado").css("visibility", "inherit")
         $("#calificacion").text(totalRespuestasAcertadas+"/5")
+        
+        postResulatdo()
     }
 })
+
+//post RESULTADO
+function postResulatdo(){
+    
+const url = 'http://127.0.0.1:8000/insertPrueba';
+
+alias = document.getElementById("alias").textContent
+const data = {
+    "alias_id": alias,
+    "tipoPrueba": 1,
+    "idCategoria_id": categoria,
+    "puntaje": totalRespuestasAcertadas
+};
+
+// Opciones de configuración de la petición
+const options = {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json' // Especifica el tipo de contenido como JSON
+    },
+    body: JSON.stringify(data) // Convierte los datos a formato JSON
+};
+
+// Realiza la petición POST utilizando fetch
+fetch(url, options)
+    .then(response => {
+        if (!response.ok) {
+            console.log("paila")
+            throw new Error('La petición no fue exitosa');
+        }
+        return response.json(); // Puedes usar .text() si la respuesta no es JSON
+    })
+    .then(data => {
+        // Maneja la respuesta exitosa aquí
+        console.log('Respuesta exitosa:', data);
+    })
+    .catch(error => {
+        // Maneja errores de la petición aquí
+        console.log('Error:', error);
+    });
+
+}

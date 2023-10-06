@@ -3,12 +3,10 @@ import 'package:mabla/home.dart';
 import 'package:mabla/screen/diccionario.dart';
 import 'package:mabla/screen/login.dart';
 import 'package:mabla/screen/perfil.dart';
-<<<<<<< HEAD
+
 import 'package:mabla/screen/perfil1.dart';
-import 'package:mabla/screen/quiz.dart';
-=======
 import 'package:mabla/quiz/quizUI.dart';
->>>>>>> a7a1341b1d8c354aa5205ded66fc8ca12ee9474e
+
 import 'package:mabla/screen/registro.dart';
 import 'package:mabla/screen/menu.dart';
 import 'package:mabla/screen/consultar.dart';
@@ -19,7 +17,7 @@ void main() {
 }
 
 //sara
-/*class MyApp extends StatelessWidget {
+class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   // This widget is the root of your application.
@@ -27,22 +25,16 @@ void main() {
   Widget build(BuildContext context) {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
-<<<<<<< HEAD
-      routes: {
+        routes: {
         '/': (context) => home(), // Página de inicio de sesión
         '/perfil': (context) => perfil1(), // Página de perfil del cliente
         '/ingresar': (context) => login(), // Página de perfil del cliente
         // Define otras rutas aquí
       },
-      initialRoute: '/',
-=======
-        home: Center(
-          child: consultar()
-        ),
->>>>>>> a7a1341b1d8c354aa5205ded66fc8ca12ee9474e
+
     );
   }
-}*/
+}
 
 //karen
 /*
@@ -60,19 +52,18 @@ class MyApp extends StatelessWidget {
 */
 
 //vanessa
-class MyApp extends StatelessWidget {
+/*class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-
-    return MaterialApp(
+    return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: consultar()
+      home: home()
     );
   }
-}
+}*/
 
 
 /*

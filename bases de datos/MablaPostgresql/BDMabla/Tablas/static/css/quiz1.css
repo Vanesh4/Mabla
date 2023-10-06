@@ -7,6 +7,9 @@
     margin: 0;
     padding: 0;
 }
+/* #alias{
+    visibility: hidden;
+} */
 header{
     background-color: grey;
     height: 80px;
