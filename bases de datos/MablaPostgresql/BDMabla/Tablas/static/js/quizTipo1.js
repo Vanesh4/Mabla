@@ -13,14 +13,14 @@ function llevar() {
 */
 const valorRecibido = localStorage.getItem('categoria');
 console.log(valorRecibido);
-categoria = "sustantivos"
+categoria = "Sustantivos"
 console.log("hola?")
 
 function generarNumeroAleatorio(num) {
     return Math.floor(Math.random() * num)
 }
 
-respuestasIncorrectas = ["vaca","tren","pajaro","hospital","foca","moto","colegio","bus","gato","camiseta","falda","medias","pera","banano","chaqueta","nutria","vestido","fresas","papaya"]
+respuestasIncorrectas = ["vaca","tren","pajaro","hospital","foca","moto","colegio","bus","gato","camiseta","falda","medias","pera","banano","chaqueta","nutria","vestido","fresas","papaya","periodista"]
 $(document).ready (()=>{
     posicionActual = 0
     totalRespuestasAcertadas = 0
@@ -48,7 +48,7 @@ $(document).ready (()=>{
                     p = generarNumeroAleatorio(res.length) // validar 5 veces diferentes preguntas
                     //¿no hay una manera de ocultar algun dato traido de la bd?
                     
-                    document.getElementById('linkSenia').src=res[p].respuesta
+                    document.getElementById('linkSenia').src=res[p].pregunta
                     //document.getElementById('linkSenia').setAttribute("src", res[p].respuesta)    
                     for (let i = 0; i < 4; i++) {
                         pos=generarNumeroAleatorio(respuestasIncorrectas.length)
@@ -56,7 +56,7 @@ $(document).ready (()=>{
                         //validar que dos veces no me genere el mismo aleatorio. Eliminar de la lista
                         respuestasIncorrectas.splice(pos, 1);
                     }
-                    resCorrecta.innerHTML = res[p].pregunta
+                    resCorrecta.innerHTML = res[p].respuesta
                     
                     
                 }
