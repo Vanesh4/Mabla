@@ -16,7 +16,7 @@ function toggleText(){
 } */
 
 function previewImage(input) {
-    var imgPreview = document.getElementById('imgPreview');
+    var imgPreview = document.getElementById('fotouser');
     
     if (input.files && input.files[0]) {
         var reader = new FileReader();

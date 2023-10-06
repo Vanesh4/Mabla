@@ -107,9 +107,14 @@ class userData(forms.ModelForm):
              'type':'file',
              'class':'form-input',
         })
-
-    imgPerfil = forms.ImageField(required=False)
+        
+    
+    """ first_name = forms.CharField(required=False)
+    last_name = forms.CharField(required=False)
+    email = forms.EmailField(required=False)
+    password = forms.CharField(required=False)
+    imgPerfil = forms.ImageField(required=False) """
     
     class Meta:
         model = User
-        fields= ['first_name', 'last_name', 'email', 'password', 'imgPerfil']
+        fields= ['first_name', 'last_name', 'email','imgPerfil']

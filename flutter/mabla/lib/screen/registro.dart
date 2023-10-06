@@ -27,7 +27,8 @@ class _registroState extends State<registro> {
   final TextEditingController _clave = TextEditingController();
   final TextEditingController _confirmClave = TextEditingController();
   String errorMessage = '';
-
+  bool _obscureText = true;
+  bool _obscureText1 = true;
   void _postForm() async {
     if (_formKey.currentState!.validate()) {
       if (_clave.text == _confirmClave.text) {
@@ -38,7 +39,7 @@ class _registroState extends State<registro> {
         print(_clave.text);
         print(_confirmClave.text);
 
-        final String apiUrl = 'http://10.190.82.208/register';
+        final String apiUrl = 'http://192.168.252.214/register';
 
         final Map<String, dynamic> requestBody = {
           'username': _alias.text,
@@ -202,8 +203,6 @@ class _registroState extends State<registro> {
 
   Widget buildItem(String item, TextEditingController control) {
 
-    bool _obscureText = true;
-    bool _obscureText1 = true;
     bool isClave = control == _clave;
     bool isConfirmClave = control == _confirmClave;
     bool hasSuffixIcon = isClave || isConfirmClave;

@@ -7,7 +7,6 @@ from django.conf.urls.static import static
 from rest_framework_simplejwt.views import TokenRefreshView
 from rest_framework_simplejwt.views import TokenObtainPairView
 
-
 urlpatterns = [
     #path('insertUser',insertTablaUser.as_view(), name='insertUser'),
     #path('insertUserForm/inicio.html',views.formInsertUser, name='insertUserForm'),
@@ -69,8 +68,6 @@ urlpatterns = [
     path('preguntas/<ti>/<cat>', views.pregTipoCat, name='PreguntasFiltradas'),
     path('listaCatSub', ListaCategoriaSub.as_view(), name='listaCatSub'),
 
-] 
-
-static(settings.MEDIA_URL, document_root= settings.MEDIA_ROOT)
+] +static(settings.MEDIA_URL, document_root= settings.MEDIA_ROOT)
 
 
