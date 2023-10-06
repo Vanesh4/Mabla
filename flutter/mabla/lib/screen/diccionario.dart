@@ -26,7 +26,7 @@ class _diccionarioState extends State<diccionario> {
   List<Map<String, dynamic>> palabsenia = [];
 
   Future<void> myInitial(String initial) async {
-    final response = await http.get(Uri.parse('http://10.190.88.115/getpalabrasdiccio/$initial'));
+    final response = await http.get(Uri.parse('http://192.168.1.6/getpalabrasdiccio/$initial'));
     print(response.body);
 
 
@@ -134,28 +134,74 @@ class _diccionarioState extends State<diccionario> {
                 child: Text('Buscar'),
               ),*/
               Expanded(
-                child: ListView.builder(
+
+                  child: ListView(
+                    scrollDirection: Axis.vertical, // Hace que el contenido se desplace horizontalmente
+                    children: [
+                      Column(
+                        children: palabsenia.map((item) {
+                          final palabra = item['palabra'];
+                          final senia = item['senia'];
+                          return Container(
+                            width: 200,
+                            margin: EdgeInsets.only(right: 20),
+                            child: Card(
+                              elevation: 4.0,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                              child: Column(
+                                mainAxisSize: MainAxisSize.min,
+                                children: <Widget>[
+                                  Image.network(senia, height: 160),
+                                  Text(
+                                    palabra,
+                                    style: TextStyle(fontFamily: 'Raleway', fontSize: 30),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          );
+                        }).toList(),
+                      ),
+                    ],
+                  )
+
+             /*   child: ListView.builder(
+
                   itemCount: palabsenia.length,
                   itemBuilder: (context, index) {
                     final palabra = palabsenia[index]['palabra'];
                     final senia = palabsenia[index]['senia'];
-                    return Card(
-                      elevation: 4.0, // Add shadow to the card
-                      child: Column(
-                          mainAxisSize: MainAxisSize.min,
-                          children: <Widget>[
+                    return Container(
+                      width: 100,
+                      child: Card(
+                        color: Colors.indigo,
+                        margin: EdgeInsets.only(top: 20),
+                        elevation: 4.0, // Add shadow to the card
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10),
 
-                          Image.network(senia),
-                          Text(palabra),
+                            // Define los bordes redondeados
+                          ),
 
 
-                    ]
-                    )
+                        child: Column(
+
+                            mainAxisSize: MainAxisSize.min,
+                            children: <Widget>[
+                            Image.network(senia, height: 160,),
+                            Text(palabra, style: TextStyle(fontFamily: 'Raleway', fontSize: 30),),
+
+                      ]
+                      )
+
+                      ),
                     );
 
                   },
 
-                ),
+                )*/
               ),
              ]
           )

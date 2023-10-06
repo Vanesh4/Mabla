@@ -61,10 +61,9 @@ packages:
     dependency: transitive
     description:
       name: cross_file
-      sha256: fd832b5384d0d6da4f6df60b854d33accaaeb63aa9e10e736a87381f08dee2cb
+      sha256: "0b0036e8cccbfbe0555fd83c1d31a6f30b77a96b598b35a5d36dd41f718695e9"
       url: "https://pub.dev"
     source: hosted
-<<<<<<< HEAD
     version: "0.3.3+4"
   dio:
     dependency: "direct main"
@@ -78,13 +77,10 @@ packages:
     dependency: "direct main"
     description:
       name: dio_cookie_manager
-      sha256: "884b1099cba70a83751969d318084577c29de148600ffb7d4796f752d2cade02"
+      sha256: e79498b0f632897ff0c28d6e8178b4bc6e9087412401f618c31fa0904ace050d
       url: "https://pub.dev"
     source: hosted
-    version: "3.1.0+1"
-=======
-    version: "0.3.3+5"
->>>>>>> a7a1341b1d8c354aa5205ded66fc8ca12ee9474e
+    version: "3.1.1"
   fake_async:
     dependency: transitive
     description:
@@ -368,10 +364,9 @@ packages:
     dependency: transitive
     description:
       name: plugin_platform_interface
-      sha256: da3fdfeccc4d4ff2da8f8c556704c08f912542c5fb3cf2233ed75372384a034d
+      sha256: "43798d895c929056255600343db8f049921cbec94d31ec87f1dc5c16c01935dd"
       url: "https://pub.dev"
     source: hosted
-<<<<<<< HEAD
     version: "2.1.5"
   shared_preferences:
     dependency: "direct main"
@@ -429,9 +424,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.3.1"
-=======
-    version: "2.1.6"
->>>>>>> a7a1341b1d8c354aa5205ded66fc8ca12ee9474e
   sky_engine:
     dependency: transitive
     description: flutter

@@ -35,7 +35,7 @@ class _MyAppState extends State<consultar> {
   Subcategoria? subcategoriaSeleccionada; // Subcategoría seleccionada
 
   Future<void> obtenerDatosDesdeDjango() async {
-    final response = await http.get(Uri.parse('http://10.190.88.115/getcategoria'));
+    final response = await http.get(Uri.parse('http://192.168.1.6/getcategoria'));
 
     if (response.statusCode == 200) {
       setState(() {
@@ -75,45 +75,86 @@ class _MyAppState extends State<consultar> {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
+          backgroundColor: Color(0xFFff731c),
           title: Text('Con lenguaje de señas es mejor'),
         ),
         drawer: Drawer(
+          width: 200,
+          backgroundColor: Colors.grey,
           child: ListView.builder(
             itemCount: categorias.length,
             itemBuilder: (BuildContext context, int indexCategoria) {
               final categoria = categorias[indexCategoria];
-              return ExpansionTile(
-                title: Text(categoria.nombre),
-                children: categoria.subcategorias.map((subcategoria) {
-                  return ListTile(
-                    title: Text(subcategoria.nombre),
-                    onTap: () {
-                      // Al hacer clic en una subcategoría, actualiza la subcategoría seleccionada
-                      setState(() {
-                        subcategoriaSeleccionada = subcategoria;
-                      });
-                      Navigator.pop(context); // Cierra el Drawer
-                    },
-                  );
-                }).toList(),
+              return Center(
+                child: ExpansionTile(
+                  title: Center(child: Text(categoria.nombre, style: TextStyle(fontFamily: 'Raleway', fontWeight: FontWeight.bold, fontSize: 20),)),
+                  children: categoria.subcategorias.map((subcategoria)  {
+                    return ListTile(
+                      title:Container(child: Text(subcategoria.nombre, style: TextStyle(fontFamily: 'Raleway'),),
+                      margin: EdgeInsets.only(left: 40),
+                      ),
+                      onTap: () {
+                        // Al hacer clic en una subcategoría, actualiza la subcategoría seleccionada
+                        setState(() {
+                          subcategoriaSeleccionada = subcategoria;
+                        });
+                        Navigator.pop(context); // Cierra el Drawer
+                      },
+                    );
+                  }).toList(),
+                ),
               );
             },
           ),
         ),
         body: ListView.builder(
+
           itemCount: subcategoriaSeleccionada?.palabras.length ?? 0,
           itemBuilder: (BuildContext context, int index) {
             final palabra = subcategoriaSeleccionada?.palabras[index];
-            return ListTile(
-              title: Text(palabra?.palabra ?? ''),
-              subtitle: Image.network(palabra?.senia ?? ''), // Mostrar la imagen de la palabra
+            return Container(
+
+              width: 200,
+              child: Card(
+                elevation: 4.0,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                margin: EdgeInsets.all(10), // Agrega margen alrededor de la tarjeta
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: <Widget>[
+                    Image.network(palabra?.senia ?? '',
+                      height: 180,
+                    ), // Mostrar la imagen de la palabra
+                    Text(
+                      palabra?.palabra ?? '',
+                      style: TextStyle(
+                        fontSize: 30,
+                        fontFamily: "Raleway",
+                      ),
+                    ),
+                  ],
+                ),
+              ),
             );
           },
-        ),
+        )
       ),
     );
   }
 }
+
+
+
+
+
+
+
+
+
+
+
 
 /*
 class consultar extends StatelessWidget {
