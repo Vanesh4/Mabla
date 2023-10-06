@@ -8,12 +8,11 @@ function llevar() {
 }
 
 
-html2:
-const valorRecibido = localStorage.getItem('categoria');
-console.log(valorRecibido);
+
 
 */
-
+const valorRecibido = localStorage.getItem('categoria');
+console.log(valorRecibido);
 categoria = "sustantivos"
 console.log("hola?")
 
