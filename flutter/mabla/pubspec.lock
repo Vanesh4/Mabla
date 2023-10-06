@@ -61,10 +61,14 @@ packages:
     dependency: transitive
     description:
       name: cross_file
-      sha256: fd832b5384d0d6da4f6df60b854d33accaaeb63aa9e10e736a87381f08dee2cb
+      sha256: "0b0036e8cccbfbe0555fd83c1d31a6f30b77a96b598b35a5d36dd41f718695e9"
       url: "https://pub.dev"
     source: hosted
+<<<<<<< HEAD
     version: "0.3.3+5"
+=======
+    version: "0.3.3+4"
+>>>>>>> e7f46b62a8a14b45f3d1a398ba0c62f9729170bd
   dio:
     dependency: "direct main"
     description:
@@ -364,10 +368,14 @@ packages:
     dependency: transitive
     description:
       name: plugin_platform_interface
-      sha256: da3fdfeccc4d4ff2da8f8c556704c08f912542c5fb3cf2233ed75372384a034d
+      sha256: "43798d895c929056255600343db8f049921cbec94d31ec87f1dc5c16c01935dd"
       url: "https://pub.dev"
     source: hosted
+<<<<<<< HEAD
     version: "2.1.6"
+=======
+    version: "2.1.5"
+>>>>>>> e7f46b62a8a14b45f3d1a398ba0c62f9729170bd
   shared_preferences:
     dependency: "direct main"
     description:

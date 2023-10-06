@@ -33,7 +33,7 @@ class _loginState extends State<login> {
       if (_formKey.currentState!.validate()) {
         Future.delayed(const Duration(milliseconds: 200), () async {
 
-          final String apiUrl = 'http://192.168.0.7/api/token/';
+          final String apiUrl = 'http://192.168.252.214/api/token/';
           final Map<String, dynamic> requestBody = {
             'username': _usernameController.text,
             'password': _passwordController.text,

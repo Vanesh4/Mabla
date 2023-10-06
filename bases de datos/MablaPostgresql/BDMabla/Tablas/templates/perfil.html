@@ -57,10 +57,9 @@
             </div>
             <form method="get" enctype="multipart/form-data">
                 {% csrf_token %}
-                
                 <a href="perfil">
                     <div class="imgdeperfil">
-                        <img id="fotoUser" src="{{ user.imgPerfil.url }}">
+                        <img id="fotoUser" src="{{ form.instance.imgPerfil.url }}">
                     </div>               
                 </a>
 
@@ -82,7 +81,7 @@
 
         <div class="fotperfil">
             <div>
-                <img id="fotouser" src="{{ form.instance.imgPerfil.url }}"/>
+                <img id="fotouser" src="{{ form.instance.imgPerfil.url }}">
             </div>
             
             <input type="file" name="imgPerfil" id="id_imgPerfil" accept="image/*" onchange="previewImage(this);">
@@ -90,13 +89,12 @@
                 <label for="id_imgPerfil" class="subt">Seleccionar Imagen</label>
               </div>
         </div>
-
         <div class="datosusua">
             {% csrf_token %}
             {{form.first_name}}
             {{form.last_name}}
             {{form.email}}
-            
+            <!-- <input type="hidden" name="{{ formulario.password.name }}" value="{{ form.password.value }}"> -->
             <!-- {{form.imgPerfil}}
             <img src="{{ form.instance.imgPerfil.url }}"> -->
             <div>

@@ -111,7 +111,7 @@ $.ajax({
 
                                     //llamar el boton y mostrarlo
                                     $('.boton').css("display","block")
-                                    $('#botonQuiz')
+                                    
                                     
                                     
                                 });
@@ -146,7 +146,24 @@ $.ajax({
                         valo=listElement.innerText
                         //console.log("veeeeeeeeeer",valo)
                         boton.setAttribute("value", valo)
-  
+
+                        
+                        localStorage.setItem('categoria', valo)
+                        numeroAleatorio = Math.round(Math.random()) + 1;
+                        
+                        function llevar() {
+                            if (numeroAleatorio==1) {
+                                window.location.href = "/quizTipo1";
+                            }else{
+                                window.location.href = "/quizTipo2";
+                            }                            
+                        }
+                        
+                        $('#botonQuiz').click(function() {
+                            console.log("aaaaaaaaaaaaaaaa")
+                            llevar()
+                        });
+                        
                                                           
                     }
                     menu.style.height =`${height}px`;

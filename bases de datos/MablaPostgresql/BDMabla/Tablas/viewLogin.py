@@ -1,6 +1,6 @@
 import json
 from django.contrib.auth import authenticate, login
-from django.http import HttpResponse, HttpResponseBadRequest, JsonResponse
+from django.http import HttpResponseBadRequest, JsonResponse
 from django.shortcuts import redirect, render
 from django.views import View
 from .models import *
@@ -46,11 +46,11 @@ class registerUser(View):
 
                 if form.is_valid():
                     form.save()
-                    print("se valido el formulario")
-                    messages.success(request, 'Usuario registrado correctamente desde formulario HTML.')
+                    print("se valido el form")
+                    messages.success(request, 'Usuario registrado correctamente desde form HTML.')
                     return redirect('ingresar')
                 else:
-                    messages.error(request, 'Error al registrar el usuario desde formulario HTML.')
+                    messages.error(request, 'Error al registrar el usuario desde form HTML.')
                     #errors = dict(form.errors.items())
                     #return JsonResponse({"success": False, "errors": errors})
         else:
@@ -72,64 +72,21 @@ class registerUser(View):
             
             if form.is_valid():
                 print("Datos válidos:")
-                print(form.cleaned_data)  # Imprime los datos validados por el formulario
+                print(form.cleaned_data)  # Imprime los datos validados por el form
                 form.save()
-                #return JsonResponse({"success": True, "message": "si"})
-                response_data = {
-                    "success": True,
-                    "message": "formulario insertado"
-                }
+                print("si registro en flutter")
+                return JsonResponse({'mensaje': 'si registro en flutter'})
             else:
-                print("Errores en el formulario:")
+                print("Errores en el form:")
                 print(form.errors)  
-                #return JsonResponse({"success": False, "message": "paila"})
-                response_data = {
-                    "success": False,
-                    "message": "formulario no insertado"
-                }
             
-            return HttpResponse(json.dumps(response_data), content_type="application/json")
+                print("no registro en flutter")
+                return JsonResponse({'mensaje': form.errors})
+
+        except json.JSONDecodeError:
+            messages.error(request, 'Error en los datos enviados desde Flutter.')
     
-        except Exception as e:
-            #messages.error(request, 'Error en los datos enviados desde Flutter.')
-            response_data = {
-                "success": False,
-                "message": str(e)
-            }
-            return HttpResponse(json.dumps(response_data), content_type="application/json")
             #xreturn JsonResponse({"success": False, "message":'pailax2'})
-"""     
-class IniciarSesionView(View):
-    
-    def get(self, request):
-
-        form = LoginForm()
-        return render(request, 'login.html', {'form': form})
-    
-    def post(self, request):
-
-        form = LoginForm(data=request.POST)
-
-        if form.is_valid():
-
-            username = form.cleaned_data.get('username')
-            password = form.cleaned_data.get('password')
-            user = authenticate(username=username, password=password)
-            print(user.imgPerfil)
-            if user is not None:
-                login(request, user)
-                print("ya se tuvo que redirigir")
-                #print("Contenido de request.FILES:")
-                #print(user.FILES)
-                return redirect('inicio') 
-             # Redirigir a la página de clientes
-          # Redirigir a otra página para otros roles
-            else:
-                print("no funciono")
-                form.add_error(None, 'Credenciales inválidas. Por favor, intenta nuevamente.')
-        
-        return render(request, 'login.html', {'form':form})
-"""
     
 class IniciarSesionView(View):
     print("entro a la vista de iniciar sesion")
@@ -152,6 +109,7 @@ class IniciarSesionView(View):
     def post(self, request):
         accept_header = request.META.get('HTTP_ACCEPT', '')
         print("**********")
+        
         if 'application/json' in accept_header:
             print("en json")
             
@@ -162,15 +120,13 @@ class IniciarSesionView(View):
                 user = authenticate(username=username, password=password)
                 if user is not None:
                     print("json validacion")
-                    login(request, user)
-                    response_data = {
-                        'message': 'Inicio de sesión exitoso',
-                        'username': user.username
-                    }
+                    login(request, user) 
                     print("entro a la vista de iniciar sesion4")
-                    print(response_data)
-                    return JsonResponse(response_data)
-                else:return JsonResponse({'error': 'paila'}, status=400)
+                    return JsonResponse({'mensaje': "inicio de sesion exitoso"})
+                
+                else:
+                    return JsonResponse({'mensaje': 'paila'}, status=400)
+            
             except json.JSONDecodeError:
                 return HttpResponseBadRequest('Invalid JSON data')
         
@@ -202,6 +158,7 @@ class profile(View):
     
     template_name = 'perfil.html'
     print("holi")
+
     def generate_token(self, user):
         token_options = {
             'iat': datetime.utcnow(),
@@ -222,6 +179,7 @@ class profile(View):
                 'first_name': user.first_name,
                 'last_name': user.last_name,
                 'email': user.email,
+                'imgPerfil': str(user.imgPerfil),
             }
             print(user.username)
             print(user.imgPerfil)
@@ -230,10 +188,12 @@ class profile(View):
             
             if 'application/json' in accept_header:
                 token = self.generate_token(request.user)
+
                 return JsonResponse({'token': token, **user_data})
             else:
                 form = userData(instance= user)
                 return render(request, self.template_name, {'form': form})
+            
         except User.DoesNotExist:
             return JsonResponse({'error': 'No se encontraron los datos del cliente.'}, status=400)
         
@@ -243,26 +203,42 @@ class profile(View):
             user= User.objects.get(alias = request.user.alias) 
             print(user.alias)
             print("el email",user.email)
+        
         except User.DoesNotExist:
             messages.error(request, 'No se encontraron los datos del cliente.')
 
         form = userData(request.POST, instance= user)
+        print(user.password)
         print("entro al post")
-            
         if form.is_valid():
-            print("el formulario se valido")
+            print("el form se valido")
+            print("la clave:",user.password)
             form.save()
+            print("eeeeeeeeee")              
+                #form.save()
+            #if form.cleaned_data['imgPerfil'] or form.cleaned_data['imgPerfil'] is None:
+            if request.FILES:
+                imgPerfil_file = request.FILES['imgPerfil']
+                user_instance = form.save(commit=False)
+                user_instance.imgPerfil = imgPerfil_file  # Asignar la imgPerfil al campo correspondiente en el modelo
+                user_instance.save()
+
+            print("nuevo email:",user.email )
+            messages.success(request, 'Cambios guardados correctamente.')
+            
             accept_header = request.META.get('HTTP_ACCEPT', '')
+
             if 'application/json' in accept_header:
                     user_data = {
                         'alias': user.alias,
                         'first_name': user.first_name,
                         'last_name': user.last_name,
-                        'email': user.email
+                        'email': user.email,
+                        'imgPerfil': user.imgPerfil
                     }
+                    print(user_data)
                     return JsonResponse(user_data)
-                
-            messages.success(request, 'Cambios guardados correctamente.')
-
-            return render(request, self.template_name, {'form': form})
-
+            else:
+                return render(request, self.template_name, {'form': form}) 
+              
+        return render(request, self.template_name, {'form': form}) 

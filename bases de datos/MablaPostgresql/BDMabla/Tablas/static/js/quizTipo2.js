@@ -13,7 +13,8 @@ const valorRecibido = localStorage.getItem('categoria');
 console.log(valorRecibido);
 
 */
-
+const valorRecibido = localStorage.getItem('categoria');
+console.log(valorRecibido);
 categoria = "verbos"
 
 function generarNumeroAleatorio(num) {
