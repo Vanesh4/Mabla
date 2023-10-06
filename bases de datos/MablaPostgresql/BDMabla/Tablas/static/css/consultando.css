@@ -286,10 +286,17 @@ input{
 .caja{
     display: block;
 }
+
 #flechacaja{
-    display: none;
+    visibility: none;
     background-color: transparent;
 }
+
+#imgflechapum{
+    display: none;
+}
+
+
 
 @media screen and (min-width:320px) and (max-width:700px){
     
