@@ -12,8 +12,6 @@
 </head>
 <body>
 
-    <!-- <header>
-    </header> -->
     <form method="get" enctype="multipart/form-data">
         <p id="alias">{{ user.username }}</p>
     </form>
@@ -48,7 +46,9 @@
         <p id="calificacion"></p>
         <div class="boton" id="btnInicio"><a href="http://127.0.0.1:8000/">Volver al Inicio</a></div>
         <div class="boton" id="btnAprender"><a href="http://127.0.0.1:8000/mostrar/">Seguir Aprendiendo</a></div>
+        <img src="{%static 'img/capiJugito.png'%}" alt="" id="CapibaraImg">
     </section>
+    
 
     <script src="{% static 'js/quizTipo1.js'%}"></script>
 </body>

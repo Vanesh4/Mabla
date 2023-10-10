@@ -17,7 +17,7 @@
     {% if user.is_authenticated %}
     <header class="header">
         <div class="closeBtn">
-            <img src="{% static 'img/cancelar.png'%}" alt="" id="imgBotonCerrarMenu">
+            <img src="{% static 'img/cancelar.png'%}" alt="equis" id="imgBotonCerrarMenu">
         </div>
         <div class="parteizq">
             <div class="logo">
@@ -56,7 +56,7 @@
                     </div>                    
                 </a>
 
-                
+                <p id="alias">{{ user.username }}</p>
             </form>
         </div>    
 </header>
@@ -65,7 +65,7 @@
     <!-- sin iniciar sesion  --> 
     <header class="header">
     <div class="closeBtn">
-        <img src="{% static 'img/cancelar.png'%}" alt="" id="imgBotonCerrarMenu">
+        <img src="{% static 'img/cancelar.png'%}" alt="x" id="imgBotonCerrarMenu">
     </div>
     <div class="parteizq">
         <div class="logo">
@@ -75,7 +75,7 @@
         </div>
         <div class="linkContenido">
             <a href="/menu"><p class="textomenu">Contenido</p></a>
-            <a href="menu">
+            <a href="/menu">
                 <img src="{% static 'img/flecha-hacia-abajo-para-navegar.png'%}" alt="flecha" style="width: 15px;height: 15px;" class="imgflecha">
             </a>
         </div>
@@ -105,48 +105,12 @@
 
 {% endif %}
 
+    <div class="menuResponsive">
+        <img src="{% static 'img/lista.png'%}" alt="" style="width: 30px;" id="imgBotonAbrirMenu">
+    </div>
+
     <section id="menuContenido">
-        <!-- <div class="categoria">
-            <a href="http://127.0.0.1:8000/mostrar/">
-                <h2></h2>
-            </a>
-        </div>
 
-        <div class="categoria">
-            <h2></h2>
-            
-        </div>
-
-        <div class="categoria">
-            <h2></h2>
-            
-        </div>
-
-        <div class="categoria">
-            <h2></h2>
-            
-        </div>
-
-        <div class="categoria">
-            <h2></h2>            
-            
-        </div>
-
-        <div class="categoria">
-            <h2></h2>
-            
-        </div>
-
-        <div class="categoria">
-            <h2></h2>
-            
-        </div>
-
-        <div class="categoria">
-            <h2></h2>            
-            
-        </div> -->
-        
     </section>
 
 

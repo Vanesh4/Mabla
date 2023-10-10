@@ -1,14 +1,24 @@
 $(document).ready (()=>{
 
-    header = document.getElementById("header")
-
-    $("#imgBotonAbrirMenu").on("click", ()=>{      
-        header.style.setProperty("display", "inherit")
+    
+    $("#imgBotonAbrirMenu").on("click", ()=>{
+        $(".header").css({
+            "display": "inherit"});
+        $("#imgBotonAbrirMenu").css({
+            "display": "none"});
+        $("body").css({
+            "overflow": "hidden"});
+        //console.log("helllou")
     })
-
+    
     $("#imgBotonCerrarMenu").on("click", ()=>{
-        //console.log("porfavor")
-        header.style.setProperty("display", "none")
+        $(".header").css({
+            "display": "none"});
+        $("body").css({
+            "overflow": "visible"});
+        $("#imgBotonAbrirMenu").css({
+            "display": "inherit"});
+        //console.log("helllou x2")
     })
 
     traerComentarios()
@@ -103,5 +113,7 @@ function agregarComentario() {
                 contenedorDiv.appendChild(msj)
             }
         }); 
-    }   
+    }  
+    
+    
 }

@@ -32,7 +32,7 @@ class _perfil1State extends State<perfil1> {
     final authToken = prefs.getString('jwt_token') ?? '';
 
     final response = await http.get(
-      Uri.parse('http://192.168.252.214/perfil'),
+      Uri.parse('http://192.168.43.184/perfil'),
       headers: {
         'Accept': 'application/json',
         'Authorization': 'Bearer $authToken',
@@ -49,15 +49,13 @@ class _perfil1State extends State<perfil1> {
       setState(() {
         _perfilData = jsonResponse;
       });
-    } else if (response.statusCode == 302) {
+    } else{
       // La respuesta redirige a otra URL (manejar según tu lógica)
       print(response.statusCode);
       final redirectUrl = response.headers['location'];
       if (redirectUrl != null) {
         await launch(redirectUrl);
       }
-    } else {
-      // Manejar otros errores de obtención de perfil aquí
     }
   }
   @override

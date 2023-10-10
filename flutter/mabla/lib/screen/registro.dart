@@ -39,7 +39,7 @@ class _registroState extends State<registro> {
         print(_clave.text);
         print(_confirmClave.text);
 
-        final String apiUrl = 'http://192.168.252.214/register';
+        final String apiUrl = 'http://192.168.43.184/register';
 
         final Map<String, dynamic> requestBody = {
           'username': _alias.text,
@@ -59,20 +59,20 @@ class _registroState extends State<registro> {
         );
 
         if (respuesta.statusCode == 200) {
-          final jsonResponse = json.decode(respuesta.body);
+          /*final jsonResponse = json.decode(respuesta.body);
           final success = jsonResponse['success'];
           // Navigator.pushReplacementNamed(context, '/ingresar');
           print(success);
-          if (success) {
+          if (success) {*/
             // Los datos se procesaron correctamente
             print('Datos procesados correctamente');
             Navigator.pushReplacementNamed(context, '/ingresar');
-          } else {
+          /*} else {
             // Hubo errores de validación, obtén y muestra los errores
 
             print('Errores de validación:');
 
-          }
+          }*/
         }
         else{
           print("Error al registrar el usuario");

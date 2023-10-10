@@ -1,5 +1,23 @@
 $(document).ready(function () {
+    $("#imgBotonAbrirMenu").on("click", ()=>{
+        $(".header").css({
+            "display": "inherit"});
+        $("#imgBotonAbrirMenu").css({
+            "display": "none"});
+        $("body").css({
+            "overflow": "hidden"});
+        //console.log("helllou")
+    })
     
+    $("#imgBotonCerrarMenu").on("click", ()=>{
+        $(".header").css({
+            "display": "none"});
+        $("body").css({
+            "overflow": "visible"});
+        $("#imgBotonAbrirMenu").css({
+            "display": "inherit"});
+        //console.log("helllou x2")
+    })
     /* titulosCat = document.querySelectorAll('h2')
     divsCategorias = document.querySelectorAll('.categoria')
     console.log("lenght: "+titulosCat.length) */

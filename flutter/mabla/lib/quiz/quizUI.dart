@@ -30,7 +30,7 @@ class _quizState extends State<quiz> {
   Future<void> readData()async{
     int tipo = 1;
     String categoria = 'sustantivos';
-    final response = await http.get(Uri.parse('http://192.168.1.10/preguntas/$tipo/$categoria'));
+    final response = await http.get(Uri.parse('http://192.168.1.8/preguntas/$tipo/$categoria'));
     if (response.statusCode == 200) {
       final List<dynamic> data = await json.decode(response.body); //decodificar y pasar a una lista
       //data va a ser una sola preguna

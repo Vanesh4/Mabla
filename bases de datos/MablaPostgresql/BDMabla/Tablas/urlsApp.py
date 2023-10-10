@@ -14,13 +14,8 @@ urlpatterns = [
     #path('login',views.formIniciarSesion, name='login'),
     #path('registroForm',registerUser.as_view(), name='registroForm'),
     path('ingresar',IniciarSesionView.as_view(), name='ingresar'),
-<<<<<<< HEAD
-    #path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),  # Ruta para obtener el token JWT
-    #path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),  # Ruta para refrescar el token JWT,
-=======
     path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),  # Ruta para obtener el token JWT
     path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),  # Ruta para refrescar el token JWT
->>>>>>> e7f46b62a8a14b45f3d1a398ba0c62f9729170bd
     path('logOut', views.cerrarSesion, name='logOut'),
     #path('users',getUser.as_view(), name='users'),
     path('tablaComment',getTablaComment.as_view(), name='tablaComment'),

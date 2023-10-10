@@ -18,7 +18,7 @@ class getTablaComment(View):
         #register= TablaComentarios.objects.all().values()
         register= TablaComentarios.objects.values().order_by('-id')
         registerComment=list(register)
-        print(registerComment)
+        #print(registerComment)
         return JsonResponse(registerComment, safe=False)
 
 class postComment(View):

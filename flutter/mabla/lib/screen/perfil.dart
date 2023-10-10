@@ -26,8 +26,6 @@ class _miperfilState extends State<miperfil> {
         child: Column(
           children: [
             Container(
-
-
               child: Stack(
                 children: [
                   Column(

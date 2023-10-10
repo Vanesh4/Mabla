@@ -6,14 +6,10 @@ localStorage.setItem('categoria', cat)
 function llevar() {
     window.location.href = "quiiz.html";
 }
-
-
-
-
 */
 const valorRecibido = localStorage.getItem('categoria');
 console.log(valorRecibido);
-categoria = "Sustantivos"
+categoria = "sustantivos"
 console.log("hola?")
 
 function generarNumeroAleatorio(num) {
