@@ -506,3 +506,4 @@ class deletepalabra(View):
         return JsonResponse({'mensaje': "Palabra eliminada"})
 
 
+

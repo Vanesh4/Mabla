@@ -108,4 +108,8 @@ contenedorCajas.addEventListener("click", function(event) {
       ultimoGrupoNotas = contenido;
     }
   }
+<<<<<<< HEAD
 })
+=======
+})
+>>>>>>> Sara

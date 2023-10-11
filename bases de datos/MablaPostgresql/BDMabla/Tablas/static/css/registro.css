@@ -3,7 +3,7 @@
     margin: 0px;
 }
 
-header{
+body{
     display: flex;
     justify-content: space-around;
     background-image: url("/static/img/picoSGV.svg");
@@ -11,7 +11,6 @@ header{
     background-repeat: no-repeat;
     height: 92vh;
     padding: 20px 20px 0px 10px;
-
 }
 
 form{
@@ -24,7 +23,7 @@ form{
     width: 55%;
 }
 
-.textRegister{
+.textR{
     margin-bottom: 15px;
     font-size: 70px;
     margin-right: 35px;
@@ -32,7 +31,7 @@ form{
     font-family: 'Martian Mono', monospace;
 }
 
-#sectionform{
+.sectionForm{
     display: grid;
     grid-template-columns: 1fr 1fr;
     font-size: 35px;
@@ -42,7 +41,7 @@ form{
 input{
     display: flex;
     flex-direction: column;
-    border-radius: 8px;
+    border-radius: 100px;
     height: 40px;
     width: 75%;
     margin-top: 20px;
@@ -54,35 +53,41 @@ input{
     outline: none;
 }
 .inputs{
-    margin-bottom: 25px;
-    padding: 0px 40px 0px 40px;
+    margin-bottom: 40px;
 }
 
+<<<<<<< HEAD
 #clave{
     position: relative;
 }
+=======
+>>>>>>> Sara
 #clave i{
     color: #222222;
     font-size: 22px;
     position: absolute;
     width: 10%;
+<<<<<<< HEAD
     top: 60%;
     transform: translateX(520%);
+=======
+    top: 73.5%;
+    transform: translateX(170%);
+>>>>>>> Sara
     cursor: pointer;
 }
 
 #boton{
     display: flex;
     justify-content: center;
-    margin-top: 5px;
 }
 #colorbtn{
     background:  #ff731c;
     color: white;
     font-size: 40px;
     font-family: 'Raleway', sans-serif;
-    border-radius: 10px;
-    padding: 18px;
+    border-radius: 100px;
+    padding: 15px;
     border: none;
 }
 
@@ -116,12 +121,20 @@ input{
     width: 47%;
     height: 60%;    
 }
-
 .error{
     font-size: 19px;
     color:  #ff731c;   
     margin-top: 10px;
     margin-left: 10px;
+    width: 80%;
+    height: 30px;
+}
+.errors{
+    font-size: 15px;
+}
+.errors1{
+    width: 100%;
+    font-size: 12px;
 }
 
 .errorr{
@@ -133,79 +146,113 @@ input{
 }
 
 @media screen and (min-width:320px) and (max-width:700px){
-
-    header{
-        background-image: url("/static/img/picoResponsiveRegistro.svg");
-        margin: 0px;
+    body{
+        background-image: url("/static/img/picoRRecurso 1.svg");
         padding: 0px;
-
+        display: grid;
+        background-size: 100%;  
     }
     form{
-        font-size: 5px;
+        position: relative; 
+        width: 100%;
+        justify-content: flex-end;
+        align-items: flex-end;
+        align-content: flex-end;
+        background-color: gray;
     }
-    #sectionform{
+    .textR{
         margin: 0px;
-        padding: 0px;
+     }
+    .textR p{
+       font-size: 30px;
     }
-    input{
-        height:30px;
-        width: 65%;
-        font-size: 13px;
-    }
-    .imgyText{
-        background-color: red;
-        padding: 0px;
+    .sectionForm{
         margin: 0px;
         width: 100%;
-        height: 22%;
-        position: absolute;
-        top: 67%;
+        background-color: yellow;
     }
-    .slogan{    
+    .inputs{
+        padding: 0px;
         margin: 0px;
-        margin-top: 11px;
-        font-size: 10.5px;      
-        margin-left: 6px;
+        font-size: 20px;
+        background-color: red;
+    }
+    #in{
+        margin-left: 100px;
+    }
+    #lEmail{
+        font-size: 15px;
+    }
+    #lEmail1{       
+        font-size: 9px;
+    }
+    #lEmail2{       
+        font-size: 9px;
+    }
+    input{
+        height: 30px;
+        width: 100%;
+    }
+    .imgyText{
+        padding: 0px;
+        margin: 0px;
+        justify-content: flex-start;
+        transform: translate(10%, -5%); /* Centra el elemento en el centro del contenedor */
+    }
+    #mablaNaranja{
+        width: 150%;
+    }
+    .slogan{
+        margin: 0px;
+        position: relative; 
+        
+    }
+    .slogan p{
+        width: 200%;
+        font-size: 20px;
+        text-align: center;
     }
     #capi{
-        margin: 0px;  
+        margin: 0px;
         padding: 0px;
-        width: 60%;
-        height: 65%;
-        margin-left: 40px;
-    }
-    
+        top: 80%;
+        left: 75px;
+        position: absolute;
+    }    
 }
 
-@media (max-width:1600px) {       
-    header{
+@media screen and (min-width:1024px) and (max-width:1280px){  
+    body{
         padding: 0px;
         margin: 0px;
         height: 97vh;
     }
     form{
        margin: 0px; 
+       margin-left: 50px;
        padding: 0px;
        align-self: center;
-       width: 65%; 
+       width: 80%; 
     }
-    .textRegister{
+    .textR{
         margin: 0px;
         padding: 0px;
-        font-size: 50px;
-        margin-right: 12%;
-        
+        margin-right: 80px;
+        font-size: 60px;
     }
-    #sectionform{
+    .sectionForm{
         padding: 0px;
         margin: 0px;
-        margin: 40px 10px 0px 0px;
-        font-size: 26px;
+        margin-top: 40px;
+        font-size: 30px;
+    }
+    .inputs{
+        padding: 0px;
     }
     #boton{
         margin: 0px;
         margin-top: 10px;
-        margin-right: 50px;
+        margin-right: 80px;
     }
     #colorbtn{
         font-size: 30px;
@@ -214,28 +261,301 @@ input{
         padding: 0px;
         margin: 0px;
         align-self: flex-end;
-        width: 50%;
-        height: 80%;
-        margin: 50px 25px 0px 0px;
+        width: 45%;
+        height: 66%;
+        margin-right: 7px;
     }
     .slogan{
         padding: 0px;
         margin: 0px;
         text-align: end;
-        font-size: 32px;
-        margin: 25px 30px 20px 0px;
+        font-size: 25px;
+        margin: 25px 15px 66px 0px;
     }
     #capi{
         margin: 0px;
         padding: 0px;
-        width: 55%;
-        height: 65%;
+        margin-top: 50px;
+        width: 50%;
+        height: 50%;
+        margin-right: 100px;
+    }
+    .errorr{
+        margin: 0px;
+        width: 80%;
     }
 }
 
+@media screen and (min-width:1360px) and (max-width:1600px){  
+    body{
+        padding: 0px;
+        margin: 0px;
+        height: 97vh;
+    }
+    form{
+       margin: 0px; 
+       margin-left: 50px;
+       padding: 0px;
+       align-self: center;
+       width: 85%; 
+    }
+    .textR{
+        margin: 0px;
+        padding: 0px;
+        margin-right: 90px;
+        margin-top: 30px;
+        font-size: 60px;
+    }
+    .sectionForm{
+        padding: 0px;
+        margin: 0px;
+        margin: 30px 0px 0px 0px;
+        font-size: 30px;
+    }
+    .inputs{
+        padding: 0px;
+    }
+    #boton{
+        margin: 0px;
+        margin-right: 70px;
+    }
+    #colorbtn{
+        font-size: 30px;
+    }
+    .imgyText{
+        padding: 0px;
+        margin: 0px;
+        align-self: flex-end;
+        width: 65%;
+        height: 70%;
+        margin-right: 20px;
+        margin-left: 50px;
+    }
+    .slogan{
+        padding: 0px;
+        margin: 0px;
+        text-align: end;
+        font-size: 30px;
+        margin-top: 25px ;
+        margin-right: 10px;
+    }
+    #capi{
+        margin: 0px;
+        padding: 0px;
+        margin-top: 50px;
+        width: 48%;
+        height: 58%;
+    }
+    .errors1{
+        width: 120%;
+    }
+}    
+
 @-moz-document url-prefix() {
     /* Agrega estilos específicos para Firefox aquí */
-    body {
-        background-color: #ff4500; /* Cambiar el fondo a naranja en Firefox */
+    @media screen and (min-width:320px) and (max-width:700px){
+        body{
+            background-image: url("/static/img/picoRRecurso 1.svg");
+            padding: 0px;
+            display: grid;
+            background-size: 100%;  
+        }
+        form{
+            position: relative; 
+            width: 100%;
+            justify-content: flex-end;
+            align-items: flex-end;
+            align-content: flex-end;
+            background-color: gray;
+        }
+        .textR{
+            margin: 0px;
+         }
+        .textR p{
+           font-size: 30px;
+        }
+        .sectionForm{
+            margin: 0px;
+            width: 100%;
+            background-color: yellow;
+        }
+        .inputs{
+            padding: 0px;
+            margin: 0px;
+            font-size: 20px;
+            background-color: red;
+        }
+        #in{
+            margin-left: 100px;
+        }
+        #lEmail{
+            font-size: 15px;
+        }
+        #lEmail1{       
+            font-size: 9px;
+        }
+        #lEmail2{       
+            font-size: 9px;
+        }
+        input{
+            height: 30px;
+            width: 100%;
+        }
+        .imgyText{
+            padding: 0px;
+            margin: 0px;
+            justify-content: flex-start;
+            transform: translate(10%, -5%); /* Centra el elemento en el centro del contenedor */
+        }
+        #mablaNaranja{
+            width: 150%;
+        }
+        .slogan{
+            margin: 0px;
+            position: relative; 
+            
+        }
+        .slogan p{
+            width: 200%;
+            font-size: 20px;
+            text-align: center;
+        }
+        #capi{
+            margin: 0px;
+            padding: 0px;
+            top: 80%;
+            left: 75px;
+            position: absolute;
+        }    
     }
+    
+    @media screen and (min-width:1024px) and (max-width:1280px){  
+        body{
+            padding: 0px;
+            margin: 0px;
+            height: 97vh;
+        }
+        form{
+           margin: 0px; 
+           margin-left: 50px;
+           padding: 0px;
+           align-self: center;
+           width: 80%; 
+        }
+        .textR{
+            margin: 0px;
+            padding: 0px;
+            margin-right: 80px;
+            font-size: 60px;
+        }
+        .sectionForm{
+            padding: 0px;
+            margin: 0px;
+            margin-top: 40px;
+            font-size: 30px;
+        }
+        .inputs{
+            padding: 0px;
+        }
+        #boton{
+            margin: 0px;
+            margin-top: 10px;
+            margin-right: 80px;
+        }
+        #colorbtn{
+            font-size: 30px;
+        }
+        .imgyText{
+            padding: 0px;
+            margin: 0px;
+            align-self: flex-end;
+            width: 45%;
+            height: 66%;
+            margin-right: 7px;
+        }
+        .slogan{
+            padding: 0px;
+            margin: 0px;
+            text-align: end;
+            font-size: 27px;
+            margin: 25px 0px 66px 10px;
+        }
+        #capi{
+            margin: 0px;
+            padding: 0px;
+            margin-top: 50px;
+            width: 50%;
+            height: 50%;
+            margin-right: 100px;
+        }
+        .errorr{
+            margin: 0px;
+            width: 80%;
+        }
+    }
+    
+    @media screen and (min-width:1360px) and (max-width:1600px){  
+        body{
+            padding: 0px;
+            margin: 0px;
+            height: 97vh;
+        }
+        form{
+           margin: 0px; 
+           margin-left: 50px;
+           padding: 0px;
+           align-self: center;
+           width: 85%; 
+        }
+        .textR{
+            margin: 0px;
+            padding: 0px;
+            margin-right: 80px;
+            margin-top: 30px;
+            font-size: 60px;
+        }
+        .sectionForm{
+            padding: 0px;
+            margin: 0px;
+            margin-top: 35px;
+            font-size: 30px;
+        }
+        .inputs{
+            padding: 0px;
+        }
+        #boton{
+            margin: 0px;
+            margin-right: 60px;
+        }
+        #colorbtn{
+            font-size: 30px;
+        }
+        .imgyText{
+            padding: 0px;
+            margin: 0px;
+            align-self: flex-end;
+            width: 62%;
+            height: 68%;
+            margin-right: 20px;
+            margin-left: 50px;
+        }
+        .slogan{
+            padding: 0px;
+            margin: 0px;
+            text-align: end;
+            font-size: 30px;
+            margin-top: 25px ;
+            margin-right: 10px;
+        }
+        #capi{
+            margin: 0px;
+            padding: 0px;
+            margin-top: 50px;
+            width: 42%;
+            height: 53%;
+        }
+        .errors1{
+            width: 120%;
+        }
+    }    
 }
