@@ -244,14 +244,25 @@ input{
 .imgpal{
     /* width: 330px;*/
     height: 300px; 
+    border: 2px solid #ddd; /* Agrega un borde ligero */
+    border-radius: 8px; /* Hace que las esquinas sean redondeadas */
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6); /* Agrega una sombra suave */
+    transition: transform 0.2s ease-in-out;
     /* background-color: #ff731c; */
 }
+
+.imgpal:hover{
+    transform: scale(1.1);
+}
+
+
 .ppal{
     font-size: 35px;
     /* background-color: #06bfdb; */
     /* text-align: center; */
     margin: auto 0 auto 10px;
     font-family: "raleway";
+    padding-left: 20px;
 }
 
 #resultado{
