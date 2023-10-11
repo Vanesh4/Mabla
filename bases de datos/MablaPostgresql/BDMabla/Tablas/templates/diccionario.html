@@ -113,31 +113,28 @@
       
         <div class="cajaboton" id="hider_btn"> 
                   
-            <img id="flecha" src="{% static 'img/flecha-apunta-a-la-izquierda.png'%}" alt="flecha" style="width: 50%;">
-            <h1 class="ver" style="padding-top: 7px;">ver</h1>  
+            <img id="flecha" src="{% static 'img/flecha-apunta-a-la-izquierda.png'%}" alt="flecha">
+            
         </div>
 
         <div id="login">
-            <p id="BotonRegisto">
-                <a class="let" href="registro.html">Registrarme</a>
-            </p>
-            <p id="BotonIngresar">
-                <a class="let" href="login.html">Ingresar</a>
-            </p>
+            <div class="buscar">
+                <a href="http://127.0.0.1:8000/">
+                    <img class="logo"  src="{%static 'img/mablaLOGO-removebg.png' %}" alt="">
+                </a>
+                
+            </div>
         </div>
 
         <form id="buscador">
-            
-                <label for="inicial"></label>
-                <input style="width: 90%; margin-left: 10px;" type="text" id="inicial" name="inicial">
-                <button style="background-color: transparent; border: none;" type="submit" ><img src="{% static 'img/lupa.png'%}" alt="" style="height: 30px;"></button>
-        
-                    
+                <input  type="text" id="inicial" name="inicial">
+                <button id="lup" type="submit" ><img src="{% static 'img/lupa.png'%}" alt="" style="height: 30px;"></button>      
         </form>
 
         
     </section>
 
+    <section class="caja2"> 
     <div id="container">
         <ul id="wordList">
             
@@ -145,11 +142,11 @@
 
     </div>
 
-    <section class="caja2"> 
-        <div id="results">
+    
+    <div id="results">
             
-            <!-- Los resultados se mostrarán aquí -->
-        </div>
+            
+    </div>
 
         <script src="{%static 'js/diccionario.js'%}"></script>  
     </section>

@@ -2,6 +2,8 @@ package com.example.BDMabla.Servicios;
 
 import com.example.BDMabla.Entidad.TablaUsuario;
 import com.example.BDMabla.Repositorio.RTablaUsuario;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.oauth2.core.oidc.user.OidcUser;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -25,6 +27,7 @@ public class STablaUsuario {
             return this.repositorioUser.findById(correo).get();
         }
         else return null;
+
     }
     /*public boolean iniciarSesion(String alias, String clave){
         if (repositorioUser.findById(alias).isPresent()) return Objects.equals(repositorioU+ser.findById(alias).get().getContrasenia(), clave);
@@ -50,7 +53,7 @@ public class STablaUsuario {
         TablaUsuario user = myUser((String) dataUser.get("email"));
 
         if(user==null){
-            String alias = (String) dataUser.get("Username");
+            String alias = (String) dataUser.get("username");
             String correo = (String) dataUser.get("email");
             String nombre = (String) dataUser.get("nombre");
             String apellido = (String) dataUser.get("apellido");

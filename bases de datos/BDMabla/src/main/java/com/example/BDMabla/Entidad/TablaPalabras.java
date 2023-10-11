@@ -13,10 +13,6 @@ public class TablaPalabras {
     private String Senia;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "Categoria", referencedColumnName = "Categoria", nullable = false)
-    @JsonIgnore
-    private TablaCategorias tablaCategorias;
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "Subcategoria", referencedColumnName = "Subcategoria", nullable = false)
     @JsonIgnore
     private TablaSubcategorias tablaSubcategorias;

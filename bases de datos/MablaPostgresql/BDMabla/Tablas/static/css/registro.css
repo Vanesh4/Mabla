@@ -56,13 +56,24 @@ input{
     margin-bottom: 40px;
 }
 
+<<<<<<< HEAD
+#clave{
+    position: relative;
+}
+=======
+>>>>>>> Sara
 #clave i{
     color: #222222;
     font-size: 22px;
     position: absolute;
     width: 10%;
+<<<<<<< HEAD
+    top: 60%;
+    transform: translateX(520%);
+=======
     top: 73.5%;
     transform: translateX(170%);
+>>>>>>> Sara
     cursor: pointer;
 }
 
@@ -124,6 +135,14 @@ input{
 .errors1{
     width: 100%;
     font-size: 12px;
+}
+
+.errorr{
+    font-size: 17px;
+    color:  #ff731c;   
+    margin-top: 10px;
+    margin-left: 5px;
+    width: 75%;
 }
 
 @media screen and (min-width:320px) and (max-width:700px){

@@ -20,19 +20,30 @@ public class CTablaPalabras {
         return serviciopalabra.Mostrartodo();
     }
 
-   /* @GetMapping("/insertpalabra")
+   @GetMapping("/insertpalabra")
     public String insertarpalabra(@RequestBody TablaPalabras t){
         return serviciopalabra.insertarpalabra(t);
     }
-*/
+
 
    @PostMapping("/addpalabra/{subcate}")
     public String insertarpalabra(@PathVariable("subcate") String subcate, @RequestBody TablaPalabras t){
         return serviciopalabra.addpalabra(subcate, t);
     }
-    @GetMapping("/listandopalabras/{sub}")
+  @GetMapping("/listandopalabras/{sub}")
     public List<Object[]> Palabras(@PathVariable("sub") String sub){
         return serviciopalabra.getpalabrasforsubcate(sub);
+    }
+/*
+    @GetMapping("/filtrar/{inicial}")
+    public ResponseEntity<List<TablaPalabras>> filtrarPalabrasPorInicial(@RequestParam String inicial) {
+        List<TablaPalabras> palabrasFiltradas = serviciopalabra.filtrarpalabraInicial(inicial);
+        return ResponseEntity.ok(palabrasFiltradas);
+    }*/
+
+    @GetMapping("/palabrasinicial/{inicial}")
+    public List<Object[]> listadoPalabras(@PathVariable("inicial") String inicial){
+        return serviciopalabra.buscarPorInicial(inicial);
     }
 
 }

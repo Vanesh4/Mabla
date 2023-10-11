@@ -35,6 +35,12 @@ dependencies:
   flutter_svg:
   http:
   image_picker:
+  url_launcher:
+  shared_preferences:
+  cookie_jar:
+  dio:
+  dio_cookie_manager:
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -86,6 +92,10 @@ flutter:
      - family: MartianMono
        fonts:
          - asset: assets/fonts/Martian/static/MartianMono-ExtraLight.ttf
+
+     - family: MartianMonoBold
+       fonts:
+         - asset: assets/fonts/Martian/static/MartianMono-ExtraBold.ttf
   #       - asset: fonts/TrajanPro_Bold.ttf
   #         weight: 700
   #

@@ -1,333 +1,329 @@
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
 
-class consultar extends StatefulWidget {
-  const consultar({Key? key}) : super(key: key);
 
-  @override
-  State<consultar> createState() => _consultarState();
+
+class Categoria {
+  final String nombre;
+  final List<Subcategoria> subcategorias;
+
+  Categoria({required this.nombre, required this.subcategorias});
 }
 
-class _consultarState extends State<consultar> {
-  //funcion para lista desplegable
-/*  String _selectedOption1 = 'opcion1';// Valor predeterminado
-  String _selectedOption2 = 'opcion1';
-  String _selectedOption3 = 'opcion1';
-  String _selectedOption4 = 'opcion1';
-  String _selectedOption5 = 'opcion1';
-  String _selectedOption6 = 'opcion1';
-  String _selectedOption7 = 'opcion1';
-  String _selectedOption8 = 'opcion1';
-  String _selectedOption9 = 'opcion1';*/
-  String _selectedOption10 = 'opcion1';
+class Subcategoria {
+  final String nombre;
+  final List<Palabra> palabras;
+
+  Subcategoria({required this.nombre, required this.palabras});
+}
+
+class Palabra {
+  final String palabra;
+  final String senia;
+
+  Palabra({required this.palabra, required this.senia});
+}
+
+class consultar extends StatefulWidget {
+  @override
+  _MyAppState createState() => _MyAppState();
+}
+
+class _MyAppState extends State<consultar> {
+  List<Categoria> categorias = []; // Lista para almacenar las categorías y subcategorías
+  Subcategoria? subcategoriaSeleccionada; // Subcategoría seleccionada
+
+  Future<void> obtenerDatosDesdeDjango() async {
+    final response = await http.get(Uri.parse('http://192.168.1.6/getcategoria'));
+
+    if (response.statusCode == 200) {
+      setState(() {
+        final List<dynamic> data = json.decode(response.body);
+        categorias = data.map((categoriaData) {
+          return Categoria(
+            nombre: categoriaData['Categoria'],
+            subcategorias: (categoriaData['Subcategorias'] as List<dynamic>).map((subcategoriaData) {
+              return Subcategoria(
+                nombre: subcategoriaData['subcategoria'],
+                palabras: (subcategoriaData['palabraas'] as List<dynamic>).map((palabraData) {
+                  return Palabra(
+                    palabra: palabraData['palabra'],
+                    senia: palabraData['senia'],
+                  );
+                }).toList(),
+              );
+            }).toList(),
+          );
+        }).toList();
+      });
+    } else {
+
+      throw Exception('Error al cargar los datos en la url');
+    }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    // Llamar a la función para obtener datos cuando se inicia la aplicación
+    obtenerDatosDesdeDjango();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(
+          backgroundColor: Color(0xFFff731c),
+          title: Text('Con lenguaje de señas es mejor'),
+        ),
+        drawer: Drawer(
+          width: 200,
+          backgroundColor: Colors.grey,
+          child: ListView.builder(
+            itemCount: categorias.length,
+            itemBuilder: (BuildContext context, int indexCategoria) {
+              final categoria = categorias[indexCategoria];
+              return Center(
+                child: ExpansionTile(
+                  title: Center(child: Text(categoria.nombre, style: TextStyle(fontFamily: 'Raleway', fontWeight: FontWeight.bold, fontSize: 20),)),
+                  children: categoria.subcategorias.map((subcategoria)  {
+                    return ListTile(
+                      title:Container(child: Text(subcategoria.nombre, style: TextStyle(fontFamily: 'Raleway'),),
+                      margin: EdgeInsets.only(left: 40),
+                      ),
+                      onTap: () {
+                        // Al hacer clic en una subcategoría, actualiza la subcategoría seleccionada
+                        setState(() {
+                          subcategoriaSeleccionada = subcategoria;
+                        });
+                        Navigator.pop(context); // Cierra el Drawer
+                      },
+                    );
+                  }).toList(),
+                ),
+              );
+            },
+          ),
+        ),
+        body: ListView.builder(
+
+          itemCount: subcategoriaSeleccionada?.palabras.length ?? 0,
+          itemBuilder: (BuildContext context, int index) {
+            final palabra = subcategoriaSeleccionada?.palabras[index];
+            return Container(
+
+              width: 200,
+              child: Card(
+                elevation: 4.0,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                margin: EdgeInsets.all(10), // Agrega margen alrededor de la tarjeta
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: <Widget>[
+                    Image.network(palabra?.senia ?? '',
+                      height: 180,
+                    ), // Mostrar la imagen de la palabra
+                    Text(
+                      palabra?.palabra ?? '',
+                      style: TextStyle(
+                        fontSize: 30,
+                        fontFamily: "Raleway",
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            );
+          },
+        )
+      ),
+    );
+  }
+}
+
+
+
+
+
+
+
+
+
+
 
 
 /*
-  void _onDropdownChanged1(String? newValue) {
-    setState(() {
-      _selectedOption1 = newValue!;
-    });
+class consultar extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: HomeScreen(),
+    );
   }
+}
 
-  void _onDropdownChanged2(String? newValue) {
-    setState(() {
-      _selectedOption2 = newValue!;
-    });
-  }
+class HomeScreen extends StatefulWidget {
+  @override
+  _HomeScreenState createState() => _HomeScreenState();
+}
 
-  void _onDropdownChanged3(String? newValue) {
-    setState(() {
-      _selectedOption3 = newValue!;
-    });
-  }
 
-  void _onDropdownChanged4(String? newValue) {
-    setState(() {
-      _selectedOption4 = newValue!;
-    });
-  }
+class _HomeScreenState extends State<HomeScreen> {
 
-  void _onDropdownChanged5(String? newValue) {
-    setState(() {
-      _selectedOption5 = newValue!;
-    });
-  }
+  List<dynamic> datos=[];
 
-  void _onDropdownChanged6(String? newValue) {
-    setState(() {
-      _selectedOption6 = newValue!;
-    });
-  }
-
-  void _onDropdownChanged7(String? newValue) {
-    setState(() {
-      _selectedOption7 = newValue!;
-    });
-  }
-
-  void _onDropdownChanged8(String? newValue) {
-    setState(() {
-      _selectedOption8 = newValue!;
-    });
-  }
-
-  void _onDropdownChanged9(String? newValue) {
-    setState(() {
-      _selectedOption9 = newValue!;
-    });
-  }
-*/
-
-  void _onDropdownChanged10(String? newValue) {
-    setState(() {
-      _selectedOption10 = newValue!;
-    });
-  }
-
-  Widget _buildMainContent() {
-    if(_selectedOption10 == 'opcion1') {
-      return Center(
-        child: Text('Contenido para la Opción 1'),
-      );
-    } else if (_selectedOption10 == 'opción2') {
-      return Center(
-        child: Text('Contenido para la Opción 2'),
-      );
-    } else if (_selectedOption10 == 'opción3') {
-      return Center(
-        child: Text('Contenido para la Opción 3'),
-      );
-    } else {
-      return Center(
-        child: Container(
-          height: 200,
-          color: Colors.red[100],
-          child: Text("por que no funcionas"),
-        ),
-      );
+  Future<void> consultDatos() async{
+    print("holaaa");
+    final url=Uri.parse('http://192.168.1.6/getcategoria');
+    print("hellooooo");
+    final respuesta=await http.get(url);
+    if(respuesta.statusCode==200){
+      print("la Api se conecto de manera correcta");
+      final jsonResponse=json.decode(respuesta.body);
+      setState(() {
+        datos=jsonResponse;
+        print(datos);
+      });
+    }else{
+      print("Error: no se consultó la Api");
     }
   }
 
 
 
+  void initState(){
+    super.initState();
+    consultDatos();
+  }
+
+
+  List<String> dropdownItems = [];
+
+  String selectedOption = '';
+
+  void _showDropdown(List<String> items) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          content: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: items.map((item) {
+              return ListTile(
+                title: Text(item),
+                onTap: () {
+                  setState(() {
+                    selectedOption = item;
+                  });
+                  Navigator.of(context).pop(); // Cerrar el diálogo
+                },
+              );
+            }).toList(),
+          ),
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
-      drawer: Drawer(
-        width: 200,
-        child: Container(
-            color: Color(0xFF0a4d68),
-          child: Column(
-            children: [
-              Container(
-                width: 80,
-                height: 80,
-                margin: const EdgeInsets.only(top: 40),
-                child: Image.asset('assets/img/Megalogo.png'),
-              ),
-              const Text("MABLA", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20, color: Colors.white),),
-
-              /*Text('Valor seleccionado: $_selectedOption1'),
-              SizedBox(height: 60),
-              DropdownButton<String>(
-                underline: Container( // Personalización de la línea de abajo
-                  height: 20,
-
-                ),
-                value: _selectedOption1,
-                onChanged: _onDropdownChanged1,
-                items: <String>['opcion1', 'opcion2', 'opcion3', 'opcion4']
-                    .map<DropdownMenuItem<String>>((String value) {
-                  return DropdownMenuItem<String>(
-                    value: value,
-                    child: Text(value),
-                  );
-                }).toList(),
-              ),
-
-
-              DropdownButton<String>(
-                padding: EdgeInsets.only(top: 13),
-                underline: Container( // Personalización de la línea de abajo
-                  height: 20,
-
-                ),
-                value: _selectedOption2,
-                onChanged: _onDropdownChanged2,
-                items: <String>['opcion1', 'opcion2', 'opcion3', 'opcion4']
-                    .map<DropdownMenuItem<String>>((String value) {
-                  return DropdownMenuItem<String>(
-                    value: value,
-                    child: Text(value),
-                  );
-                }).toList(),
-              ),
-
-              DropdownButton<String>(
-                padding: EdgeInsets.only(top: 13),
-                underline: Container( // Personalización de la línea de abajo
-                  height: 20,
-
-                ),
-                value: _selectedOption3,
-                onChanged: _onDropdownChanged3,
-                items: <String>['opcion1', 'opcion2', 'opcion3', 'opcion4']
-                    .map<DropdownMenuItem<String>>((String value) {
-                  return DropdownMenuItem<String>(
-                    value: value,
-                    child: Text(value),
-                  );
-                }).toList(),
-              ),
-
-              DropdownButton<String>(
-                padding: EdgeInsets.only(top: 13),
-                underline: Container( // Personalización de la línea de abajo
-                  height: 20,
-
-                ),
-                value: _selectedOption4,
-                onChanged: _onDropdownChanged4,
-                items: <String>['opcion1', 'opcion2', 'opcion3', 'opcion4']
-                    .map<DropdownMenuItem<String>>((String value) {
-                  return DropdownMenuItem<String>(
-                    value: value,
-                    child: Text(value),
-                  );
-                }).toList(),
-              ),
-
-              DropdownButton<String>(
-                padding: EdgeInsets.only(top: 13),
-                underline: Container( // Personalización de la línea de abajo
-                  height: 20,
-
-                ),
-                value: _selectedOption5,
-                onChanged: _onDropdownChanged5,
-                items: <String>['opcion1', 'opcion2', 'opcion3', 'opcion4']
-                    .map<DropdownMenuItem<String>>((String value)  {
-                  return DropdownMenuItem<String>(
-                    value: value,
-                    child: Text(value),
-
-                  );
-                }).toList(),
-              ),
-
-              DropdownButton<String>(
-                padding: EdgeInsets.only(top: 13),
-                underline: Container( // Personalización de la línea de abajo
-                  height: 20,
-
-                ),
-                value: _selectedOption6,
-                onChanged: _onDropdownChanged6,
-                items: <String>['opcion1', 'opcion2', 'opcion3', 'opcion4']
-                    .map<DropdownMenuItem<String>>((String value)  {
-                  return DropdownMenuItem<String>(
-                    value: value,
-                    child: Text(value),
-
-                  );
-                }).toList(),
-              ),
-
-              DropdownButton<String>(
-                padding: EdgeInsets.only(top: 13),
-                underline: Container( // Personalización de la línea de abajo
-                  height: 20,
-
-                ),
-                value: _selectedOption7,
-                onChanged: _onDropdownChanged7,
-                items: <String>['opcion1', 'opcion2', 'opcion3', 'opcion4']
-                    .map<DropdownMenuItem<String>>((String value)  {
-                  return DropdownMenuItem<String>(
-                    value: value,
-                    child: Text(value),
-
-                  );
-                }).toList(),
-              ),
-
-              DropdownButton<String>(
-                padding: EdgeInsets.only(top: 13),
-                underline: Container( // Personalización de la línea de abajo
-                  height: 20,
-
-                ),
-                value: _selectedOption8,
-                onChanged: _onDropdownChanged8,
-                items: <String>['opcion1', 'opcion2', 'opcion3', 'opcion4']
-                    .map<DropdownMenuItem<String>>((String value)  {
-                  return DropdownMenuItem<String>(
-                    value: value,
-                    child: Text(value),
-
-                  );
-                }).toList(),
-              ),
-
-              DropdownButton<String>(
-                padding: EdgeInsets.only(top: 13),
-                underline: Container( // Personalización de la línea de abajo
-                  height: 20,
-
-                ),
-                value: _selectedOption9,
-                onChanged: _onDropdownChanged9,
-                items: <String>['opcion1', 'opcion2', 'opcion3', 'opcion4']
-                    .map<DropdownMenuItem<String>>((String value)  {
-                  return DropdownMenuItem<String>(
-                    value: value,
-                    child: Text(value),
-
-                  );
-                }).toList(),
-              ),*/
-
-              DropdownButton<String>(
-                padding: EdgeInsets.only(top: 13),
-                underline: Container( // Personalización de la línea de abajo
-                  height: 20,
-
-                ),
-                value: _selectedOption10,
-                onChanged: _onDropdownChanged10,
-                items: <String>['opcion1', 'opcion2', 'opcion3', 'opcion4']
-                    .map<DropdownMenuItem<String>>((String value)  {
-                  return DropdownMenuItem<String>(
-                    onTap: (){
-                      _onDropdownChanged10(_selectedOption10);
-                      Navigator.pop(context);
-                    },
-                    value: value,
-                    child: Text(value),
-
-                  );
-                }).toList(),
-              ),
-
-            ],
-          ),
-
-        ),
-      ),
-
-
-
 
       appBar: AppBar(
-          backgroundColor: Color(0xFF0a4d68),
-        title: const Text('Explora nuestro contenido'),
+        title: Text('Aprende Lengua de señas'),
       ),
+      drawer: Drawer(
 
-      body: _buildMainContent(),
+       child: ListView.builder(itemCount: datos.length,
+            itemBuilder: (context, index){
+              final subdecategorias=datos.Subcategorias;
+              final item=datos[index];
+              final todos=datos.length;
+              padding: EdgeInsets.zero;
 
-    );
+                return ListTile(
+
+                  title: Column(
+                    children: [
+                      Text(item['Categoria']),
+                      Text(item['Subcategorias'])
+                    ],
+                  ),
+
+                  onTap: () {
+                    Navigator.of(context).pop(); // Cerrar el drawer
+                    _showDropdown(['Opción 3-1', 'Opción 3-2', 'Opción 3-3']);
+                    // Aquí puedes manejar la acción cuando se selecciona un elemento del Drawer
+                  },
+
+
+                );
 
   }
+        ),
+
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+*/
+/*
+
+            Container(
+              child: Expanded(
+                child: ListView.builder(itemCount: datos.length,
+                    itemBuilder: (context, index){
+                      final item=datos[index];
+                      final todos=datos.length;
+                      return ListBody(
+                        children: [
+                          Card(
+                            color: Colors.indigo,
+                            child: Row(
+                              children: [
+                                Text(item['Categoria'],),
+
+                              ],
+                            ),
+
+                          ),
+                        ],
+
+                      );
+
+                    }
+
+
+                ),
+              ),
+            ),*//*
+
+            if (selectedOption.isNotEmpty)
+              Padding(
+                padding: EdgeInsets.all(8.0),
+                child: Text('Seleccionado: $selectedOption'),
+              ),
+            ElevatedButton(
+              onPressed: () {
+                Scaffold.of(context).openDrawer(); // Abrir el drawer desde el cuerpo
+              },
+              child: Text('Abrir Drawer'),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
 }
+*/
+
+
 
 
 

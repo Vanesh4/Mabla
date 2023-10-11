@@ -108,6 +108,19 @@ class userData(forms.ModelForm):
              'class':'form-input',
         })
         
+<<<<<<< HEAD
+    
+    """ first_name = forms.CharField(required=False)
+    last_name = forms.CharField(required=False)
+    email = forms.EmailField(required=False)
+    password = forms.CharField(required=False)
+    imgPerfil = forms.ImageField(required=False) """
+    
     class Meta:
         model = User
         fields= ['first_name', 'last_name', 'email','imgPerfil']
+=======
+    class Meta:
+        model = User
+        fields= ['first_name', 'last_name', 'email','imgPerfil']
+>>>>>>> Sara

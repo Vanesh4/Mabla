@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mabla/screen/menu.dart';
+import 'package:mabla/screen/registro.dart';
 
 import 'home.dart';
 import 'screen/login.dart';
@@ -20,7 +21,7 @@ class _headerPrincipalState extends State<headerPrincipal> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(right: 100),
+      margin: EdgeInsets.only(right: 90),
       color: beige,
       child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -28,7 +29,8 @@ class _headerPrincipalState extends State<headerPrincipal> {
               children: [
                 GestureDetector(
                     onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context)=>home())),
-                    child: Image.asset('assets/img/carpincho.png', width: 150,)),
+                    child: Image.asset('assets/img/Megalogo.png', width: 130,)),
+                SizedBox(height: 20,),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -62,13 +64,14 @@ class _headerPrincipalState extends State<headerPrincipal> {
                   ],
                 ),
                 SizedBox(
-                  height: 30,
+                  height: 40,
                 ),
                 Container(
-                  width: 200,
+                  width: double.infinity,
+                  margin: EdgeInsets.only(left: 30, right: 30),
                   height: 48,
                   child: ElevatedButton(onPressed: (){
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=>registro1()));
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>registro()));
                   },
                     child: Text('Registrarme',
                       style: TextStyle(fontSize: 28, fontFamily: "Raleway",color: Colors.white),),
@@ -82,8 +85,10 @@ class _headerPrincipalState extends State<headerPrincipal> {
                     ),
                   ),
                 ),
+                /*SizedBox(height: 20,),*/
                 Container(
-                  width: 200,
+                  width: double.infinity,
+                  margin: EdgeInsets.only(left: 30, right: 30),
                   height: 48,
                   child: ElevatedButton(onPressed: (){
                     Navigator.push(context, MaterialPageRoute(builder: (context)=>login()));

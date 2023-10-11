@@ -12,6 +12,9 @@
     margin: 0;
 }
 
+#alias{
+    visibility: hidden;
+}
 input{
     border: none;
     font-size: 18px;
@@ -82,6 +85,7 @@ p{
 .listComent{
     width: 65%;
     margin-left: 20px;
+    margin-bottom: 30px;
 }
 .paraComentar{
     width: 25%;
@@ -118,6 +122,8 @@ p{
     width: 40%;
     border-radius: 100px;
     margin-top: 10px;
+    border: none;
+    cursor: pointer;
 }
 
 #comentario{

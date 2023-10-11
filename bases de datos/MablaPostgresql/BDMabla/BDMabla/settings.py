@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'Tablas',
-    'corsheaders',
+    'rest_framework',
+    'rest_framework_simplejwt',
 ]
 
 MIDDLEWARE = [
@@ -53,8 +54,22 @@ MIDDLEWARE = [
     'django.middleware.common.CommonMiddleware',
 ]
 
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.BasicAuthentication',
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ),
+}
+SIMPLE_JWT = {
+    # ...
+    'USER_ID_FIELD': 'alias',  # Nombre del campo de identificación en tu modelo de usuario personalizado
+    # ...
+}
+
+
 CORS_ALLOWED_ORIGINS = [
-    'http://192.168.137.1',
+    'http://10.190.82.231',
 ]
 
 AUTHENTICATION_BACKENDS = (
@@ -95,8 +110,7 @@ DATABASES = {
         'HOST':'127.0.0.1',
         'DATABASE_PORT':'5432',
         'USER':'postgres',
-        'PASSWORD':'0000',
-
+        'PASSWORD':'2004',
     }
 }
 

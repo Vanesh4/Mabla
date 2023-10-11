@@ -1,197 +1,189 @@
-let listElements=document.querySelectorAll('.list_button--click');
-
-listElements.forEach(listElement => {
-    listElement.addEventListener('click',()=>{
-
-        listElement.classList.toggle('arrow');
-
-        let height=0;
-        let menu=listElement.nextElementSibling;
-        if(menu.clientHeight=="0"){
-            height=menu.scrollHeight
-        }
-
-        menu.style.height =`${height}px`;
-
-    })
-    
-}); 
-
-
-/* function consultarCategoria(){
-
-    fetch("http://127.0.0.1:8000/getcate",{
-        method:"GET",
-        headers:{
-            "consultar-type":"Tablas/json"
-        }
-    })
-
-    .then(response=>response.json())
-    .then(datos=>{
-        console.log(datos)
-        let tabla=document.getElementById("consultaCategoria");
-        tabla.innerHTML=""; // mostrar los datos en el html
-        if(datos==0){
-            tabla.innerHTML+=`<tr><td>NO hay Datos</td></tr>`
-        }else{
-            for(let dat of datos){
-                tabla.innerHTML+=`
-                <tr>
-                <td>${dat.Categoria}</td>
-
-                </tr>`
-            }
-        }
-    })
-} */
-
-/* let list_show=document.getElementById('list_show');
-
-let hideText=document.getElementById('hideText');
-
-list_show.addEventListener('click', toggleText);
-
-function toggleText(){
-    hideText.classList.toggle('show');
-
-    if(hideText.classList.contains('show')){
-        hideText_btn.innerHTML='Revisando';
-
-    }else{
-        hideText_btn.innerHTML='Animales';
-    }
-}  */
-
-
 $(document).ready(function () {
 
- /*    titulosCat = document.querySelectorAll('h1')
-    $.ajax({
-        url: "http://127.0.0.1:8000/getcate",
-        type: "GET",
-        dataType: "JSON",
-        success: function (res) {
-            for(i = 0; i <= res.length ; i++){
-                titulosCat[i].innerHTML = res[i].Categoria
-            }
+contenedor = document.querySelector("#list")
+const contenidoMostrado = document.getElementById('resultado');
+boton=document.getElementById('botonQuiz')
 
+    
+$.ajax({
+    url: "http://localhost:8080/getCategorias",
+    type: "GET",
+    dataType: "JSON",      
+    success: function (res) { 
+        console.log("categorias",res) 
+
+        for(let x = 0; x<=res.length; x++) {
+            console.log("el res for primero",res)
+ 
+            //console.log("hollaaaaaa",res[x])
+            contenedorli=document.createElement("li")
+            contenedorli.setAttribute("class","list_item list_item--click")
+
+            divcategoria=document.createElement("div")
+            divcategoria.setAttribute("class","list_button list_button--click")
+            //console.log("creacion del div",divcategoria)
+
+            imgdesplegar=document.createElement("img")  
+            imgdesplegar.setAttribute("class","list_arrow")
+            imgdesplegar.setAttribute("src", "/img/flecha-apunta-a-la-derecha.png")
+
+            h1categoria = document.createElement("h1")    
+            h1categoria.setAttribute("class","categorias")
+            h1categoria.innerHTML = res[x].categoria
+            //console.log("si se esta escribiendo la categoria", h1categoria)          
+            divcategoria.appendChild(h1categoria)
+            divcategoria.appendChild(imgdesplegar)
+            contenedorli.appendChild(divcategoria)
+            contenedor.appendChild(contenedorli)
+          
+           
+           
+
+            //console.log("los datos",contenedorli)
+
+            
+            contenedorsub=document.createElement("ul")
+            contenedorsub.setAttribute("class", "list_show")
+            subdecategorias=res[x].tablaSubcategorias
+            console.log("hola quiero observer",subdecategorias)
+            for(let s=0; s<subdecategorias.length; s++){       
+                console.log("subcategorias ijuemadre en s",subdecategorias)
+                
+                li = document.createElement("li")
+                li.setAttribute("class","list_inside")    
+
+                a=document.createElement("a")
+                a.setAttribute("class","nav_link nav_link--inside")
+                a.innerHTML=subdecategorias[s].subcategoria
+                //console.log(subdecategorias[s].subcategoria)
+
+                console.log("que hay en a",a)
+                
+                li.appendChild(a)
+                contenedorsub.appendChild(li)
+                contenedorli.appendChild(contenedorsub)
+
+                paldesubcate=subdecategorias[s].palabraas
+                console.log("palabras en subcate",paldesubcate)
+                
+
+                    console.log("siiiiiiiiiiiiiiiiiiiiiiiii?")
+                    enlaces = document.querySelectorAll('.nav_link--inside');
+                    console.log("capturando etiquetas a ")           
+                    console.log("enlaces",enlaces)
+                    enlaces.forEach(enlace => {
+                    console.log("entra al foreach con enlace",enlaces)    
+                    enlace.addEventListener('click', function(event) {
+                        
+                        //console.log("palabra quicleadad",enlace)
+                        event.preventDefault();
+                        //const valor = enlace.getAttribute('data-valor'); 
+                        valor = enlace.textContent;
+                        console.log("mirando valor",valor)
+                        contenidoMostrado.textContent = ContenidoDeBaseDeDatos(valor);
+                        console.log("que hay en el contenedor ",ContenidoDeBaseDeDatos)
+                
+                    function ContenidoDeBaseDeDatos(valor) {
+                        $.ajax({
+                            url: 'http://localhost:8080/listandopalabras/'+valor,
+                            data: {valor: valor},
+                            dataType: 'json',
+                            success: function(data) {
+                                console.log("valoooooooooor"+valor)
+                                console.log("ver lo que hay en data palabras",data)
+                                var resultsDiv = $('#resultado');
+                                
+                                
+                                resultsDiv.empty();                      
+                                var palabras = data;
+                                console.log("queria mirar lo que se guarda aqui",palabras)
+                                palabras.forEach(function(palabra) {
+                    
+                                    grupopalabra=document.createElement('div')
+                                    grupopalabra.setAttribute('class','grouppal')
+                    
+                                    img=document.createElement('img')
+                                    img.setAttribute('class','imgpal')
+                                    img.src=palabra.Senia
+                    
+                                    p=document.createElement('p')
+                                    p.setAttribute('class','ppal')
+                                    p.innerHTML=palabra
+
+                                    
+                                                     
+                                    grupopalabra.append(img)
+                                    grupopalabra.append(p)
+                                    contenidoMostrado.append(grupopalabra)
+                                    resultsDiv.append(grupopalabra)
+
+                                    //llamar el boton y mostrarlo
+                                    $('.boton').css("display","block")
+
+                                    
+                                });
+
+                                
+                                
+                            }
+                            
+                         
+                    
+                            });
+                            
+                    }
+                   
+                    
+
+                   
+                });
+            });
+           
+            
+            } 
+          
+          
+
+            
+            contenedor.appendChild(contenedorli)
+
+            let listElements=document.querySelectorAll('.list_button--click');
+
+            //console.log("viendo js desplegable")
+            //console.log(listElements)
+
+            listElements.forEach(listElement=>{
+                console.log("holaaa si entra a foreach")
+                listElement.addEventListener('click',()=>{
+                   
+                    console.log("dando click en la fecha")
+                    listElement.classList.toggle('.arrow');
+                    let height=0;
+                    let menu=listElement.nextElementSibling;
+                    if(menu.clientHeight=="0"){
+                        height=menu.scrollHeight
+                        listElement.getElementsByClassName('categorias')
+                        valo=listElement.innerText
+                        boton.setAttribute("value", valo)
+
+                                                          
+                    }
+                    menu.style.height =`${height}px`;
+
+                   
+
+                })
+                
+            });
+            
 
         }
-    }) */
 
-    contenedor = document.querySelector("#list")
+        
+    }
 
-    $.ajax({
-        url: "http://localhost:8080/getCategorias",
-        type: "GET",
-        dataType: "JSON",
-        success: function (res) {
-            console.log("categorias",res)
-            for(let x = 0; x<=res.length; x++) {
-                console.log("hollaaaaaa",res[x])
-                contenedorli=document.createElement("li")
-                contenedorli.setAttribute("class","list_item list_item--click")
-
-                divcategoria=document.createElement("div")
-                divcategoria.setAttribute("class","list_button list_button--click")
-
-                imgdesplegar=document.createElement("img")
-                imgdesplegar.setAttribute("src","/img/flecha-apunta-a-la-derecha.png")
-                imgdesplegar.setAttribute("class","list_arrow")
-
-                h1categoria = document.createElement("h1")
-                h1categoria.setAttribute("class","categorias")
-                h1categoria.innerHTML = res[x].categoria
-                divcategoria.appendChild(h1categoria)
-                divcategoria.appendChild(imgdesplegar)
-                contenedorli.appendChild(divcategoria)
+    
+})
 
 
-
-                console.log("los datos",contenedorli)
-
-
-
-
-                subcategorias=res[x].tablaSubcategorias
-                for(let s=0; s<subcategorias.length; s++){
-
-                    contenedorsub=document.createElement("ul")
-                    contenedorsub.setAttribute("class", "list_show")
-
-                    li = document.createElement("li")
-                    li.setAttribute("class","list_inside")
-
-                    a=document.createElement("a")
-                    a.setAttribute("class","nav_link nav_link--inside")
-                    a.innerHTML=subcategorias[s].subcategoria
-                    li.appendChild(a)
-                    contenedorsub.appendChild(li)
-                    contenedorli.appendChild(contenedorsub)
-
-                    console.log("viendo mi html",contenedorli)
-
-
-
-
-                }
-
-
-                contenedor.appendChild(contenedorli)
-
-
-
-            }
-
-
-        }
-
-
-
-    })
-
-
-
-    $.ajax({
-        url: "http://localhost:8080/getSubcategoria",
-        type: "GET",
-        dataType: "JSON",
-        success: function (res) {
-            console.log("subcategorias",res)
-            for(let s=0; s<=res.length; s++){
-
-            }
-            }
-    })
-
-
-    })
-
-
-
-/* function mostrarsubcate(){
-
-    fetch("http://127.0.0.1:8000/getsubcate",{
-        method:"GET",
-        headers:{
-            "consultar-type":"Tablas/json"
-        }
-    })
-
-    .then(response=>response.json())
-    .then(datos=>{
-        console.log(datos)
-        let caja=document.getElementById("cajita");
-        caja.innerHTML=""; // mostrar los datos en el html
-        if(datos==0){
-            caja.innerHTML+=`<h2>NO hay Datos</h2>`
-        }else{
-            for(let dat of datos){
-                caja.innerHTML+=`
-                <h2>${dat.subcategoria}</h2>
-                `
-            }
-        }
-    })
-} */
+})

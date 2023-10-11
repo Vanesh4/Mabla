@@ -1,5 +1,23 @@
 $(document).ready(function () {
+    $("#imgBotonAbrirMenu").on("click", ()=>{
+        $(".header").css({
+            "display": "inherit"});
+        $("#imgBotonAbrirMenu").css({
+            "display": "none"});
+        $("body").css({
+            "overflow": "hidden"});
+        //console.log("helllou")
+    })
     
+    $("#imgBotonCerrarMenu").on("click", ()=>{
+        $(".header").css({
+            "display": "none"});
+        $("body").css({
+            "overflow": "visible"});
+        $("#imgBotonAbrirMenu").css({
+            "display": "inherit"});
+        //console.log("helllou x2")
+    })
     /* titulosCat = document.querySelectorAll('h2')
     divsCategorias = document.querySelectorAll('.categoria')
     console.log("lenght: "+titulosCat.length) */
@@ -7,78 +25,49 @@ $(document).ready(function () {
     contenedor = document.querySelector("#menuContenido")
     //console.log("porfis",divsCategorias[6])
     
-    /* $.ajax({
+    $.ajax({
+        //url: "http://192.168.43.184/getcate",
         url: "http://127.0.0.1:8000/getcate",
         //url: "http://localhost:8080/getCategorias",
         type: "GET",
         dataType: "JSON",
         success: function (res) {
-            div = 0
             console.log(res)
-            for(i = 0; i <= titulosCat.length ; i++){
-                //console.log(res[i].Categoria)                
-                titulosCat[i].innerHTML = res[i].Categoria
-                
-                $.ajax({
-                    url: "http://127.0.0.1:8000/getSubcategorias/"+res[i].Categoria,
-                    type: "GET",
-                    dataType: "JSON",
-                    success: function (resSub) {    
-                        console.log("cat: ",res[i].Categoria)                    
-                        console.log("div: ",div)
-                        console.log(resSub)
-                        console.log("tit: ",titulosCat[div])
-                        if (resSub.length !== 0) {
-                            for (let s = 0; s < resSub.length; s++) {
-                                p = document.createElement("p")
-                                p.setAttribute("class", "subcategoria")                            
-                                p.innerHTML = resSub[s].subcategoria                         
-                                
-                                divsCategorias[div].appendChild(p)                     
-                            } 
-                        }                                  
-                        div++
-                        //console.log(div)
-                    } 
-                })
-                
-            }           
-            
-        } 
-    }) */
-        
-    $.ajax({
-        url: "http://127.0.0.1:8000/listaCatSub",
-        type: "GET",
-        dataType: "JSON",
-
-        success: function (res){
-            console.log(res)
-            for(let i=0; i<=res.length; i++){                
+            for(let i=0; i<res.length; i++){
+                          
                 divCategoria = document.createElement("div")
                 divCategoria.setAttribute("class","categoria")
 
                 h2Categoria = document.createElement("h2")
                 h2Categoria.innerHTML = res[i].Categoria
+                //console.log(res[i].Categoria)
+                
                 divCategoria.appendChild(h2Categoria)
                 
                 
-                deCategoria = res[i].Subcategorias
-                console.log("subcateeeeeeeeeeeeegorias")
-                console.log(deCategoria)
-                for (let s = 0; s < deCategoria.length; s++) {
+                subcategorias = res[i].Subcategorias
+                //console.log(subcategorias)
+                for (let s = 0; s < subcategorias.length; s++) {
                     //console.log(subcategorias[s].subcategoria)
-                    sub = document.createElement("div")
-                    sub.setAttribute("class","subcategoria")
-                    sub.innerHTML = deCategoria[s].subcategoria
-                    divCategoria.appendChild(sub)
-                    
+                    subcate = document.createElement("div")
+                    subcate.setAttribute("class","subcategoria")
+                    subcate.innerHTML = subcategorias[s].subcategoria
+                    divCategoria.appendChild(subcate)
                 }
                 
                 contenedor.appendChild(divCategoria)
            }
-       } 
-    });
-        
 
+        }            
+    })
+    
+    
 })
+divs = document.getElementsByClassName("categoria");
+console.log(divs)
+Array.from(divs).forEach(function(div, index) {
+    div.addEventListener("click", function() {
+        // Muestra el contenido del div en la consola al hacer clic
+        console.log("Contenido del Div " + (index + 1) + ": " + div.textContent);
+    });
+});

@@ -1,34 +1,25 @@
 
+let hider_btn=document.getElementById('hider_btn');
 
-function mostrarTeclado() {
-    const contenidoDiv = document.getElementById('hide_abc');
+let hide_abc=document.getElementById('hide_abc');
 
-/*let hider_btn=document.getElementById('hider_btn');
->>>>>>> 0e797abdea980efffe1e89917c87a3fbac19ff74
+hider_btn.addEventListener('click', toggleText);
 
-    if (contenidoDiv.style.visibility == 'hidden') {
-        contenidoDiv.style.visibility = 'inherit';
-    } else {
-        contenidoDiv.style.visibility = 'hidden';
+function toggleText(){
+    hide_abc.classList.toggle('show');
+    console.log("entra a la funcion toggletext",hide_abc)
+    if(hideText.classList.contains('show')){
+        hideText_btn.innerHTML='r';
+        
+    }else{
+        hideText_btn.innerHTML='y';
     }
-<<<<<<< HEAD
+
+
 }
-=======
 
 
-}*/
-
-
-alturaAbc = ()=>{
-    teclado = document.getElementById('hide_abc');
-    alturaPantalla = window.innerHeight;
-    teclado.style.height = alturaPantalla + 'px';
-}
-alturaAbc()
-window.addEventListener('resize', ajustarAlturaContenedor)
-
-
-function consultar(){
+/* function consultar(){
     console.log("holaaaaaa")
 
     fetch("http://127.0.0.1:8000/getpalabra",{
@@ -61,4 +52,215 @@ function consultar(){
             }
         }
     })
-}
+} */
+
+
+$(document).ready(function() {
+    $('#buscador').on('submit', function(event) {
+        event.preventDefault();
+        var inicial = $('#inicial').val();
+        $.ajax({
+            url: 'http://localhost:8080/palabrasinicial/'+inicial,
+            data: {inicial: inicial},
+            dataType: 'json',
+            success: function(data) {
+                console.log("ver lo que hay en data",data)
+                var resultsDiv = $('#results');
+               
+
+                resultsDiv.empty();
+                var palabras = data;
+                console.log("dataaaaaaaaaaaaaaaaaaaa",palabras)
+                palabras.forEach(function(palabra) {
+
+                    grupopalabra=document.createElement('div')
+                    grupopalabra.setAttribute('class','grouppal')
+
+                    img=document.createElement('img')
+                    img.setAttribute('class','imgpal')
+                    img.src=palabra.senia
+                    /* img.src='Tablas/static/img/capiLogin.png' */
+
+                    p=document.createElement('p')
+                    p.setAttribute('class','p')
+                    p.innerHTML=palabra
+                    console.log("lo que hay en p",palabra)
+                    console.log("pppppppppppppppppppppppp",palabra.palabra)
+
+                    
+
+                    grupopalabra.append(img)
+                    grupopalabra.append(p)
+                    resultsDiv.append(grupopalabra)
+                });
+                
+            }
+        });
+    });
+});
+
+
+
+
+
+const enlaces = document.querySelectorAll('#enlace');
+const inputMostrarContenido = document.getElementById('inicial');
+const contenidoMostrado = document.getElementById('results');
+enlaces.forEach(enlace => {
+  enlace.addEventListener('click', function(event) {
+    console.log("palabra quicleadad",enlace)
+    event.preventDefault(); 
+    const valor = enlace.getAttribute('data-valor');
+ 
+    inputMostrarContenido.value = valor;
+    contenidoMostrado.textContent = obtenerContenidoDeBaseDeDatos(valor);
+  });
+});
+function obtenerContenidoDeBaseDeDatos(valor) {
+    $.ajax({
+        url: 'http://localhost:8080/palabrasinicial/'+valor,
+        data: {valor: valor},
+        dataType: 'json',
+        success: function(data) {
+            console.log("ver lo que hay en data",data)
+            var resultsDiv = $('#results');
+            resultsDiv.empty();
+            var palabras = data;
+            console.log("queria mirar lo que se guarda aqui",palabras)
+            palabras.forEach(function(palabra) {
+
+                grupopalabra=document.createElement('div')
+                grupopalabra.setAttribute('class','grouppal')
+
+                img=document.createElement('img')
+                img.getAttribute('class','imgpal')
+                img.src=palabra.senia
+
+                p=document.createElement('p')
+                p.setAttribute('class','p')
+                p.innerHTML=palabra
+
+                grupopalabra.append(img)
+                grupopalabra.append(p)
+                resultsDiv.append(grupopalabra)
+            });
+            
+        }
+    });
+  }
+
+
+  $(document).ready(function() {
+    var word = document.getElementById('container');
+    const inputMostrarContenido = document.getElementById('inicial');
+    console.log("hola mi gente")
+   
+    $('#inicial').on('input', function() {
+      var inicial = $(this).val().toLowerCase(); // Obtenemos la inicial ingresada y la convertimos a minúsculas
+      var wordList = $('#wordList'); // Elemento donde mostraremos la lista de palabras
+      $.ajax({
+        url: 'http://localhost:8080/palabrasinicial/'+inicial,
+        method: 'GET',
+        data: { inicial: inicial }, // Enviamos la inicial como parámetro
+        success: function(data) {
+          var resultsDiv = $('#results');
+          resultsDiv.empty();
+          wordList.empty(); // Vaciamos la lista actual de palabras
+          var palabras = data;
+  
+          // se va agregando cada palabra recibida a la lista
+          palabras.forEach(function(Palabra) {
+            console.log("lo que hay en el forech palabra",Palabra)
+            
+            console.log("vinedo las palbras recorridads en el foreach",palabras)
+            var listItem = $('<p>').text(Palabra).addClass('miClase');
+            console.log("lo que hay en listem ",listItem)
+
+            listItem.click(function() {
+              mivalor=Palabra
+              $('.miClase').val(mivalor);
+              console.log("que hay rn esa palabra", mivalor)
+              inputMostrarContenido.value = mivalor;
+              console.log("esta es la palabras quicleada",mivalor)
+              resultsDiv.textContent = obtenerContenidoDeBaseDeDatos(mivalor);
+
+              // Aquí podrías hacer algo con el contenido de la palabra seleccionada
+                /* grupopalabra=document.createElement('div')
+                grupopalabra.setAttribute('class','grouppal')
+
+                img=document.createElement('img')
+                img.getAttribute('class','imgpal')
+                img.src=Palabra.senia
+
+                p=document.createElement('p')
+                p.setAttribute('class','p')
+                p.innerHTML=Palabra.palabra
+
+                grupopalabra.append(img)
+                grupopalabra.append(p)
+                resultsDiv.append(grupopalabra) */
+
+                function obtenerContenidoDeBaseDeDatos(valor) {
+                  $.ajax({
+                      url: 'http://localhost:8080/palabrasinicial/'+valor,
+                      data: {valor: valor},
+                      dataType: 'json',
+                      success: function(data) {
+                          console.log("ver lo que hay en data",data)
+                          var resultsDiv = $('#results');
+                          resultsDiv.empty();
+                          var palabras = data;
+                          console.log("queria mirar lo que se guarda aqui",palabras)
+                          palabras.forEach(function(palabra) {
+              
+                              grupopalabra=document.createElement('div')
+                              grupopalabra.setAttribute('class','grouppal')
+              
+                              img=document.createElement('img')
+                              img.getAttribute('class','imgpal')
+                              img.src=palabra.senia
+              
+                              p=document.createElement('p')
+                              p.setAttribute('class','p')
+                              p.innerHTML=palabra
+              
+                              grupopalabra.append(img)
+                              grupopalabra.append(p)
+                              resultsDiv.append(grupopalabra)
+                          });
+                          
+                      }
+                  });
+                }
+          });
+         
+           
+            listItem.css({
+              'font-family':'raleway',             
+              'color': 'white',
+              'fontSize': '18px',
+              'padding': '12px',
+              
+            
+                
+              });
+            wordList.append(listItem);
+            word.style.backgroundColor='#00000092';
+            word.style.width='21%';
+            word.style.padding='15px';
+            word.style.borderRadius='10px',
+            
+
+            console.log("como me trae las palabras",listItem)
+
+
+
+                  
+          });
+        },
+        error: function(err) {
+          console.error('Error al obtener las palabras:', err);
+        }
+      });
+    });
+  });

@@ -35,7 +35,10 @@ form{
     width: 60%;
     align-self: center;
     margin-top: 40px;
+<<<<<<< HEAD
+=======
     margin-top: 40px;
+>>>>>>> Sara
 }
 input{
     display: flex;
@@ -64,7 +67,15 @@ input{
     left: 68%;
     cursor: pointer;
 }
-
+#ph i{
+    color: #222222;
+    font-size: 22px;
+    position: absolute;
+    width: 10%;
+    top: 56.5%;
+    transform: translateX(157%);
+    cursor: pointer;
+}
 #boton{
     display: flex;
     justify-content: center;
@@ -96,7 +107,11 @@ input{
     font-size: 40px;
     font-family: 'Raleway', sans-serif;
     border-radius: 100px;
+<<<<<<< HEAD
+    padding: 15px 27px 15px 27px;
+=======
     padding: 10px 27px 10px 27px;
+>>>>>>> Sara
     border: none;
 }
 
@@ -193,6 +208,39 @@ input{
     #colorbtn{
         margin: 0px;
         padding: 0px;
+<<<<<<< HEAD
+        padding: 15px;
+    }
+    #colorbtn p{
+        font-size: 27px;        
+    }
+    .imgyText{
+        position: absolute;
+        width: 50%;
+        height: 50%;
+        background-color: red;
+        margin: 0%;
+        padding: 0%;
+        justify-content: flex-start;
+        top: 10%;
+    }
+    #mablaNaranja{
+        width: 140%;
+    }
+    .slogan{
+        margin: 0px;
+    }
+    .slogan p{
+        width: 180%;
+        font-size: 22px;
+        text-align: center;
+    }
+    #capi{
+        margin: 0px;
+        padding: 0px;
+        width: 100%;
+        background-color: yellow;
+=======
         padding: 13px;
     }
     #colorbtn p{
@@ -229,6 +277,7 @@ input{
     .error{
         font-size: 15px;
         padding: 15px;
+>>>>>>> Sara
     }
 }
 
@@ -278,6 +327,7 @@ input{
         width: 45%;
         height: 80%;
         margin: 50px 25px 0px 0px;
+
     }
     .slogan{
         padding: 0px;

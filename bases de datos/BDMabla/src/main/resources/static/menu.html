@@ -1,32 +1,46 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MABLA</title>
-    <link rel="icon" type="image/x-icon" href="https://img.icons8.com/?size=512&id=84881&format=png">
     
     <link rel="stylesheet" href="/css/headerprincipal.css">
     <link rel="stylesheet" href="/css/menu.css">
-
+    <link rel="icon" type="image/x-icon" href="/img/mablaLOGO-removebg.png">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
+<<<<<<< HEAD
+
+<div sec:authorize = "isAuthenticated()">
+=======
    
-    <header id="header">
+>>>>>>> ad0ba1336d676244828f3189fb23c4405eb563af
+    <header class="header">
         <div class="closeBtn">
             <img src="/img/cancelar.png" alt="" id="imgBotonCerrarMenu">
         </div>
-        <div id="parteizq">
+        <div class="parteizq">
             <div class="logo">
-                <a href="index.html">
+<<<<<<< HEAD
+                <a href="http://127.0.0.1:8000/inicio">
+                    <img src="/img/img/mablaLOGO-removebg.png" alt="logo" class="logoImg">
+                </a>
+            </div>
+            <div class="linkContenido">
+                <a href="http://127.0.0.1:8000/menu"><p class="textomenu">Contenido</p></a>
+                <a href="http://127.0.0.1:8000/menu">
+=======
+                <a href="http://localhost:8080/">
                     <img src="" alt="cabipara" srcset="">
                 </a>                
             </div>
             <div class="linkContenido">
                 <a href="menu.html"><p class="textomenu">Contenido</p></a>
-                <a href="menu.html">
+                <a href="http://localhost:8080/menu.html">
+>>>>>>> ad0ba1336d676244828f3189fb23c4405eb563af
                     <img src="/img/flecha-hacia-abajo-para-navegar.png" alt="flecha" style="width: 15px;height: 15px;" class="imgflecha">
                 </a>
             </div>
@@ -37,22 +51,76 @@
                 </a>
             </div>
         </div>
-        <div id="partederecha">
+        <div class="partederecha">
+<<<<<<< HEAD
+            <div class="buscador">
+                <input  type="text" name="buscador" class="buscadorMenu" maxlength="20">
+                <img src="/img/lupa.png" alt="lupa" style="width: 10%;">
+            </div>
+
+            <a href="http://127.0.0.1:8000/perfil/">
+                <img id="fotoUser" src="/img/user.png" alt="">
+            </a>
+        </div>
+=======
             <div id="login">
-                <p id="BotonRegisto">
+                <!--<p id="BotonRegisto">
                     <a href="registro.html">Registrarme</a>
-                </p>
+                </p>-->
                 <p id="BotonIngresar">
                     <a href="login.html">Iniciar Sesión</a>
                 </p>
             </div>
-            <div id="buscador">
-                <input type="text" name="buscador" id="buscadorMenu" maxlength="20">
+            <div class="buscador">
+                <input type="text" name="buscador" class="buscadorMenu" maxlength="20">
                 <img src="/img/lupa.png" alt="lupa" style="width: 10%;">                
             </div>
             
         </div>    
+>>>>>>> ad0ba1336d676244828f3189fb23c4405eb563af
     </header>
+</div>
+
+<div sec:authorize = "!isAuthenticated()">
+    <header class="header">
+        <div class="closeBtn">
+            <img src="/img/cancelar.png" alt="" id="imgBotonCerrarMenu">
+        </div>
+        <div class="parteizq">
+            <div class="logo">
+                <a href="http://localhost:8080/">
+                    <img src="/img/mablaLOGO-removebg.png" alt="logo" class="logoImg">
+                </a>
+            </div>
+            <div class="linkContenido">
+                <a href="http://localhost:8080/menu.html"><p class="textomenu">Contenido</p></a>
+                <a href="http://localhost:8080/menu.html">
+                    <img src="/img/flecha-hacia-abajo-para-navegar.png" alt="flecha" style="width: 15px;height: 15px;" class="imgflecha">
+                </a>
+            </div>
+            <div class="linkContenido">
+                <a href="#"><p class="textomenu">Sobre nosotros</p></a>
+                <a href="#">
+                    <img src="/img/flecha-hacia-abajo-para-navegar.png" alt="flecha" style="width: 15px;height: 15px;" class="imgflecha">
+                </a>
+            </div>
+        </div>
+        <div class="partederecha">
+            <div id="login">
+                <p id="BotonIngresar">
+                    <!-- <a href="http://127.0.0.1:8000/ingresar">Iniciar Sesión</a> -->
+                    <a th:href="@{/oauth2/authorization/auth0}">Iniciar Sesión</a>
+                </p>
+            </div>
+            <div class="buscador">
+                <input  type="text" name="buscador" class="buscadorMenu" maxlength="20">
+                <img src="/img/lupa.png" alt="lupa" style="width: 10%;">
+            </div>
+
+        </div>
+    </header>
+</div>
+
 
     <div class="menuResponsive">
         <img src="/img/lista.png" alt="" style="width: 40px;" id="imgBotonAbrirMenu">

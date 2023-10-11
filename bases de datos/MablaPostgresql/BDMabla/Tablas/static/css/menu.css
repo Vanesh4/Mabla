@@ -24,11 +24,11 @@ body{
 .categoria{
     /* border: 1px solid black; */
     margin: 20px;
-    cursor: pointer;
 }
 
 h2, .subcategoria{
     text-align: center;
+    /* cursor: pointer; */
 }
 
 h2{
@@ -52,7 +52,7 @@ h2{
         justify-content: center;    
     }
     .menuResponsive{
-        margin: 10px 0 0 20px;
+        padding: 10px 0 0 20px;
     }
     h2{
         font-size: 30px;

@@ -12,9 +12,9 @@
 </head>
 <body>
 
-    <!-- <header>
-    </header> -->
-
+    <form method="get" enctype="multipart/form-data">
+        <p id="alias">{{ user.username }}</p>
+    </form>
     <section id="sectionPregunta">
         <div class="flecha">
             <img src="{% static 'img/flecha-apunta-a-la-izquierda.png'%}" id="retrocede" class="imgflecha">
@@ -24,14 +24,14 @@
             <div id="preguntas">
                 <p id="pregunta">A que palabra corresponde esta seña</p>
                 <div id="senia">
-                    <!-- <img src="" alt="" id="linkSenia"> -->
+                    <img src="" alt="" id="linkSenia">
                 </div>
             </div>
             <div id="respuestas">
-                <div id="opcion0" class="opcion"></div>
-                <div id="opcion1" class="opcion"></div>
-                <div id="opcion2" class="opcion"></div>
-                <div id="opcion3" class="opcion"></div>
+                <button id="opcion0" class="opcion opcion0"></button>
+                <button id="opcion1" class="opcion opcion1"></button>
+                <button id="opcion2" class="opcion opcion2"></button>
+                <button id="opcion3" class="opcion opcion3"></button>
             </div>
         </div>
 
@@ -40,6 +40,15 @@
         </div>
 
     </section>
+
+    <section id="resultado">
+        <p class="p">tu puntaje:</p>
+        <p id="calificacion"></p>
+        <div class="boton" id="btnInicio"><a href="http://127.0.0.1:8000/">Volver al Inicio</a></div>
+        <div class="boton" id="btnAprender"><a href="http://127.0.0.1:8000/mostrar/">Seguir Aprendiendo</a></div>
+        <img src="{%static 'img/capiJugito.png'%}" alt="" id="CapibaraImg">
+    </section>
+    
 
     <script src="{% static 'js/quizTipo1.js'%}"></script>
 </body>

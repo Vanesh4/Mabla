@@ -1,41 +1,45 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MABLA-CONSULTAR</title>
+  <link rel="stylesheet" href="/css/consultando.css">
   <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/brands.js" integrity="sha384-sCI3dTBIJuqT6AwL++zH7qL8ZdKaHpxU43dDt9SyOzimtQ9eyRhkG3B7KMl6AO19" crossorigin="anonymous"></script>
   <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/fontawesome.js" integrity="sha384-7ox8Q2yzO/uWircfojVuCQOZl+ZZBg2D2J5nkpLqzH1HY0C1dHlTKIbpRz/LG23c" crossorigin="anonymous"></script>
   <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js" integrity="sha384-SlE991lGASHoBfWbelyBPLsUlwY1GwNDJo3jSJO04KZ33K2bwfV9YBauFfnzvynJ" crossorigin="anonymous"></script>
+  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
+  <script src="/js/code.jquery.com_jquery-3.7.0.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <link rel="stylesheet" href="/css/consultando.css">
-  <link rel="icon" type="image/x-icon" href="/img/mablaLOGO-removebg.png'">
+  <link rel="icon" type="image/x-icon" href="/img/mablaLOGO-removebg.png">
+
 </head>
 <body>
-
 <section class="todoo">
 
   <section class="caja">
     <nav class="nav">
-      <ul class="list">
+      <ul id="list">
+        <!-- <img src="{% static 'img/flecha-apunta-a-la-derecha.png'%}" alt="flecha" class="list_arrow"> -->
 
-      <!--  <li class="list_item list_item&#45;&#45;click">
-          <div class="list_button list_button&#45;&#45;click" >
-            <h1 style=" padding: 15px; font-size: 20px; width: 100%; background-color: transparent;" class="categorias"></h1>
-            <img src="/img/flecha-apunta-a-la-derecha.png" style="height: 10px;" class="list_arrow">
+        <!-- <img src="{% static 'img/flecha-apunta-a-la-derecha.png'%}" style="height: 10px;" id="list_arrow">
+          -->
+        <!--        <li class="list_item list_item--click">
 
-          </div>
+                    <div class="list_button list_button--click" >
+                        <h1 style=" padding: 15px; font-size: 20px; width: 100%; background-color: transparent;" class="categorias"></h1>
+                        <img src="{% static 'img/flecha-apunta-a-la-derecha.png'%}" style="height: 10px;" class="list_arrow">
 
-          <ul class="list_show">
-            <li class="list_inside">
-              <a href="#" class="nav_link nav_link&#45;&#45;inside">Estoy dentro</a>
-
-            </li>
-
-          </ul>
+                    </div>
 
 
-        </li>-->
+                   <ul class="list_show">
+                        <li class="list_inside">
+                            <a href="#" class="nav_link nav_link--inside">Estoy dentro</a>
+                        </li>
+                    </ul>
+                </li>  -->
 
 
 
@@ -48,29 +52,27 @@
 
     <div class="buscar">
 
-      <input type="text" placeholder="Buscar">
-      <div class="btn">
-        <i class="fa fa-search" id="lupa"></i>
-      </div>
+      <a href="http://127.0.0.1:8000/">
+        <img class="logo"  src="img/mablaLOGO-removebg.png" alt="">
+    </a>
     </div>
 
-    <span class="hide" id="hideText">
-        <div style="background-color: rgb(252, 248, 248);">
-        <h1 class="subtitulo">Subcategoria</h1>
 
+    <div id="resultado">
 
+    </div>
 
-        </div>
-    </span>
-
-
-
+    <button type="button" id="botonQuiz" class="boton">Presentar Quiz</button>
 
 
 
   </section>
 
-  <script src="/BDMabla/Tablas/static/js/consultando.js"></script>
+
+
+
+  <!--   <script src="/BDMabla/Tablas/static/js/consultando.js"></script> -->
+
 
 
   <table id="consultaCategoria">
