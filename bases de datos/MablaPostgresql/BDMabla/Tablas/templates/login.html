@@ -5,38 +5,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link rel="stylesheet" href="{% static 'css/login.css' %}" type="text/css"> 
+    
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,300;0,400;0,700;1,100&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Martian+Mono:wght@100;500&display=swap" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="{% static 'img/mablaLOGO-removebg.png' %}">
+    <link rel="stylesheet" href="{% static 'css/login.css' %}"> 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
   </head>
 <body>
-  <header>
-    <form method="post" id="formLogin" class="row g-3">
-      <div class="textSesion">
-        INICIAR SESIÓN
-      </div>
+    <form method="POST">
+        <p class="textS">
+          INICIAR SESIÓN
+        </p>
       {% csrf_token %}
       <section class="sectionForm">
-
         <div id="ph">
-          <label for="{{ username }}" class="form-label"> Alias</label>
+          <label class="form-label"> Alias</label>
             {{ form.username }}
             <div class="error">
-              {% if form.errors.username %}
+              {% if form.errors %}
                 <p>Alias incorrecto</p>
               {% endif %}
             </div>
         </div>
   
         <div id="ph">
-          <label for="{{ password }}" class="form-label">Clave</label>
+          <label class="form-label">Clave</label>
             {{ form.password }}
+            <i class="fa fa-eye" id="toggle-password" onclick="ver()"></i>
             <div class="error">
-              {% if form.errors.password %}
-                <p>CLave incorrecta</p>
+              {% if form.errors %}
+                <p>Clave incorrecta</p>
               {% endif %}
             </div>
         </div>    
@@ -47,22 +49,17 @@
         </div>
 
         <div id="boton">
-          <button class="btn" type="submit" id="colorbtn">Ingresar</button>
+          <button type="submit" id="colorbtn"><p>Ingresar</p></button>
         </div>
-
       </section>
     </form>
-
-    <h1>{{ mensaje }}</h1>
-    
     <div class="imgyText">
       <img id="mablaNaranja" src="/static/img/letrasMABLAnaranja.png" alt="" srcset="">
       <div class="slogan">
-        HABLA CON LAS MANOS
+        <p>HABLA CON LAS MANOS</p>
       </div>
-      <img id="capi" src="/static/img/capiLogin.png" alt="" srcset="" width="60%">
-    </div>
-  </header>  
-  <!-- <script src="{% static 'js/gestionUser.js' %}"></script>   -->
+      <img id="capi" src="/static/img/capiLogin.png" alt="" srcset="">
+    </div> 
 </body>
+<script src="{% static 'js/gestionUser.js' %}"></script>  
 </html>

@@ -29,13 +29,13 @@
         </div>
         <div class="parteizq">
             <div class="logo">
-                <a href="http://127.0.0.1:8000/inicio">
+                <a href="/">
                     <img src="{% static 'img/mablaLOGO-removebg.png'%}" alt="logo" class="logoImg">
                 </a>                
             </div>
             <div class="linkContenido">
-                <a href="http://127.0.0.1:8000/menu"><p class="textomenu">Contenido</p></a>
-                <a href="http://127.0.0.1:8000/menu">
+                <a href="/menu"><p class="textomenu">Contenido</p></a>
+                <a href="/menu">
                     <img src="{% static 'img/flecha-hacia-abajo-para-navegar.png'%}" alt="flecha" style="width: 15px;height: 15px;" class="imgflecha">
                 </a>
             </div>
@@ -46,18 +46,27 @@
                 </a>
             </div>
         </div>
+
         <div class="partederecha">
+            <p class="BotonPrimario">
+                <a href="/logOut">Cerrar Sesión</a>
+            </p>
             <div class="buscador">
-                <input  type="text" name="buscador" class="buscadorMenu" maxlength="20">
+                <input  type="text" name="bus"  class="buscadorMenu" maxlength="20">
                 <img src="{% static 'img/lupa.png'%}" alt="lupa" style="width: 10%;">                
             </div>
-            
-            <a href="http://127.0.0.1:8000/perfil/">
-                <img id="fotoUser" src="{% static 'img/user.png'%}" alt="">
-            </a>
+            <form method="get" enctype="multipart/form-data">
+                {% csrf_token %}
+                <a href="perfil">
+                    <div class="imgdeperfil">
+                        <img id="fotoUser" src="{{ form.instance.imgPerfil.url }}">
+                    </div>               
+                </a>
 
+                
+            </form>
         </div>    
-    </header>
+</header>
 
 
  
@@ -66,98 +75,142 @@
 </svg>
 
     
-<h1 class="titulo">MI PERFIL</h1>
+<h1 class="titulo">{{user.alias}}</h1>
 
-    <form class="frm" action="/register/" method="post" enctype="multipart/form-data">
-        {% csrf_token %}
-            {{form_as.div}}
-    </form>
+    <form id="formdatos" method="post" enctype="multipart/form-data">
 
-    <section id="todo">
-        <section id="imagen">
-            <div id="img">
-                <img class="foto" src="{% static 'img/carpincho.png'%}" alt="" style="height: 200px;">
-               </div>
-
-        </section>
-
-        <section id="contenido">
-        
-            <div class="dat">
-                
-                <div id="inp">
-                    <input type="text" name="cantidad" id="dato" readonly="readonly" value="nombre" />
-                    
-                    <div id="im" >
-                        <img id="lap" src="{% static 'img/editando.png'%}" alt="">
-
-                    </div>
-                    
-                </div>
-               
-                <div id="inp">
-                    <input type="text" name="cantidad" id="dato" readonly="readonly" value="apellido"/>
-                    <div id="im">
-                        <img id="lap" src="{% static 'img/editando.png'%}" alt="">
-
-                    </div>      
-                </div>
-               
-                <div id="inp">
-                    <input type="text" name="cantidad" id="dato" readonly="readonly" value="celular" />
-                    <div id="im">
-                        <img id="lap" src="{% static 'img/editando.png'%}" alt="">
-
-                    </div>
-                </div>
-                
-                <div id="inp">
-                    <input type="text" name="cantidad" id="dato" readonly="readonly" value="correo"/>
-                    <div id="im">
-                        <img id="lap" src="{% static 'img/editando.png'%}" alt="">
-
-                    </div>
-                </div>
-    
+        <div class="fotperfil">
+            <div class="mifoto">
+                <img id="fotouser" src="{{ form.instance.imgPerfil.url }}">
             </div>
-             
-         </section>
+            
+            <input type="file" name="imgPerfil" id="id_imgPerfil" accept="image/*" onchange="previewImage(this);">
+            <div class="custom-file-upload">
+                <label for="id_imgPerfil" class="subt">Seleccionar Imagen</label>
+              </div>
+        </div>
+        <div class="datosusua">
+            {% csrf_token %}
+            {{form.first_name}}
+            {{form.last_name}}
+            {{form.email}}
+            <!-- <input type="hidden" name="{{ formulario.password.name }}" value="{{ form.password.value }}"> -->
+            <!-- {{form.imgPerfil}}
+            <img src="{{ form.instance.imgPerfil.url }}"> -->
+            <div>
+                <button id="editar" type="submit" name="editar" value="editar">Guardar cambios</button>
+            </div>
+            
+        </div>
+
+</form>
 
 
-    </section>
 
     <section class="progreso">
 
-
-        <div id="click">
-            <a href="" id="btn">
-                <img src="{% static 'img/flecha-apunta-a-la-izquierda.png'%} " alt="" style="height: 30px;">
+        <div id="clicks">
+            
+                <img id="flecha" src="{% static 'img/flecha-apunta-a-la-izquierda.png'%} " alt="" >
                 <h2 class="sbo" id="sub">Mi progreso</h2>
-            </a>
+            
         </div>
 
     </section>
 
-        <span class="spa" id="spant">
+        <span class="hider" id="spant">
             <div id="result">
-
-                <div id="cuno">
-                    <img src="{%static 'img/carpincho.png'%}" alt="" style="height: 250px;">
-                </div>
 
                 <div id="vertodo" style="flex-direction: column;">
 
                 <div id="cdos" style="display: flex;">
                     <div id="cajon">
                         <div  >
-                            <input id="place" type="button" value="verbos" height="20px">
+                            <input id="place" type="button" value="verbos" width="20%">
                         </div>                    
-                        <a id="mas" href="">pruebas anteriores</a>
+                        <a class="mas" href="#" data-target="todasN">pruebas anteriores</a>
                     </div>
                     
                     <div id="cajita" >                
                         <h3 id="nota">3/5</h3>
                     </div>
+
+                    <span id="todasN" style="display: none;">
+                        <div class="notas-container">
+
+                        <div id="cajita" >                
+                            <h3 id="nota">3/5</h3>
+                        </div>
+                        <div id="cajita" >                
+                            <h3 id="nota">3/5</h3>
+                        </div>
+                        <div id="cajita" >                
+                            <h3 id="nota">3/5</h3>
+                        </div>
+                        <div id="cajita" >                
+                            <h3 id="nota">3/5</h3>
+                        </div>
+                        <div id="cajita" >                
+                            <h3 id="nota">3/5</h3>
+                        </div>
+                        <div id="cajita" >                
+                            <h3 id="nota">3/5</h3>
+                        </div>
+                        <div id="cajita" >                
+                            <h3 id="nota">3/5</h3>
+                        </div>
+                        <div id="cajita" >                
+                            <h3 id="nota">3/5</h3>
+                        </div>
+
+                    </div>
+
+                    </span>
+                    
+                                      
+                </div>
+
+                <div id="cdos" style="display: flex;">
+                    <div id="cajon">
+                        <div  >
+                            <input id="place" type="button" value="verbos">
+                        </div>                    
+                        <a class="mas" href="#" data-target="todasN">pruebas anteriores</a>
+                    </div>
+                    
+                    <div id="cajita" >                
+                        <h3 id="nota">3/5</h3>
+                    </div>
+
+                    <span id="todasN" style="display: none;">
+
+                        <div id="cajita" >                
+                            <h3 id="nota">3/5</h3>
+                        </div>
+                        <div id="cajita" >                
+                            <h3 id="nota">3/5</h3>
+                        </div>
+                        <div id="cajita" >                
+                            <h3 id="nota">3/5</h3>
+                        </div>
+                        <div id="cajita" >                
+                            <h3 id="nota">3/5</h3>
+                        </div>
+                        <div id="cajita" >                
+                            <h3 id="nota">3/5</h3>
+                        </div>
+                        <div id="cajita" >                
+                            <h3 id="nota">3/5</h3>
+                        </div>
+                        <div id="cajita" >                
+                            <h3 id="nota">3/5</h3>
+                        </div>
+                        <div id="cajita" >                
+                            <h3 id="nota">3/5</h3>
+                        </div>
+
+                    </span>
+                   
                                       
                 </div>
 
@@ -166,12 +219,41 @@
                         <div  >
                             <input id="place" type="button" value="verbos" height="20px">
                         </div>                    
-                        <a id="mas" href="">pruebas anteriores</a>
+                        <a class="mas" href="#" data-target="todasN">pruebas anteriores</a>
                     </div>
                     
                     <div id="cajita" >                
                         <h3 id="nota">3/5</h3>
                     </div>
+
+                    <span id="todasN" style="display: none;">
+
+                        <div id="cajita" >                
+                            <h3 id="nota">3/5</h3>
+                        </div>
+                        <div id="cajita" >                
+                            <h3 id="nota">3/5</h3>
+                        </div>
+                        <div id="cajita" >                
+                            <h3 id="nota">3/5</h3>
+                        </div>
+                        <div id="cajita" >                
+                            <h3 id="nota">3/5</h3>
+                        </div>
+                        <div id="cajita" >                
+                            <h3 id="nota">3/5</h3>
+                        </div>
+                        <div id="cajita" >                
+                            <h3 id="nota">3/5</h3>
+                        </div>
+                        <div id="cajita" >                
+                            <h3 id="nota">3/5</h3>
+                        </div>
+                        <div id="cajita" >                
+                            <h3 id="nota">3/5</h3>
+                        </div>
+
+                    </span>
                                       
                 </div>
 
@@ -180,12 +262,42 @@
                         <div  >
                             <input id="place" type="button" value="verbos" height="20px">
                         </div>                    
-                        <a id="mas" href="">pruebas anteriores</a>
+                        <a class="mas" href="#" data-target="todasN">pruebas anteriores</a>
                     </div>
+
                     
                     <div id="cajita" >                
                         <h3 id="nota">3/5</h3>
                     </div>
+                    
+                    <span id="todasN" style="display: none;">
+
+                        <div id="cajita" >                
+                            <h3 id="nota">3/5</h3>
+                        </div>
+                        <div id="cajita" >                
+                            <h3 id="nota">3/5</h3>
+                        </div>
+                        <div id="cajita" >                
+                            <h3 id="nota">3/5</h3>
+                        </div>
+                        <div id="cajita" >                
+                            <h3 id="nota">3/5</h3>
+                        </div>
+                        <div id="cajita" >                
+                            <h3 id="nota">3/5</h3>
+                        </div>
+                        <div id="cajita" >                
+                            <h3 id="nota">3/5</h3>
+                        </div>
+                        <div id="cajita" >                
+                            <h3 id="nota">3/5</h3>
+                        </div>
+                        <div id="cajita" >                
+                            <h3 id="nota">3/5</h3>
+                        </div>
+
+                    </span>
                                       
                 </div>
 
@@ -194,27 +306,40 @@
                         <div  >
                             <input id="place" type="button" value="verbos" height="20px">
                         </div>                    
-                        <a id="mas" href="">pruebas anteriores</a>
+                        <a class="mas" href="#" data-target="todasN">pruebas anteriores</a>
                     </div>
                     
                     <div id="cajita" >                
                         <h3 id="nota">3/5</h3>
                     </div>
-                                      
-                </div>
+                    <span id="todasN" style="display: none;">
 
-                <div id="cdos" style="display: flex;">
-                    <div id="cajon">
-                        <div  >
-                            <input id="place" type="button" value="verbos" height="20px">
-                        </div>                    
-                        <a id="mas" href="">pruebas anteriores</a>
-                    </div>
-                    
-                    <div id="cajita" >                
-                        <h3 id="nota">3/5</h3>
-                    </div>
-                                    
+                        <div id="cajita" >                
+                            <h3 id="nota">3/5</h3>
+                        </div>
+                        <div id="cajita" >                
+                            <h3 id="nota">3/5</h3>
+                        </div>
+                        <div id="cajita" >                
+                            <h3 id="nota">3/5</h3>
+                        </div>
+                        <div id="cajita" >                
+                            <h3 id="nota">3/5</h3>
+                        </div>
+                        <div id="cajita" >                
+                            <h3 id="nota">3/5</h3>
+                        </div>
+                        <div id="cajita" >                
+                            <h3 id="nota">3/5</h3>
+                        </div>
+                        <div id="cajita" >                
+                            <h3 id="nota">3/5</h3>
+                        </div>
+                        <div id="cajita" >                
+                            <h3 id="nota">3/5</h3>
+                        </div>
+
+                    </span>         
                 </div>
             </div>
                
@@ -226,6 +351,5 @@
    
     <script src="{% static 'js/perfil.js' %}"></script>  
 
-    
 </body>
 </html>

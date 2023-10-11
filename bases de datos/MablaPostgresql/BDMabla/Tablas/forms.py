@@ -1,8 +1,10 @@
+from django.core.exceptions import ValidationError
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import get_user_model
 from .models import *
 from django.contrib.auth.forms import AuthenticationForm
 from django import forms
+from django.contrib.auth.password_validation import validate_password
 
 User = get_user_model()
 
@@ -38,18 +40,17 @@ class registro(UserCreationForm):
         self.fields['password1'].widget.attrs.update({
             'required':'',
             'type':'password',
-            'maxlength':'128',
-            'minlength':'4'
+            'id':'password',
+            'minlength':'4',
+            'maxlength':'128'
 
         })
 
         self.fields['password2'].widget.attrs.update({
             'required':'',
             'type':'password',
-            'maxlength':'128',
-            'minlength':'4'
+            'id':'password1',
         })
-    
     class Meta:            
         model= User
         fields= ['username','first_name', 'last_name', 'email', 'password1', 'password2']
@@ -60,12 +61,43 @@ class registro(UserCreationForm):
         if commit:
             user.save()
         return user 
+    
+    """ def clean_password2(self):
+        password1 = self.cleaned_data.get("password1")
+        password2 = self.cleaned_data.get("password2")
 
-class LoginForm(AuthenticationForm):
+        # Validación de contraseñas diferentes
+        if password1 and password2 and password1 != password2:
+            raise ValidationError("Las contraseñas no coinciden.")
+
+        return password2
+    """
+    def clean_password1(self):
+        password1 = self.cleaned_data.get("password1")
+
+        # Validación de la longitud de la contraseña
+        if password1 and len(password1) < 8:
+            raise ValidationError("La contraseña debe tener al menos 8 caracteres.")
+
+        # Otras validaciones personalizadas, como caracteres especiales, números, etc.
+        try:
+            validate_password(password1)
+        except ValidationError as error:
+            raise ValidationError("Contraseña no válida: " + str(error))
+        return password1
+    
+class LoginForm(AuthenticationForm):  
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)        
+        
+        self.fields['password'].widget.attrs.update({
+            'id':'password',
+        })
+
     class Meta:
         model = User
         fields = ['username', 'password']
-
+        
 
 class userData(forms.ModelForm):
     def __init__(self, *args, **kwargs):
@@ -75,18 +107,7 @@ class userData(forms.ModelForm):
              'type':'file',
              'class':'form-input',
         })
-
-    imgPerfil = forms.ImageField(required=False)
-    
+        
     class Meta:
         model = User
-        fields= ['first_name', 'last_name', 'email', 'password', 'imgPerfil']
-
-        """ widgets = {
-            'username': forms.TextInput(attrs={'id':'username',}),
-            'first_name': forms.TextInput(attrs={'id':'first_name',}),
-            'last_name': forms.EmailInput(attrs={'id':'last_name',}),
-            'email': forms.TextInput(attrs={'id':'email',}),
-            'password': forms.TextInput(attrs={'id':'password',}),
-            'imgPerfil': forms.TextInput(attrs={'id':'imgPerfil',}),
-        } """
+        fields= ['first_name', 'last_name', 'email','imgPerfil']

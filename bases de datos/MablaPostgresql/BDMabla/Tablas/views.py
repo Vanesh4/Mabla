@@ -1,6 +1,6 @@
 from typing import Any
 from django.http import HttpResponseRedirect, JsonResponse
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.generic import View, ListView
 from django.http import HttpRequest, JsonResponse
 from django.utils.decorators import method_decorator
@@ -9,13 +9,16 @@ import json
 from Tablas.models import *
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
+from django.contrib.auth import logout
 
 
 #tabla comentarios
 class getTablaComment(View):
     def get(self,request):
-        register= TablaComentarios.objects.all().values()
+        #register= TablaComentarios.objects.all().values()
+        register= TablaComentarios.objects.values().order_by('-id')
         registerComment=list(register)
+        #print(registerComment)
         return JsonResponse(registerComment, safe=False)
 
 class postComment(View):
@@ -24,7 +27,6 @@ class postComment(View):
     def dispatch(self, request, *args: Any, **kwargs):
         return super().dispatch(request, *args, **kwargs)
     
-    @method_decorator(login_required)
     def post(self, request):
         registerInsertComment=json.loads(request.body)
         request.POST.get('alias_id')
@@ -84,13 +86,12 @@ class insertPrueba(View):
         #preparar la manera de enviar los datos
         request.POST.get('alias_id')
         request.POST.get('tipoPrueba')
-        request.POST.get('categoria_id')
+        request.POST.get('idCategoria_id')
         request.POST.get('puntaje')
         registerInsertPrueba1 = TablaPrueba.objects.create(
-                                    alias=registerInsertPrueba['alias_id'],
+                                    alias_id=registerInsertPrueba['alias_id'],
                                     tipoPrueba=registerInsertPrueba['tipoPrueba'],
-                                    categoria_id=registerInsertPrueba['categoria_id'],
-
+                                    idCategoria_id=registerInsertPrueba['idCategoria_id'],
                                     puntaje=registerInsertPrueba['puntaje'])
         registerInsertPrueba1.save()
         #no es necesario pero es para que genere el aviso:
@@ -115,11 +116,11 @@ class PostPreguntas(View):
         #preparar la manera de enviar los datos
         request.POST.get('tipo')
         request.POST.get('idCategoria_id')
-        request.POST.get('senia')
+        request.POST.get('pregunta')
         request.POST.get('respuesta')
         pregunta = TablaPreguntas.objects.create(tipo=registerpreg['tipo'],
                                     idCategoria_id=registerpreg['idCategoria_id'],
-                                    senia=registerpreg['senia'],
+                                    pregunta=registerpreg['pregunta'],
                                     respuesta=registerpreg['respuesta'],)
         pregunta.save()
         #no es necesario pero es para que genere el aviso:
@@ -140,7 +141,7 @@ class editPregunta(View):
         data = json.loads(request.body)
     
         preg.tipo=data.get('tipo')
-        preg.senia=data.get('senia')
+        preg.pregunta=data.get('pregunta')
         #preg.idCategoria=data.get('idCategoria_id')
         preg.respuesta=data.get('respuesta')
         preg.save() 
@@ -174,12 +175,45 @@ def subCategoriasDeCate(cat):
     #return JsonResponse(subCatedeCate, safe=False)
     return subCatedeCate
 
+
+
+    #return JsonResponse(subCatedeCate, safe=False)
+
+
+def subCategoriasparaPal(cat):
+    def palabrasfiltro(p):
+        listaapalabras = TablaPalabra.objects.filter(subcategoria_id=p)
+        pals = [
+        {
+            'palabra': TablaPalabra.Palabra,
+            'senia': TablaPalabra.Senia,
+        }     
+        for TablaPalabra in listaapalabras   
+        ]
+        return pals
+    #print("holaaaaaaaaaaaaaaaaa?")
+
+    subCategorias = TablaSubcategoria.objects.filter(categoria=cat)    
+    subCatedeCate = [
+        {
+            'subcategoria': TablaSubcategoria.subcategoria,
+            'palabraas': palabrasfiltro(TablaSubcategoria.subcategoria)
+        }     
+        for TablaSubcategoria in subCategorias   
+    ]
+
+    
+    print("SUB DE CATE",subCatedeCate)
+    return subCatedeCate
+
+  
+
 class ListaCategoriaSub(View):
     def get(self, request):
         categorias=TablaCategoria.objects.all()
         datos_Categoria=[]
         
-        print("siuuuuuuuuuuuuuu?")
+        #print("siuuuuuuuuuuuuuu?")
         for i in categorias:
             #print(subCategoriasDeCate(i.Categoria))            
             datos_Categoria.append({
@@ -187,6 +221,32 @@ class ListaCategoriaSub(View):
                 'Subcategorias': subCategoriasDeCate(i.Categoria),
             })
         return JsonResponse(datos_Categoria, safe=False)
+    
+class ListaConsultando(View):
+    def get(self, request):
+        categorias=TablaCategoria.objects.all()
+        datos_Categoria=[]
+
+        for i in categorias:
+            #print(subCategoriasDeCate(i.Categoria))  
+                      
+            datos_Categoria.append({
+                'Categoria':i.Categoria,
+                'Subcategorias': subCategoriasparaPal(i.Categoria)
+            })
+        
+        return JsonResponse(datos_Categoria, safe=False)
+
+def palabrasdesubcate(subcate):
+    palabras=TablaPalabra.objects.filter(subcategoria=subcate)
+    palabradeSubcate=[
+        {
+            'Palabra':TablaPalabra.Palabra,
+            'Senia':TablaPalabra.Senia
+        }
+        for TablaPalabra in palabras
+    ]
+    return palabradeSubcate
 
 def pregTipoCat(request, ti, cat):
     preguntas = TablaPreguntas.objects.filter(idCategoria_id=cat).filter(tipo=ti)
@@ -194,7 +254,7 @@ def pregTipoCat(request, ti, cat):
     resPreguntas = [
         {
             'id': TablaPreguntas.id,
-            'senia': TablaPreguntas.senia,
+            'pregunta': TablaPreguntas.pregunta,
             'respuesta': TablaPreguntas.respuesta,            
         }     
         for TablaPreguntas in preguntas 
@@ -218,8 +278,10 @@ def iniciohtml(request):
 def inicioConSesion(request):
     return render(request,"inicioConSesion.html")
 
-def viewQuiz(request):
+def viewQuiz1(request):
     return render(request,"quizTipo1.html")
+def viewQuiz2(request):
+    return render(request,"quizTipo2.html")
 
 def menuTodo(request):
     return render(request,"menu.html")
@@ -233,10 +295,17 @@ def versubcategorias(request):
 def verperfil(request):
     return render(request, "perfil.html")
 
+def prueba(request):
+    return render(request, "perfilP.html")
+
 def palabradiccionario(request):
     listarpalabras=TablaPalabra.objects.filter(Palabra__startswith='P')
     return render(request, "diccionario.html", {"palabrita": listarpalabras })
    #return render(request, "diccionario.html")
+
+def cerrarSesion(request):
+    logout(request)  # Cierra la sesión del usuario
+    return redirect('inicio')  # Redirige a la página de inicio o a donde desees después de cerrar la sesión
 
    
 def buscar_por_inicial(request, inicial):
@@ -267,17 +336,6 @@ def subcategosiasdeCate(cat):
 
 
 
-def palabrasdesubcate(subcate):
-    palabras=TablaPalabra.objects.filter(subcategoria=subcate)
-    palabradeSubcate=[
-        {
-            'Palabra':TablaPalabra.Palabra,
-            'Senia':TablaPalabra.Senia
-        }
-        for TablaPalabra in palabras
-    ]
-    return palabradeSubcate
-
 def palabrasdesubcate(request, subcate):
     palabras=TablaPalabra.objects.filter(subcategoria=subcate)
     palabradeSubcate=[
@@ -289,10 +347,16 @@ def palabrasdesubcate(request, subcate):
     ]
     return JsonResponse({'palabras':palabradeSubcate})
 
-def getpalabras(self, request):
-        datos=TablaPalabra.objects.all().values
-        insertpalabrita=list(datos)
-        return JsonResponse(insertpalabrita, safe=False)
+""" class verpalabra (View):
+    def get(self, request):
+        register= TablaPalabra.objects.all().values()
+        registerPregs=list(register)
+        return JsonResponse(registerPregs, safe=False) """
+class verpalabra (View):
+    def get(self, request):
+        register= TablaPalabra.objects.all().values()
+        registerPregs=list(register)
+        return JsonResponse(registerPregs, safe=False)
 
 
 
@@ -300,15 +364,11 @@ def getpalabras(self, request):
 class getCategoria(View):
     def get(self, request):
         datos=TablaCategoria.objects.all()
-        palabras=TablaSubcategoria.objects.all()
         datos_Categoria=[]
         for i in datos:         
-                
                 datos_Categoria.append({
                     'Categoria':i.Categoria,
                     'Subcategorias': subcategosiasdeCate(i.Categoria),
-                    'palabras':subcategosiasdeCate(TablaPalabra.Palabra)
-
                 })
                     
                 
@@ -395,18 +455,6 @@ class deletesubcategoria(View):
 
 #CRUD TABLA PALABRA
 
-class getPalabrassubcate(View):
-    def get(self, request):
-        datos=TablaSubcategoria.objects.all()
-        datos_Subcate=[]
-        for i in datos:
-            datos_Subcate.append({
-                'subcategoria':i.subcategoria,
-                'Palabras': palabrasdesubcate(i.subcategoria)
-                
-            })
-        return JsonResponse(datos_Subcate, safe=False)
-
 
 class getpalabra(View):
     def get(self, request):
@@ -456,5 +504,6 @@ class deletepalabra(View):
             return JsonResponse({'Error':'Esta palabra no existe'})
         registro.delete()
         return JsonResponse({'mensaje': "Palabra eliminada"})
+
 
 
