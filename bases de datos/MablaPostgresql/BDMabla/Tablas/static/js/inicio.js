@@ -1,6 +1,6 @@
 $(document).ready (()=>{
 
-    
+    //responsive
     $("#imgBotonAbrirMenu").on("click", ()=>{
         $(".header").css({
             "display": "inherit"});
@@ -21,8 +21,8 @@ $(document).ready (()=>{
         //console.log("helllou x2")
     })
 
-    traerComentarios()
 
+    traerComentarios()
     //enviar comentarios
     $("#miDiv").on("click", ()=>{
         contenedorDiv = document.getElementById("divmsj")
@@ -40,6 +40,17 @@ $(document).ready (()=>{
         agregarComentario()
         textarea.value = "";
     })
+
+    //linkeo a diccionario
+    input = document.getElementById("inputADiccio");
+    console.log(input)
+    input.addEventListener("keydown", function(event) {
+        console.log("entro a funcion")
+        if (event.key === "Enter" && input.value != "") {
+            localStorage.setItem('palabraABuscar', input.value)
+            window.location.href = "/diccio";
+        }
+    });
 })
 
 //get Comentarios
@@ -114,6 +125,5 @@ function agregarComentario() {
             }
         }); 
     }  
-    
     
 }

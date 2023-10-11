@@ -1,4 +1,5 @@
 
+
 let hider_btn=document.getElementById('hider_btn');
 
 let hide_abc=document.getElementById('hide_abc');
@@ -56,11 +57,16 @@ function toggleText(){
 
 
 $(document).ready(function() {
-  cajapalab=document.getElementById('container')
-  console.log("sisiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii",cajapalab)
   
-  console.log("noooooooooooooooooooooooooooooooooooooooooo",cajapalab)
-    $('#buscador').on('submit', function(event) {
+  cajapalab=document.getElementById('container')
+  //console.log("sisiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii",cajapalab)
+  
+  //console.log("noooooooooooooooooooooooooooooooooooooooooo",cajapalab)
+
+  const valorRecibido = localStorage.getItem('palabraABuscar');
+  console.log(valorRecibido);
+    if (valorRecibido == null) {
+      $('#buscador').on('submit', function(event) {
         event.preventDefault();
         var inicial = $('#inicial').val();
         $.ajax({
@@ -98,6 +104,42 @@ $(document).ready(function() {
             }
         });
     });
+    }
+    else{
+      $.ajax({
+        url: 'http://127.0.0.1:8000/getpalabrasdiccio/'+valorRecibido,
+        data: {valorRecibido: valorRecibido},
+        dataType: 'json',
+        success: function(data) {
+            console.log("ver lo que hay en data",data)
+            var resultsDiv = $('#results');
+           
+            resultsDiv.empty();
+            var palabras = data.palabras;
+            palabras.forEach(function(palabra) {
+
+                grupopalabra=document.createElement('div')
+                grupopalabra.setAttribute('class','grouppal')
+
+                img=document.createElement('img')
+                img.setAttribute('class','imgpal')
+                img.src=palabra.senia
+
+                p=document.createElement('p')
+                p.setAttribute('class','p')
+                p.innerHTML=palabra.palabra
+
+                
+
+                grupopalabra.append(img)
+                grupopalabra.append(p)
+                resultsDiv.append(grupopalabra)
+            });
+        }
+    });
+    localStorage.clear();
+    }
+    
 });
 
 

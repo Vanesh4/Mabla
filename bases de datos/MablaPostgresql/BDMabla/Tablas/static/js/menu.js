@@ -33,15 +33,17 @@ $(document).ready(function () {
         dataType: "JSON",
         success: function (res) {
             console.log(res)
-            for(let i=0; i<=res.length; i++){
+            for(let i=0; i<res.length; i++){
                           
                 divCategoria = document.createElement("div")
                 divCategoria.setAttribute("class","categoria")
 
                 h2Categoria = document.createElement("h2")
                 h2Categoria.innerHTML = res[i].Categoria
+                //console.log(res[i].Categoria)
+                
                 divCategoria.appendChild(h2Categoria)
-
+                
                 
                 subcategorias = res[i].Subcategorias
                 //console.log(subcategorias)
@@ -55,6 +57,17 @@ $(document).ready(function () {
                 
                 contenedor.appendChild(divCategoria)
            }
+
         }            
     })
+    
+    
 })
+divs = document.getElementsByClassName("categoria");
+console.log(divs)
+Array.from(divs).forEach(function(div, index) {
+    div.addEventListener("click", function() {
+        // Muestra el contenido del div en la consola al hacer clic
+        console.log("Contenido del Div " + (index + 1) + ": " + div.textContent);
+    });
+});

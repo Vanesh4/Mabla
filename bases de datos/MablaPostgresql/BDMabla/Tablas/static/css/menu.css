@@ -24,11 +24,11 @@ body{
 .categoria{
     /* border: 1px solid black; */
     margin: 20px;
-    cursor: pointer;
 }
 
 h2, .subcategoria{
     text-align: center;
+    /* cursor: pointer; */
 }
 
 h2{

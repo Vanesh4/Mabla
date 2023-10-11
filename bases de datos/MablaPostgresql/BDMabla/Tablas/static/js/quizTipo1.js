@@ -9,6 +9,7 @@ function llevar() {
 */
 const valorRecibido = localStorage.getItem('categoria');
 console.log(valorRecibido);
+localStorage.clear();
 categoria = "sustantivos"
 console.log("hola?")
 
