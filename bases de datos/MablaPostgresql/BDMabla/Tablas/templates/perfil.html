@@ -75,12 +75,12 @@
 </svg>
 
     
-<h1 class="titulo">MI PERFIL</h1>
+<h1 class="titulo">{{user.alias}}</h1>
 
     <form id="formdatos" method="post" enctype="multipart/form-data">
 
         <div class="fotperfil">
-            <div>
+            <div class="mifoto">
                 <img id="fotouser" src="{{ form.instance.imgPerfil.url }}">
             </div>
             
@@ -121,21 +121,96 @@
         <span class="hider" id="spant">
             <div id="result">
 
-    
-
                 <div id="vertodo" style="flex-direction: column;">
 
                 <div id="cdos" style="display: flex;">
                     <div id="cajon">
                         <div  >
-                            <input id="place" type="button" value="verbos" height="20px">
+                            <input id="place" type="button" value="verbos" width="20%">
                         </div>                    
-                        <a id="mas" href="">pruebas anteriores</a>
+                        <a class="mas" href="#" data-target="todasN">pruebas anteriores</a>
                     </div>
                     
                     <div id="cajita" >                
                         <h3 id="nota">3/5</h3>
                     </div>
+
+                    <span id="todasN" style="display: none;">
+                        <div class="notas-container">
+
+                        <div id="cajita" >                
+                            <h3 id="nota">3/5</h3>
+                        </div>
+                        <div id="cajita" >                
+                            <h3 id="nota">3/5</h3>
+                        </div>
+                        <div id="cajita" >                
+                            <h3 id="nota">3/5</h3>
+                        </div>
+                        <div id="cajita" >                
+                            <h3 id="nota">3/5</h3>
+                        </div>
+                        <div id="cajita" >                
+                            <h3 id="nota">3/5</h3>
+                        </div>
+                        <div id="cajita" >                
+                            <h3 id="nota">3/5</h3>
+                        </div>
+                        <div id="cajita" >                
+                            <h3 id="nota">3/5</h3>
+                        </div>
+                        <div id="cajita" >                
+                            <h3 id="nota">3/5</h3>
+                        </div>
+
+                    </div>
+
+                    </span>
+                    
+                                      
+                </div>
+
+                <div id="cdos" style="display: flex;">
+                    <div id="cajon">
+                        <div  >
+                            <input id="place" type="button" value="verbos">
+                        </div>                    
+                        <a class="mas" href="#" data-target="todasN">pruebas anteriores</a>
+                    </div>
+                    
+                    <div id="cajita" >                
+                        <h3 id="nota">3/5</h3>
+                    </div>
+
+                    <span id="todasN" style="display: none;">
+
+                        <div id="cajita" >                
+                            <h3 id="nota">3/5</h3>
+                        </div>
+                        <div id="cajita" >                
+                            <h3 id="nota">3/5</h3>
+                        </div>
+                        <div id="cajita" >                
+                            <h3 id="nota">3/5</h3>
+                        </div>
+                        <div id="cajita" >                
+                            <h3 id="nota">3/5</h3>
+                        </div>
+                        <div id="cajita" >                
+                            <h3 id="nota">3/5</h3>
+                        </div>
+                        <div id="cajita" >                
+                            <h3 id="nota">3/5</h3>
+                        </div>
+                        <div id="cajita" >                
+                            <h3 id="nota">3/5</h3>
+                        </div>
+                        <div id="cajita" >                
+                            <h3 id="nota">3/5</h3>
+                        </div>
+
+                    </span>
+                   
                                       
                 </div>
 
@@ -144,12 +219,41 @@
                         <div  >
                             <input id="place" type="button" value="verbos" height="20px">
                         </div>                    
-                        <a id="mas" href="">pruebas anteriores</a>
+                        <a class="mas" href="#" data-target="todasN">pruebas anteriores</a>
                     </div>
                     
                     <div id="cajita" >                
                         <h3 id="nota">3/5</h3>
                     </div>
+
+                    <span id="todasN" style="display: none;">
+
+                        <div id="cajita" >                
+                            <h3 id="nota">3/5</h3>
+                        </div>
+                        <div id="cajita" >                
+                            <h3 id="nota">3/5</h3>
+                        </div>
+                        <div id="cajita" >                
+                            <h3 id="nota">3/5</h3>
+                        </div>
+                        <div id="cajita" >                
+                            <h3 id="nota">3/5</h3>
+                        </div>
+                        <div id="cajita" >                
+                            <h3 id="nota">3/5</h3>
+                        </div>
+                        <div id="cajita" >                
+                            <h3 id="nota">3/5</h3>
+                        </div>
+                        <div id="cajita" >                
+                            <h3 id="nota">3/5</h3>
+                        </div>
+                        <div id="cajita" >                
+                            <h3 id="nota">3/5</h3>
+                        </div>
+
+                    </span>
                                       
                 </div>
 
@@ -158,12 +262,42 @@
                         <div  >
                             <input id="place" type="button" value="verbos" height="20px">
                         </div>                    
-                        <a id="mas" href="">pruebas anteriores</a>
+                        <a class="mas" href="#" data-target="todasN">pruebas anteriores</a>
                     </div>
+
                     
                     <div id="cajita" >                
                         <h3 id="nota">3/5</h3>
                     </div>
+                    
+                    <span id="todasN" style="display: none;">
+
+                        <div id="cajita" >                
+                            <h3 id="nota">3/5</h3>
+                        </div>
+                        <div id="cajita" >                
+                            <h3 id="nota">3/5</h3>
+                        </div>
+                        <div id="cajita" >                
+                            <h3 id="nota">3/5</h3>
+                        </div>
+                        <div id="cajita" >                
+                            <h3 id="nota">3/5</h3>
+                        </div>
+                        <div id="cajita" >                
+                            <h3 id="nota">3/5</h3>
+                        </div>
+                        <div id="cajita" >                
+                            <h3 id="nota">3/5</h3>
+                        </div>
+                        <div id="cajita" >                
+                            <h3 id="nota">3/5</h3>
+                        </div>
+                        <div id="cajita" >                
+                            <h3 id="nota">3/5</h3>
+                        </div>
+
+                    </span>
                                       
                 </div>
 
@@ -172,27 +306,40 @@
                         <div  >
                             <input id="place" type="button" value="verbos" height="20px">
                         </div>                    
-                        <a id="mas" href="">pruebas anteriores</a>
+                        <a class="mas" href="#" data-target="todasN">pruebas anteriores</a>
                     </div>
                     
                     <div id="cajita" >                
                         <h3 id="nota">3/5</h3>
                     </div>
-                                      
-                </div>
+                    <span id="todasN" style="display: none;">
 
-                <div id="cdos" style="display: flex;">
-                    <div id="cajon">
-                        <div  >
-                            <input id="place" type="button" value="verbos" height="20px">
-                        </div>                    
-                        <a id="mas" href="">pruebas anteriores</a>
-                    </div>
-                    
-                    <div id="cajita" >                
-                        <h3 id="nota">3/5</h3>
-                    </div>
-                                    
+                        <div id="cajita" >                
+                            <h3 id="nota">3/5</h3>
+                        </div>
+                        <div id="cajita" >                
+                            <h3 id="nota">3/5</h3>
+                        </div>
+                        <div id="cajita" >                
+                            <h3 id="nota">3/5</h3>
+                        </div>
+                        <div id="cajita" >                
+                            <h3 id="nota">3/5</h3>
+                        </div>
+                        <div id="cajita" >                
+                            <h3 id="nota">3/5</h3>
+                        </div>
+                        <div id="cajita" >                
+                            <h3 id="nota">3/5</h3>
+                        </div>
+                        <div id="cajita" >                
+                            <h3 id="nota">3/5</h3>
+                        </div>
+                        <div id="cajita" >                
+                            <h3 id="nota">3/5</h3>
+                        </div>
+
+                    </span>         
                 </div>
             </div>
                

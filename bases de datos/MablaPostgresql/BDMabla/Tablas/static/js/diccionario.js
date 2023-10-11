@@ -259,7 +259,7 @@ function obtenerContenidoDeBaseDeDatos(valor) {
 
             wordList.append(listItem);
             word.style.backgroundColor='#00000092';
-            word.style.width='24%';
+            word.style.width='18%';
             word.style.padding='15px';
             word.style.borderRadius='10px';
            /*  wordpal.style.width='60%'; */
