@@ -95,7 +95,7 @@ function agregarComentario() {
         contenedorDiv.innerHTML=""
         msj = document.createElement("p")
         msj.setAttribute("id","msj")
-        msj.textContent = "No se pudo enviar el comentario";
+        msj.textContent = "Ingresa texto para comentar";
         contenedorDiv.appendChild(msj)
     }
     else{
