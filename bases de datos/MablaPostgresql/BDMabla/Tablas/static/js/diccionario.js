@@ -140,7 +140,7 @@ $(document).ready(function() {
     localStorage.clear();
     }
     
-});
+
 
 
 
@@ -317,7 +317,7 @@ function obtenerContenidoDeBaseDeDatos(valor) {
     });
   });
   
-  
+});
   
   
   
