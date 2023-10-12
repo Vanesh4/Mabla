@@ -7,12 +7,18 @@ function llevar() {
     window.location.href = "quiiz.html";
 }
 */
+
+history.pushState(null, null, location.href);
+window.onpopstate = function () {
+    history.go(1);
+};
+
 const valorRecibido = localStorage.getItem('categoria');
 console.log(valorRecibido);
-localStorage.clear();
-categoria = "sustantivos"
-console.log("hola?")
 
+//categoria = "sustantivos"
+categoria = valorRecibido
+localStorage.clear();
 function generarNumeroAleatorio(num) {
     return Math.floor(Math.random() * num)
 }
@@ -100,19 +106,6 @@ $(document).ready (()=>{
             totalRespuestasAcertadas++
         }
         else{
-            
-            //r.style.boxShadow = "0px 0px 20px red";
-            /* for (let i = 0; i < 4; i++) {
-                p=document.getElementById("opcion"+i)
-                p.style.color = "red"
-                p.style.background = "red"
-            }
-            document.getElementById(opcionElegida).style.color = "black" 
-            
-            c=document.getElementById(opcionResCorrecta)
-            //console.log(c)
-            c.style.background = "green"
-            c.style.color = "black" */
             for (let i = 0; i < 4; i++) {
                 ress =  "opcion"+i
                 document.getElementById(ress).className = "opcion opcionIncorrecta"
@@ -154,12 +147,11 @@ const data = {
 const options = {
     method: 'POST',
     headers: {
-        'Content-Type': 'application/json' // Especifica el tipo de contenido como JSON
+        'Content-Type': 'application/json' 
     },
-    body: JSON.stringify(data) // Convierte los datos a formato JSON
+    body: JSON.stringify(data) 
 };
 
-// Realiza la petición POST utilizando fetch
 fetch(url, options)
     .then(response => {
         if (!response.ok) {

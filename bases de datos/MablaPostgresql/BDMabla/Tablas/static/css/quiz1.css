@@ -172,9 +172,6 @@ a{
         width: 65%;
     }
     #CapibaraImg{
-        /* bottom: 0;
-        left: 30%;
-        transform: translateX(-50%); */
         position: static;
         width: 250px;
         margin-left: 50px;

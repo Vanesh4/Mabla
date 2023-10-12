@@ -24,6 +24,7 @@ header{
 }
 img{
     max-width: 200px;
+    width: 200px;
 }
 .senia{
     max-width: 200px;
@@ -62,6 +63,9 @@ img{
 }
 .opcion{
     padding: 10px 0 10px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .opcion0{
     background-color: #76037a;
@@ -85,14 +89,16 @@ img{
 
 
 #resultado{
-    display: none;
+    /* display: none; */
     visibility: hidden;
     background-color: #fff7ea;
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
+    width: 100%;
     height: 100vh;
+    position: relative;
 }
 #calificacion{
     font-family: 'Martian Mono', monospace;
@@ -129,6 +135,13 @@ a{
     width: 80px; 
     height: 80px;
 }
+#CapibaraImg{
+    position: absolute;
+    bottom: 0;
+    left: 30%;
+    transform: translateX(-50%);
+    width: 300px;
+}
 @media screen and (min-width: 320px) and (max-width: 700px) {
     body{
         background-color: aqua;
@@ -154,6 +167,11 @@ a{
         display: grid;
         grid-template-columns: 1fr;
         gap: 15px;
+    }
+    #CapibaraImg{
+        position: static;
+        width: 250px;
+        margin-left: 50px;
     }
 } 
 
