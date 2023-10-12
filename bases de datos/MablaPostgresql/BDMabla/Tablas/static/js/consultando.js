@@ -1,6 +1,8 @@
 $(document).ready(function () {
 
 contenedor = document.querySelector("#list")
+/* const navul=document.getElementsByClassName("nav")
+navul.style.overflowY = "auto"; */
 const contenidoMostrado = document.getElementById('resultado');
 boton=document.getElementById('botonQuiz')
 const cajalinks=document.getElementById('section1')
@@ -146,8 +148,8 @@ $.ajax({
                         valo=listElement.innerText
                         //console.log("veeeeeeeeeer",valo)
                         boton.setAttribute("value", valo)
-
                         
+
                         localStorage.setItem('categoria', valo)
                         numeroAleatorio = Math.round(Math.random()) + 1;
                         

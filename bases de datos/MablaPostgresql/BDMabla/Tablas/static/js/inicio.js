@@ -29,7 +29,7 @@ $(document).ready (()=>{
         contenedorDiv.innerHTML=""
         msj = document.createElement("p")
         msj.setAttribute("id","msj")
-        msj.textContent = "Debe iniciar sesión para poder comentar";
+        msj.textContent = "Inicia sesión para poder comentar";
         
         contenedorDiv.appendChild(msj)
         
