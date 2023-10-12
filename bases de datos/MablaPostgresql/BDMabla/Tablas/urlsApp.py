@@ -69,8 +69,4 @@ urlpatterns = [
     path('listaCatSub', ListaCategoriaSub.as_view(), name='listaCatSub'),
 
 ] +static(settings.MEDIA_URL, document_root= settings.MEDIA_ROOT)
-<<<<<<< HEAD
-
-=======
->>>>>>> Sara
 
