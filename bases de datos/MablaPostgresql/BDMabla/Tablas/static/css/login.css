@@ -35,10 +35,6 @@ form{
     width: 60%;
     align-self: center;
     margin-top: 40px;
-<<<<<<< HEAD
-=======
-    margin-top: 40px;
->>>>>>> Sara
 }
 input{
     display: flex;
@@ -58,15 +54,7 @@ input{
 #ph{
     position: relative;
 }
-#ph i{
-    color: #222222;
-    font-size: 22px;
-    position: absolute;
-    width: 10%;
-    top: 50%;
-    left: 68%;
-    cursor: pointer;
-}
+
 #ph i{
     color: #222222;
     font-size: 22px;
@@ -107,11 +95,7 @@ input{
     font-size: 40px;
     font-family: 'Raleway', sans-serif;
     border-radius: 100px;
-<<<<<<< HEAD
-    padding: 15px 27px 15px 27px;
-=======
     padding: 10px 27px 10px 27px;
->>>>>>> Sara
     border: none;
 }
 
@@ -208,39 +192,6 @@ input{
     #colorbtn{
         margin: 0px;
         padding: 0px;
-<<<<<<< HEAD
-        padding: 15px;
-    }
-    #colorbtn p{
-        font-size: 27px;        
-    }
-    .imgyText{
-        position: absolute;
-        width: 50%;
-        height: 50%;
-        background-color: red;
-        margin: 0%;
-        padding: 0%;
-        justify-content: flex-start;
-        top: 10%;
-    }
-    #mablaNaranja{
-        width: 140%;
-    }
-    .slogan{
-        margin: 0px;
-    }
-    .slogan p{
-        width: 180%;
-        font-size: 22px;
-        text-align: center;
-    }
-    #capi{
-        margin: 0px;
-        padding: 0px;
-        width: 100%;
-        background-color: yellow;
-=======
         padding: 13px;
     }
     #colorbtn p{
@@ -277,7 +228,6 @@ input{
     .error{
         font-size: 15px;
         padding: 15px;
->>>>>>> Sara
     }
 }
 
@@ -307,6 +257,10 @@ input{
         font-size: 35px;
         margin-right: 40px;
     }
+    #ph{
+        margin-left: 100px;
+        width: 45%;
+    }
     .links{
         margin: 0px;
         margin: 20px 0px 40px 0px;
@@ -324,10 +278,9 @@ input{
         padding: 0px;
         margin: 0px;
         align-self: flex-end;
-        width: 45%;
-        height: 80%;
+        width: 60%;
+        height: 70%;
         margin: 50px 25px 0px 0px;
-
     }
     .slogan{
         padding: 0px;
@@ -342,7 +295,6 @@ input{
         margin-top: 60px;
         width: 50%;
         height: 50%;
-        margin-right: 65px;
     }
     .error{
         font-size: 20px;
@@ -615,7 +567,7 @@ input{
         }
         #ph i{
             top: 45%;
-            left: 115%;
+            left: 100%;
         }
         .links{
             margin: 0px;
@@ -657,5 +609,16 @@ input{
             width: 120%;
         }
     }    
+}
+
+/* Estilos específicos para Chrome */
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+    /* Agrega tus estilos específicos para Chrome aquí */
+    @media screen and (min-width:1360px) and (max-width:1600px){  
+        #ph i{
+            top: 45%;
+            left: 100%;
+        }
+    }
 }
 
