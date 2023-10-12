@@ -9,11 +9,7 @@ const cajalinks=document.getElementById('section1')
 fleimg=document.getElementById('flechacaja')
 var altocaja2=document.querySelector('.caja2')
 console.log("oaaoaoaooaoaoa",altocaja2)
-
-
-
-
-    
+  
 $.ajax({
     url: "http://127.0.0.1:8000/getcategoria",
     type: "GET",
