@@ -16,21 +16,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
 <body>
-<<<<<<< HEAD
-  <header>
-    <form method="POST" id="formInsert" action="register" class="row g-3" enctype="multipart/form-data">
-      <div class="textRegister">
-        REGÍSTRATE
-      </div>
-      {% csrf_token %}
-      <div id="demo"></div>
-      <section id="sectionform">
-        <div class="inputs">
-          <label for="{{ form.first_name.id_for_label }}" id="lNombre" >Nombre </label>
-              <!-- <input type="text" class="form-control" id="validationNombre" required> -->
-            {{ form.first_name }}  
-            </div>
-=======
   <form method="POST" action="register">
     <div class="textR">
       <p>REGÍSTRATE</p>
@@ -42,7 +27,6 @@
           <!-- <input type="text" class="form-control" id="validationNombre" required> -->
           {{ form.first_name }}  
       </div>
->>>>>>> Sara
 
       <div class="inputs">
         <label for="{{ form.last_name.id_for_label }}">Apellido </label>
@@ -50,49 +34,6 @@
           {{ form.last_name }}
       </div>
 
-<<<<<<< HEAD
-        <div class="inputs">
-          <label for="{{ form.email.id_for_label }}" id="lEmail" >Correo electrónico </label>
-              <!-- <input type="email" class="form-control" id="validationCorreo" required> -->
-              {{ form.email }} 
-              <div class="error">
-                {% if form.errors.email %}
-                  <p>Ingresa una dirección de correo válida</p>
-                {% endif %}
-              </div>
-        </div>
-        <div class="inputs">
-          <label for="{{ form.username.id_for_label }}" id="lAlias" >Usuario (Alias) </label>
-                <!-- <input type="text" class="form-control" id="validationUsername" required> -->
-                {{ form.username }}
-                <div class="error">
-                  {% if form.errors.username %}
-                    <p>Este alias no está disponible</p>
-                  {% endif %}
-                </div>
-                  <!-- {% if form.username.errors %}
-                    <p class="warning-message1">Por favor, corrige los siguientes errores:</p>
-                  {% endif %} -->
-        </div>
-              
-        <div class="inputs" id="clave">
-          <label for="{{ form.password1.id_for_label }}" id="lClave1">Clave</label>
-              <!-- <input type="password" class="form-control" id="validationPassword" required> -->
-                {{ form.password1}}
-                <i class="fa fa-eye" id="toggle-password" onclick="ver()"></i>
-              <div>
-                {% if form.errors.password1 %}
-                  <p class="errorr">La clave debe contener +8 caracteres (una mayúscula, minúscula, un número y caracter especial)</p>
-                {% endif %}
-              </div>
-                  <!-- {% if form.errors %}
-                    <p class="warning-message">La clave tiene que contener más de 8 caracteres, incluyendo al menor un número y al menos una mayúscula</p>
-                  {% endif %} -->
-        </div>
-            
-        <div class="inputs" id="clave">
-          <label for="{{ form.password2.id_for_label }}" id="lClave2" >Confirma tu clave </label>
-=======
       <div>
         <label for="{{ form.email.id_for_label }}" id="lEmail2" >Correo electrónico </label>
           <!-- <input type="email" class="form-control" id="validationCorreo" required> -->
@@ -128,7 +69,6 @@
         </div>
         <div id="clave">
           <label for="{{ form.password2.id_for_label }}" id="lEmail1" >Confirma tu clave </label>
->>>>>>> Sara
               <!-- <input type="password" class="form-control" id="validationPassword" required> --> 
               {{ form.password2 }} 
               <i class="fa fa-eye" id="toggle-password1" onclick="ver1()"></i>
