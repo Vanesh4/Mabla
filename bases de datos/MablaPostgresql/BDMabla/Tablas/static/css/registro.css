@@ -56,24 +56,13 @@ input{
     margin-bottom: 40px;
 }
 
-<<<<<<< HEAD
-#clave{
-    position: relative;
-}
-=======
->>>>>>> Sara
 #clave i{
     color: #222222;
     font-size: 22px;
     position: absolute;
     width: 10%;
-<<<<<<< HEAD
-    top: 60%;
-    transform: translateX(520%);
-=======
     top: 73.5%;
     transform: translateX(170%);
->>>>>>> Sara
     cursor: pointer;
 }
 
@@ -558,4 +547,12 @@ input{
             width: 120%;
         }
     }    
+}
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+    /* Agrega tus estilos específicos para Chrome aquí */
+    @media screen and (min-width:1360px) and (max-width:1600px){  
+        #clave i{
+            top: 74%;
+        }
+    }
 }
