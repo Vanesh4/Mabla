@@ -5,7 +5,7 @@
 
 @font-face {
     font-family: "martian";
-    src: url("{% static 'fonts/Martian_Mono/MartianMono_SemiCondensed-Regular.ttf' %}");
+   src:url("/static/fonts/Martian_Mono/MartianMono-Regular.ttf")
 }
 
 *{
@@ -22,6 +22,7 @@ body{
     
     display: flex;
     flex-direction: row;
+    margin-top: -200px;
 }
 #id_imgPerfil{
     width: 20%;
@@ -73,12 +74,12 @@ body{
 }
 
 .titulo{
-    font-family: "Martian_Mono";
-    margin-top: -260px;
+    font-family: "Raleway";
     font-size: 70px;
     padding: 20px;
     width: 78%;
-    text-align: right;
+    text-align: center;
+    margin: auto;
     
     
     
@@ -373,7 +374,6 @@ input{
     }
     .datosusua{
         width: 100%;
-        margin-top: 20px;
         
     }
     

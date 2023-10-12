@@ -75,7 +75,7 @@
 </svg>
 
     
-<h1 class="titulo">{{user.alias}}</h1>
+
 
     <form id="formdatos" method="post" enctype="multipart/form-data">
 
@@ -90,6 +90,7 @@
               </div>
         </div>
         <div class="datosusua">
+            <h1 class="titulo">{{user.alias}}</h1>
             {% csrf_token %}
             {{form.first_name}}
             {{form.last_name}}
