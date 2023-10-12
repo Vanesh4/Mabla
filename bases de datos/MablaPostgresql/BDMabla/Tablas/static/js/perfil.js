@@ -27,7 +27,7 @@ function previewImage(input) {
         
         reader.readAsDataURL(input.files[0]);
     } else {
-        imgPreview.src = "{{ form.instance.imgPerfil.url }}";  // Mostrar la imagen actual si no se selecciona un archivo
+        imgPreview.src = "{{ user.imgPerfil.url }}";  // Mostrar la imagen actual si no se selecciona un archivo
     }
 }
 
@@ -108,8 +108,4 @@ contenedorCajas.addEventListener("click", function(event) {
       ultimoGrupoNotas = contenido;
     }
   }
-<<<<<<< HEAD
 })
-=======
-})
->>>>>>> Sara

@@ -143,7 +143,8 @@ class IniciarSesionView(View):
                     print("ya se tuvo que redirigir")
                     #print("Contenido de request.FILES:")
                     #print(user.FILES)
-                    return redirect('inicio') 
+                    #return redirect('inicio') 
+                    return render(request, 'inicio.html', {'form': form})
                 
                 # Redirigir a la página de clientes
             # Redirigir a otra página para otros roles

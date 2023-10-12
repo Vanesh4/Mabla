@@ -7,45 +7,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <style>
-        .input-group {
-            position: relative;
-        }
-    
-        .input-group input[type="password"] {
-            padding-right: 40px; /* Espacio para el icono */
-        }
-        .input-group i {
-            position: absolute;
-            top: 50%;
-            right: 10px;
-            transform: translateY(-50%);
-            cursor: pointer;
-        }
-    </style>
-</head>
 <body>
-<script>
-    $(document).ready(function() {
-        $("#toggle-password").click(function() {
-            var passwordInput = $("#password");
-            var type = passwordInput.attr("type");
-            if (type === "password") {
-                passwordInput.attr("type", "text");
-                $("#toggle-password").removeClass("fa-eye").addClass("fa-eye-slash");
-            } else {
-                passwordInput.attr("type", "password");
-                $("#toggle-password").removeClass("fa-eye-slash").addClass("fa-eye");
-            }
-        });
-    });
-</script>
-    <form>
-        <div class="input-group">
-            <input type="password" class="form-control" id="password" placeholder="Contraseña" name="password">
-            <i class="fa fa-eye" id="toggle-password"></i>
-        </div>
-        <button type="submit" class="btn btn-primary">Enviar</button>
+    
+    <form method="post">
+        {% csrf_token %}
+            <img src="{{form.imgPerfil.url}}" alt="Holi">
     </form>
 </body>
 </html>
