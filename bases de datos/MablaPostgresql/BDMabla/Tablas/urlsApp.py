@@ -5,7 +5,9 @@ from . import views
 from django.conf import settings
 from django.conf.urls.static import static
 from rest_framework_simplejwt.views import TokenRefreshView
-from rest_framework_simplejwt.views import TokenObtainPairView
+from rest_framework_simplejwt.views import TokenObtainPairView 
+from django.contrib.auth.views import PasswordResetView, PasswordResetDoneView, PasswordResetConfirmView, PasswordResetCompleteView  
+from django.contrib.auth import views as auth_views
 
 urlpatterns = [
     #path('insertUser',insertTablaUser.as_view(), name='insertUser'),
@@ -68,5 +70,16 @@ urlpatterns = [
     path('preguntas/<ti>/<cat>', views.pregTipoCat, name='PreguntasFiltradas'),
     path('listaCatSub', ListaCategoriaSub.as_view(), name='listaCatSub'),
 
+    
+    path('reset_password/', auth_views.PasswordResetView.as_view(), name="password_reset"),
+    path('reset_password_send/', auth_views.PasswordResetDoneView.as_view(), name="password_reset_done"),
+    path('reset/<uidb64>/<token>', auth_views.PasswordResetConfirmView.as_view(), name='password_reset_confirm'),
+    path('reset_password_complete/', auth_views.PasswordResetCompleteView.as_view(), name='password_reset_complete'),
+
 ] +static(settings.MEDIA_URL, document_root= settings.MEDIA_ROOT)
 
+""" path('reset/password_reset', auth_views.PasswordResetView.as_view(template_name='rClave/password_reset_form.html', email_template_name='rClave/password_reset_email.html'), name="password_reset"),
+    path('reset/password_reset_done', auth_views.PasswordResetDoneView.as_view(template_name='rClave/password_reset_done.html'), name="password_reset_done"),
+    path('reset/password_reset/<uidb64>/<token>/', auth_views.PasswordResetConfirmView.as_view(template_name='rClave/password_reset_confirm.html'), name='password_reset_confirm'),
+    path('reset/password_reset/done', auth_views.PasswordResetCompleteView.as_view(template_name='rClave/password_reset_complete.html'), name='password_reset_complete'), """
+    
