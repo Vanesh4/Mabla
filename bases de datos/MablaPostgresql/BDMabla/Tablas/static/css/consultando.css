@@ -30,11 +30,19 @@ h1{
      
 }
 
-nav{    
+.nav{   
+    
     width: 300px;
     background-color: #0a4d68;
     height: 100%;
     box-sizing: border-box;
+<<<<<<< HEAD
+=======
+    overflow-y: auto; 
+    
+    
+    
+>>>>>>> b94e794a8e59b3bcfeba0eb60396228283d07034
 }
 
 .nav_link{
@@ -61,13 +69,15 @@ nav{
 
 #list{
     width: 100%;
-    height: 100vh;
+    height: 100%;
     display: flex;
     justify-content: center;
     flex-direction: column;
     border-radius: 0 16px 16px 0;
     background: #fff;
-    background-color: #0a4d68;
+    background-color: #0a4d68; 
+    
+
   
 }
 .list_item{
@@ -77,12 +87,13 @@ nav{
     overflow: hidden;
     padding-top: 50px;
     
+    
 
 }
+
+
 .list__item--click{
     cursor: pointer;
-
-    
 
 }
 
@@ -342,12 +353,13 @@ input{
     #flechacajadis{
         background-color: transparent;
     }
-    nav{    
+    .nav{    
         width: 350px;
         background-color: #0a4d68;
         height: 50%;
         box-sizing: border-box;
         height: 200px;
+        overflow-y: auto;
         
     }
     
@@ -377,7 +389,6 @@ input{
         width: 100%;
         height: 100VH;
         display: flex;
-       
         flex-direction: column;
         border-radius: 0 16px 16px 0;
         background: #fff;
@@ -391,11 +402,13 @@ input{
         text-align: center;
         overflow: hidden;
         padding-top: 50px;
+        overflow-y: auto;
         
     
     }
     .list__item--click{
         cursor: pointer;
+        overflow-y: auto;
     
         
     
