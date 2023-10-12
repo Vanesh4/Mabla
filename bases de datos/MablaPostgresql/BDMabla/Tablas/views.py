@@ -203,7 +203,7 @@ def subCategoriasparaPal(cat):
     ]
 
     
-    print("SUB DE CATE",subCatedeCate)
+    #print("SUB DE CATE",subCatedeCate)
     return subCatedeCate
 
   

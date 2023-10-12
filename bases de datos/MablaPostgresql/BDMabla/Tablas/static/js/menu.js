@@ -35,8 +35,9 @@ $(document).ready(function () {
             console.log(res)
             for(let i=0; i<res.length; i++){
                           
-                divCategoria = document.createElement("div")
+                divCategoria = document.createElement("a")
                 divCategoria.setAttribute("class","categoria")
+                divCategoria.setAttribute("href","/mostrar")
 
                 h2Categoria = document.createElement("h2")
                 h2Categoria.innerHTML = res[i].Categoria
@@ -63,11 +64,15 @@ $(document).ready(function () {
     
     
 })
-divs = document.getElementsByClassName("categoria");
-console.log(divs)
-Array.from(divs).forEach(function(div, index) {
-    div.addEventListener("click", function() {
-        // Muestra el contenido del div en la consola al hacer clic
-        console.log("Contenido del Div " + (index + 1) + ": " + div.textContent);
-    });
+
+document.addEventListener("DOMContentLoaded", function() {
+    // Obtén una referencia al botón
+    console.log("hola")
+    const boton = document.getElementsByClassName("categoria");
+    arrayDeNodos=[]
+    arrayDeNodos.push(boton)
+    console.log(arrayDeNodos)
+    boton.addEventListener("click",function () {
+        window.location.href = "/mostrar"
+    })
 });

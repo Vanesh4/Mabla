@@ -24,6 +24,8 @@ body{
 .categoria{
     /* border: 1px solid black; */
     margin: 20px;
+    border: none;
+    background-color: transparent;
 }
 
 h2, .subcategoria{
@@ -38,6 +40,12 @@ h2{
     color: #fff7ea;
     margin: 10px 0 10px 0; 
     text-transform: uppercase;
+}
+h2:hover{
+    color: #ff731c;
+}
+.subcategoria:hover{
+    color: #06bfdb;
 }
 .subcategoria{
     font-family: "raleway";
