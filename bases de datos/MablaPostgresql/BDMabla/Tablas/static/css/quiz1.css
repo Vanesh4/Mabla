@@ -7,13 +7,11 @@
     margin: 0;
     padding: 0;
 }
-/* #alias{
-    visibility: hidden;
-} */
-header{
-    background-color: grey;
-    height: 80px;
+#alias{
+    /* visibility: hidden; */
+    display: none;
 }
+
 #sectionPregunta{
     margin-top: 20px;
     display: flex;
@@ -23,7 +21,6 @@ header{
 #senia{
     width: 300px;
     height: 300px;
-    background-color: rgb(174, 174, 174);
     margin-left: auto;
     margin-right: auto;
 }
@@ -148,9 +145,12 @@ a{
     #senia{
         width: 100%;
         height: 200px;
-        background-color: rgb(174, 174, 174);
         margin-left: auto;
         margin-right: auto;
+    }
+    #pregunta{
+        font-size: 25px;
+        margin-bottom: 16px;
     }
     .flecha{
         height: 200px;

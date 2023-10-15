@@ -2,6 +2,7 @@ from django.urls import path
 from .viewLogin import *
 from .views import *
 from . import views
+from . import viewsPlantillas
 from django.conf import settings
 from django.conf.urls.static import static
 from rest_framework_simplejwt.views import TokenRefreshView
@@ -18,7 +19,7 @@ urlpatterns = [
     path('ingresar',IniciarSesionView.as_view(), name='ingresar'),
     path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),  # Ruta para obtener el token JWT
     path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),  # Ruta para refrescar el token JWT
-    path('logOut', views.cerrarSesion, name='logOut'),
+    path('logOut', viewsPlantillas.cerrarSesion, name='logOut'),
     #path('users',getUser.as_view(), name='users'),
     path('tablaComment',getTablaComment.as_view(), name='tablaComment'),
     #path('editUser/<pk>',editTablaUser.as_view(),name='editUser'),
@@ -33,16 +34,16 @@ urlpatterns = [
     path('putPregunta/<int:pk>',editPregunta.as_view(), name="editPreg"),
     path('deletePregunta/<int:pk>',deletePregunta.as_view(), name="deletePreg"),
 
-    path('',views.iniciohtml, name="inicio"),
-    path('iniciosesion',views.inicioConSesion, name="iniciosesion"),
-    path('quizTipo1',views.viewQuiz1, name="quiz1"),
-    path('quizTipo2',views.viewQuiz2, name="quiz2"),
-    path('menu',views.menuTodo, name="menu"),
-    path('mostrar/',views.vercategorias, name="mostrar"),
-    path('mostrarsubcate/',views.versubcategorias, name="mostrarsubcate"),
+    path('',viewsPlantillas.iniciohtml, name="inicio"),
+    path('iniciosesion',viewsPlantillas.inicioConSesion, name="iniciosesion"),
+    path('quizTipo1',viewsPlantillas.viewQuiz1, name="quiz1"),
+    path('quizTipo2',viewsPlantillas.viewQuiz2, name="quiz2"),
+    path('menu',viewsPlantillas.menuTodo, name="menu"),
+    path('mostrar/',viewsPlantillas.vercategorias, name="mostrar"),
+    path('mostrarsubcate/',viewsPlantillas.versubcategorias, name="mostrarsubcate"),
     path('perfil',profile.as_view(), name="perfil"),
-    path('diccio/', views.palabradiccionario, name='diccio'),
-    path('prueba',views.prueba, name='prueba'),
+    path('diccio/', viewsPlantillas.palabradiccionario, name='diccio'),
+    path('prueba',viewsPlantillas.prueba, name='prueba'),
 
     path('getcate',getCategoria.as_view(),name='getcate'),
     path('getcategoria',ListaConsultando.as_view(),name='getcate'),

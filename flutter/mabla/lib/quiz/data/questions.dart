@@ -1,5 +1,5 @@
 class Question {
-  late String country;
+  late String question;
   //String question = "Capital de: ";
   late String answer;
   List<String> options = [];
@@ -7,12 +7,12 @@ class Question {
   bool correct = false;
 
   Question.fromJson(Map<String, dynamic> json)
-      : country = json['respuesta'],
-        answer = json['pregunta'];
+      : question = json['pregunta'],
+        answer = json['respuesta'];
 
   void addOptions(List<String> newOptions) {
     //question += country;
-    country;
+    question;
     options.add(answer);
     for (int i = 0; i < newOptions.length; i++) {
       if (i == 3) break;
@@ -26,6 +26,6 @@ class Question {
 
   @override
   String toString() {
-    return 'Question{country: $country, answer: $answer, options: $options}';
+    return 'Question{question: $question, answer: $answer, options: $options}';
   }
 }

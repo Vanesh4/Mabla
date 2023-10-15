@@ -113,7 +113,7 @@ form{
         position: static;
     }    
     .header{        
-        height:100%;
+        height: 100%;
         width: 80%;
         flex-direction: column;
         position: absolute;
@@ -192,5 +192,13 @@ form{
     #imgBotonCerrarMenu{
         width: 20px;
         padding: 20px 20px 0 0;
+    }
+    .imgdeperfil{
+        margin-top: 20px;
+        width: 90px; 
+        height: 90px; 
+    }
+    #alias{
+        display: none;
     }
 }

@@ -26,7 +26,8 @@ class _comentariosState extends State<comentarios> {
   List<dynamic> comments = [];
   Future<void> getComments() async{
     // ipv4 vanessa: http://192.168.1.8/
-    final url = Uri.parse('http://192.168.1.8/tablaComment');
+    //final url = Uri.parse('http://192.168.1.8/tablaComment');
+    final url = Uri.parse('https://jsonplaceholder.typicode.com/comments');
     final response = await http.get(url);
 
     if(response.statusCode == 200){
@@ -94,16 +95,15 @@ class _comentariosState extends State<comentarios> {
           ),
         ),
         SizedBox(height: 20,),
-
-        ListView.builder(
+        comments.isNotEmpty
+            ? ListView.builder(
           //listView se ajuste al tamaño de su contenido:
             shrinkWrap: true,
             //para evitar que el ListView.builder tenga su propio desplazamiento:
             physics: NeverScrollableScrollPhysics(),
             padding: const EdgeInsets.all(8),
-            itemCount: comments.length,
-
-            //itemCount: 5,
+            //itemCount: comments.length,
+            itemCount: 5,
             itemBuilder: (context, index) {
               final item =  comments[index];
               return Container(
@@ -113,11 +113,13 @@ class _comentariosState extends State<comentarios> {
                     borderRadius: BorderRadius.circular(10)
                 ),
                 child: ListTile(
-                  title: Text(item['alias_id'], style: TextStyle(
+                  //title: Text(item['alias_id'], style: TextStyle(
+                  title: Text(item['email'], style: TextStyle(
                       color: Colors.grey, fontSize: 20, fontFamily: 'Raleway'
                   ),
                   ),
-                  subtitle: Text(item['texto'], style: TextStyle(
+                  //subtitle: Text(item['texto'], style: TextStyle(
+                  subtitle: Text(item['body'], style: TextStyle(
                       color: Colors.black, fontSize: 20, fontFamily: 'Raleway'
                   ),
                   ),
@@ -125,6 +127,14 @@ class _comentariosState extends State<comentarios> {
                 ),
               );
             }
+        ): const Center(
+          child: Padding(
+            padding: EdgeInsets.only(top: 30),
+            child: CircularProgressIndicator(
+              strokeWidth: 5.0, // Ancho de la barra de progreso
+              backgroundColor: Colors.grey, // Color de fondo de la barra de progreso
+            ),
+          ), // Barra de progreso circular
         ),
       ],
     );

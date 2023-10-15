@@ -29,11 +29,12 @@ class _quizState extends State<quiz> {
   Quiz quiz = Quiz(questions: []);
   Future<void> readData()async{
     int tipo = 1;
-    String categoria = 'sustantivos';
+    String categoria = 'Sustantivos';
     final response = await http.get(Uri.parse('http://192.168.1.8/preguntas/$tipo/$categoria'));
     if (response.statusCode == 200) {
       final List<dynamic> data = await json.decode(response.body); //decodificar y pasar a una lista
       //data va a ser una sola preguna
+      print("data quiz connected successfull");
       List<int> optionList = List<int>.generate(data.length, (i) => i);
       List<int> questionsAdded = []; //agregar los indixes de la pregunta para que no se repita
 
@@ -61,6 +62,20 @@ class _quizState extends State<quiz> {
     }
   }
 
+  //colores del contenedor:
+  List<Color> containerColors = [
+    purple,
+    lightBlue,
+    darkBlue,
+    orange,
+  ];
+  List<Color> textColors = [
+    Colors.white,
+    Colors.black,
+    Colors.white,
+    Colors.black,
+  ];
+
   @override
   void initState() {
     super.initState();
@@ -68,7 +83,7 @@ class _quizState extends State<quiz> {
     readData();
   }
 
-  String message = 'Hola desde SenderWidget';
+
   void _opcionSelected(String sel){
     quiz.questions[questionIndex].selected = sel;
     if (sel == quiz.questions[questionIndex].answer){
@@ -82,10 +97,11 @@ class _quizState extends State<quiz> {
     if(questionIndex < totalQuestions-1){
       questionIndex++;
     }else{
+      String totalResult = quiz.right.toString();
       Navigator.push(
         context,
         MaterialPageRoute(
-          builder: (context) => resultadosQuiz(message: message),
+          builder: (context) => resultadosQuiz(message: totalResult),
         ),
       );
     }
@@ -98,74 +114,89 @@ class _quizState extends State<quiz> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Column(
-          children: [
-            ClipRRect(
-              borderRadius: BorderRadius.circular(15),
-              child: LinearProgressIndicator(
-                color: Colors.amber.shade900,
-                value: progressIndex / totalQuestions,
-                minHeight: 20,
-              ),
-            ),
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
 
-            //Pregunta y respuetas
-            Expanded(
-              //ConstrainedBox
-              //constraints: const BoxConstraints(maxHeight: 450),
-              child: Container(
-                child: quiz.questions.isNotEmpty
-                    ? Card(
-                    child: Column(
-                    //mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Container(
-                        margin: EdgeInsets.all(20),
-                        child: //Image.asset('assets/img/ninja.png'),
-                        //Image.network('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTa6pwb9P16lp30bS-sLM4rn0q_b-w0f_2QLg&usqp=CAU')
-                        Image.network(quiz.questions[questionIndex].country)
-                      ),
-                      //RESPUESTAS
-                      Flexible(
-                        child: ListView.builder(
-                          itemCount: totalOptions,
-                          //shrinkWrap: true,
-                          itemBuilder: (_, index){
-                            return Container(
-                              //estilos a la respuesta
-                              margin: EdgeInsets.all(5),
-                              color: Colors.purple,
-                              child: ListTile(
-                                //el listado del index
-                                //title: Text('Respuesta ${index+1}'),
-                                title: Text(quiz.questions[questionIndex].options[index]),
-                                onTap: (){
-                                  _opcionSelected(quiz.questions[questionIndex].options[index]);
-                                },
-                                // Estilizar el efecto de pulsación. no sirve
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(8), // Ajusta el radio según tu preferencia
-                                  side: BorderSide(
-                                    color: Colors.blue, // Color del borde
-                                    width: 2.0, // Ancho del borde
-                                  ),
-                                ),
-                              ),
-                            );
-                          },
-                        ),
-                      )
-                    ],
+              Text('A que palabra corresponde esta seña',
+                style: TextStyle(fontSize: 30, fontFamily: "Raleway",color: Colors.black),textAlign: TextAlign.center,),
+
+              Container(
+                height: 8,
+                margin: EdgeInsets.only(left: 20, right: 20),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(15),
+                  child: LinearProgressIndicator(
+                    color: beige,
+                    value: progressIndex / totalQuestions,
+                    minHeight: 20,
                   ),
-                ): const Center(
-                  child: CircularProgressIndicator(
-                    strokeWidth: 5.0, // Ancho de la barra de progreso
-                    backgroundColor: Colors.grey, // Color de fondo de la barra de progreso
-                  ), // Barra de progreso circular
                 ),
               ),
-            )
-          ],
+
+              //Pregunta y respuetas
+              Expanded(
+                //ConstrainedBox
+                //constraints: const BoxConstraints(maxHeight: 450),
+                child: Container(
+                  margin: EdgeInsets.only(left: 30, right: 30),
+                  child: quiz.questions.isNotEmpty
+                      ? Card(
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(0.0)),
+                        elevation: 0.0,
+                      child: Column(
+                      //mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Container(
+                          margin: EdgeInsets.only(right: 10, left: 10),
+                          child: //Image.asset('assets/img/ninja.png'),
+                          //Image.network('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTa6pwb9P16lp30bS-sLM4rn0q_b-w0f_2QLg&usqp=CAU')
+                          Image.network(quiz.questions[questionIndex].question),
+                          height: 300,
+                        ),
+                        //RESPUESTAS
+                        Flexible(
+                          child: ListView.builder(
+                            itemCount: totalOptions,
+                            //shrinkWrap: true,
+                            itemBuilder: (_, index){
+                              Color currentColor = containerColors[index];
+                              Color currentTextColor = textColors[index];
+                              return Container(
+                                //estilos a la respuesta
+                                margin: EdgeInsets.all(5),
+                                color: currentColor,
+                                child: ListTile(
+                                  //el listado del index
+                                  //title: Text('Respuesta ${index+1}'),
+                                  title: Text(quiz.questions[questionIndex].options[index],
+                                  style: TextStyle(fontSize: 30, fontFamily: "Raleway",color: currentTextColor)
+                                    ,textAlign: TextAlign.center,),
+                                  onTap: (){
+                                    _opcionSelected(quiz.questions[questionIndex].options[index]);
+                                  },
+                                  // *****Estilizar el efecto de pulsación.
+                                ),
+                              );
+                            },
+                          ),
+
+                        )
+                      ],
+                    ),
+                  ): const Center(
+                    child: CircularProgressIndicator(
+                      strokeWidth: 5.0, // Ancho de la barra de progreso
+                      backgroundColor: Colors.grey, // Color de fondo de la barra de progreso
+                    ), // Barra de progreso circular
+                  ),
+                ),
+              )
+            ],
+          ),
         ),
       ),
     );

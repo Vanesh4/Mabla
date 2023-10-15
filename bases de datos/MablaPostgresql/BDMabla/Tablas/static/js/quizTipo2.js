@@ -13,10 +13,15 @@ const valorRecibido = localStorage.getItem('categoria');
 console.log(valorRecibido);
 
 */
+history.pushState(null, null, location.href);
+window.onpopstate = function () {
+    history.go(1);
+};
+
 const valorRecibido = localStorage.getItem('categoria');
 //console.log(valorRecibido);
-categoria = "Verbos"
-//categoria = valorRecibido
+//categoria = "Verbos"
+categoria = valorRecibido
 localStorage.clear();
 function generarNumeroAleatorio(num) {
     /* return Math.floor(Math.random() * num) + 1; */
@@ -130,7 +135,7 @@ $(document).ready (()=>{
             totalRespuestasAcertadas++
         }
         else{
-            console.log("contexto")
+            //console.log("contexto")
             for (let i = 0; i < 4; i++) {
                 ress =  "conte"+i
                 document.getElementById(ress).className = "opcion opcionIncorrecta"
@@ -152,3 +157,46 @@ $(document).ready (()=>{
         $("#calificacion").text(totalRespuestasAcertadas+"/5")
     }
 })
+
+
+//post RESULTADO
+function postResulatdo(){
+    
+    const url = 'http://127.0.0.1:8000/insertPrueba';
+    
+    alias = document.getElementById("alias").textContent
+    const data = {
+        "alias_id": alias,
+        "tipoPrueba": 2,
+        "idCategoria_id": categoria,
+        "puntaje": totalRespuestasAcertadas
+    };
+    
+    // Opciones de configuración de la petición
+    const options = {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json' 
+        },
+        body: JSON.stringify(data) 
+    };
+    
+    fetch(url, options)
+        .then(response => {
+            if (!response.ok) {
+                console.log("paila")
+                throw new Error('La petición no fue exitosa');
+            }
+            return response.json(); // Puedes usar .text() si la respuesta no es JSON
+        })
+        .then(data => {
+            // Maneja la respuesta exitosa aquí
+            console.log('Respuesta exitosa:', data);
+        })
+        .catch(error => {
+            // Maneja errores de la petición aquí
+            console.log('Error:', error);
+        });
+    
+    }
+    
