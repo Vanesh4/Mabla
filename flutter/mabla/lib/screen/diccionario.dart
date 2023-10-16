@@ -26,7 +26,7 @@ class _diccionarioState extends State<diccionario> {
   List<Map<String, dynamic>> palabsenia = [];
 
   Future<void> myInitial(String initial) async {
-    final response = await http.get(Uri.parse('http://192.168.1.6/getpalabrasdiccio/$initial'));
+    final response = await http.get(Uri.parse('http://192.168.1.8/getpalabrasdiccio/$initial'));
     print(response.body);
 
 
@@ -47,127 +47,127 @@ class _diccionarioState extends State<diccionario> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      key: _scaffoldKey,
-      endDrawer: abecedario(),
-      body: Padding(
-          padding: EdgeInsets.symmetric(vertical: 30),
-          child: Column(
-            children: <Widget>[
-              Container(
-                color: gris,
-                padding: EdgeInsets.only(top: 10, bottom: 10),
-                child: Row(
-                  children: [
-                    Container(
-                      alignment: Alignment.topLeft,
-                      margin: EdgeInsets.only(bottom: 18, top: 10),
-                      child: IconButton(onPressed: (){
-                        _scaffoldKey.currentState?.openEndDrawer();
-                        Navigator.push(context, MaterialPageRoute(builder: (context)=>home()));
-                      },
-                        icon: Icon(Icons.home,size: 50,),color: darkBlue,
-                      ),
-                    ),
-                    Container(
-                      margin: EdgeInsets.only(left: 15, top: 10),
-                      padding: EdgeInsets.only(bottom: 9, left: 25, right: 20, top: 5),
-                      width: 250,
-                      height: 50,
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(100),
-                          border: Border.all(color: Colors.black45)
-                      ),
-                      child: TextField(
-                        onChanged: (value) {
-                        setState(() {
-                          initial = value;
-                          print(initial);
-                        });
-                      },
-
-                        decoration: InputDecoration(
-                          hintText: 'Busca vocabulario',
-                          contentPadding: EdgeInsets.only(top: 3, left: 5),
-                          enabledBorder: UnderlineInputBorder(
-                            borderSide: BorderSide.none, // Cambia este valor al color deseado
+        key: _scaffoldKey,
+        endDrawer: abecedario(),
+        body: Padding(
+            padding: EdgeInsets.symmetric(vertical: 30),
+            child: Column(
+                children: <Widget>[
+                  Container(
+                    color: gris,
+                    padding: EdgeInsets.only(top: 10, bottom: 10),
+                    child: Row(
+                      children: [
+                        Container(
+                          alignment: Alignment.topLeft,
+                          margin: EdgeInsets.only(bottom: 18, top: 10),
+                          child: IconButton(onPressed: (){
+                            _scaffoldKey.currentState?.openEndDrawer();
+                            Navigator.push(context, MaterialPageRoute(builder: (context)=>home()));
+                          },
+                            icon: Icon(Icons.home,size: 50,),color: darkBlue,
                           ),
-                          focusedBorder: UnderlineInputBorder(
-                            borderSide: BorderSide.none, // Cambia este valor al color deseado
-                          ),
-
-                         suffixIcon: IconButton(
-                            onPressed: () {
-                              myInitial(initial);
-                            },
-                            icon: Icon(Icons.search,size: 25,),color: darkBlue
-                          ),
-
-
-
-                        ), style: TextStyle(
-                            fontFamily: "Raleway",
-                            fontSize: 16
                         ),
-                      ),
+                        Container(
+                          margin: EdgeInsets.only(left: 15, top: 10),
+                          padding: EdgeInsets.only(bottom: 9, left: 25, right: 20, top: 5),
+                          width: 250,
+                          height: 50,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(100),
+                              border: Border.all(color: Colors.black45)
+                          ),
+                          child: TextField(
+                            onChanged: (value) {
+                              setState(() {
+                                initial = value;
+                                print(initial);
+                              });
+                            },
+
+                            decoration: InputDecoration(
+                              hintText: 'Busca vocabulario',
+                              contentPadding: EdgeInsets.only(top: 3, left: 5),
+                              enabledBorder: UnderlineInputBorder(
+                                borderSide: BorderSide.none, // Cambia este valor al color deseado
+                              ),
+                              focusedBorder: UnderlineInputBorder(
+                                borderSide: BorderSide.none, // Cambia este valor al color deseado
+                              ),
+
+                              suffixIcon: IconButton(
+                                  onPressed: () {
+                                    myInitial(initial);
+                                  },
+                                  icon: Icon(Icons.search,size: 25,),color: darkBlue
+                              ),
 
 
 
+                            ), style: TextStyle(
+                              fontFamily: "Raleway",
+                              fontSize: 16
+                          ),
+                          ),
+
+
+
+                        ),
+
+                        Container(
+                          margin: EdgeInsets.only(bottom: 30),
+                          child: IconButton(onPressed: (){
+                            _scaffoldKey.currentState?.openEndDrawer();
+                          },
+                            icon: Icon(Icons.chevron_left_sharp, size: 80),color: darkBlue,
+                          ),
+                        ),
+                      ],
                     ),
+                  ),
 
-                    Container(
-                      margin: EdgeInsets.only(bottom: 30),
-                      child: IconButton(onPressed: (){
-                        _scaffoldKey.currentState?.openEndDrawer();
-                      },
-                        icon: Icon(Icons.chevron_left_sharp, size: 80),color: darkBlue,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-
-             /* ElevatedButton(
+                  /* ElevatedButton(
                 onPressed: () {
                   // Llamamos a la función con la inicial ingresada por el usuario.
                   myInitial(initial);
                 },
                 child: Text('Buscar'),
               ),*/
-              Expanded(
+                  Expanded(
 
-                  child: ListView(
-                    scrollDirection: Axis.vertical, // Hace que el contenido se desplace horizontalmente
-                    children: [
-                      Column(
-                        children: palabsenia.map((item) {
-                          final palabra = item['palabra'];
-                          final senia = item['senia'];
-                          return Container(
-                            width: 200,
-                            margin: EdgeInsets.only(right: 20),
-                            child: Card(
-                              elevation: 4.0,
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(10),
-                              ),
-                              child: Column(
-                                mainAxisSize: MainAxisSize.min,
-                                children: <Widget>[
-                                  Image.network(senia, height: 160),
-                                  Text(
-                                    palabra,
-                                    style: TextStyle(fontFamily: 'Raleway', fontSize: 30),
+                      child: ListView(
+                        scrollDirection: Axis.vertical, // Hace que el contenido se desplace horizontalmente
+                        children: [
+                          Column(
+                            children: palabsenia.map((item) {
+                              final palabra = item['palabra'];
+                              final senia = item['senia'];
+                              return Container(
+                                width: 200,
+                                margin: EdgeInsets.only(right: 20),
+                                child: Card(
+                                  elevation: 4.0,
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(10),
                                   ),
-                                ],
-                              ),
-                            ),
-                          );
-                        }).toList(),
-                      ),
-                    ],
-                  )
+                                  child: Column(
+                                    mainAxisSize: MainAxisSize.min,
+                                    children: <Widget>[
+                                      Image.network(senia, height: 160),
+                                      Text(
+                                        palabra,
+                                        style: TextStyle(fontFamily: 'Raleway', fontSize: 30),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              );
+                            }).toList(),
+                          ),
+                        ],
+                      )
 
-             /*   child: ListView.builder(
+                    /*   child: ListView.builder(
 
                   itemCount: palabsenia.length,
                   itemBuilder: (context, index) {
@@ -202,9 +202,9 @@ class _diccionarioState extends State<diccionario> {
                   },
 
                 )*/
-              ),
-             ]
-          )
+                  ),
+                ]
+            )
         )
 
     );
