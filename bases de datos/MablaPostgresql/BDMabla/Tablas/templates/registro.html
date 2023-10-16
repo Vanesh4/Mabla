@@ -1,0 +1,97 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Registrate</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/registro.css' %}">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,300;0,400;0,700;1,100&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Martian+Mono:wght@100;500&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="{% static 'img/mablaLOGO-removebg.png' %}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+  <form method="POST" action="register">
+    <div class="textR">
+      <p>REGÍSTRATE</p>
+    </div>
+    {% csrf_token %}
+    <section class="sectionForm">
+      <div class="inputs">
+        <label for="{{ form.first_name.id_for_label }}" >Nombre </label>
+          <!-- <input type="text" class="form-control" id="validationNombre" required> -->
+          {{ form.first_name }}  
+      </div>
+
+      <div class="inputs">
+        <label for="{{ form.last_name.id_for_label }}">Apellido </label>
+          <!-- <input type="text" class="form-control" id="validationApellido" required> -->
+          {{ form.last_name }}
+      </div>
+
+      <div>
+        <label for="{{ form.email.id_for_label }}" id="lEmail2" >Correo electrónico </label>
+          <!-- <input type="email" class="form-control" id="validationCorreo" required> -->
+          {{ form.email }} 
+          <div class="error">      
+            {% if form.errors.email %}
+              <p class="errors">Ingresa una dirección de correo válida</p>
+            {% endif %}
+          </div>
+      </div>
+        
+      <div>
+        <label for="{{ form.username.id_for_label }}" id="lEmail" >Usuario (Alias) </label>
+          <!-- <input type="text" class="form-control" id="validationUsername" required> -->
+          {{ form.username }}
+          <div class="error">
+            {% if form.errors.username %}
+              <p>Este alias no está disponible</p>
+            {% endif %}
+          </div>
+      </div>
+              
+        <div id="clave">
+          <label for="{{ form.password1.id_for_label }}">Clave</label>
+            <!-- <input type="password" class="form-control" id="validationPassword" required> -->
+            {{ form.password1}}
+            <i class="fa fa-eye" id="toggle-password" onclick="ver()"></i>
+            <div class="error">
+              {% if form.errors.password1 %}
+                <p class="errors1">La clave debe contener +8 caracteres (una mayúscula, minúscula, un número y caracter especial)</p>
+              {% endif %}
+            </div>
+        </div>
+        <div id="clave">
+          <label for="{{ form.password2.id_for_label }}" id="lEmail1" >Confirma tu clave </label>
+              <!-- <input type="password" class="form-control" id="validationPassword" required> --> 
+              {{ form.password2 }} 
+              <i class="fa fa-eye" id="toggle-password1" onclick="ver1()"></i>
+              <div class="error">
+                {% if form.errors.password2 %}
+                  <p>Las claves no coinciden</p>
+                {% endif %}
+              </div>
+        </div>
+      </section>    
+      
+        <div id="boton">
+          <button type="submit" id="colorbtn">Registrarme</button>
+        </div>
+            <!-- <p id="mensaje-error"></p>        -->
+    </form>
+    <div class="imgyText">
+      <img id="mablaNaranja" src="/static/img/letrasMABLAnaranja.png" alt="" srcset="">
+      <div class="slogan">
+        HABLA CON LAS MANOS
+      </div>
+      <img id="capi" src="/static/img/capiLogin.png" alt="" srcset="">
+    </div>
+</body>
+<script src="{%static 'js/gestionUser.js'%}"></script>  
+</html>

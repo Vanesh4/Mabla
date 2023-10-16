@@ -1,0 +1,277 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/brands.js" integrity="sha384-sCI3dTBIJuqT6AwL++zH7qL8ZdKaHpxU43dDt9SyOzimtQ9eyRhkG3B7KMl6AO19" crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/fontawesome.js" integrity="sha384-7ox8Q2yzO/uWircfojVuCQOZl+ZZBg2D2J5nkpLqzH1HY0C1dHlTKIbpRz/LG23c" crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js" integrity="sha384-SlE991lGASHoBfWbelyBPLsUlwY1GwNDJo3jSJO04KZ33K2bwfV9YBauFfnzvynJ" crossorigin="anonymous"></script>
+    <title>Diccionario MABLA</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- <link rel="icon" type="image/x-icon" href="{% static 'img/mablaLOGO-removebg.png' %}"> -->
+</head>
+<body>
+
+<section class="caja1">
+
+    <div class="letras">
+                <span class="hider" id="hide_abc">
+                <ul class="list_show">
+                    <!-- <span class="hider" id="hide_abc"></span> -->
+                    <li class="list_inside">
+                        <a href="#" id="enlace" data-valor="A" class="nav_link">A</a>
+                    </li>
+                    <li class="list_inside">
+                        <a href="#" id="enlace" data-valor="B"  class="nav_link">B</a>
+                    </li>
+                    <li class="list_inside">
+                        <a href="#" id="enlace" data-valor="C"  class="nav_link">C</a>
+                    </li>
+                    <li class="list_inside">
+                        <a href="#" id="enlace" data-valor="D"  class="nav_link">D</a>
+                    </li>
+                    <li class="list_inside">
+                        <a href="#" id="enlace" data-valor="E"  class="nav_link">E</a>
+                    </li>
+                    <li class="list_inside">
+                        <a href="#" id="enlace" data-valor="F"  class="nav_link">F</a>
+                    </li>
+                    <li class="list_inside">
+                        <a href="#" id="enlace" data-valor="G"  class="nav_link">G</a>
+                    </li>
+                    <li class="list_inside">
+                        <a href="#" id="enlace" data-valor="H"  class="nav_link">H</a>
+                    </li>
+                    <li class="list_inside">
+                        <a href="#" id="enlace" data-valor="I"  class="nav_link">I</a>
+                    </li>
+                    <li class="list_inside">
+                        <a href="#" id="enlace" data-valor="J"  class="nav_link">J</a>
+                    </li>
+                    <li class="list_inside">
+                        <a href="#" id="enlace" data-valor="K"  class="nav_link">K</a>
+                    </li>
+                    <li class="list_inside">
+                        <a href="#" id="enlace" data-valor="L"  class="nav_link">L</a>
+                    </li>
+                    <li class="list_inside">
+                        <a href="#" id="enlace" data-valor="M"  class="nav_link">M</a>
+                    </li>
+                    <li class="list_inside">
+                        <a href="#" id="enlace" data-valor="N"  class="nav_link">N</a>
+                    </li>
+
+                    <li class="list_inside">
+                        <a href="#" id="enlace" data-valor="Ñ" class="nav_link">Ñ</a>
+                    </li>
+                    <li class="list_inside">
+                        <a href="#" id="enlace" data-valor="O"  class="nav_link">O</a>
+                    </li>
+                    <li class="list_inside">
+                        <a href="#" id="enlace" data-valor="P"  class="nav_link">P</a>
+                    </li>
+                    <li class="list_inside">
+                        <a href="#" id="enlace" data-valor="Q" class="nav_link">Q</a>
+                    </li>
+                    <li class="list_inside">
+                        <a href="#" id="enlace" data-valor="R" class="nav_link">R</a>
+                    </li>
+                    <li class="list_inside">
+                        <a href="#" id="enlace" data-valor="S" class="nav_link">S</a>
+                    </li>
+                    <li class="list_inside">
+                        <a href="#" id="enlace" data-valor="T" class="nav_link">T</a>
+                    </li>
+                    <li class="list_inside">
+                        <a href="#" id="enlace" data-valor="U"  class="nav_link">U</a>
+                    </li>
+                    <li class="list_inside">
+                        <a href="#" id="enlace" data-valor="V" class="nav_link">V</a>
+                    </li>
+                    <li class="list_inside">
+                        <a href="#" id="enlace" data-valor="W" class="nav_link">V</a>
+                    </li>
+                    <li class="list_inside">
+                        <a href="#" id="enlace" data-valor="X" class="nav_link">X</a>
+                    </li>
+                    <li class="list_inside">
+                        <a href="#" id="enlace" data-valor="Y" class="nav_link">Y</a>
+                    </li>
+                    <li class="list_inside">
+                        <a href="#" id="enlace" data-valor="Z" class="nav_link">Z</a>
+                    </li>
+
+
+
+                </ul>
+    </div>
+    </span>
+
+
+    <div class="cajaboton" id="hider_btn">
+        <img id="flecha" src="/img/flecha-apunta-a-la-izquierda.png" alt="flecha" style="width: 50%;">
+    </div>
+
+    <div id="login">
+        <div class="buscar">
+            <a href="http://127.0.0.1:8000/">
+                <img class="logo"  src="/img/mablaLOGO-removebg.png" alt="">
+            </a>
+
+        </div>
+    </div>
+
+    <form id="buscador">
+
+        <label for="inicial"></label>
+        <input style="width: 90%; margin-left: 10px;" type="text" id="inicial" name="inicial">
+        <button style="background-color: transparent; border: none;" type="submit" ><img src="/img/lupa.png" alt="" style="height: 30px;"></button>
+
+
+    </form>
+
+
+</section>
+
+<div id="container">
+    <ul id="wordList">
+
+    </ul>
+
+</div>
+
+<section class="caja2">
+    <div id="results">
+
+        <!-- Los resultados se mostrarán aquí -->
+    </div>
+
+    <script src="/js/diccionario.js"></script>
+</section>
+
+<link rel="stylesheet" href="/css/diccionario.css">
+</body>
+</html>
+
+
+
+
+<!--
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/brands.js" integrity="sha384-sCI3dTBIJuqT6AwL++zH7qL8ZdKaHpxU43dDt9SyOzimtQ9eyRhkG3B7KMl6AO19" crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/fontawesome.js" integrity="sha384-7ox8Q2yzO/uWircfojVuCQOZl+ZZBg2D2J5nkpLqzH1HY0C1dHlTKIbpRz/LG23c" crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js" integrity="sha384-SlE991lGASHoBfWbelyBPLsUlwY1GwNDJo3jSJO04KZ33K2bwfV9YBauFfnzvynJ" crossorigin="anonymous"></script>
+    <title>Diccionario MABLA</title>
+    <link rel="stylesheet" href="/css/diccionario.css">
+    <link rel="stylesheet" href="/css/headerprincipal.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+
+
+
+    <header class="header">
+        <div class="closeBtn">
+            <img src="/img/cancelar.png" alt="" id="imgBotonCerrarMenu">
+        </div>
+        <div class="parteizq">
+            <div class="logo">
+                <a href="http://127.0.0.1:8000/inicio">
+                    <img src="/img/mablaLOGO-removebg.png" alt="logo" class="logoImg">
+                </a>
+            </div>
+            <div class="linkContenido">
+                <a href="http://127.0.0.1:8000/menu"><p class="textomenu">Contenido</p></a>
+                <a href="http://127.0.0.1:8000/menu">
+                    <img src="/img/flecha-hacia-abajo-para-navegar.png" alt="flecha" style="width: 15px;height: 15px;" class="imgflecha">
+                </a>
+            </div>
+            <div class="linkContenido">
+                <a href="#"><p class="textomenu">Sobre nosotros</p></a>
+                <a href="#">
+                    <img src="/img/flecha-hacia-abajo-para-navegar.png" alt="flecha" style="width: 15px;height: 15px;" class="imgflecha">
+                </a>
+            </div>
+        </div>
+        <div class="partederecha">
+            <div id="login">
+                <p id="BotonRegisto">
+                    <a href="http://127.0.0.1:8000/register">Registrarme</a>
+                </p>
+                <p id="BotonIngresar">
+                    &lt;!&ndash; <a href="http://127.0.0.1:8000/ingresar">Iniciar Sesión</a> &ndash;&gt;
+                    <a th:href="@{/oauth2/authorization/auth0}">Iniciar Sesión</a>
+                </p>
+            </div>
+            <div class="buscador">
+                <input  type="text" name="buscador" class="buscadorMenu" maxlength="20">
+                <img src="/img/lupa.png" alt="lupa" style="width: 10%;">
+            </div>
+
+        </div>
+    </header>
+
+    <div class="menuResponsive">
+        <img src="/img/menu.png" alt="" style="width: 40px;" id="imgBotonAbrirMenu">
+    </div>
+    <section class="contenido">
+        <div id="contenidoRespuestaPalabras">
+            <div class="seccionPalabra">
+                <div class="senia"></div>
+                <div class="especificaciones">
+                    <p class="palabra">vaca</p>
+                    <p class="subcategoria">animales</p>
+                    <p class="categoria">sustantivos</p>
+                </div>
+            </div>
+            
+            
+        </div>
+
+        <div class="hider" id="hide_abc" style="visibility: hidden;">
+            <div class="abecedario">
+                <button class="letra">A</button>
+                <button class="letra">B</button>
+                <button class="letra">C</button>
+                <button class="letra">D</button>
+                <button class="letra">E</button>
+                <button class="letra">F</button>
+                <button class="letra">G</button>
+                <button class="letra">H</button>
+                <button class="letra">I</button>
+                <button class="letra">J</button>
+                <button class="letra">K</button>
+                <button class="letra">L</button>
+                <button class="letra">M</button>
+                <button class="letra">N</button>
+                <button class="letra">O</button>
+                <button class="letra">P</button>
+                <button class="letra">Q</button>
+                <button class="letra">R</button>
+                <button class="letra">S</button>
+                <button class="letra">T</button>
+                <button class="letra">U</button>
+                <button class="letra">V</button>
+                <button class="letra">W</button>
+                <button class="letra">X</button>
+                <button class="letra">Y</button>
+                <button class="letra">Z</button>
+            </div>
+            
+        </div> 
+        
+        
+
+    </section>
+
+    <script src="/js/diccionario.js"></script> 
+    <script src="/js/incio.js"></script>
+</body>
+</html>-->

@@ -1,0 +1,119 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MABLA</title>
+    <link rel="icon" type="image/x-icon" href="{% static 'img/mablaLOGO-removebg.png' %}">
+    
+    <link rel="stylesheet" href="{% static 'css/headerprincipal.css'%}">
+    <link rel="stylesheet" href="{% static 'css/menu.css'%}">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>   
+    {% if user.is_authenticated %}
+    <header class="header">
+        <div class="closeBtn">
+            <img src="{% static 'img/cancelar.png'%}" alt="equis" id="imgBotonCerrarMenu">
+        </div>
+        <div class="parteizq">
+            <div class="logo">
+                <a href="/">
+                    <img src="{% static 'img/mablaLOGO-removebg.png' %}" alt="logo" class="logoImg">
+                </a>                
+            </div>
+            <div class="linkContenido">
+                <a href="/menu"><p class="textomenu">Contenido</p></a>
+                <a href="/menu">
+                    <img src="{% static 'img/flecha-hacia-abajo-para-navegar.png'%}" alt="flecha" style="width: 15px;height: 15px;" class="imgflecha">
+                </a>
+            </div>
+            <div class="linkContenido">
+                <a href="#"><p class="textomenu">Sobre nosotros</p></a>
+                <a href="#">
+                    <img src="{% static 'img/flecha-hacia-abajo-para-navegar.png'%}" alt="flecha" style="width: 15px;height: 15px;" class="imgflecha">
+                </a>
+            </div>
+        </div>
+
+        <div class="partederecha">
+            <p class="BotonPrimario">
+                <a href="/logOut">Cerrar Sesión</a>
+            </p>
+            <div class="buscador">
+                <input  type="text" name="buscador" class="buscadorMenu" maxlength="20">
+                <img src="{% static 'img/lupa.png'%}" alt="lupa" style="width: 10%;">                
+            </div>
+            <form method="get" enctype="multipart/form-data">
+                {% csrf_token %}
+                
+                <a href="perfil">
+                    <div class="imgdeperfil">
+                        <img id="fotoUser" src="{{ user.imgPerfil.url }}">
+                    </div>                    
+                </a>
+
+                <p id="alias">{{ user.username }}</p>
+            </form>
+        </div>    
+</header>
+
+{% else %}
+    <!-- sin iniciar sesion  --> 
+    <header class="header">
+    <div class="closeBtn">
+        <img src="{% static 'img/cancelar.png'%}" alt="x" id="imgBotonCerrarMenu">
+    </div>
+    <div class="parteizq">
+        <div class="logo">
+            <a href="/">
+                <img src="{% static 'img/mablaLOGO-removebg.png'%}" alt="logo" class="logoImg">
+            </a>                
+        </div>
+        <div class="linkContenido">
+            <a href="/menu"><p class="textomenu">Contenido</p></a>
+            <a href="/menu">
+                <img src="{% static 'img/flecha-hacia-abajo-para-navegar.png'%}" alt="flecha" style="width: 15px;height: 15px;" class="imgflecha">
+            </a>
+        </div>
+        <div class="linkContenido">
+            <a href="#"><p class="textomenu">Sobre nosotros</p></a>
+            <a href="#">
+                <img src="{% static 'img/flecha-hacia-abajo-para-navegar.png'%}" alt="flecha" style="width: 15px;height: 15px;" class="imgflecha">
+            </a>
+        </div>
+    </div>
+    <div class="partederecha">
+        <div id="login">
+            <p id="BotonRegisto">
+                <a href="/register">Registrarme</a>
+            </p>
+            <p class="BotonPrimario">
+                <a href="/ingresar">Iniciar Sesión</a>
+            </p>
+        </div>
+        <div class="buscador">
+            <input  type="text" name="buscador" class="buscadorMenu" maxlength="20">
+            <img src="{% static 'img/lupa.png'%}" alt="lupa" style="width: 10%;">                
+        </div>
+        
+    </div>    
+</header>    
+
+{% endif %}
+
+    <div class="menuResponsive">
+        <img src="{% static 'img/lista.png'%}" alt="" style="width: 30px;" id="imgBotonAbrirMenu">
+    </div>
+
+    <section id="menuContenido">
+
+    </section>
+
+
+    <script src="{%static 'js/menu.js'%}"></script>
+</body>
+</html>

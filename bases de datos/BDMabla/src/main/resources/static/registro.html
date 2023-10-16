@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registrate</title>
+  <link rel="stylesheet" href="/css/registro.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,300;0,400;0,700;1,100&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Martian+Mono:wght@100;500&display=swap" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="icon" type="image/x-icon" href="/img/mablaLOGO-removebg.png">
+</head>
+<body>
+    <header>
+        <form method="POST" id="formInsert" class="row g-3">
+          <div class="textRegister">
+            REGISTRATE
+          </div>
+          <section id="sectionform">
+            <div class="inputs" id="ph">
+              <label for="validationNombre" class="form-label">Nombre</label>
+              <input type="text" class="form-control" id="validationNombre" required>
+            </div>
+            <div class="inputs">
+              <label for="validationApellido" class="form-label">Apellido</label>
+              <input type="text" class="form-control" id="validationApellido" required>
+            </div>
+            <div class="inputs">
+              <label for="validationCorreo" class="form-label">Correo electrónico</label>
+              <input type="email" class="form-control" id="validationCorreo" required>
+            </div>
+            <div class="inputs">
+                <label for="validationUsername" class="form-label">Usuario (Alias)</label>
+                <input type="text" class="form-control" id="validationUsername" required>
+              </div>
+            <div class="inputs">
+                <label for="validationPassword" class="form-label">Clave</label>
+                <input type="password" class="form-control" id="validationPassword" required>
+            </div>
+            <div class="inputs">
+              <label for="validationPassword" class="form-label">Confirma tu clave</label>
+              <input type="password" class="form-control" id="validationPasswordConfirm" required>
+            </div>
+          </section>
+            
+           <p id="mensaje-error"></p>
+            <div id="boton">
+                <button class="btn" type="button" id="colorbtn">Registrarme</button>
+            </div>
+          </form>
+          <div class="imgyText">
+              <img id="mablaNaranja" src="/img/letrasMABLAnaranja.png" alt="" srcset="">
+            <div class="slogan">
+              HABLA CON LAS MANOS
+            </div>
+            <img id="capi" src="/img/capiLogin.png" alt="" srcset="" >
+          </div>
+        </header>
+      <script src="/js/user/registroUser.js"></script>
+  </body>
+</html>

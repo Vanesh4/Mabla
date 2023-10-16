@@ -1,0 +1,55 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz</title>
+    <link rel="icon" type="image/x-icon" href="{% static 'img/mablaLOGO-removebg.png' %}">
+
+    <link rel="stylesheet" href="{% static 'css/quiz1.css' %}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+
+    <form method="get" enctype="multipart/form-data">
+        <p id="alias">{{ user.username }}</p>
+    </form>
+    <section id="sectionPregunta">
+        <div class="flecha">
+            <img src="{% static 'img/flecha-apunta-a-la-izquierda.png'%}" id="retrocede" class="imgflecha">
+        </div>
+        
+        <div id="espacioQuiz">
+            <div id="preguntas">
+                <p id="pregunta">A que palabra corresponde esta seña</p>
+                <div id="senia">
+                    <img src="" alt="" id="linkSenia">
+                </div>
+            </div>
+            <div id="respuestas">
+                <button id="opcion0" class="opcion opcion0"></button>
+                <button id="opcion1" class="opcion opcion1"></button>
+                <button id="opcion2" class="opcion opcion2"></button>
+                <button id="opcion3" class="opcion opcion3"></button>
+            </div>
+        </div>
+
+        <div class="flecha">
+            <img src="{%static 'img/flecha-apunta-a-la-derecha.png'%}" id="avanza" class="imgflecha">
+        </div>
+
+    </section>
+
+    <section id="resultado">
+        <p class="p">tu puntaje:</p>
+        <p id="calificacion"></p>
+        <div class="boton" id="btnInicio"><a href="http://127.0.0.1:8000/">Volver al Inicio</a></div>
+        <div class="boton" id="btnAprender"><a href="http://127.0.0.1:8000/mostrar/">Seguir Aprendiendo</a></div>
+        <img src="{%static 'img/capiJugito.png'%}" alt="" id="CapibaraImg">
+    </section>
+    
+
+    <script src="{% static 'js/quizTipo1.js'%}"></script>
+</body>
+</html>

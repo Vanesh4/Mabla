@@ -1,0 +1,219 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MI PERFIL</title>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/brands.js" integrity="sha384-sCI3dTBIJuqT6AwL++zH7qL8ZdKaHpxU43dDt9SyOzimtQ9eyRhkG3B7KMl6AO19" crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/fontawesome.js" integrity="sha384-7ox8Q2yzO/uWircfojVuCQOZl+ZZBg2D2J5nkpLqzH1HY0C1dHlTKIbpRz/LG23c" crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js" integrity="sha384-SlE991lGASHoBfWbelyBPLsUlwY1GwNDJo3jSJO04KZ33K2bwfV9YBauFfnzvynJ" crossorigin="anonymous"></script>  
+    <link rel="stylesheet" href="/css/headerprincipal.css">
+    <link rel="stylesheet" href="/css/perfil.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="icon" type="image/x-icon" href="/img/mablaLOGO-removebg.png">
+</head>
+<body>
+       <!-- 
+        colores:
+        azul oscuro: #0a4d68
+        azul claro: #06bfdb
+        morado: #76037a
+        naranja: #ff731c
+        beige: #fff7ea
+     -->
+
+     <header class="header">
+        <div class="closeBtn">
+            <img src="/img/cancelar.png" alt="" id="imgBotonCerrarMenu">
+        </div>
+        <div class="parteizq">
+            <div class="logo">
+                <a href="/">
+                    <img src="/img/mablaLOGO-removebg.png" alt="logo" class="logoImg">
+                </a>                
+            </div>
+            <div class="linkContenido">
+                <a href="/menu"><p class="textomenu">Contenido</p></a>
+                <a href="/menu">
+                    <img src="/img/flecha-hacia-abajo-para-navegar.png" alt="flecha" style="width: 15px;height: 15px;" class="imgflecha">
+                </a>
+            </div>
+            <div class="linkContenido">
+                <a href="#"><p class="textomenu">Sobre nosotros</p></a>
+                <a href="#">
+                    <img src="/img/flecha-hacia-abajo-para-navegar.png" alt="flecha" style="width: 15px;height: 15px;" class="imgflecha">
+                </a>
+            </div>
+        </div>
+
+        <div class="partederecha">
+            <p class="BotonPrimario">
+                <a href="/logOut">Cerrar Sesión</a>
+            </p>
+            <div class="buscador">
+                <input  type="text" name="bus"  class="buscadorMenu" maxlength="20">
+                <img src="/img/lupa.png" alt="lupa" style="width: 10%;">                
+            </div>
+            <form method="get" enctype="multipart/form-data">
+                {% csrf_token %}
+                
+                <a href="perfil">
+                    <div class="imgdeperfil">
+                        <img id="fotoUser" src="{{ user.imgPerfil.url }}">
+                    </div>               
+                </a>
+
+                
+            </form>
+        </div>    
+</header>
+
+
+ 
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" id="forma">
+    <path fill="#06bfdb" fill-opacity="1" d="M0,192L80,208C160,224,320,256,480,229.3C640,203,800,117,960,106.7C1120,96,1280,160,1360,192L1440,224L1440,0L1360,0C1280,0,1120,0,960,0C800,0,640,0,480,0C320,0,160,0,80,0L0,0Z"></path>
+</svg>
+
+    
+<h1 class="titulo">MI PERFIL</h1>
+
+    <form id="formdatos" method="post" enctype="multipart/form-data">
+
+        <div class="fotperfil">
+            <div>
+                <img id="fotouser" src="{{ form.instance.imgPerfil.url }}"/>
+            </div>
+            
+            <input type="file" name="imgPerfil" id="id_imgPerfil" accept="image/*" onchange="previewImage(this);">
+            <div class="custom-file-upload">
+                <label for="id_imgPerfil" class="subt">Seleccionar Imagen</label>
+              </div>
+        </div>
+
+        <div class="datosusua">
+            {% csrf_token %}
+            {{form.first_name}}
+            {{form.last_name}}
+            {{form.email}}
+            
+            <!-- {{form.imgPerfil}}
+            <img src="{{ form.instance.imgPerfil.url }}"> -->
+            <div>
+                <button id="editar" type="submit" name="editar" value="editar">Guardar cambios</button>
+            </div>
+            
+        </div>
+
+</form>
+
+    <section class="progreso">
+        <div id="clicks">           
+                <img id="flecha" src="img/flecha-apunta-a-la-izquierda.png" alt="" >
+                <h2 class="sbo" id="sub">Mi progreso</h2>           
+        </div>
+    </section>
+
+    <section class="respuesta">
+        <span class="hider" id="spant">
+            <div id="result">
+               <div id="vertodo" style="flex-direction: column;">
+                  <div id="cdos">
+                    <div id="cajon">
+                        <div class="incat" >
+                            <input id="place" type="button" value="verbos" height="20px">
+                        </div>                    
+                        <a id="mas" href="">pruebas anteriores</a>
+
+                        <span id="spannot">
+                            <div id="cajita" >                
+                                <h3 id="nota">3/5</h3>
+                            </div>
+                            <div id="cajita" >                
+                                <h3 id="nota">3/5</h3>
+                            </div>
+                            <div id="cajita" >                
+                                <h3 id="nota">3/5</h3>
+                            </div>
+                            <div id="cajita" >                
+                                <h3 id="nota">3/5</h3>
+                            </div>
+                            <div id="cajita" >                
+                                <h3 id="nota">3/5</h3>
+                            </div>
+                            
+                            <div id="cajita" >                
+                                <h3 id="nota">3/5</h3>
+                            </div>
+                            <div id="cajita" >                
+                                <h3 id="nota">3/5</h3>
+                            </div>
+                            <div id="cajita" >                
+                                <h3 id="nota">3/5</h3>
+                            </div>
+                            <div id="cajita" >                
+                                <h3 id="nota">3/5</h3>
+                            </div>
+
+
+                        </span>
+                        
+                    </div>                                     
+                </div>
+
+                <div id="cdos">
+                    <div id="cajon">
+                        <div  >
+                            <input id="place" type="button" value="verbos" height="20px">
+                        </div>                    
+                        <a id="mas" href="">pruebas anteriores</a>
+
+                        <span id="spannot">
+                            <div id="cajita" >                
+                                <h3 id="nota">3/5</h3>
+                            </div>
+
+                            <div id="cajita" >                
+                                <h3 id="nota">3/5</h3>
+                            </div>
+                            <div id="cajita" >                
+                                <h3 id="nota">3/5</h3>
+                            </div>
+                            <div id="cajita" >                
+                                <h3 id="nota">3/5</h3>
+                            </div>
+                            <div id="cajita" >                
+                                <h3 id="nota">3/5</h3>
+                            </div>
+                            <div id="cajita" >                
+                                <h3 id="nota">3/5</h3>
+                            </div>
+                            <div id="cajita" >                
+                                <h3 id="nota">3/5</h3>
+                            </div>
+                            <div id="cajita" >                
+                                <h3 id="nota">3/5</h3>
+                            </div>
+                            <div id="cajita" >                
+                                <h3 id="nota">3/5</h3>
+                            </div>
+                        </span>
+                    </div>                                   
+                </div>
+
+            
+            </div>
+               
+            </div>
+            
+           
+        </span>
+
+    </section>
+          
+   
+    <script src="js/perfil.js"></script>  
+
+    
+</body>
+</html>

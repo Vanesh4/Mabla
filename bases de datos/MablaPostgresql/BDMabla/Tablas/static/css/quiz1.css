@@ -1,0 +1,199 @@
+@font-face {
+    font-family: "raleway";
+    src: url("/static/fonts/Raleway/Raleway-Regular.ttf");
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
+#alias{
+    /* visibility: hidden; */
+    display: none;
+}
+
+#sectionPregunta{
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#senia{
+    width: 300px;
+    height: 300px;
+    margin-left: auto;
+    margin-right: auto;
+}
+#pregunta{
+    font-size: 28px;
+    font-family: "raleway", Arial, Helvetica, sans-serif;
+    margin-bottom: 20px;
+    text-align: center;
+}
+#respuestas{
+    margin-top: 20px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+.flecha{
+    width: 12%;
+    display: flex;
+    justify-content: center;
+}
+#espacioQuiz{
+    width: 75%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.opcion{
+    font-family: "raleway";
+    font-size: 28px;
+    text-align: center;
+    padding: 20px 0 20px 0;
+    border: none;
+    transition: transform 0.3s ease;
+}
+.opcion:hover {
+    transform: scale(0.95); 
+}
+
+#respuestas .opcion0{
+    background-color: #76037a;
+    color: white;
+}
+#respuestas .opcion1{
+    background-color: #0a4d68;
+    color: white;
+}
+#respuestas .opcion2{
+    background-color: #06bfdb;
+}
+#respuestas .opcion3{
+    background-color: #ff731c;
+}
+
+#respuestas .opcionIncorrecta{
+    background-color: #ff3816;
+    color: #ff3816;
+}
+#respuestas .opcionCorrecta{
+    background-color: #009929;
+    /* color: white; */
+}
+
+.imgflecha{
+    width: 80px; 
+    height: 80px;
+}
+#linkSenia{
+    width: 98%;
+}
+#resultado{
+    /* display: none; */
+    visibility: hidden;
+    background-color: #fff7ea;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    position: relative;
+}
+#calificacion{
+    font-family: 'Martian Mono', monospace;
+    font-weight: 800;
+    font-size: 80px;
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+.boton{
+    font-size: 20px;
+    font-family: "raleway";    
+    padding: 10px 0 10px 0;
+    text-align: center;
+    width: 17%;
+    margin-top: 10px;
+    border-radius: 100px;
+}
+#btnInicio{
+    background-color: #76037a;
+}
+#btnAprender{
+    background-color: #06bfdb;
+}
+p{
+    font-family: "raleway";
+    font-size: 30px;
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+#CapibaraImg{
+    position: absolute;
+    bottom: 0;
+    left: 30%;
+    transform: translateX(-50%);
+    width: 300px;
+}
+@media screen and (min-width: 320px) and (max-width: 700px) {
+    #senia{
+        width: 100%;
+        height: 200px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    #pregunta{
+        font-size: 25px;
+        margin-bottom: 16px;
+    }
+    .flecha{
+        height: 200px;
+        align-items: flex-end;
+    }
+    .imgflecha{
+        width: 30px; 
+        height: 30px;
+    }
+    #respuestas{
+        margin-top: 20px;
+        margin-bottom: 30px;
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    #btnInicio, #btnAprender{
+        width: 65%;
+    }
+    #CapibaraImg{
+        position: static;
+        width: 250px;
+        margin-left: 50px;
+    }
+} 
+
+@media screen and (min-width: 1600px) {
+
+    #senia{
+        width: 400px;
+        height: 400px;
+    }
+    #sectionPregunta{
+        margin-top: 40px;
+        
+    }
+    #respuestas{
+        margin-top: 40px;
+        gap: 30px;
+    }
+    #pregunta{
+        margin-bottom: 30px;
+    }
+    
+} 

@@ -1,0 +1,222 @@
+@font-face {
+    font-family: "raleway";
+    src: url("/static/fonts/Raleway/Raleway-Regular.ttf");
+}
+@font-face {
+    font-family: "ralewayExtraBold";
+    src: url("/static/fonts/Raleway/Raleway-ExtraBold.ttf");
+}
+
+#alias{
+    /* visibility: hidden; */
+    display: none;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
+header{
+    background-color: #D9D9D9;
+    height: 80px;
+}
+#sectionPregunta{
+    margin-top: 20px;
+    margin-bottom: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+img{
+    max-width: 200px;
+    width: 200px;
+}
+.senia{
+    max-width: 200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+#pregunta{
+    font-size: 28px;
+    font-family: "raleway";
+    margin-bottom: 20px;
+    text-align: center;
+}
+#palabra{
+    font-size: 28px;
+    font-family: "ralewayExtraBold";
+    text-align: center;
+}
+#respuestas{
+    margin-top: 20px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+.flecha{
+    width: 12%;
+    display: flex;
+    justify-content: center;
+}
+#espacioQuiz{
+    width: 75%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.opcion{
+    padding: 10px 0 10px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.opcion0{
+    background-color: #76037a;
+}
+.opcion1{
+    background-color: #0a4d68;
+}
+.opcion2{
+    background-color: #06bfdb;
+}
+.opcion3{
+    background-color: #ff731c;
+}
+
+#respuestas .opcionIncorrecta{
+    background-color: #ff3816;
+}
+#respuestas .opcionCorrecta{
+    background-color: #009929;
+}
+
+
+#resultado{
+    /* display: none; */
+    visibility: hidden;
+    background-color: #fff7ea;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    position: relative;
+}
+#calificacion{
+    font-family: 'Martian Mono', monospace;
+    font-weight: 800;
+    font-size: 80px;
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+.boton{
+    font-size: 20px;
+    font-family: "raleway";    
+    padding: 10px 0 10px 0;
+    text-align: center;
+    width: 17%;
+    margin-top: 10px;
+    border-radius: 100px;
+}
+#btnInicio{
+    background-color: #76037a;
+}
+#btnAprender{
+    background-color: #06bfdb;
+}
+p{
+    font-family: "raleway";
+    font-size: 30px;
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+
+.imgflecha{
+    width: 80px; 
+    height: 80px;
+}
+#CapibaraImg{
+    position: absolute;
+    bottom: 0;
+    left: 30%;
+    transform: translateX(-50%);
+    width: 300px;
+}
+@media screen and (min-width: 320px) and (max-width: 700px) {
+    .senia{
+        width: 150px;
+        height: 150px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    #pregunta{
+        font-size: 20px;
+        margin-bottom: 15px;
+    }
+    .flecha{
+        height: 120px;
+        align-items: flex-end;
+    }
+    .imgflecha{
+        width: 30px; 
+        height: 30px;
+    }
+    #respuestas{
+        margin-top: 20px;
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    #CapibaraImg{
+        position: static;
+        width: 250px;
+        margin-left: 50px;
+    }
+} 
+
+@media screen and (min-width: 1600px) {
+
+    #senia{
+        width: 400px;
+        height: 400px;
+    }
+    #sectionPregunta{
+        margin-top: 40px;
+        
+    }
+    #respuestas{
+        margin-top: 40px;
+        gap: 30px;
+    }
+    #pregunta{
+        margin-bottom: 30px;
+    }
+    
+} 
+@media screen and (min-width: 1600px) {
+
+    #sectionPregunta{
+        margin-top: 40px;
+        
+    }
+    #palabra{
+        font-size: 30px;
+    }
+    .opcion{
+        padding: 30px 0 30px 0;
+    }
+    .senia{
+        width: 250px;
+        height: 250px;
+    }
+    .flecha{
+        height: 180px;
+        align-items: flex-end;
+    }
+}

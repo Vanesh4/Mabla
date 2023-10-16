@@ -1,0 +1,65 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,300;0,400;0,700;1,100&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Martian+Mono:wght@100;500&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="{% static 'img/mablaLOGO-removebg.png' %}">
+    <link rel="stylesheet" href="{% static 'css/login.css' %}"> 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  </head>
+<body>
+    <form method="POST">
+        <p class="textS">
+          INICIAR SESIÓN
+        </p>
+      {% csrf_token %}
+      <section class="sectionForm">
+        <div id="ph">
+          <label class="form-label"> Alias</label>
+            {{ form.username }}
+            <div class="error">
+              {% if form.errors %}
+                <p>Alias incorrecto</p>
+              {% endif %}
+            </div>
+        </div>
+  
+        <div id="ph">
+          <label class="form-label">Clave</label>
+            {{ form.password }}
+            <i class="fa fa-eye" id="toggle-password" onclick="ver()"></i>
+            <div class="error">
+              {% if form.errors %}
+                <p>Clave incorrecta</p>
+              {% endif %}
+            </div>
+        </div>    
+      
+        <div class="links">
+          <a href="reset_password/" class="as">Olvidaste tu contraseña?</a>
+          <a href="http://127.0.0.1:8000/register" class="as" id="registroLink">Registrarme</a>
+        </div>
+
+        <div id="boton">
+          <button type="submit" id="colorbtn"><p>Ingresar</p></button>
+        </div>
+      </section>
+    </form>
+    <div class="imgyText">
+      <img id="mablaNaranja" src="/static/img/letrasMABLAnaranja.png" alt="" srcset="">
+      <div class="slogan">
+        <p>HABLA CON LAS MANOS</p>
+      </div>
+      <img id="capi" src="/static/img/capiLogin.png" alt="" srcset="">
+    </div> 
+</body>
+<script src="{% static 'js/gestionUser.js' %}"></script>  
+</html>
