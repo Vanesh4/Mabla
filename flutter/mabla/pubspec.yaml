@@ -89,6 +89,9 @@ flutter:
      - family: Raleway
        fonts:
          - asset: assets/fonts/Raleway/Raleway-Medium.ttf
+     - family: RalewayBold
+       fonts:
+          - asset: assets/fonts/Raleway/Raleway-Bold.ttf
      - family: MartianMono
        fonts:
          - asset: assets/fonts/Martian/static/MartianMono-ExtraLight.ttf

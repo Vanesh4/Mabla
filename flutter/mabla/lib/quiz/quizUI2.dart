@@ -124,6 +124,10 @@ class _quizTipoDosState extends State<quizTipoDos> {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
       children: [
+        Text("A que seña corresponde esta palabra:",
+          style: TextStyle(fontSize: 25, fontFamily: "Raleway",color: Colors.black),textAlign: TextAlign.center,),
+        Text(quiz.questions[questionIndex].question,
+          style: TextStyle(fontSize: 30, fontFamily: "RalewayBold",color: Colors.black, ),textAlign: TextAlign.center,),
         Container(
           height: 8,
           margin: EdgeInsets.only(left: 20, right: 20),
@@ -151,9 +155,6 @@ class _quizTipoDosState extends State<quizTipoDos> {
               child: Column(
                 //mainAxisSize: MainAxisSize.min,
                 children: [
-                  Text("A que seña corresponde esta palabra"),
-                  Text(quiz.questions[questionIndex].question),
-
                   //RESPUESTAS
                   Flexible(
                     child: ListView.builder(
@@ -165,7 +166,7 @@ class _quizTipoDosState extends State<quizTipoDos> {
                           //estilos a la respuesta
                           height: 160,
                             padding: EdgeInsets.all(10),
-                            margin: EdgeInsets.all(5),
+                            margin: EdgeInsets.only(bottom: 10),
                             color: currentColor,
                             child: GestureDetector(
                               onTap: () {

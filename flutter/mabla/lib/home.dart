@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:mabla/formas/ondaHome.dart';
 import 'package:mabla/header.dart';
@@ -104,7 +105,14 @@ class _homeState extends State<home> {
                         height: 48,
                         child: ElevatedButton(
                           onPressed: (){
-                            Navigator.push(context, MaterialPageRoute(builder: (context)=>quiz()));
+                            final random = Random();
+                            int numeroAleatorio = random.nextInt(2) + 1;
+                            if (numeroAleatorio==1){
+                              Navigator.push(context, MaterialPageRoute(builder: (context)=>quiz()));
+                            }else{
+                              Navigator.push(context, MaterialPageRoute(builder: (context)=>quizTipoDos()));
+                            }
+
                           },
                           child: Text('Quizes',
                             style: TextStyle(fontSize: 28, fontFamily: "Raleway",color: Colors.black),),

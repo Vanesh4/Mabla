@@ -24,7 +24,7 @@ class _menuState extends State<menu> {
   List<dynamic> CateSubcate = [];
   //Map<String, dynamic> jsonData = {};
   Future<void> fetchData() async {
-    final response = await http.get(Uri.parse('http://192.168.43.184/getcate'));
+    final response = await http.get(Uri.parse('http://192.168.1.8/getcate'));
 
     if (response.statusCode == 200) {
       print("All is OK in cate and subcate");
@@ -45,70 +45,70 @@ class _menuState extends State<menu> {
   }
 
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       key: _scaffoldKey,
       backgroundColor: darkBlue,
       drawer: headerPrincipal(),
-      body: ListView.builder(
-        itemCount: CateSubcate.length,
-        itemBuilder: (context, index) {
-          final cat = CateSubcate[index];
-          final subcat = cat['Subcategorias'] ?? [];
-
-          return Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              ListTile(
-                title: Center(
-                  child: RichText(
-                    text: TextSpan(
-                      style: DefaultTextStyle.of(context).style.copyWith(
-                        fontSize: 24,
-                        fontWeight: FontWeight.bold
-                      ),
-                      children: <TextSpan>[
-                        TextSpan(
-                          text: 'Este es un ejemplo de texto en mayúsculas.',
+      body: Stack(
+        children: [
+          ListView.builder(
+            itemCount: CateSubcate.length,
+            itemBuilder: (context, index) {
+              final cat = CateSubcate[index];
+              final subcat = cat['Subcategorias'] ?? [];
+              return Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  SizedBox(height: 30,),
+                  ListTile(
+                    title: Center(
+                      child: RichText(text: TextSpan(
+                        text: cat['Categoria'].toUpperCase(),
+                        style: TextStyle(
+                            fontFamily: 'Raleway',
+                            fontSize: 25,
+                            color: Colors.white
                         ),
-                      ],
+                      ))
                     ),
                   ),
-                ),
-              ),
-              if (subcat.isNotEmpty)
-                Column(
-                  children: subcat.map<Widget>((subelemento) {
-                    return ListTile(
-                      title: Text(subelemento['subcategoria'], style: TextStyle(
-                          fontFamily: 'Raleway',
-                          fontSize: 28,
-                          color: Colors.white
-                      ),),
-                    );
-                  }).toList(),
-                ),
-            ],
-          );
-        },
-      ),
-          /*Align(
-            alignment: Alignment.centerLeft,
-            child: Padding(
-              padding: const EdgeInsets.only(top: 30, left: 10),
-              child: Container(
-
-                child: IconButton(onPressed: (){
-                  _scaffoldKey.currentState?.openDrawer();
-                },
-                  icon: Icon(Icons.menu_rounded,size: 40,),color: Colors.white,
-                ),
+                  if (subcat.isNotEmpty)
+                    Column(
+                      children: subcat.map<Widget>((subelemento) {
+                        return Center(
+                          child: RichText(text: TextSpan(
+                            text: subelemento['subcategoria'],
+                            style: TextStyle(
+                                fontFamily: 'Raleway',
+                                fontSize: 20,
+                                color: Colors.white
+                            ),
+                          )),
+                        );
+                      }).toList(),
+                    ),
+                ],
+              );
+            },
+          ),
+          Padding(
+            padding: const EdgeInsets.only(top: 40, left: 10),
+            child: Container(
+              child: IconButton(onPressed: (){
+                _scaffoldKey.currentState?.openDrawer();
+              },
+                icon: Icon(Icons.menu_rounded,size: 40,),color: Colors.white,
               ),
             ),
-          ),*/
+          ),
 
+        ]
+      ),
     );
   }
+
+
+
 }

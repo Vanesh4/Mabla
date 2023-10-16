@@ -114,89 +114,83 @@ class _quizState extends State<quiz> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            SizedBox(height: 80,),
+            Text('A que palabra corresponde esta seña',
+              style: TextStyle(fontSize: 25, fontFamily: "Raleway",color: Colors.black),textAlign: TextAlign.center,),
 
-              Text('A que palabra corresponde esta seña',
-                style: TextStyle(fontSize: 30, fontFamily: "Raleway",color: Colors.black),textAlign: TextAlign.center,),
-
-              Container(
-                height: 8,
-                margin: EdgeInsets.only(left: 20, right: 20),
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(15),
-                  child: LinearProgressIndicator(
-                    color: beige,
-                    value: progressIndex / totalQuestions,
-                    minHeight: 20,
-                  ),
+            Container(
+              height: 8,
+              margin: EdgeInsets.only(left: 20, right: 20),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(15),
+                child: LinearProgressIndicator(
+                  color: beige,
+                  value: progressIndex / totalQuestions,
+                  minHeight: 20,
                 ),
               ),
+            ),
 
-              //Pregunta y respuetas
-              Expanded(
-                //ConstrainedBox
-                //constraints: const BoxConstraints(maxHeight: 450),
-                child: Container(
-                  margin: EdgeInsets.only(left: 30, right: 30),
-                  child: quiz.questions.isNotEmpty
-                      ? Card(
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(0.0)),
-                        elevation: 0.0,
-                      child: Column(
-                      //mainAxisSize: MainAxisSize.min,
-                      children: [
-                        Container(
-                          margin: EdgeInsets.only(right: 10, left: 10),
-                          child: //Image.asset('assets/img/ninja.png'),
-                          //Image.network('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTa6pwb9P16lp30bS-sLM4rn0q_b-w0f_2QLg&usqp=CAU')
-                          Image.network(quiz.questions[questionIndex].question),
-                          height: 300,
+            //Pregunta y respuetas
+            Expanded(
+              //ConstrainedBox
+              //constraints: const BoxConstraints(maxHeight: 450),
+              child: Container(
+                margin: EdgeInsets.only(left: 30, right: 30),
+                child: quiz.questions.isNotEmpty
+                    ? Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Container(
+                        margin: EdgeInsets.only(right: 10, left: 10),
+                        child:
+                        //Image.network('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTa6pwb9P16lp30bS-sLM4rn0q_b-w0f_2QLg&usqp=CAU')
+                        Image.network(quiz.questions[questionIndex].question),
+                      ),
+                      SizedBox(height: 10,),
+                      //RESPUESTAS
+                      Flexible(
+                        child: ListView.builder(
+                          itemCount: totalOptions,
+                          //shrinkWrap: true,
+                          itemBuilder: (_, index){
+                            Color currentColor = containerColors[index];
+                            Color currentTextColor = textColors[index];
+                            return Container(
+                              //estilos a la respuesta
+                              margin: EdgeInsets.all(5),
+                              color: currentColor,
+                              child: ListTile(
+                                //el listado del index
+                                //title: Text('Respuesta ${index+1}'),
+                                title: Text(quiz.questions[questionIndex].options[index],
+                                style: TextStyle(fontSize: 30, fontFamily: "Raleway",color: currentTextColor)
+                                  ,textAlign: TextAlign.center,),
+                                onTap: (){
+                                  _opcionSelected(quiz.questions[questionIndex].options[index]);
+                                },
+                                // *****Estilizar el efecto de pulsación.
+                              ),
+                            );
+                          },
                         ),
-                        //RESPUESTAS
-                        Flexible(
-                          child: ListView.builder(
-                            itemCount: totalOptions,
-                            //shrinkWrap: true,
-                            itemBuilder: (_, index){
-                              Color currentColor = containerColors[index];
-                              Color currentTextColor = textColors[index];
-                              return Container(
-                                //estilos a la respuesta
-                                margin: EdgeInsets.all(5),
-                                color: currentColor,
-                                child: ListTile(
-                                  //el listado del index
-                                  //title: Text('Respuesta ${index+1}'),
-                                  title: Text(quiz.questions[questionIndex].options[index],
-                                  style: TextStyle(fontSize: 30, fontFamily: "Raleway",color: currentTextColor)
-                                    ,textAlign: TextAlign.center,),
-                                  onTap: (){
-                                    _opcionSelected(quiz.questions[questionIndex].options[index]);
-                                  },
-                                  // *****Estilizar el efecto de pulsación.
-                                ),
-                              );
-                            },
-                          ),
 
-                        )
-                      ],
-                    ),
-                  ): const Center(
-                    child: CircularProgressIndicator(
-                      strokeWidth: 5.0, // Ancho de la barra de progreso
-                      backgroundColor: Colors.grey, // Color de fondo de la barra de progreso
-                    ), // Barra de progreso circular
-                  ),
+                      )
+                    ],
+                                    ): const Center(
+                  child: CircularProgressIndicator(
+                    strokeWidth: 5.0, // Ancho de la barra de progreso
+                    backgroundColor: Colors.grey, // Color de fondo de la barra de progreso
+                  ), // Barra de progreso circular
                 ),
-              )
-            ],
-          ),
+              ),
+            )
+          ],
         ),
       ),
     );
