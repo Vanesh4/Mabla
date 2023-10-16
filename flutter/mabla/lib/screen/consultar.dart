@@ -141,29 +141,31 @@ class _MyAppState extends State<consultar> {
               itemCount: subcategoriaSeleccionada?.palabras.length ?? 0,
               itemBuilder: (BuildContext context, int index) {
                 final palabra = subcategoriaSeleccionada?.palabras[index];
-                return Container(
-                  width: 200,
-                  child: Card(
-                    elevation: 4.0,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    margin: EdgeInsets.all(10),
-                    child: Column(
-                      mainAxisSize: MainAxisSize.min,
-                      children: <Widget>[
-                        Image.network(
-                          palabra?.senia ?? '',
-                          height: 200,
-                        ),
-                        Text(
-                          palabra?.palabra ?? '',
-                          style: TextStyle(
-                            fontSize: 30,
-                            fontFamily: "Raleway",
+                return Center(
+                  child: Container(
+                    width: 300,
+                    child: Card(
+                      elevation: 4.0,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      margin: EdgeInsets.all(10),
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: <Widget>[
+                          Image.network(
+                            palabra?.senia ?? '',
+                            height: 200,
                           ),
-                        ),
-                      ],
+                          Text(
+                            palabra?.palabra ?? '',
+                            style: TextStyle(
+                              fontSize: 30,
+                              fontFamily: "Raleway",
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 );
