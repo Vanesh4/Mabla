@@ -41,7 +41,10 @@ dependencies:
   dio:
   dio_cookie_manager:
   lottie: ^2.3.2
+<<<<<<< HEAD
 
+=======
+>>>>>>> 0f42084644344cf6cc920c239041c6e555ee4fbe
 
 dev_dependencies:
   flutter_test:

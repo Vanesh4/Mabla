@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mabla/home.dart';
+import 'package:mabla/screen/consultar.dart';
 import 'package:mabla/screen/diccionario.dart';
 import 'package:mabla/screen/login.dart';
 import 'package:mabla/screen/perfil1.dart';
@@ -9,7 +10,7 @@ void main() {
 }
 
 //sara
-class MyApp extends StatelessWidget {
+/*class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   // This widget is the root of your application.
@@ -25,10 +26,10 @@ class MyApp extends StatelessWidget {
       },
     );
   }
-}
+}*/
 
 //karen
-/*
+
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
@@ -36,11 +37,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: consultar(),
+      debugShowCheckedModeBanner: false,
+      home: diccionario(),
     );
   }
 }
-*/
+
 
 //vanessa
 /*class MyApp extends StatelessWidget {

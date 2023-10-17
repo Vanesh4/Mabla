@@ -2,6 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
+<<<<<<< HEAD
+=======
+import '../header.dart';
+import '../home.dart';
+>>>>>>> 0f42084644344cf6cc920c239041c6e555ee4fbe
 
 class Categoria {
   final String nombre;
@@ -12,9 +17,10 @@ class Categoria {
 
 class Subcategoria {
   final String nombre;
+  final String categoria;
   final List<Palabra> palabras;
 
-  Subcategoria({required this.nombre, required this.palabras});
+  Subcategoria({required this.nombre, required this.categoria, required this.palabras});
 }
 
 class Palabra {
@@ -30,11 +36,15 @@ class consultar extends StatefulWidget {
 }
 
 class _MyAppState extends State<consultar> {
+  GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   List<Categoria> categorias = []; // Lista para almacenar las categorías y subcategorías
-  Subcategoria? subcategoriaSeleccionada; // Subcategoría seleccionada
+  Subcategoria? subcategoriaSeleccionada; // se selecciona la subcategoria
 
   Future<void> obtenerDatosDesdeDjango() async {
+<<<<<<< HEAD
     //final response = await http.get(Uri.parse('http://192.168.1.6/getcategoria'));
+=======
+>>>>>>> 0f42084644344cf6cc920c239041c6e555ee4fbe
     final response = await http.get(Uri.parse('http://192.168.1.8/getcategoria'));
 
     if (response.statusCode == 200) {
@@ -46,6 +56,7 @@ class _MyAppState extends State<consultar> {
             subcategorias: (categoriaData['Subcategorias'] as List<dynamic>).map((subcategoriaData) {
               return Subcategoria(
                 nombre: subcategoriaData['subcategoria'],
+                categoria: categoriaData['Categoria'],
                 palabras: (subcategoriaData['palabraas'] as List<dynamic>).map((palabraData) {
                   return Palabra(
                     palabra: palabraData['palabra'],
@@ -58,88 +69,140 @@ class _MyAppState extends State<consultar> {
         }).toList();
       });
     } else {
-
-      throw Exception('Error al cargar los datos en la url');
+      throw Exception('Error al cargar los datos en la URL');
     }
   }
 
   @override
   void initState() {
     super.initState();
-    // Llamar a la función para obtener datos cuando se inicia la aplicación
     obtenerDatosDesdeDjango();
   }
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          backgroundColor: Color(0xFFff731c),
-          title: Text('Con lenguaje de señas es mejor'),
+    return Scaffold(
+      key: _scaffoldKey,
+      appBar: AppBar(
+        backgroundColor: Color(0xFF0a4d68),
+        elevation: 0.0,
+        title: Row(
+          children: [
+            Text('Habla con tus manos'),
+            Container(
+              alignment: Alignment.centerRight,
+              margin: EdgeInsets.only(bottom: 18, top: 0, left: 70),
+              child: IconButton(
+                onPressed: () {
+                  _scaffoldKey.currentState?.openEndDrawer();
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => home()));
+                },
+                icon: Icon(Icons.home, size: 50),
+                color: Color(0xFFff731c),
+              ),
+            ),
+          ],
         ),
-        drawer: Drawer(
-          width: 200,
-          backgroundColor: Colors.grey,
-          child: ListView.builder(
-            itemCount: categorias.length,
-            itemBuilder: (BuildContext context, int indexCategoria) {
-              final categoria = categorias[indexCategoria];
-              return Center(
-                child: ExpansionTile(
-                  title: Center(child: Text(categoria.nombre, style: TextStyle(fontFamily: 'Raleway', fontWeight: FontWeight.bold, fontSize: 20),)),
-                  children: categoria.subcategorias.map((subcategoria)  {
-                    return ListTile(
-                      title:Container(child: Text(subcategoria.nombre, style: TextStyle(fontFamily: 'Raleway'),),
+      ),
+      drawer: Drawer(
+        width: 230,
+        backgroundColor: Colors.grey,
+        child: ListView.builder(
+          itemCount: categorias.length,
+          itemBuilder: (BuildContext context, int indexCategoria) {
+            final categoria = categorias[indexCategoria];
+            return Center(
+              child: ExpansionTile(
+                title: Center(
+                  child: Text(
+                    categoria.nombre,
+                    style: TextStyle(fontFamily: 'Raleway', fontWeight: FontWeight.bold, fontSize: 20),
+                  ),
+                ),
+                children: categoria.subcategorias.map((subcategoria) {
+                  return ListTile(
+                    title: Container(
+                      child: Text(
+                        subcategoria.nombre,
+                        style: TextStyle(fontFamily: 'Raleway'),
+                      ),
                       margin: EdgeInsets.only(left: 40),
-                      ),
-                      onTap: () {
-                        // Al hacer clic en una subcategoría, actualiza la subcategoría seleccionada
-                        setState(() {
-                          subcategoriaSeleccionada = subcategoria;
-                        });
-                        Navigator.pop(context); // Cierra el Drawer
-                      },
-                    );
-                  }).toList(),
-                ),
-              );
-            },
-          ),
-        ),
-        body: ListView.builder(
-
-          itemCount: subcategoriaSeleccionada?.palabras.length ?? 0,
-          itemBuilder: (BuildContext context, int index) {
-            final palabra = subcategoriaSeleccionada?.palabras[index];
-            return Container(
-
-              width: 200,
-              child: Card(
-                elevation: 4.0,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                margin: EdgeInsets.all(10), // Agrega margen alrededor de la tarjeta
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: <Widget>[
-                    Image.network(palabra?.senia ?? '',
-                      height: 180,
-                    ), // Mostrar la imagen de la palabra
-                    Text(
-                      palabra?.palabra ?? '',
-                      style: TextStyle(
-                        fontSize: 30,
-                        fontFamily: "Raleway",
-                      ),
                     ),
-                  ],
-                ),
+                    onTap: () {
+                      setState(() {
+                        subcategoriaSeleccionada = subcategoria;
+                      });
+                      Navigator.pop(context); // Cierra el Drawer
+                    },
+                  );
+                }).toList(),
               ),
             );
           },
-        )
+        ),
+      ),
+      body: Column(
+        children: [
+          Expanded(
+            child: ListView.builder(
+              itemCount: subcategoriaSeleccionada?.palabras.length ?? 0,
+              itemBuilder: (BuildContext context, int index) {
+                final palabra = subcategoriaSeleccionada?.palabras[index];
+                return Center(
+                  child: Container(
+                    width: 300,
+                    child: Card(
+                      elevation: 4.0,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      margin: EdgeInsets.all(10),
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: <Widget>[
+                          Image.network(
+                            palabra?.senia ?? '',
+                            height: 200,
+                          ),
+                          Text(
+                            palabra?.palabra ?? '',
+                            style: TextStyle(
+                              fontSize: 30,
+                              fontFamily: "Raleway",
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                );
+              },
+            ),
+          ),
+          if (subcategoriaSeleccionada != null)
+            ElevatedButton(
+              onPressed: () {
+                final categoriaSeleccionada = subcategoriaSeleccionada?.categoria ?? '';
+                print('Categoría de la subcategoría seleccionada: $categoriaSeleccionada');
+              },
+              style: ElevatedButton.styleFrom(
+                primary: Color(0xFF0a4d68),
+                onPrimary: Colors.white,
+                padding: EdgeInsets.all(16),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10),
+                ),
+              ),
+              child: Text(
+                'Presentar Quiz',
+                style: TextStyle(
+                  fontSize: 18,
+                  fontFamily: "Raleway",
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+        ],
       ),
     );
   }
