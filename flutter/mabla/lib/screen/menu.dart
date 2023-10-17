@@ -26,7 +26,7 @@ class _menuState extends State<menu> {
   //Map<String, dynamic> jsonData = {};
   Future<void> fetchData() async {
     final response = await http.get(Uri.parse('http://192.168.1.8/getcate'));
-
+    print("se hizo la peticion");
     if (response.statusCode == 200) {
       print("All is OK in cate and subcate");
       setState(() {

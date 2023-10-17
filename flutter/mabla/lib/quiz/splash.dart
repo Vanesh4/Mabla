@@ -17,6 +17,7 @@ class _inicioSplashState extends State<inicioSplash> {
     Future.delayed(Duration(seconds: 3),(){
       final random = Random();
       int numeroAleatorio = random.nextInt(2) + 1;
+      print(numeroAleatorio);
       if (numeroAleatorio==1){
         Navigator.push(context, MaterialPageRoute(builder: (context)=>quiz()));
       }else{
