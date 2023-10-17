@@ -1,6 +1,9 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:mabla/quiz/quizUI.dart';
+import 'package:mabla/quiz/quizUI2.dart';
 class inicioSplash extends StatefulWidget {
   const inicioSplash({Key? key}) : super(key: key);
 
@@ -12,8 +15,13 @@ class _inicioSplashState extends State<inicioSplash> {
   void initState() {
     // TODO: implement initState
     Future.delayed(Duration(seconds: 3),(){
-      Navigator.pushReplacement(context,
-          MaterialPageRoute(builder: (context)=>quiz()));
+      final random = Random();
+      int numeroAleatorio = random.nextInt(2) + 1;
+      if (numeroAleatorio==1){
+        Navigator.push(context, MaterialPageRoute(builder: (context)=>quiz()));
+      }else{
+        Navigator.push(context, MaterialPageRoute(builder: (context)=>quizTipoDos()));
+      }
     });
     super.initState();
   }

@@ -37,6 +37,9 @@ def viewQuiz2(request):
 def menuTodo(request):
     return render(request,"menu.html")
 
+def cont321(request):
+    return render(request,"contadorQuiz.html")
+
 def vercategorias(request):
     return render(request,"consultando.html")
 

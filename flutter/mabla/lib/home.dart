@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:mabla/formas/ondaHome.dart';
 import 'package:mabla/header.dart';
 import 'package:mabla/quiz/quizUI2.dart';
+import 'package:mabla/quiz/splash.dart';
 import 'package:mabla/screen/comentarios.dart';
 import 'package:mabla/screen/diccionario.dart';
 import 'package:mabla/screen/menu.dart';
@@ -104,16 +105,8 @@ class _homeState extends State<home> {
                         width: 190,
                         height: 48,
                         child: ElevatedButton(
-                          onPressed: (){
-                            final random = Random();
-                            int numeroAleatorio = random.nextInt(2) + 1;
-                            if (numeroAleatorio==1){
-                              Navigator.push(context, MaterialPageRoute(builder: (context)=>quiz()));
-                            }else{
-                              Navigator.push(context, MaterialPageRoute(builder: (context)=>quizTipoDos()));
-                            }
+                          onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context)=>inicioSplash())),
 
-                          },
                           child: Text('Quizes',
                             style: TextStyle(fontSize: 28, fontFamily: "Raleway",color: Colors.black),),
                           style: ButtonStyle(

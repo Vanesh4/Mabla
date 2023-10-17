@@ -40,10 +40,8 @@ dependencies:
   cookie_jar:
   dio:
   dio_cookie_manager:
-<<<<<<< HEAD
   lottie: ^2.3.2
-=======
->>>>>>> 7f3fb7cdddb9cf097bd0dada86f24259e68ee683
+
 
 dev_dependencies:
   flutter_test:
@@ -69,11 +67,8 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-<<<<<<< HEAD
     - assets/img/
-=======
-      - assets/img/
->>>>>>> 7f3fb7cdddb9cf097bd0dada86f24259e68ee683
+
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

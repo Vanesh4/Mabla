@@ -15,12 +15,6 @@
 #alias{
     visibility: hidden;
 }
-input{
-    border: none;
-    font-size: 18px;
-    font-family: "raleway", Arial, Helvetica, sans-serif; 
-    outline: none;
-}
 
 p{
     font-family: "raleway", Arial, Helvetica, sans-serif;

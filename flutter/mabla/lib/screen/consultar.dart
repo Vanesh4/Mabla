@@ -3,7 +3,6 @@ import 'package:http/http.dart' as http;
 import 'dart:convert';
 
 
-
 class Categoria {
   final String nombre;
   final List<Subcategoria> subcategorias;
@@ -35,7 +34,8 @@ class _MyAppState extends State<consultar> {
   Subcategoria? subcategoriaSeleccionada; // Subcategoría seleccionada
 
   Future<void> obtenerDatosDesdeDjango() async {
-    final response = await http.get(Uri.parse('http://192.168.1.6/getcategoria'));
+    //final response = await http.get(Uri.parse('http://192.168.1.6/getcategoria'));
+    final response = await http.get(Uri.parse('http://192.168.1.8/getcategoria'));
 
     if (response.statusCode == 200) {
       setState(() {

@@ -44,7 +44,7 @@
                 <a href="/logOut">Cerrar Sesión</a>
             </p>
             <div class="buscador">
-                <input  type="text" name="buscador" class="buscadorMenu" maxlength="20">
+                <input  type="text" name="buscador" class="buscadorMenu" maxlength="20" id="inputADiccio">
                 <img src="{% static 'img/lupa.png'%}" alt="lupa" style="width: 10%;">                
             </div>
             <form method="get" enctype="multipart/form-data">
@@ -56,7 +56,7 @@
                     </div>                    
                 </a>
 
-                <p id="alias">{{ user.username }}</p>
+                <!-- <p id="alias">{{ user.username }}</p> -->
             </form>
         </div>    
 </header>
@@ -96,7 +96,7 @@
             </p>
         </div>
         <div class="buscador">
-            <input  type="text" name="buscador" class="buscadorMenu" maxlength="20">
+            <input  type="text" name="buscador" class="buscadorMenu" maxlength="20" id="inputADiccio">
             <img src="{% static 'img/lupa.png'%}" alt="lupa" style="width: 10%;">                
         </div>
         
@@ -115,5 +115,6 @@
 
 
     <script src="{%static 'js/menu.js'%}"></script>
+    <script src="{%static 'js/headerAdiccionario.js'%}"></script>
 </body>
 </html>

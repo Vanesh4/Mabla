@@ -16,6 +16,10 @@ body{
     background-color: #fbfbfb;
 }
 
+.partederecha{
+    justify-content: flex-end;
+    margin-right: 40px;
+}
 
 
 #formdatos{

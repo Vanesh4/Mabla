@@ -11,7 +11,12 @@ a{
     text-decoration: none;
 }
 
-
+input{
+    border: none;
+    font-size: 18px;
+    font-family: "raleway", Arial, Helvetica, sans-serif; 
+    outline: none;
+}
 .header{
     display: flex;
     justify-content: space-between;
