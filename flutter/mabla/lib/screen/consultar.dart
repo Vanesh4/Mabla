@@ -41,10 +41,14 @@ class _MyAppState extends State<consultar> {
   Subcategoria? subcategoriaSeleccionada; // se selecciona la subcategoria
 
   Future<void> obtenerDatosDesdeDjango() async {
+<<<<<<< HEAD
+    final response = await http.get(Uri.parse('http://192.168.1.6/getcategoria'));
+=======
 
     //final response = await http.get(Uri.parse('http://192.168.1.6/getcategoria'));
 
     final response = await http.get(Uri.parse('http://192.168.1.8/getcategoria'));
+>>>>>>> b2f638f5df1340a63eb79b66dbcee2f49def73a1
 
     if (response.statusCode == 200) {
       setState(() {
