@@ -3,7 +3,6 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:mabla/formas/ondaHome.dart';
 import 'package:mabla/header.dart';
-import 'package:mabla/quiz/quizUI2.dart';
 import 'package:mabla/screen/comentarios.dart';
 import 'package:mabla/screen/diccionario.dart';
 import 'package:mabla/screen/menu.dart';
@@ -26,9 +25,30 @@ class home extends StatefulWidget {
 
 class _homeState extends State<home> {
   GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+  String message = 'Verificando sesión...';
 
+  Future<void> verificarSesion() async {
+    var url = Uri.parse('http://192.168.0.7/verificarS');
+    var response = await http.get(url);
+    if (response.statusCode == 200) {
+      final responseData = json.decode(response.body);
+      final res = responseData['mensaje'];
+      setState(() {
+        message = res;
+        print(res);
+      });
+    } else {
+      setState(() {
+        message = 'Error al verificar la sesión';
+      });
+    }
+  }
 
-
+  @override
+  void initState() {
+    super.initState();
+    verificarSesion();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(

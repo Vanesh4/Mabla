@@ -13,6 +13,16 @@ import jwt
 from datetime import datetime, timedelta
 from django.conf import settings
 
+def verificarS(request):
+    if request.user.is_authenticated:
+        # El usuario tiene una sesión iniciada
+        print("se inicio la sesion")
+        return JsonResponse({'mensaje': True})
+    else:
+        # El usuario no tiene una sesión iniciada
+        print("no se inicio la sesion")
+        return JsonResponse({'mensaje': False})
+
 class registerUser(View):    
     
     template_name='registro.html'
@@ -243,3 +253,4 @@ class profile(View):
                 return render(request, self.template_name, {'form': form}) 
               
         return render(request, self.template_name, {'form': form}) 
+    
