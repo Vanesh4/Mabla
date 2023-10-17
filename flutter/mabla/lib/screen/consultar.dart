@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:mabla/quiz/splash.dart';
 import 'dart:convert';
+
 
 import '../header.dart';
 import '../home.dart';
+
 
 class Categoria {
   final String nombre;
@@ -38,7 +41,14 @@ class _MyAppState extends State<consultar> {
   Subcategoria? subcategoriaSeleccionada; // se selecciona la subcategoria
 
   Future<void> obtenerDatosDesdeDjango() async {
+<<<<<<< HEAD
     final response = await http.get(Uri.parse('http://192.168.1.6/getcategoria'));
+=======
+
+    //final response = await http.get(Uri.parse('http://192.168.1.6/getcategoria'));
+
+    final response = await http.get(Uri.parse('http://192.168.1.8/getcategoria'));
+>>>>>>> b2f638f5df1340a63eb79b66dbcee2f49def73a1
 
     if (response.statusCode == 200) {
       setState(() {
@@ -176,7 +186,8 @@ class _MyAppState extends State<consultar> {
             ElevatedButton(
               onPressed: () {
                 final categoriaSeleccionada = subcategoriaSeleccionada?.categoria ?? '';
-                print('Categoría de la subcategoría seleccionada: $categoriaSeleccionada');
+                //print('Categoría de la subcategoría seleccionada: $categoriaSeleccionada');
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>inicioSplash(cat: categoriaSeleccionada,)));
               },
               style: ElevatedButton.styleFrom(
                 primary: Color(0xFF0a4d68),

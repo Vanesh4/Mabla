@@ -1,6 +1,7 @@
 from django.urls import path
 from .viewLogin import *
 from .views import *
+from . import viewLogin
 from . import views
 from . import viewsPlantillas
 from django.conf import settings
@@ -13,6 +14,7 @@ from django.contrib.auth import views as auth_views
 urlpatterns = [
     #path('insertUser',insertTablaUser.as_view(), name='insertUser'),
     #path('insertUserForm/inicio.html',views.formInsertUser, name='insertUserForm'),
+    path('verificarS', viewLogin.verificarS, name='verificarS'),
     path('register',registerUser.as_view(), name='register'),
     #path('login',views.formIniciarSesion, name='login'),
     #path('registroForm',registerUser.as_view(), name='registroForm'),
@@ -39,6 +41,7 @@ urlpatterns = [
     path('quizTipo1',viewsPlantillas.viewQuiz1, name="quiz1"),
     path('quizTipo2',viewsPlantillas.viewQuiz2, name="quiz2"),
     path('menu',viewsPlantillas.menuTodo, name="menu"),
+    path('animacion',viewsPlantillas.cont321, name="animacion quiz"),
     path('mostrar/',viewsPlantillas.vercategorias, name="mostrar"),
     path('mostrarsubcate/',viewsPlantillas.versubcategorias, name="mostrarsubcate"),
     path('perfil',profile.as_view(), name="perfil"),

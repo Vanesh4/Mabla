@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:mabla/screen/diccionario.dart';
 import 'package:mabla/screen/menu.dart';
-import 'package:mabla/screen/registro.dart';
-
+import 'package:mabla/usuario/login.dart';
+import 'package:mabla/usuario/registro.dart';
 import 'home.dart';
-import 'screen/login.dart';
 class headerPrincipal extends StatefulWidget {
   const headerPrincipal({Key? key}) : super(key: key);
 
@@ -18,6 +18,7 @@ const Color orange = Color(0xFFff731c);
 const Color beige = Color(0xFFfff7ea);
 
 class _headerPrincipalState extends State<headerPrincipal> {
+  String initial = '';
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -67,6 +68,41 @@ class _headerPrincipalState extends State<headerPrincipal> {
                   height: 40,
                 ),
                 Container(
+                  margin: EdgeInsets.only(left: 20, right: 20),
+                  width: double.infinity,
+                  padding: EdgeInsets.only(left: 12),
+                  decoration: BoxDecoration(
+                      border: Border.all(
+                          color: Colors.black, width: 2
+                      ),
+                      borderRadius: BorderRadius.circular(30)
+                  ),
+                  child: TextFormField(
+                    onChanged: (value) {
+                      setState(() {
+                        initial = value;
+                        print(initial);
+                      });
+                    },
+                    onFieldSubmitted: (text) {
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>diccionario(letraDesdeHeader: text)));
+                    },
+                    style: const TextStyle(
+                        fontSize: 25,
+                        fontFamily: 'Raleway',
+                        color: Colors.black
+                    ),
+                    decoration: InputDecoration(
+                        border: InputBorder.none,
+                        suffixIcon: Icon(Icons.search_rounded,
+                          size: 30,
+                          color: Colors.black,)
+                    ),
+
+                  ),
+                ),
+                SizedBox(height: 40,),
+                Container(
                   width: double.infinity,
                   margin: EdgeInsets.only(left: 30, right: 30),
                   height: 48,
@@ -85,7 +121,7 @@ class _headerPrincipalState extends State<headerPrincipal> {
                     ),
                   ),
                 ),
-                /*SizedBox(height: 20,),*/
+
                 Container(
                   width: double.infinity,
                   margin: EdgeInsets.only(left: 30, right: 30),
@@ -105,33 +141,6 @@ class _headerPrincipalState extends State<headerPrincipal> {
                     ),
                   ),
                 ),
-                SizedBox(height: 40,),
-                Container(
-                  margin: EdgeInsets.only(left: 20, right: 20),
-                  width: double.infinity,
-                  padding: EdgeInsets.only(left: 12),
-                  decoration: BoxDecoration(
-                      border: Border.all(
-                          color: Colors.black, width: 2
-                      ),
-                      borderRadius: BorderRadius.circular(30)
-                  ),
-                  child: TextFormField(
-                    style: const TextStyle(
-                        fontSize: 25,
-                        fontFamily: 'Raleway',
-                        color: Colors.black
-                    ),
-                    decoration: InputDecoration(
-                        border: InputBorder.none,
-                        suffixIcon: Icon(Icons.search_rounded,
-                          size: 30,
-                          color: Colors.black,)
-                    ),
-
-                  ),
-                ),
-
               ],
             ),
     );

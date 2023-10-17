@@ -1,13 +1,15 @@
 import 'dart:convert';
-import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:mabla/formas/ondaHome.dart';
 import 'package:mabla/header.dart';
-import 'package:mabla/quiz/quizUI2.dart';
+
+
+
 import 'package:mabla/screen/comentarios.dart';
 import 'package:mabla/screen/diccionario.dart';
 import 'package:mabla/screen/menu.dart';
-import 'package:mabla/quiz/quizUI.dart';
+
 
 import 'package:http/http.dart' as http;
 
@@ -26,9 +28,30 @@ class home extends StatefulWidget {
 
 class _homeState extends State<home> {
   GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+  String message = 'Verificando sesión...';
 
+  Future<void> verificarSesion() async {
+    var url = Uri.parse('http://192.168.0.7/verificarS');
+    var response = await http.get(url);
+    if (response.statusCode == 200) {
+      final responseData = json.decode(response.body);
+      final res = responseData['mensaje'];
+      setState(() {
+        message = res;
+        print(res);
+      });
+    } else {
+      setState(() {
+        message = 'Error al verificar la sesión';
+      });
+    }
+  }
 
-
+  @override
+  void initState() {
+    super.initState();
+    verificarSesion();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -104,16 +127,8 @@ class _homeState extends State<home> {
                         width: 190,
                         height: 48,
                         child: ElevatedButton(
-                          onPressed: (){
-                            final random = Random();
-                            int numeroAleatorio = random.nextInt(2) + 1;
-                            if (numeroAleatorio==1){
-                              Navigator.push(context, MaterialPageRoute(builder: (context)=>quiz()));
-                            }else{
-                              Navigator.push(context, MaterialPageRoute(builder: (context)=>quizTipoDos()));
-                            }
-
-                          },
+                          //onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context)=>)),
+                          onPressed: (){},
                           child: Text('Quizes',
                             style: TextStyle(fontSize: 28, fontFamily: "Raleway",color: Colors.black),),
                           style: ButtonStyle(
@@ -135,7 +150,7 @@ class _homeState extends State<home> {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) =>diccionario(),
+                                builder: (context) =>diccionario(letraDesdeHeader: ' '),
                               ),
                             );
                           },
@@ -162,6 +177,7 @@ class _homeState extends State<home> {
           ],
         ),
       ),
+      resizeToAvoidBottomInset: true,
     );
   }
 }

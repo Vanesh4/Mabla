@@ -84,7 +84,7 @@ class _miperfilState extends State<miperfil> {
               ),
               height: 350,
 
-      ),
+            ),
             Row(
               children: [
                 Container(
@@ -250,7 +250,7 @@ class _miperfilState extends State<miperfil> {
               margin: EdgeInsets.only(top: 40,left: 230),
               child: ElevatedButton(
                 child: Text("Mi proceso",
-                style: TextStyle(fontSize: 20),),
+                  style: TextStyle(fontSize: 20),),
                 style: ElevatedButton.styleFrom(
                   primary: Colors.purple,
                   //side: BorderSide(color: Colors.deepOrange, width: 2),
@@ -259,18 +259,13 @@ class _miperfilState extends State<miperfil> {
 
                 onPressed: () {
                   Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>home()
-                )
+                  )
                   );
 
-              },
+                },
               ),
 
             )
-
-
-
-
-
           ],
         ),
 
@@ -283,4 +278,3 @@ class _miperfilState extends State<miperfil> {
 
 
 }
-
