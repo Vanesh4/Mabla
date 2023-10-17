@@ -150,7 +150,7 @@ class _homeState extends State<home> {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) =>diccionario(),
+                                builder: (context) =>diccionario(letraDesdeHeader: ' '),
                               ),
                             );
                           },
@@ -177,6 +177,7 @@ class _homeState extends State<home> {
           ],
         ),
       ),
+      resizeToAvoidBottomInset: true,
     );
   }
 }
