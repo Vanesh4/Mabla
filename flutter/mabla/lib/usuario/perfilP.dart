@@ -32,7 +32,7 @@ class _perfil1State extends State<perfil1> {
     final authToken = prefs.getString('jwt_token') ?? '';
 
     final response = await http.get(
-      Uri.parse('http://192.168.43.184/perfil'),
+      Uri.parse('http://192.168.0.7/perfil'),
       headers: {
         'Accept': 'application/json',
         'Authorization': 'Bearer $authToken',
@@ -72,16 +72,16 @@ class _perfil1State extends State<perfil1> {
         title: Text('Perfil de Cliente'),
       ),
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text('alias: ${_perfilData['alias']}'),
-            Text('first_name: ${_perfilData['first_name']}'),
-            Text('last_name: ${_perfilData['last_name']}'),
-            Text('email: ${_perfilData['email']}'),
-            Text('imgPerfil: ${_perfilData['imgPerfil']}'),
-          ],
-        )
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text('alias: ${_perfilData['alias']}'),
+              Text('first_name: ${_perfilData['first_name']}'),
+              Text('last_name: ${_perfilData['last_name']}'),
+              Text('email: ${_perfilData['email']}'),
+              Text('imgPerfil: ${_perfilData['imgPerfil']}'),
+            ],
+          )
       ),
     );
   }

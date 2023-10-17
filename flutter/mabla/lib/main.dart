@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mabla/home.dart';
-import 'package:mabla/screen/consultar.dart';
-import 'package:mabla/screen/diccionario.dart';
-import 'package:mabla/screen/login.dart';
-import 'package:mabla/screen/perfil1.dart';
-
+import 'package:mabla/usuario/login.dart';
+import 'package:mabla/usuario/perfilP.dart';
 void main() {
   runApp(const MyApp());
 }

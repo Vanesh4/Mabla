@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:mabla/screen/menu.dart';
-import 'package:mabla/screen/registro.dart';
-
+import 'package:mabla/usuario/login.dart';
+import 'package:mabla/usuario/registro.dart';
 import 'home.dart';
-import 'screen/login.dart';
 class headerPrincipal extends StatefulWidget {
   const headerPrincipal({Key? key}) : super(key: key);
 
