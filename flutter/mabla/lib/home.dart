@@ -3,6 +3,11 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:mabla/formas/ondaHome.dart';
 import 'package:mabla/header.dart';
+<<<<<<< HEAD
+import 'package:mabla/quiz/quizUI2.dart';
+import 'package:mabla/quiz/splash.dart';
+=======
+>>>>>>> 386f5b1e8317f7011061b8aa28e90ac32d955f4d
 import 'package:mabla/screen/comentarios.dart';
 import 'package:mabla/screen/diccionario.dart';
 import 'package:mabla/screen/menu.dart';
@@ -124,6 +129,7 @@ class _homeState extends State<home> {
                         width: 190,
                         height: 48,
                         child: ElevatedButton(
+<<<<<<< HEAD
                           onPressed: (){
                             final random = Random();
                             int numeroAleatorio = random.nextInt(2) + 1;
@@ -133,8 +139,10 @@ class _homeState extends State<home> {
                               //Navigator.push(context, MaterialPageRoute(builder: (context)=>quizTipoDos()));
                               Navigator.push(context, MaterialPageRoute(builder: (context)=>quiz()));
                             }
+=======
+                          onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context)=>inicioSplash())),
+>>>>>>> 13e08041fadb5f502c2527e186a18208df9dcc0a
 
-                          },
                           child: Text('Quizes',
                             style: TextStyle(fontSize: 28, fontFamily: "Raleway",color: Colors.black),),
                           style: ButtonStyle(

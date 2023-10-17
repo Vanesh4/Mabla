@@ -42,6 +42,7 @@ urlpatterns = [
     path('quizTipo1',viewsPlantillas.viewQuiz1, name="quiz1"),
     path('quizTipo2',viewsPlantillas.viewQuiz2, name="quiz2"),
     path('menu',viewsPlantillas.menuTodo, name="menu"),
+    path('animacion',viewsPlantillas.cont321, name="animacion quiz"),
     path('mostrar/',viewsPlantillas.vercategorias, name="mostrar"),
     path('mostrarsubcate/',viewsPlantillas.versubcategorias, name="mostrarsubcate"),
     path('perfil',profile.as_view(), name="perfil"),

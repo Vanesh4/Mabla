@@ -51,10 +51,6 @@
             <p class="BotonPrimario">
                 <a href="/logOut">Cerrar Sesión</a>
             </p>
-            <div class="buscador">
-                <input  type="text" name="bus"  class="buscadorMenu" maxlength="20">
-                <img src="{% static 'img/lupa.png'%}" alt="lupa" style="width: 10%;">                
-            </div>
             <form method="get" enctype="multipart/form-data">
                 {% csrf_token %}
                 <a href="perfil">

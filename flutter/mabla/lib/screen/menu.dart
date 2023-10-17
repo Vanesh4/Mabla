@@ -4,6 +4,7 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 import '../header.dart';
+import 'consultar.dart';
 const Color darkBlue = Color(0xFF0a4d68);
 const Color lightBlue = Color(0xFF06bfdb);
 const Color purple = Color(0xFF76037a);
@@ -25,7 +26,7 @@ class _menuState extends State<menu> {
   //Map<String, dynamic> jsonData = {};
   Future<void> fetchData() async {
     final response = await http.get(Uri.parse('http://192.168.1.8/getcate'));
-
+    print("se hizo la peticion");
     if (response.statusCode == 200) {
       print("All is OK in cate and subcate");
       setState(() {
@@ -64,14 +65,17 @@ class _menuState extends State<menu> {
                   SizedBox(height: 30,),
                   ListTile(
                     title: Center(
-                      child: RichText(text: TextSpan(
-                        text: cat['Categoria'].toUpperCase(),
-                        style: TextStyle(
-                            fontFamily: 'Raleway',
-                            fontSize: 25,
-                            color: Colors.white
-                        ),
-                      ))
+                      child: GestureDetector(
+                        onTap:() => Navigator.push(context, MaterialPageRoute(builder: (context)=>consultar())),
+                        child: RichText(text: TextSpan(
+                          text: cat['Categoria'].toUpperCase(),
+                          style: TextStyle(
+                              fontFamily: 'Raleway',
+                              fontSize: 25,
+                              color: Colors.white
+                          ),
+                        )),
+                      )
                     ),
                   ),
                   if (subcat.isNotEmpty)

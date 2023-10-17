@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
+
 import '../header.dart';
 import '../home.dart';
+
 
 class Categoria {
   final String nombre;
@@ -38,6 +40,9 @@ class _MyAppState extends State<consultar> {
   Subcategoria? subcategoriaSeleccionada; // se selecciona la subcategoria
 
   Future<void> obtenerDatosDesdeDjango() async {
+
+    //final response = await http.get(Uri.parse('http://192.168.1.6/getcategoria'));
+
     final response = await http.get(Uri.parse('http://192.168.1.8/getcategoria'));
 
     if (response.statusCode == 200) {

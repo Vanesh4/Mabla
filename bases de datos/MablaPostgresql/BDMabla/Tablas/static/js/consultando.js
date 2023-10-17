@@ -146,20 +146,9 @@ $.ajax({
                         boton.setAttribute("value", valo)
                         
 
-                        localStorage.setItem('categoria', valo)
-                        numeroAleatorio = Math.round(Math.random()) + 1;
-                        
-                        function llevar() {
-                            if (numeroAleatorio==1) {
-                                window.location.href = "/quizTipo1";
-                            }else{
-                                window.location.href = "/quizTipo2";
-                            }                            
-                        }
-                        
+                        localStorage.setItem('categoria', valo)                        
                         $('#botonQuiz').click(function() {
-                            console.log("aaaaaaaaaaaaaaaa")
-                            llevar()
+                            window.location.href = "/animacion";
                         });
                         
                                                           
