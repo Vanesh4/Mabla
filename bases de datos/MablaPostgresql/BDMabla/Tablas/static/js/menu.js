@@ -59,7 +59,9 @@ $(document).ready(function () {
                 contenedor.appendChild(divCategoria)
            }
 
-        }            
+        }, error: function(error) {
+            window.location.href = "/error";
+        }          
     })
     //linkeo a diccionario
     input = document.getElementById("inputADiccio");
