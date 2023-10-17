@@ -32,8 +32,17 @@ class _loginState extends State<login> {
     if (_formKey.currentState!.validate()) {
       if (_formKey.currentState!.validate()) {
         Future.delayed(const Duration(milliseconds: 200), () async {
-
-          final String apiUrl = 'http://192.168.0.7/api/token/';
+          final response = await http.post(
+            Uri.parse('http://192.168.0.7/api/iniciar-sesion/'),
+            headers: <String, String>{
+              'Content-Type': 'application/json; charset=UTF-8',
+            },
+            body: jsonEncode(<String, String>{
+              'username': 'usuario',
+              'password': 'contrasena',
+            }),
+          );
+          /*final String apiUrl = 'http://192.168.0.7/api/token/';
           final Map<String, dynamic> requestBody = {
             'username': _usernameController.text,
             'password': _passwordController.text,
@@ -81,7 +90,7 @@ class _loginState extends State<login> {
           catch (e) {
             // Manejar errores de red o excepciones aquí
             print('Error de red: $e');
-          }
+          }*/
           // Navigator.pop(context);
           /*Navigator.push(
           context,

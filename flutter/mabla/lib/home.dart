@@ -130,7 +130,8 @@ class _homeState extends State<home> {
                             if (numeroAleatorio==1){
                               Navigator.push(context, MaterialPageRoute(builder: (context)=>quiz()));
                             }else{
-                              Navigator.push(context, MaterialPageRoute(builder: (context)=>quizTipoDos()));
+                              //Navigator.push(context, MaterialPageRoute(builder: (context)=>quizTipoDos()));
+                              Navigator.push(context, MaterialPageRoute(builder: (context)=>quiz()));
                             }
 
                           },

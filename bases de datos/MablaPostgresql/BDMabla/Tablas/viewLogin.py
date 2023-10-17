@@ -12,6 +12,9 @@ from django.views.decorators.csrf import csrf_exempt
 import jwt
 from datetime import datetime, timedelta
 from django.conf import settings
+from rest_framework.response import Response
+from rest_framework import status
+from rest_framework.views import APIView
 
 def verificarS(request):
     if request.user.is_authenticated:
@@ -98,7 +101,7 @@ class registerUser(View):
     
             #xreturn JsonResponse({"success": False, "message":'pailax2'})
     
-class IniciarSesionView(View):
+""" class IniciarSesionView(View):
     print("entro a la vista de iniciar sesion")
 
     def get(self, request):
@@ -163,7 +166,19 @@ class IniciarSesionView(View):
             else:
                 print("noiniciosesion")
                 return render(request, 'login.html', {'form': form}) 
-        
+ """
+class IniciarSesionView(APIView):
+    def post(self, request, *args, **kwargs):
+        username = request.data.get('username')
+        password = request.data.get('password')
+
+        user = authenticate(username=username, password=password)
+
+        if user is not None:
+            login(request, user)
+            return Response({'mensaje': 'Inicio de sesión exitoso'}, status=status.HTTP_200_OK)
+        else:
+            return Response({'mensaje': 'Credenciales inválidas'}, status=status.HTTP_401_UNAUTHORIZED)
 #@method_decorator(login_required(login_url='ingresar'), name='dispatch')
 class profile(View):
     
