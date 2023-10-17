@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mabla/home.dart';
+import 'package:mabla/screen/consultar.dart';
 const Color darkBlue = Color(0xFF0a4d68);
 const Color lightBlue = Color(0xFF06bfdb);
 const Color purple = Color(0xFF76037a);
@@ -50,7 +51,7 @@ class _resultadosQuizState extends State<resultadosQuiz> {
             ),
             ElevatedButton(
               onPressed: (){
-                //Navigator.push(context, MaterialPageRoute(builder: (context)=>home()));
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>consultar()));
               },
               child: Text('Seguir Aprendiendo',
                 style: TextStyle(fontSize: 28, fontFamily: "Raleway",color: Colors.black),),
@@ -64,7 +65,7 @@ class _resultadosQuizState extends State<resultadosQuiz> {
               ),
             ),
             SizedBox(height: 30,),
-            Image.asset("assets/img/capiJugito.png", width: 300,)
+            Image.asset('assets/img/capiJugito.png', width: 300,)
           ],
         ),
       ),

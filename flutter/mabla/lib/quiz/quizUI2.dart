@@ -11,7 +11,8 @@ const Color purple = Color(0xFF76037a);
 const Color orange = Color(0xFFff731c);
 const Color beige = Color(0xFFfff7ea);
 class quizTipoDos extends StatefulWidget {
-  const quizTipoDos({Key? key}) : super(key: key);
+  final String cat;
+  quizTipoDos({required this.cat});
 
   @override
   State<quizTipoDos> createState() => _quizTipoDosState();
@@ -25,7 +26,8 @@ class _quizTipoDosState extends State<quizTipoDos> {
   Quiz quiz = Quiz(questions: []);
   Future<void> readData()async {
     int tipo = 2;
-    String categoria = 'Verbos';
+    //String categoria = 'Verbos';
+    String categoria = widget.cat;
     final response = await http.get(
         Uri.parse('http://192.168.1.8/preguntas/$tipo/$categoria'));
     if (response.statusCode == 200) {

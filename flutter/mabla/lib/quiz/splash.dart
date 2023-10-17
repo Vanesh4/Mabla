@@ -5,7 +5,9 @@ import 'package:lottie/lottie.dart';
 import 'package:mabla/quiz/quizUI.dart';
 import 'package:mabla/quiz/quizUI2.dart';
 class inicioSplash extends StatefulWidget {
-  const inicioSplash({Key? key}) : super(key: key);
+
+  final String cat;
+  inicioSplash({required this.cat});
 
   @override
   State<inicioSplash> createState() => _inicioSplashState();
@@ -19,9 +21,9 @@ class _inicioSplashState extends State<inicioSplash> {
       int numeroAleatorio = random.nextInt(2) + 1;
       print(numeroAleatorio);
       if (numeroAleatorio==1){
-        Navigator.push(context, MaterialPageRoute(builder: (context)=>quiz()));
+        Navigator.push(context, MaterialPageRoute(builder: (context)=>quiz(cat: widget.cat)));
       }else{
-        Navigator.push(context, MaterialPageRoute(builder: (context)=>quizTipoDos()));
+        Navigator.push(context, MaterialPageRoute(builder: (context)=>quizTipoDos(cat: widget.cat)));
       }
     });
     super.initState();

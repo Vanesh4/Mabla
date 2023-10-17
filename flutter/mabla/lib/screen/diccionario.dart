@@ -39,6 +39,7 @@ class _DictionaryAppState extends State<diccionario> {
       body: Padding(
         padding: EdgeInsets.symmetric(vertical: 30),
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Container(
               color: Color(0xFFd9d9d9),

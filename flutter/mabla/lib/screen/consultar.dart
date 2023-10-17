@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:mabla/quiz/splash.dart';
 import 'dart:convert';
 
 
@@ -181,7 +182,8 @@ class _MyAppState extends State<consultar> {
             ElevatedButton(
               onPressed: () {
                 final categoriaSeleccionada = subcategoriaSeleccionada?.categoria ?? '';
-                print('Categoría de la subcategoría seleccionada: $categoriaSeleccionada');
+                //print('Categoría de la subcategoría seleccionada: $categoriaSeleccionada');
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>inicioSplash(cat: categoriaSeleccionada,)));
               },
               style: ElevatedButton.styleFrom(
                 primary: Color(0xFF0a4d68),

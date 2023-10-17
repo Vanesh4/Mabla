@@ -1,10 +1,10 @@
 import 'dart:convert';
-import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:mabla/formas/ondaHome.dart';
 import 'package:mabla/header.dart';
 
-import 'package:mabla/quiz/splash.dart';
+
 
 import 'package:mabla/screen/comentarios.dart';
 import 'package:mabla/screen/diccionario.dart';
@@ -127,8 +127,8 @@ class _homeState extends State<home> {
                         width: 190,
                         height: 48,
                         child: ElevatedButton(
-                          onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context)=>inicioSplash())),
-
+                          //onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context)=>)),
+                          onPressed: (){},
                           child: Text('Quizes',
                             style: TextStyle(fontSize: 28, fontFamily: "Raleway",color: Colors.black),),
                           style: ButtonStyle(
