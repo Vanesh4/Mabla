@@ -3,15 +3,13 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:mabla/formas/ondaHome.dart';
 import 'package:mabla/header.dart';
-<<<<<<< HEAD
-import 'package:mabla/quiz/quizUI2.dart';
+
 import 'package:mabla/quiz/splash.dart';
-=======
->>>>>>> 386f5b1e8317f7011061b8aa28e90ac32d955f4d
+
 import 'package:mabla/screen/comentarios.dart';
 import 'package:mabla/screen/diccionario.dart';
 import 'package:mabla/screen/menu.dart';
-import 'package:mabla/quiz/quizUI.dart';
+
 
 import 'package:http/http.dart' as http;
 

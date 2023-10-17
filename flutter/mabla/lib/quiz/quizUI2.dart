@@ -177,5 +177,4 @@ class _quizTipoDosState extends State<quizTipoDos> {
     );
   }
 }
-  }
-}
+

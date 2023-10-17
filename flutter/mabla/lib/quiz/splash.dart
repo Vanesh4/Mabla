@@ -36,7 +36,7 @@ class _inicioSplashState extends State<inicioSplash> {
           child: Lottie.asset('assets/img/Animation321.json'),
         ),
       ),
-    );;
+    );
   }
 }
 
