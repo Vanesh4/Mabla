@@ -9,9 +9,6 @@
 
 .miClase:hover{
     background-color: #06bfdb;
-    
-    
-
 }
 
 form{
@@ -153,7 +150,6 @@ button{
     height: 300px;
     width: 300px;
     justify-content: end;
-    background-color: blue;
     border: 2px solid #ddd; /* Agrega un borde ligero */
     border-radius: 8px; /* Hace que las esquinas sean redondeadas */
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6); /* Agrega una sombra suave */

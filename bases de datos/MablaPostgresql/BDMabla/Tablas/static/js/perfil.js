@@ -109,3 +109,34 @@ contenedorCajas.addEventListener("click", function(event) {
     }
   }
 })
+
+
+
+function actualizarNotas() {
+  const url = 'http://127.0.0.1:8000/tablaPrueba';
+  fetch(url)
+      .then(response => response.json())
+      .then(data => {
+          var notasContainer = document.getElementById("notasContainer");
+          notasContainer.innerHTML = ""; // Limpia las notas existentes
+
+          // Itera sobre los datos y crea elementos para mostrar las notas
+          data.forEach(function (dato) {
+              var cajita = document.createElement("div");
+              cajita.setAttribute("class", "cajita");
+              cajita.innerHTML = "<h3 id='nota'>" + dato.puntaje + "/5</h3>";
+
+              notasContainer.appendChild(cajita);
+          });
+      })
+      .catch(error => {
+          console.error("Error al obtener datos de pruebas:", error);
+      });
+}
+
+// Llama a la función para actualizar las notas cuando se carga la página
+actualizarNotas();
+
+
+
+
