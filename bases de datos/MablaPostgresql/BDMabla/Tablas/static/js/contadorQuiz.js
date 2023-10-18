@@ -1,4 +1,4 @@
-let seconds = 6; 
+let seconds = 3; 
 tamañoActual  = 50
 function updateCounter() {
     const video = document.getElementById("contadorVideo");

@@ -34,7 +34,7 @@ $.ajax({
     dataType: "JSON",
     success: function (res) {
         //console.log(res)
-        console.log(res[8])
+        //console.log(res[8])
         for (let i = 0; i < 24; i++) {
             pos=generarNumeroAleatorio(res.length)
             respuestasIncorrectas.push(res[pos].Senia)
