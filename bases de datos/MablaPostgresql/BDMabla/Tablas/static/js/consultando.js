@@ -8,14 +8,14 @@ boton=document.getElementById('botonQuiz')
 const cajalinks=document.getElementById('section1')
 fleimg=document.getElementById('flechacaja')
 var altocaja2=document.querySelector('.caja2')
-console.log("oaaoaoaooaoaoa",altocaja2)
+//console.log("oaaoaoaooaoaoa",altocaja2)
   
 $.ajax({
     url: "http://127.0.0.1:8000/getcategoria",
     type: "GET",
     dataType: "JSON",      
     success: function (res) { 
-      
+        console.log(res)
         for(let x = 0; x<=res.length; x++) {
             contenedorli=document.createElement("li")
             contenedorli.setAttribute("class","list_item list_item--click")

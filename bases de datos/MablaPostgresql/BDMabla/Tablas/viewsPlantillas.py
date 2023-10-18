@@ -25,12 +25,12 @@ def iniciohtml(request):
 def inicioConSesion(request):
     return render(request,"inicioConSesion.html")
 
-@login_required
+""" @login_required
+def viewQuiz1(request):
+    return render(request,"quizTipo1.html") """
+                  
 def viewQuiz1(request):
     return render(request,"quizTipo1.html")
-                  
-""" def viewQuiz1(request):
-    return render(request,"quizTipo1.html") """
 def viewQuiz2(request):
     return render(request,"quizTipo2.html")
 
