@@ -5,7 +5,9 @@ import 'package:lottie/lottie.dart';
 import 'package:mabla/quiz/quizUI.dart';
 //import 'package:mabla/quiz/quizUI2.dart';
 class inicioSplash extends StatefulWidget {
-  const inicioSplash({Key? key}) : super(key: key);
+
+  final String cat;
+  inicioSplash({required this.cat});
 
   @override
   State<inicioSplash> createState() => _inicioSplashState();
@@ -19,10 +21,14 @@ class _inicioSplashState extends State<inicioSplash> {
       int numeroAleatorio = random.nextInt(2) + 1;
       print(numeroAleatorio);
       if (numeroAleatorio==1){
-        Navigator.push(context, MaterialPageRoute(builder: (context)=>quiz()));
+        Navigator.push(context, MaterialPageRoute(builder: (context)=>quiz(cat: widget.cat)));
       }else{
+<<<<<<< HEAD
         Navigator.push(context, MaterialPageRoute(builder: (context)=>quiz()));
         //Navigator.push(context, MaterialPageRoute(builder: (context)=>quizTipoDos()));
+=======
+        Navigator.push(context, MaterialPageRoute(builder: (context)=>quizTipoDos(cat: widget.cat)));
+>>>>>>> f91bbf8605a64bf1603a0da2f992815a77a11b30
       }
     });
     super.initState();
@@ -37,7 +43,7 @@ class _inicioSplashState extends State<inicioSplash> {
           child: Lottie.asset('assets/img/Animation321.json'),
         ),
       ),
-    );;
+    );
   }
 }
 

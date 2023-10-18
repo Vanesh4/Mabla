@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
@@ -8,17 +10,33 @@ const Color darkBlue = Color(0xFF0a4d68);
 const Color beige = Color(0xFFfff7ea);
 
 class diccionario extends StatefulWidget {
+  final String letraDesdeHeader;
+  diccionario({required this.letraDesdeHeader});
+
   @override
   _DictionaryAppState createState() => _DictionaryAppState();
 }
 
 class _DictionaryAppState extends State<diccionario> {
   GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
-  String initial = ''; // Inicial por defecto
+
+  void initState() {
+    super.initState();
+    funcionLetraInicial();
+  }
+  String initial = '';
+  String funcionLetraInicial() {
+    if(widget.letraDesdeHeader != ''){
+      initial = widget.letraDesdeHeader;
+      myInitial(initial);
+    }
+    return initial;
+  }
+
   List<Map<String, dynamic>> palabsenia = [];
 
   Future<void> myInitial(String initial) async {
-    final response = await http.get(Uri.parse('http://192.168.1.8/getpalabrasdiccio/$initial'));
+    final response = await http.get(Uri.parse('http://192.168.1.6/getpalabrasdiccio/$initial'));
 
     if (response.statusCode == 200) {
       final Map<String, dynamic> data = json.decode(response.body);
@@ -39,6 +57,7 @@ class _DictionaryAppState extends State<diccionario> {
       body: Padding(
         padding: EdgeInsets.symmetric(vertical: 30),
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Container(
               color: Color(0xFFd9d9d9),
@@ -119,24 +138,26 @@ class _DictionaryAppState extends State<diccionario> {
                     },
                     child: Center(
                       child: Container(
-                        width: 300,
-                        margin: EdgeInsets.only(right: 20),
+                        width: 320,
                         child: Card(
                           shadowColor: Color(0xFF0a4d68),
                           elevation: 4.0,
-                          margin: EdgeInsets.only(top: 20),
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(10),
                           ),
-                          child: Column(
-                            mainAxisSize: MainAxisSize.min,
-                            children: <Widget>[
-                              Image.network(senia, height: 200),
-                              Text(
-                                palabra,
-                                style: TextStyle(fontFamily: 'Raleway', fontSize: 30),
-                              ),
-                            ],
+                          child: Padding(
+                            padding:EdgeInsets.all(20),
+                            child: Column(
+                              mainAxisSize: MainAxisSize.min,
+                              children: <Widget>[
+                                Image.network(senia, height: 300),
+
+                                Text(
+                                  palabra,
+                                  style: TextStyle(fontFamily: 'Raleway', fontSize: 30),
+                                ),
+                              ],
+                            ),
                           ),
                         ),
                       ),

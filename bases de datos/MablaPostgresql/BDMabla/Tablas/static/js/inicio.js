@@ -113,6 +113,7 @@ function agregarComentario() {
                 msj.setAttribute("id","msj")
                 msj.textContent = "No se pudo enviar el comentario "+error;
                 contenedorDiv.appendChild(msj)
+                window.location.href = "/error";
             }
         }); 
     }  

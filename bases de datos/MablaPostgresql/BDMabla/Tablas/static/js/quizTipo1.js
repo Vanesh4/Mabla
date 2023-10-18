@@ -62,7 +62,9 @@ $(document).ready (()=>{
                     resCorrecta.innerHTML = res[p].respuesta
                     
                     
-                }
+                }, error: function(error) {
+                    window.location.href = "/error";
+                } 
             }) //ajax correcto
             
         }

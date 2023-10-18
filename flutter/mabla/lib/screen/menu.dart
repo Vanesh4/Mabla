@@ -26,7 +26,7 @@ class _menuState extends State<menu> {
   //Map<String, dynamic> jsonData = {};
   Future<void> fetchData() async {
     final response = await http.get(Uri.parse('http://192.168.1.8/getcate'));
-    print("se hizo la peticion");
+
     if (response.statusCode == 200) {
       print("All is OK in cate and subcate");
       setState(() {
@@ -82,14 +82,17 @@ class _menuState extends State<menu> {
                     Column(
                       children: subcat.map<Widget>((subelemento) {
                         return Center(
-                          child: RichText(text: TextSpan(
-                            text: subelemento['subcategoria'],
-                            style: TextStyle(
-                                fontFamily: 'Raleway',
-                                fontSize: 20,
-                                color: Colors.white
-                            ),
-                          )),
+                          child: GestureDetector(
+                            onTap:() => Navigator.push(context, MaterialPageRoute(builder: (context)=>consultar())),
+                            child: RichText(text: TextSpan(
+                              text: subelemento['subcategoria'],
+                              style: TextStyle(
+                                  fontFamily: 'Raleway',
+                                  fontSize: 20,
+                                  color: Colors.white
+                              ),
+                            )),
+                          ),
                         );
                       }).toList(),
                     ),

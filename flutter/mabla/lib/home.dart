@@ -1,13 +1,19 @@
 import 'dart:convert';
-import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:mabla/formas/ondaHome.dart';
 import 'package:mabla/header.dart';
+<<<<<<< HEAD
 import 'package:mabla/quiz/splash.dart';
+=======
+
+
+
+>>>>>>> f91bbf8605a64bf1603a0da2f992815a77a11b30
 import 'package:mabla/screen/comentarios.dart';
 import 'package:mabla/screen/diccionario.dart';
 import 'package:mabla/screen/menu.dart';
-import 'package:mabla/quiz/quizUI.dart';
+
 
 import 'package:http/http.dart' as http;
 
@@ -126,8 +132,8 @@ class _homeState extends State<home> {
                         width: 190,
                         height: 48,
                         child: ElevatedButton(
-                          onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context)=>inicioSplash())),
-
+                          //onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context)=>)),
+                          onPressed: (){},
                           child: Text('Quizes',
                             style: TextStyle(fontSize: 28, fontFamily: "Raleway",color: Colors.black),),
                           style: ButtonStyle(
@@ -149,7 +155,7 @@ class _homeState extends State<home> {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) =>diccionario(),
+                                builder: (context) =>diccionario(letraDesdeHeader: ' '),
                               ),
                             );
                           },
@@ -175,6 +181,7 @@ class _homeState extends State<home> {
           ],
         ),
       ),
+      resizeToAvoidBottomInset: true,
     );
   }
 }

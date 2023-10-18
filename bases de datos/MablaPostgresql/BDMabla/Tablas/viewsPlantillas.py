@@ -43,11 +43,17 @@ def cont321(request):
 def vercategorias(request):
     return render(request,"consultando.html")
 
+def pagError(request):
+    return render(request,"paginaERROR.html")
+
 def versubcategorias(request):
     return render(request, "consultando.html")
 
 def verperfil(request):
     return render(request, "perfil.html")
+
+def sobreNosotrxs(request):
+    return render(request,"nosotrxs.html")
 
 def prueba(request):
     return render(request, "perfilP.html")

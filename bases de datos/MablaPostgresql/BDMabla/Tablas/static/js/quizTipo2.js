@@ -38,9 +38,11 @@ $.ajax({
         for (let i = 0; i < 24; i++) {
             pos=generarNumeroAleatorio(res.length)
             respuestasIncorrectas.push(res[pos].Senia)
-        }     
+        }   
         
-    }
+    }, error: function(error) {
+        window.location.href = "/error";
+    } 
 }) 
 
 
@@ -93,7 +95,9 @@ $(document).ready (()=>{
                     resCorrecta.src = res[p].respuesta
                     
                     
-                }
+                }, error: function(error) {
+                    window.location.href = "/error";
+                } 
             }) //ajax correcto
             
         }
