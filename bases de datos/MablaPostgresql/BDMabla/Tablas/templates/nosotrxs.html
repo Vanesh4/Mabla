@@ -6,8 +6,128 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sobre nosotros</title>
     <link rel="icon" type="image/x-icon" href="{% static 'img/mablaLOGO-removebg.png' %}">
+    <link rel="stylesheet" href="{% static 'css/headerprincipal.css'%}">
+    <link rel="stylesheet" href="{% static 'css/nosotxs.css' %}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
+    {% if user.is_authenticated %}
+    <header class="header">
+        <div class="closeBtn">
+            <img src="{% static 'img/cancelar.png'%}" alt="equis" id="imgBotonCerrarMenu">
+        </div>
+        <div class="parteizq">
+            <div class="logo">
+                <a href="/">
+                    <img src="{% static 'img/mablaLOGO-removebg.png' %}" alt="logo" class="logoImg">
+                </a>                
+            </div>
+            <div class="linkContenido">
+                <a href="/menu"><p class="textomenu">Contenido</p></a>
+                <a href="/menu">
+                    <img src="{% static 'img/flecha-hacia-abajo-para-navegar.png'%}" alt="flecha" style="width: 15px;height: 15px;" class="imgflecha">
+                </a>
+            </div>
+            <div class="linkContenido">
+                <a href="#"><p class="textomenu">Sobre nosotros</p></a>
+                <a href="#">
+                    <img src="{% static 'img/flecha-hacia-abajo-para-navegar.png'%}" alt="flecha" style="width: 15px;height: 15px;" class="imgflecha">
+                </a>
+            </div>
+        </div>
+
+        <div class="partederecha">
+            <p class="BotonPrimario">
+                <a href="/logOut">Cerrar Sesión</a>
+            </p>
+            <div class="buscador">
+                <input  type="text" name="buscador" class="buscadorMenu" maxlength="20" id="inputADiccio">
+                <img src="{% static 'img/lupa.png'%}" alt="lupa" style="width: 10%;">                
+            </div>
+            <form method="get" enctype="multipart/form-data">
+                {% csrf_token %}
+                
+                <a href="perfil">
+                    <div class="imgdeperfil">
+                        <img id="fotoUser" src="{{ user.imgPerfil.url}}">
+                    </div>                    
+                </a>
+                <p id="alias">{{ user.username }}</p>
+            </form>
+        </div>    
+</header>
+
+{% else %}
+    <!-- sin iniciar sesion  --> 
+    <header class="header">
+    <div class="closeBtn">
+        <img src="{% static 'img/cancelar.png'%}" alt="x" id="imgBotonCerrarMenu">
+    </div>
+    <div class="parteizq">
+        <div class="logo">
+            <a href="/">
+                <img src="{% static 'img/mablaLOGO-removebg.png'%}" alt="logo" class="logoImg">
+            </a>                
+        </div>
+        <div class="linkContenido">
+            <a href="/menu"><p class="textomenu">Contenido</p></a>
+            <a href="/menu">
+                <img src="{% static 'img/flecha-hacia-abajo-para-navegar.png'%}" alt="flecha" style="width: 15px;height: 15px;" class="imgflecha">
+            </a>
+        </div>
+        <div class="linkContenido">
+            <a href="/sobreNosotros"><p class="textomenu">Sobre nosotros</p></a>
+                <a href="/sobreNosotros">
+                <img src="{% static 'img/flecha-hacia-abajo-para-navegar.png'%}" alt="flecha" style="width: 15px;height: 15px;" class="imgflecha">
+            </a>
+        </div>
+    </div>
+    <div class="partederecha">
+        <div id="login">
+            <p id="BotonRegisto">
+                <a href="/register">Registrarme</a>
+            </p>
+            <p class="BotonPrimario">
+                <a href="/ingresar">Iniciar Sesión</a>
+            </p>
+        </div>
+        <div class="buscador">
+            <input  type="text" name="buscador" class="buscadorMenu" maxlength="20" id="inputADiccio">
+            <img src="{% static 'img/lupa.png'%}" alt="lupa" style="width: 10%;">                
+        </div>
+        
+    </div>    
+</header>    
+
+{% endif %}
+    <div class="menuResponsive">
+        <img src="{% static 'img/lista.png'%}" alt="" style="width: 30px;" id="imgBotonAbrirMenu">
+    </div>
+    <section id="section">
+        <div class="div div1"><p class="palabrasClave">Mabla</p> es un software sobre aprendizaje  e interpretación de lengua de señas Colombiano.</div>
+        <div class="div div2">A inicios de 2022, Cundinamarca contaba con alrededor de 160 intérpretes y en Colombia cerca de 700. Solo el 0.0014% de la población, sabe como comunicarse con las personas con discapacidad auditiva. </div>
+        <div class="div div3">Este Software se realiza, con el fin de poder lograr una optima comunicación entre toda la población colombiana.</div>
+        <div class="div div4">La interpretación de <p class="palabrasClave">lengua de señas,</p> es clave para romper las barreras de comunicación.</div>
     
+    </section>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" id="forma"><path fill="#D9D9D9" fill-opacity="1" d="M0,224L30,229.3C60,235,120,245,180,240C240,235,300,213,360,213.3C420,213,480,235,540,224C600,213,660,171,720,154.7C780,139,840,149,900,176C960,203,1020,245,1080,250.7C1140,256,1200,224,1260,208C1320,192,1380,192,1410,192L1440,192L1440,0L1410,0C1380,0,1320,0,1260,0C1200,0,1140,0,1080,0C1020,0,960,0,900,0C840,0,780,0,720,0C660,0,600,0,540,0C480,0,420,0,360,0C300,0,240,0,180,0C120,0,60,0,30,0L0,0Z" speechify-initial-font-family="GTWalsheim, system-ui, sans-serif" speechify-initial-font-size="16px"></path></svg>
+
+    <footer>
+        <p id="slogan">Habla con las manos</p>
+        <div id="programadoras">
+            <p class="p nombre" id="nombre">Karen Bejarano</p>
+            <p class="p nombre">Sara Prieto</p>
+            <p class="p nombre">Vanessa Gordillo</p>
+
+            <p class="p correo">bejaranokaren57@gmail.com</p>
+            <p class="p correo">saritaprieto445@gmail.com</p>
+            <p class="p correo">nva.gomo926@gmail.com</p>
+
+            <p class="p repo"><a href="https://github.com/programadorakjbr2004" class="hov">programadorakjbr2004</a></p>
+            <p class="p repo"><a href="https://github.com/sarap22" class="hov">sarap22</a></p>
+            <p class="p repo"><a href="https://github.com/Vanesh4" class="hov">Vanesh4</a></p>
+        </div>
+    </footer>
+    <script src="{% static 'js/headerAdiccionario.js'%}"></script>
 </body>
 </html>

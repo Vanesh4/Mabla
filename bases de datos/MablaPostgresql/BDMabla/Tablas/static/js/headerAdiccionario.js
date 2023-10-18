@@ -9,4 +9,25 @@ $(document).ready (()=>{
             window.location.href = "/diccio";
         }
     });
+
+    //responsive
+    $("#imgBotonAbrirMenu").on("click", ()=>{
+        $(".header").css({
+            "display": "inherit"});
+        $("#imgBotonAbrirMenu").css({
+            "display": "none"});
+        $("body").css({
+            "overflow": "hidden"});
+        //console.log("helllou")
+    })
+    
+    $("#imgBotonCerrarMenu").on("click", ()=>{
+        $(".header").css({
+            "display": "none"});
+        $("body").css({
+            "overflow": "visible"});
+        $("#imgBotonAbrirMenu").css({
+            "display": "inherit"});
+        //console.log("helllou x2")
+    })
 })
