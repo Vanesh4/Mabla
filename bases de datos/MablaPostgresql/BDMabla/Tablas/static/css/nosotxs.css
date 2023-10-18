@@ -1,0 +1,130 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+@font-face {
+    font-family: "raleway";
+    src: url("/static/fonts/Raleway/Raleway-Regular.ttf");
+}
+@font-face {
+    font-family: "martianMono";
+    src:url("/static/fonts/Martian_Mono/MartianMono-Regular.ttf")
+}
+section{
+    background-color: #D9D9D9;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+    position: relative;
+    justify-content: center;
+    align-content: center;
+    padding: 40px;
+}
+p{
+    font-family: "raleway";
+    font-size: 20px;
+}
+.div{
+    font-size: 20px;
+    height: 150px;
+    font-family: "raleway";
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    padding: 0 20px 0 20px;
+    transition: filter 0.3s;
+}
+.div:hover{
+    filter: brightness(1.2);
+}
+.div1{
+    background-color: #76037a;
+    color: white;
+}
+.div2{
+    background-color: #06bfdb;
+}
+.div3{
+    background-color: #ff731c;
+}
+.div4{
+    background-color: #0a4d68;
+    color: white;
+}
+#forma{
+    margin-top: -130px;
+    margin-bottom: -70px;
+}
+.palabrasClave{
+    font-family: "martianMono";
+    font-size: 25px;
+    font-weight: bold;
+}
+#slogan{
+    font-family: "martianMono";
+    font-size: 35px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+#slogan:hover {
+    transform: scale(0.95); 
+}
+#programadoras{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    text-align: center;
+}
+.nombre{
+    font-weight: 800;
+}
+.hov:hover{
+    color: #0a4d68;
+}
+footer{
+    margin-bottom: 30px;
+}
+@media screen and (min-width:320px) and (max-width:700px){
+    section{
+        grid-template-columns: repeat(1, 1fr);
+        gap: 25px;
+        padding: 25px;
+        position: inherit;
+    }
+    #forma{
+        margin-top: -30px;
+        margin-bottom: -10px;
+    }
+    .div{
+        font-size: 18px;
+        height: 230px;
+        padding: 0 10px 0 10px;
+    }
+    p{
+        font-family: "raleway";
+        font-size: 17px;
+    }
+    #programadoras{
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: repeat(9, 1fr);
+    }
+    .p:nth-child(1){grid-row: 1;}
+    .p:nth-child(4){grid-row: 2;}
+    .p:nth-child(7){grid-row: 3; margin-bottom: 10px;}
+
+    .p:nth-child(2){grid-row: 4;}
+    .p:nth-child(5){grid-row: 5;}
+    .p:nth-child(8){grid-row: 6;}
+
+    .p:nth-child(3){grid-row: 7;}
+    .p:nth-child(6){grid-row: 8;}
+    .p:nth-child(9){grid-row: 9;}
+
+    .menuResponsive{
+        background-color: #D9D9D9;
+        padding: 20px 0 0 10px;
+    }
+}

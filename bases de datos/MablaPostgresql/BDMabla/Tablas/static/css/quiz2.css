@@ -71,6 +71,10 @@ img{
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: transform 0.3s ease;
+}
+.opcion:hover {
+    transform: scale(0.95); 
 }
 .opcion0{
     background-color: #76037a;
