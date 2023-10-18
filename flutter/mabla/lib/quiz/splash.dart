@@ -3,7 +3,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:mabla/quiz/quizUI.dart';
-import 'package:mabla/quiz/quizUI2.dart';
+//import 'package:mabla/quiz/quizUI2.dart';
 class inicioSplash extends StatefulWidget {
   const inicioSplash({Key? key}) : super(key: key);
 
@@ -21,7 +21,8 @@ class _inicioSplashState extends State<inicioSplash> {
       if (numeroAleatorio==1){
         Navigator.push(context, MaterialPageRoute(builder: (context)=>quiz()));
       }else{
-        Navigator.push(context, MaterialPageRoute(builder: (context)=>quizTipoDos()));
+        Navigator.push(context, MaterialPageRoute(builder: (context)=>quiz()));
+        //Navigator.push(context, MaterialPageRoute(builder: (context)=>quizTipoDos()));
       }
     });
     super.initState();

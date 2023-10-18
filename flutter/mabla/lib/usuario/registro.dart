@@ -111,7 +111,7 @@ class _registroState extends State<registro> {
           child: Stack(
             children: [
               SvgPicture.asset(
-                'assets/img/pico.svg',
+                'assets/img/picoRRecurso 1.svg',
                 colorFilter: ColorFilter.mode(purple, BlendMode.srcIn),
                 width: double.infinity,
                 height: 839,
@@ -237,6 +237,9 @@ class _registroState extends State<registro> {
                 ),
 
                 child: TextFormField(
+                  keyboardType: control == _email
+                      ? TextInputType.emailAddress
+                      : TextInputType.text,
                   cursorColor: Colors.black,
                   obscureText: obscureText,
                   controller: control,
@@ -266,8 +269,11 @@ class _registroState extends State<registro> {
                           }
                         });
                       },
-                      icon: Icon(
-                        _obscureText ? Icons.visibility :  _obscureText1 ? Icons.visibility : Icons.visibility_off, color: Colors.black,
+                      icon:  Icon(
+                        isClave ? (_obscureText ? Icons.visibility_off : Icons
+                            .visibility) : (_obscureText1 ? Icons
+                            .visibility_off : Icons.visibility),
+                        color: Colors.black,
                       ),
                     ):null,
                   ),

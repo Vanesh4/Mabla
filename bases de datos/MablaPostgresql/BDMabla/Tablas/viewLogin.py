@@ -12,9 +12,10 @@ from django.views.decorators.csrf import csrf_exempt
 import jwt
 from datetime import datetime, timedelta
 from django.conf import settings
-from rest_framework.response import Response
-from rest_framework import status
-from rest_framework.views import APIView
+from rest_framework.authtoken.views import ObtainAuthToken
+from django.shortcuts import render
+from rest_framework.authtoken.views import ObtainAuthToken
+from rest_framework.settings import api_settings
 
 def verificarS(request):
     if request.user.is_authenticated:
@@ -25,6 +26,9 @@ def verificarS(request):
         # El usuario no tiene una sesión iniciada
         print("no se inicio la sesion")
         return JsonResponse({'mensaje': False})
+
+class UserLoginView(ObtainAuthToken):
+    renderer_classes=api_settings.DEFAULT_RENDERER_CLASSES
 
 class registerUser(View):    
     
@@ -101,7 +105,7 @@ class registerUser(View):
     
             #xreturn JsonResponse({"success": False, "message":'pailax2'})
     
-""" class IniciarSesionView(View):
+class IniciarSesionView(View):
     print("entro a la vista de iniciar sesion")
 
     def get(self, request):
@@ -117,7 +121,6 @@ class registerUser(View):
         elif request.method.lower() == "post":
             print("entro a la vista de iniciar sesion3")
             return self.post(request, *args, **kwargs)
-        
         
     def post(self, request):
         accept_header = request.META.get('HTTP_ACCEPT', '')
@@ -165,25 +168,12 @@ class registerUser(View):
                     print("no funciono")                    
             else:
                 print("noiniciosesion")
-                return render(request, 'login.html', {'form': form}) 
- """
-class IniciarSesionView(APIView):
-    def post(self, request, *args, **kwargs):
-        username = request.data.get('username')
-        password = request.data.get('password')
-
-        user = authenticate(username=username, password=password)
-
-        if user is not None:
-            login(request, user)
-            return Response({'mensaje': 'Inicio de sesión exitoso'}, status=status.HTTP_200_OK)
-        else:
-            return Response({'mensaje': 'Credenciales inválidas'}, status=status.HTTP_401_UNAUTHORIZED)
+                return render(request, 'login.html', {'form': form})
 #@method_decorator(login_required(login_url='ingresar'), name='dispatch')
 class profile(View):
     
     template_name = 'perfil.html'
-    print("holi")
+    print("template ", template_name)
 
     def generate_token(self, user):
         token_options = {

@@ -27,22 +27,31 @@ class _loginState extends State<login> {
   bool _obscureText = true;
   bool _isNull = false;
 
+  String message = 'Verificando sesión...';
+  Future<void> verificarSesion() async {
+    var url = Uri.parse('http://192.168.0.7/verificarS');
+    var response = await http.get(url);
+    if (response.statusCode == 200) {
+      final responseData = json.decode(response.body);
+      final res = responseData['mensaje'];
+      final mensaje = res.toString();
+      print("SESION "+message);
+      setState(() {
+        message = mensaje;
+        print("SESION "+message);
+      });
+    } else {
+      setState(() {
+        message = 'Error al verificar la sesión';
+      });
+    }
+  }
   Future<void> singIn() async{
     // confetti.fire();
     if (_formKey.currentState!.validate()) {
       if (_formKey.currentState!.validate()) {
         Future.delayed(const Duration(milliseconds: 200), () async {
-          final response = await http.post(
-            Uri.parse('http://192.168.0.7/api/iniciar-sesion/'),
-            headers: <String, String>{
-              'Content-Type': 'application/json; charset=UTF-8',
-            },
-            body: jsonEncode(<String, String>{
-              'username': 'usuario',
-              'password': 'contrasena',
-            }),
-          );
-          /*final String apiUrl = 'http://192.168.0.7/api/token/';
+          final String apiUrl = 'http://192.168.0.7/api/token/';
           final Map<String, dynamic> requestBody = {
             'username': _usernameController.text,
             'password': _passwordController.text,
@@ -56,7 +65,7 @@ class _loginState extends State<login> {
             if (response.statusCode == 200) {
               final responseData = json.decode(response.body);
               final token = responseData['access'];
-              final mensaje = responseData['error'];
+              final mensaje = responseData['refresh'];
               final prefs = await SharedPreferences.getInstance();
               print('Este es el token');
               print(prefs);
@@ -64,6 +73,8 @@ class _loginState extends State<login> {
               print("error $mensaje");
               print('Token JWT almacenado: $token');
               print('Respuesta JSON completa: $responseData');
+
+              verificarSesion();
               // Redirigir automáticamente al perfil del cliente
               Navigator.pushReplacementNamed(context, '/perfil');
             } else {
@@ -90,7 +101,7 @@ class _loginState extends State<login> {
           catch (e) {
             // Manejar errores de red o excepciones aquí
             print('Error de red: $e');
-          }*/
+          }
           // Navigator.pop(context);
           /*Navigator.push(
           context,
@@ -102,13 +113,26 @@ class _loginState extends State<login> {
       }
     }
   }
+ /* Future<String> obtenerTokenCSRF() async {
+    var url = Uri.parse('http://192.168.0.7/obtener-token-csrf/'); // Reemplaza 'tu-dominio' con tu dominio real
+    var response = await http.get(url);
+
+    if (response.statusCode == 200) {
+      Map<String, dynamic> data = json.decode(response.body);
+      print("TOKEN " +data['csrf_token']);
+      return data['csrf_token'];
+    } else {
+      return '';
+    }
+  }*/
+
   Widget build(BuildContext context) {
     return Scaffold(
         body: SingleChildScrollView(
           child: Stack(
             children: [
               SvgPicture.asset(
-                'assets/img/pico.svg',
+                'assets/img/picoRRecurso 1.svg',
                 colorFilter: ColorFilter.mode(purple, BlendMode.srcIn),
                 width: double.infinity,
                 height: 839,
