@@ -23,13 +23,10 @@ function generarNumeroAleatorio(num) {
     return Math.floor(Math.random() * num)
 }
 
-respuestasIncorrectas = ["vaca","tren","pajaro","hospital","foca","moto","colegio","bus","gato","camiseta","falda","medias","pera","banano","chaqueta","nutria","vestido","fresas","papaya","periodista"]
+respuestasIncorrectas = ["vaca","tren","pajaro","hospital","foca","moto","colegio","bus","gato","camiseta","falda","medias","pera","banano","dos","nutria","vestido","fresas","papaya","periodista","rusia"]
 $(document).ready (()=>{
     posicionActual = 0
     totalRespuestasAcertadas = 0
-
-    opcionResCorrecta = "opcion"+generarNumeroAleatorio(4)
-    resCorrecta = document.getElementById(opcionResCorrecta)
     
     cargarPregunta()
 
@@ -51,6 +48,8 @@ $(document).ready (()=>{
                     p = generarNumeroAleatorio(res.length) // validar 5 veces diferentes preguntas
                     //¿no hay una manera de ocultar algun dato traido de la bd?
                     
+                    opcionResCorrecta = "opcion"+generarNumeroAleatorio(4)
+                    resCorrecta = document.getElementById(opcionResCorrecta)
                     document.getElementById('linkSenia').src=res[p].pregunta
                     //document.getElementById('linkSenia').setAttribute("src", res[p].respuesta)    
                     for (let i = 0; i < 4; i++) {
@@ -116,7 +115,6 @@ $(document).ready (()=>{
         }
         posicionActual++
 
-        
 
         setTimeout(cargarPregunta,1500);
     }

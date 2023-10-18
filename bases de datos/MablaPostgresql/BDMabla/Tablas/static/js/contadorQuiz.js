@@ -1,12 +1,11 @@
 let seconds = 3; 
-tamañoActual  = 80
+tamañoActual  = 50
 function updateCounter() {
     const video = document.getElementById("contadorVideo");
 
     function aumentarTamaño() {
-        tamañoActual += 100; // Aumentar el tamaño en 100 píxeles
+        tamañoActual += 20; // Aumentar el tamaño en 100 píxeles
         video.style.width = tamañoActual + "px";
-        video.style.height = tamañoActual + "px";
         console.log(video.style)
         setTimeout(aumentarTamaño, 1000); // Aumentar cada segundo (1000 milisegundos)
     }

@@ -109,3 +109,67 @@ contenedorCajas.addEventListener("click", function(event) {
     }
   }
 })
+
+
+
+$(document).ready(function () {
+  hiderspan=document.getElementById("spant")
+  divtodo = document.querySelector("#result")
+  contenidocaja = document.getElementById('vertodo');
+  contenedorprueba=document.getElementById('cdos')
+ 
+  span=document.getElementById("todasN")
+
+
+  $.ajax({
+    url: "http://127.0.0.1:8000/tablaPrueba",
+    type: "GET",
+    dataType: "JSON",      
+    success: function (res) { 
+        console.log(res)
+
+        for(let x = 0; x<=res.length; x++) {
+
+          divcajon=document.createElement("div")
+          divcajon.id="#cajon"
+
+          divinput=document.createElement("div")
+          divinput.setAttribute("class","elinp")
+
+          input=document.createElement("input")
+          input.id="#place"
+          input.innerHTML=res[x].idCategoria_id
+          console.log("el input",input)
+
+          divnotas=document.createElement("div")
+          divnotas.setAttribute("class","notas-container")
+
+          divnot=document.createElement("div")
+          divnot.id="#cajita"
+
+          h3=document.createElement("h3")
+          h3.id="#nota"
+          h3.innerHTML=res[x].puntaje
+          console.log("puntajeeeeeeeeeeee",h3)
+
+
+          hiderspan.appendChild(divtodo)
+          divtodo.appendChild(contenidocaja)
+          contenidocaja.appendChild(contenedorprueba)
+          contenedorprueba.appendChild(divcajon)
+          divcajon.appendChild(divinput)
+          a=document.getElementsByClassName('mas')
+          divcajon.appendChild(a)
+          divinput.appendChild(input)
+          contenedorprueba.appendChild(span)
+          span.appendChild(divnotas)
+          divnotas.appendChild(divnot)
+          divnot.appendChild(h3)
+
+
+        }
+
+    }
+
+    })
+})

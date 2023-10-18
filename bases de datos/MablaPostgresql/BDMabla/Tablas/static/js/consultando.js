@@ -4,18 +4,18 @@ contenedor = document.querySelector("#list")
 /* const navul=document.getElementsByClassName("nav")
 navul.style.overflowY = "auto"; */
 const contenidoMostrado = document.getElementById('resultado');
-boton=document.getElementById('botonQuiz')
+//boton=document.getElementById('botonQuiz')
 const cajalinks=document.getElementById('section1')
 fleimg=document.getElementById('flechacaja')
 var altocaja2=document.querySelector('.caja2')
-console.log("oaaoaoaooaoaoa",altocaja2)
+//console.log("oaaoaoaooaoaoa",altocaja2)
   
 $.ajax({
     url: "http://127.0.0.1:8000/getcategoria",
     type: "GET",
     dataType: "JSON",      
     success: function (res) { 
-      
+        console.log(res)
         for(let x = 0; x<=res.length; x++) {
             contenedorli=document.createElement("li")
             contenedorli.setAttribute("class","list_item list_item--click")
@@ -108,7 +108,8 @@ $.ajax({
                                     resultsDiv.append(grupopalabra)
 
                                     //llamar el boton y mostrarlo
-                                    $('.boton').css("display","block")
+                                    $('#botonQuiz').css("display","block")
+                                    $('#botonQuizNOaute').css("display","block")
                                     
                                     
                                     
@@ -139,18 +140,35 @@ $.ajax({
                     let height=0;
                     let menu=listElement.nextElementSibling;
                     if(menu.clientHeight=="0"){
+                        console.log("flechaaaaaa",menu)
                         height=menu.scrollHeight
                         listElement.getElementsByClassName('categorias')
                         valo=listElement.innerText
-                        //console.log("veeeeeeeeeer",valo)
-                        boton.setAttribute("value", valo)
+<<<<<<< HEAD
+                        console.log("veeeeeeeeeer",valo)
+                        boton.setAttribute("value",valo)
+                        console.log("lo que lleva el boton",boton)
                         
 
                         localStorage.setItem('categoria', valo)                        
+=======
+                        //console.log("veeeeeeeeeer",valo)
+                                               
+>>>>>>> 759018c8ad1736a6c06ba33c8542a026ace4d984
                         $('#botonQuiz').click(function() {
+                            boton=document.getElementById('botonQuiz')
+                            boton.setAttribute("value", valo)                      
+                            localStorage.setItem('categoria', valo) 
                             window.location.href = "/animacion";
                         });
-                        
+                        $('#botonQuizNOaute').click(function() {
+                            contenedorDiv = document.getElementById("divmsj")
+                            contenedorDiv.innerHTML=""
+                            msj = document.createElement("p")
+                            msj.setAttribute("id","msj")
+                            msj.textContent = "Inicia sesión para poder presentar un quiz";                            
+                            contenedorDiv.appendChild(msj)
+                        });
                                                           
                     }
                     menu.style.height =`${height}px`;
