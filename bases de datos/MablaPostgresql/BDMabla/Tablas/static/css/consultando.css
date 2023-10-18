@@ -278,11 +278,6 @@ input{
 }
 
 .boton{
-    display: none;
-}
-
-
-#botonQuiz{
     float: right;
     padding: 20px;
     border-radius: 50px;
@@ -293,12 +288,25 @@ input{
     margin-right: 20px;
     border: none;
     box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.037);
-   
+}
+#botonQuizNOaute{
+    display: none;
 }
 
-#botonQuiz:hover{
+#botonQuiz{
+    display: none;   
+}
+
+.boton:hover{
     background-color: #76037a;
 
+}
+#msj{
+    margin-top: 30px;
+    margin-right: 10px;
+    color: red;
+    font-family: "ralewayExtraBold";
+    text-align: right;
 }
 .caja{
     display: block;
