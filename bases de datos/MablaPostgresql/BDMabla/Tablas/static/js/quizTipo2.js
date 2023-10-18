@@ -55,12 +55,6 @@ $.ajax({
 $(document).ready (()=>{
     posicionActual = 0
     totalRespuestasAcertadas = 0
-
-    gna = generarNumeroAleatorio(4)
-    opcionResCorrecta = "opcion"+gna
-    resCorrecta = document.getElementById(opcionResCorrecta)
-
-
     
     cargarPregunta()
 
@@ -83,6 +77,9 @@ $(document).ready (()=>{
                     p = generarNumeroAleatorio(res.length) // validar 5 veces diferentes preguntas
                     //¿no hay una manera de ocultar algun dato traido de la bd?
                     
+                    gna = generarNumeroAleatorio(4)
+                    opcionResCorrecta = "opcion"+gna
+                    resCorrecta = document.getElementById(opcionResCorrecta)
                     document.getElementById("palabra").innerHTML= res[p].pregunta
         
                     for (let i = 0; i < 4; i++) {

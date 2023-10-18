@@ -150,7 +150,14 @@ $.ajax({
                         $('#botonQuiz').click(function() {
                             window.location.href = "/animacion";
                         });
-                        
+/*                         $('#botonQuizNOaute').click(function() {
+                            contenedorDiv = document.getElementById("divmsj")
+                            contenedorDiv.innerHTML=""
+                            msj = document.createElement("p")
+                            msj.setAttribute("id","msj")
+                            msj.textContent = "Inicia sesión para poder comentar";                            
+                            contenedorDiv.appendChild(msj)
+                        }); */
                                                           
                     }
                     menu.style.height =`${height}px`;
