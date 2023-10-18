@@ -81,30 +81,24 @@ contenedorCajas.addEventListener("click", function(event) {
 
 var contenedorCajas = document.getElementById("vertodo");
 
-// Almacena el último grupo de notas mostrado
 var ultimoGrupoNotas = null;
 
-// Agrega un controlador de evento clic al contenedor
 contenedorCajas.addEventListener("click", function(event) {
   var target = event.target;
 
-  // Verifica si el elemento clickeado es un enlace con la clase "mas"
+  
   if (target.classList.contains("mas")) {
-    event.preventDefault(); // Previene el comportamiento predeterminado del enlace
+    event.preventDefault();
 
-    var targetId = target.getAttribute("data-target"); // Obtiene el atributo data-target
-    var contenido = target.closest("#cdos").querySelector("#" + targetId); // Encuentra el contenido correspondiente
+    var targetId = target.getAttribute("data-target"); 
+    var contenido = target.closest("#cdos").querySelector("#" + targetId); 
 
     if (contenido) {
-      // Oculta el último grupo de notas mostrado
+
       if (ultimoGrupoNotas) {
         ultimoGrupoNotas.style.display = "none";
-      }
-
-      // Muestra el nuevo grupo de notas
-      contenido.style.display = "flex"; // Mostrar el contenido como flexbox
-
-      // Actualiza la variable ultimoGrupoNotas
+      } 
+      contenido.style.display = "flex"; 
       ultimoGrupoNotas = contenido;
     }
   }
@@ -120,7 +114,7 @@ $(document).ready(function () {
  
   span=document.getElementById("todasN")
 
-
+/* 
   $.ajax({
     url: "http://127.0.0.1:8000/tablaPrueba",
     type: "GET",
@@ -171,5 +165,39 @@ $(document).ready(function () {
 
     }
 
+    }) */
+
+    $(".mas").click(function() {
+      botonID = $(this).attr("id");
+      console.log(botonID)
+      $.ajax({
+        url: "/puntaje/"+botonID,
+        type: "GET",
+        dataType: "JSON",
+        success: function (res) {
+            //console.log(res)     
+            contenedorMAdre = document.getElementById("todasN")
+           /*  if(res.length == 0){
+              divVAcio = document.createElement("div")
+              divVAcio.innerHTML = "Presenta una prueba para ver resultados";
+              contenedorMAdre.appendChild(divVAcio)
+            }else{ */
+              contenedorMAdre = document.getElementById("todasN")
+            divNotasConiner = document.createElement("div")
+            divNotasConiner.setAttribute("class","notas-container")
+
+            for (let i = 0; i < 5; i++) {
+              divnot=document.createElement("div")
+              divnot.setAttribute("class","cajita")
+              divnot.innerHTML = res[i].puntaje + "/5"
+              divNotasConiner.appendChild(divnot)
+            }
+            contenedorMAdre.appendChild(divNotasConiner)
+           /*  } */
+            
+        }, error: function(error) {
+            window.location.href = "/error";
+        } 
     })
+  });
 })

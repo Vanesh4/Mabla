@@ -177,7 +177,6 @@ def subCategoriasDeCate(cat):
 
 
 
-    #return JsonResponse(subCatedeCate, safe=False)
 
 
 def subCategoriasparaPal(cat):
@@ -206,7 +205,16 @@ def subCategoriasparaPal(cat):
     #print("SUB DE CATE",subCatedeCate)
     return subCatedeCate
 
-  
+def pruebaPorCategoria(request, cat):
+    prueba = TablaPrueba.objects.filter(idCategoria_id=cat)
+    
+    resPuntaje = [
+        {
+            'puntaje': TablaPrueba.puntaje,           
+        }     
+        for TablaPrueba in prueba 
+    ]
+    return JsonResponse(resPuntaje, safe=False)
 
 class ListaCategoriaSub(View):
     def get(self, request):

@@ -259,7 +259,7 @@ input{
 }
 #cdos{
     height: auto;
-    width: 50%;
+    width: 70%;
     display: flex;
     margin: auto;
     margin-top: 20px;
@@ -268,6 +268,19 @@ input{
     width: 30%;
     height: auto;
 }
+.elinp{
+    width: 100%;
+    height: 50px;
+    font-size: 18px;
+    font-family: 'raleway';
+    background-color: rgb(230, 230, 243);
+    border-radius: 100px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+}
 #place{
     width: 100%;
     height: 50px;
@@ -275,7 +288,7 @@ input{
     font-size: 18px;
     font-family: 'Raleway';
 }
-#cajita{
+.cajita{
     height: 50px;
     border-radius: 40%;
     margin-top: 10px;
@@ -284,9 +297,13 @@ input{
     justify-content: center;
     background-color: #76037a;
     width: 8%;
+    color: white;
+    font-size: 20px;
+    font-family: 'martian';
 }
 .mas{
     float: right;
+    font-family: 'Raleway';
 }
 #nota{
     text-align: center;

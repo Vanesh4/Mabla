@@ -73,6 +73,7 @@ urlpatterns = [
 
    
     path('preguntas/<ti>/<cat>', views.pregTipoCat, name='PreguntasFiltradas'),
+    path('puntaje/<cat>', views.pruebaPorCategoria, name='Puntaje de usuario'),
     path('listaCatSub', ListaCategoriaSub.as_view(), name='listaCatSub'),
 
     

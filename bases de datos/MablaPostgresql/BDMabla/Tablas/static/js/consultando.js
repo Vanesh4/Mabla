@@ -144,17 +144,17 @@ $.ajax({
                         height=menu.scrollHeight
                         listElement.getElementsByClassName('categorias')
                         valo=listElement.innerText
-<<<<<<< HEAD
-                        console.log("veeeeeeeeeer",valo)
+
+                        /* console.log("veeeeeeeeeer",valo)
                         boton.setAttribute("value",valo)
-                        console.log("lo que lleva el boton",boton)
+                        console.log("lo que lleva el boton",boton) */
                         
 
                         localStorage.setItem('categoria', valo)                        
-=======
+
                         //console.log("veeeeeeeeeer",valo)
                                                
->>>>>>> 759018c8ad1736a6c06ba33c8542a026ace4d984
+
                         $('#botonQuiz').click(function() {
                             boton=document.getElementById('botonQuiz')
                             boton.setAttribute("value", valo)                      
@@ -166,7 +166,7 @@ $.ajax({
                             contenedorDiv.innerHTML=""
                             msj = document.createElement("p")
                             msj.setAttribute("id","msj")
-                            msj.textContent = "Inicia sesión para poder presentar un quiz";                            
+                            msj.textContent = "Inicia sesión para poder presentar un quiz";                            
                             contenedorDiv.appendChild(msj)
                         });
                                                           

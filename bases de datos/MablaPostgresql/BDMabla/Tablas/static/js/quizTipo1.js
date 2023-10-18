@@ -86,7 +86,8 @@ $(document).ready (()=>{
     
     $(".opcion").click(function() {
         botonID = $(this).attr("id");
-        validarRespuesta(botonID)
+        console.log(botonID)
+        
     });
     function validarRespuesta(opcionElegida) {
         //console.log("holaaaaaaaaa?")
