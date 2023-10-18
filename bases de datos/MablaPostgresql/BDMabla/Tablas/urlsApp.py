@@ -8,7 +8,6 @@ from django.conf import settings
 from django.conf.urls.static import static
 from rest_framework_simplejwt.views import TokenRefreshView
 from rest_framework_simplejwt.views import TokenObtainPairView 
-from django.contrib.auth.views import PasswordResetView, PasswordResetDoneView, PasswordResetConfirmView, PasswordResetCompleteView  
 from django.contrib.auth import views as auth_views
 
 urlpatterns = [

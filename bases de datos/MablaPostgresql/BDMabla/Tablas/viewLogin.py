@@ -12,6 +12,10 @@ from django.views.decorators.csrf import csrf_exempt
 import jwt
 from datetime import datetime, timedelta
 from django.conf import settings
+from rest_framework.authtoken.views import ObtainAuthToken
+from django.shortcuts import render
+from rest_framework.authtoken.views import ObtainAuthToken
+from rest_framework.settings import api_settings
 
 def verificarS(request):
     if request.user.is_authenticated:
@@ -22,6 +26,9 @@ def verificarS(request):
         # El usuario no tiene una sesión iniciada
         print("no se inicio la sesion")
         return JsonResponse({'mensaje': False})
+
+class UserLoginView(ObtainAuthToken):
+    renderer_classes=api_settings.DEFAULT_RENDERER_CLASSES
 
 class registerUser(View):    
     
@@ -115,7 +122,6 @@ class IniciarSesionView(View):
             print("entro a la vista de iniciar sesion3")
             return self.post(request, *args, **kwargs)
         
-        
     def post(self, request):
         accept_header = request.META.get('HTTP_ACCEPT', '')
         print("**********")
@@ -162,13 +168,12 @@ class IniciarSesionView(View):
                     print("no funciono")                    
             else:
                 print("noiniciosesion")
-                return render(request, 'login.html', {'form': form}) 
-        
+                return render(request, 'login.html', {'form': form})
 #@method_decorator(login_required(login_url='ingresar'), name='dispatch')
 class profile(View):
     
     template_name = 'perfil.html'
-    print("holi")
+    print("template ", template_name)
 
     def generate_token(self, user):
         token_options = {

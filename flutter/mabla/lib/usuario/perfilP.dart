@@ -30,7 +30,7 @@ class _perfil1State extends State<perfil1> {
   Future<void> _obtenerPerfil() async {
     final prefs = await SharedPreferences.getInstance();
     final authToken = prefs.getString('jwt_token') ?? '';
-
+    print("el token parcera" +authToken);
     final response = await http.get(
       Uri.parse('http://192.168.0.7/perfil'),
       headers: {

@@ -3,9 +3,13 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:mabla/formas/ondaHome.dart';
 import 'package:mabla/header.dart';
+<<<<<<< HEAD
+import 'package:mabla/quiz/splash.dart';
+=======
 
 
 
+>>>>>>> f91bbf8605a64bf1603a0da2f992815a77a11b30
 import 'package:mabla/screen/comentarios.dart';
 import 'package:mabla/screen/diccionario.dart';
 import 'package:mabla/screen/menu.dart';
@@ -36,9 +40,10 @@ class _homeState extends State<home> {
     if (response.statusCode == 200) {
       final responseData = json.decode(response.body);
       final res = responseData['mensaje'];
+      final mensaje = res.toString();
       setState(() {
-        message = res;
-        print(res);
+        message = mensaje;
+        print(message);
       });
     } else {
       setState(() {
@@ -171,7 +176,6 @@ class _homeState extends State<home> {
               ]
               ),
             ),
-
             comentarios(),
             SizedBox(height: 20,),
           ],
