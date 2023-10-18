@@ -64,12 +64,6 @@ input{
     transform: translateX(157%);
     cursor: pointer;
 }
-#boton{
-    display: flex;
-    justify-content: center;
-    margin-left: 50px;
-}
-
 .links{
     display: flex;
     margin: 40px 40px 35px 0px;
