@@ -139,11 +139,13 @@ $.ajax({
                     let height=0;
                     let menu=listElement.nextElementSibling;
                     if(menu.clientHeight=="0"){
+                        console.log("flechaaaaaa",menu)
                         height=menu.scrollHeight
                         listElement.getElementsByClassName('categorias')
                         valo=listElement.innerText
-                        //console.log("veeeeeeeeeer",valo)
-                        boton.setAttribute("value", valo)
+                        console.log("veeeeeeeeeer",valo)
+                        boton.setAttribute("value",valo)
+                        console.log("lo que lleva el boton",boton)
                         
 
                         localStorage.setItem('categoria', valo)                        

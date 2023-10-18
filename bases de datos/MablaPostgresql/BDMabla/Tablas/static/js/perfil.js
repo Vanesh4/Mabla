@@ -112,31 +112,64 @@ contenedorCajas.addEventListener("click", function(event) {
 
 
 
-function actualizarNotas() {
-  const url = 'http://127.0.0.1:8000/tablaPrueba';
-  fetch(url)
-      .then(response => response.json())
-      .then(data => {
-          var notasContainer = document.getElementById("notasContainer");
-          notasContainer.innerHTML = ""; // Limpia las notas existentes
-
-          // Itera sobre los datos y crea elementos para mostrar las notas
-          data.forEach(function (dato) {
-              var cajita = document.createElement("div");
-              cajita.setAttribute("class", "cajita");
-              cajita.innerHTML = "<h3 id='nota'>" + dato.puntaje + "/5</h3>";
-
-              notasContainer.appendChild(cajita);
-          });
-      })
-      .catch(error => {
-          console.error("Error al obtener datos de pruebas:", error);
-      });
-}
-
-// Llama a la función para actualizar las notas cuando se carga la página
-actualizarNotas();
+$(document).ready(function () {
+  hiderspan=document.getElementById("spant")
+  divtodo = document.querySelector("#result")
+  contenidocaja = document.getElementById('vertodo');
+  contenedorprueba=document.getElementById('cdos')
+ 
+  span=document.getElementById("todasN")
 
 
+  $.ajax({
+    url: "http://127.0.0.1:8000/tablaPrueba",
+    type: "GET",
+    dataType: "JSON",      
+    success: function (res) { 
+        console.log(res)
+
+        for(let x = 0; x<=res.length; x++) {
+
+          divcajon=document.createElement("div")
+          divcajon.id="#cajon"
+
+          divinput=document.createElement("div")
+          divinput.setAttribute("class","elinp")
+
+          input=document.createElement("input")
+          input.id="#place"
+          input.innerHTML=res[x].idCategoria_id
+          console.log("el input",input)
+
+          divnotas=document.createElement("div")
+          divnotas.setAttribute("class","notas-container")
+
+          divnot=document.createElement("div")
+          divnot.id="#cajita"
+
+          h3=document.createElement("h3")
+          h3.id="#nota"
+          h3.innerHTML=res[x].puntaje
+          console.log("puntajeeeeeeeeeeee",h3)
 
 
+          hiderspan.appendChild(divtodo)
+          divtodo.appendChild(contenidocaja)
+          contenidocaja.appendChild(contenedorprueba)
+          contenedorprueba.appendChild(divcajon)
+          divcajon.appendChild(divinput)
+          a=document.getElementsByClassName('mas')
+          divcajon.appendChild(a)
+          divinput.appendChild(input)
+          contenedorprueba.appendChild(span)
+          span.appendChild(divnotas)
+          divnotas.appendChild(divnot)
+          divnot.appendChild(h3)
+
+
+        }
+
+    }
+
+    })
+})
