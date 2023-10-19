@@ -17,15 +17,14 @@
     padding: 0;
 }
 body{
-    background-image: url('/static/img/code-1920.jpg');
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: white;
     background-size: cover;
     display: flex;
     align-content: center;
     flex-wrap: wrap;
 }
 .logo{
-    width: 100px;
+    width: 15%;
     margin-top: 30px;
     margin-left: 50px;
 }
@@ -37,8 +36,9 @@ header{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 6% 15% 20px 10%;
+    margin-left: 27%;
     border-radius: 100px;
+    position: relative;
 }
 
 h1{
@@ -47,7 +47,11 @@ h1{
     font-size: 50px;
     margin: 20px 0px 20px 0px;
 }
-
+#titulo{
+    font-size: 30px;
+    text-align: center;
+    padding: 20px;
+}
 form p{
     color: white;
     font-family: "raleway";
@@ -59,6 +63,13 @@ form p{
     font-family: "raleway";
     padding: 30px 0px 30px 0px;
     font-size: 20px;
+}
+.p{
+    color: white;
+    font-family: "raleway";
+    padding: 30px 0px 30px 0px;
+    font-size: 25px;
+    text-align: center;
 }
 section{
     width: 82%;
@@ -91,7 +102,9 @@ button{
     border: none;
 }
 #capibara{
-    width: 27%;
+    width: 25%;
+    position: absolute;
+    top: 48%;
 }
 @media screen and (min-width: 320px) and (max-width: 700px) {
     section{

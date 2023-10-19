@@ -27,9 +27,6 @@ def verificarS(request):
         print("no se inicio la sesion")
         return JsonResponse({'mensaje': False})
 
-class UserLoginView(ObtainAuthToken):
-    renderer_classes=api_settings.DEFAULT_RENDERER_CLASSES
-
 class registerUser(View):    
     
     template_name='registro.html'
